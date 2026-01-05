@@ -7,7 +7,6 @@ const SignIn: React.FC = () => {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     console.log("sign in");
-    console.log("vannhi");
   }
 
   return (

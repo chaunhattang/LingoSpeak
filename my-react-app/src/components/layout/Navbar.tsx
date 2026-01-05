@@ -10,9 +10,16 @@ const Navbar: React.FC = () => {
           {/* Logo */}
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-white text-primary rounded-lg flex items-center justify-center shadow-sm">
-              <img src={logo} alt="Lingo Speak Logo" className="w-full h-full object-contain rounded-full" />
+              <img
+                src={logo}
+                alt="Lingo Speak Logo"
+                className="w-full h-full object-contain rounded-full"
+              />
             </div>
-            <h2 className="text-lg font-bold tracking-tight text-slate-900 ">Lingo Speak</h2>
+            <h2 className="text-lg font-bold tracking-tight">
+              <span style={{ color: "#115E59" }}>Lingo</span>
+              <span style={{ color: "#1E4F7A" }}>Speak</span>
+            </h2>
           </div>
 
           {/* Desktop Nav */}
@@ -20,22 +27,37 @@ const Navbar: React.FC = () => {
             <a className="text-sm font-medium text-primary" href="#">
               Trang chủ
             </a>
-            <a className="text-sm font-medium text-slate-600  hover:text-primary" href="#">
+            <a
+              className="text-sm font-medium text-slate-600  hover:text-primary"
+              href="#"
+            >
               Học từ mới
             </a>
-            <a className="text-sm font-medium text-slate-600  hover:text-primary" href="#">
+            <a
+              className="text-sm font-medium text-slate-600  hover:text-primary"
+              href="#"
+            >
               Ôn tập
             </a>
-            <a className="text-sm font-medium text-slate-600  hover:text-primary" href="#">
+            <a
+              className="text-sm font-medium text-slate-600  hover:text-primary"
+              href="#"
+            >
               About us
             </a>
           </nav>
 
           {/* Actions */}
           <div className="flex items-center gap-4">
-            <button className="hidden h-10 rounded-lg bg-primary/10 px-4 text-sm font-bold text-primary hover:bg-primary/20 sm:flex pt-2">Đăng xuất</button>
+            <button className="hidden h-10 rounded-lg bg-primary/10 px-4 text-sm font-bold text-primary hover:bg-primary/20 sm:flex pt-2">
+              Đăng xuất
+            </button>
             <div className="size-10 overflow-hidden rounded-full border-2 border-white dark:border-slate-700 bg-slate-200">
-              <img src={avatar} alt="Lingo Speak Logo" className="w-full h-full object-contain rounded-full" />
+              <img
+                src={avatar}
+                alt="Lingo Speak Logo"
+                className="w-full h-full object-contain rounded-full"
+              />
             </div>
             <button className="flex size-10 items-center justify-center rounded-full md:hidden hover:bg-slate-100 dark:hover:bg-slate-800">
               <span className="material-symbols-outlined">menu</span>
