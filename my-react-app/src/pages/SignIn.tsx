@@ -29,16 +29,16 @@ const SignIn: React.FC = () => {
           </div>
 
           <h1 className="text-4xl font-extrabold leading-snug text-slate-900">
-            Nâng cao kỹ năng nói tiếng Anh
+            Improve Your English Speaking Skills
             <br />
             <span className="text-blue-600 italic">
-              Hiệu quả – Thực tế – Mỗi ngày
+              Effective – Practical – Every Day
             </span>
           </h1>
 
           <p className="text-slate-600 max-w-xl text-sm leading-relaxed">
-            Luyện nói mỗi ngày với lộ trình thông minh, cải thiện phát âm, phản
-            xạ và giao tiếp tiếng Anh một cách tự nhiên.
+            Practice speaking daily with a smart learning path to improve
+            pronunciation, fluency, and real-life communication naturally.
           </p>
 
           <div className="flex gap-4">
@@ -50,7 +50,7 @@ const SignIn: React.FC = () => {
                 hover:scale-[1.03] transition
               "
             >
-              Bắt đầu học
+              Start Learning
             </button>
 
             <button
@@ -60,7 +60,7 @@ const SignIn: React.FC = () => {
                 hover:bg-blue-50 transition
               "
             >
-              Tìm hiểu thêm
+              Learn More
             </button>
           </div>
         </div>
