@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import logo from "../assets/images/logo.png";
 
 const SignUp: React.FC = () => {
@@ -6,162 +6,118 @@ const SignUp: React.FC = () => {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    console.log("submit");
+    console.log("sign up");
   }
 
   return (
-    <div className="min-h-screen w-full flex flex-col lg:flex-row font-display antialiased overflow-x-hidden">
-      {/* LEFT COLUMN */}
-      <aside
-        className="
-        relative w-full lg:w-5/12
-        bg-gradient-to-br from-[#C77DFF] via-[#F783AC] to-[#FF758F]
-        flex flex-col justify-between
-        p-8 lg:p-12 xl:p-16 overflow-hidden"
-      >
-        {/* Decorations */}
-        <div className="absolute top-0 right-0 -mr-24 -mt-24 w-96 h-96 rounded-full bg-white/10 blur-3xl" />
-        <div className="absolute bottom-0 left-0 -ml-24 -mb-24 w-72 h-72 rounded-full bg-white/10 blur-3xl" />
-
-        {/* Logo */}
-        <div className="relative z-10 flex items-center gap-3">
-          <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm">
-            <img
-              src={logo}
-              alt="Lingo Speak"
-              className="w-full h-full object-contain rounded-full"
-            />
+    <div
+      className="
+        min-h-screen w-full flex items-center justify-center
+        bg-gradient-to-br from-[#ecfeff] via-[#e0f2fe] to-[#ecfdf5]
+        font-display
+      "
+    >
+      <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-14 px-6">
+        {/* LEFT CONTENT */}
+        <div className="flex flex-col justify-center gap-8">
+          {/* Logo */}
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow">
+              <img src={logo} alt="logo" className="rounded-full" />
+            </div>
+            <h2 className="text-xl font-bold text-slate-900">Lingo Speak</h2>
           </div>
-          <h2 className="text-white text-2xl font-bold tracking-tight">
-            Lingo Speak
-          </h2>
-        </div>
 
-        {/* Headline + Features */}
-        <div className="relative z-10 flex flex-col gap-12 my-12 lg:my-0">
-          {/* Headline */}
-          <h1 className="text-white font-extrabold tracking-tight">
-            <span className="block text-4xl lg:text-5xl leading-[1.25]">
-              Practice English
-            </span>
-            <span className="block text-4xl lg:text-5xl leading-[1.25]">
-              speaking every day
-            </span>
-            <span className="block text-4xl lg:text-5xl italic leading-[1.3] text-pink-100 mt-2">
-              Speak with confidence
+          <h1 className="text-4xl font-extrabold leading-snug text-slate-900">
+            Practice English speaking
+            <br />
+            <span className="text-blue-600 italic">
+              Confidently – Naturally – Every day
             </span>
           </h1>
 
-          {/* Features */}
-          <div className="flex flex-col gap-6">
-            {/* Feature 1 */}
-            <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/25 text-white">
-                <span className="material-symbols-outlined text-[24px]">
-                  headphones
-                </span>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-white">
-                  Listen – Speak – Record
-                </h3>
-                <p className="text-pink-100 text-sm leading-relaxed opacity-90">
-                  Improve native pronunciation with AI-powered feedback.
-                </p>
-              </div>
-            </div>
+          <p className="text-slate-600 max-w-xl text-sm leading-relaxed">
+            Build your English speaking skills with a smart learning path,
+            interactive practice, and real-time feedback.
+          </p>
 
-            {/* Feature 2 */}
-            <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/25 text-white">
-                <span className="material-symbols-outlined text-[24px]">
-                  psychology
-                </span>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-white">
-                  Smart vocabulary memory
-                </h3>
-                <p className="text-pink-100 text-sm leading-relaxed opacity-90">
-                  Learn faster and remember longer with interactive exercises.
-                </p>
-              </div>
-            </div>
+          <div className="flex gap-4">
+            <button
+              className="
+                h-11 px-6 rounded-xl text-white text-sm font-semibold
+                bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500
+                shadow-lg shadow-blue-300/40
+                hover:scale-[1.03] transition
+              "
+            >
+              Get started
+            </button>
 
-            {/* Feature 3 */}
-            <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/25 text-white">
-                <span className="material-symbols-outlined text-[24px]">
-                  trending_up
-                </span>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-white">
-                  Track your progress
-                </h3>
-                <p className="text-pink-100 text-sm leading-relaxed opacity-90">
-                  See your improvement clearly day by day.
-                </p>
-              </div>
-            </div>
+            <button
+              className="
+                h-11 px-6 rounded-xl text-sm font-semibold text-blue-600
+                bg-white border border-blue-200
+                hover:bg-blue-50 transition
+              "
+            >
+              Learn more
+            </button>
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="relative z-10 hidden lg:block text-pink-100 text-sm mt-5">
-          © 2026 Lingo Speak. All rights reserved.
-        </div>
-      </aside>
-
-      {/* RIGHT COLUMN */}
-      {/* RIGHT COLUMN */}
-      <main
-        className="w-full lg:w-7/12 flex items-center justify-center p-6
-  bg-gradient-to-br from-[#fff5f9] via-[#fff1f6] to-[#fff8fb]"
-      >
-        <div className="w-full max-w-[480px]">
+        {/* RIGHT FORM */}
+        <div className="flex items-center justify-center">
           <div
-            className="bg-white/90 backdrop-blur-xl rounded-3xl p-10
-      shadow-2xl shadow-pink-200/50 border border-pink-100"
+            className="
+              w-full max-w-md bg-white/80 backdrop-blur-2xl
+              rounded-3xl p-8
+              shadow-2xl shadow-blue-200/50
+              border border-blue-100
+            "
           >
-            {/* Header */}
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-slate-900">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl font-bold text-slate-900">
                 Create your account
               </h2>
-              <p className="text-slate-500 mt-1">
-                Start your language journey today.
+              <p className="text-slate-500 text-sm mt-1">
+                Start your English learning journey today.
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               {/* Full Name */}
               <div>
                 <label className="text-sm font-semibold text-slate-700">
-                  Full Name
+                  Full name
                 </label>
                 <input
                   type="text"
-                  placeholder="Enter your full name"
-                  className="mt-2 w-full h-12 px-4 rounded-xl border
-              bg-slate-50 border-slate-200
-              focus:outline-none focus:ring-4 focus:ring-pink-300/30
-              focus:border-pink-400 transition"
+                  required
+                  placeholder="Your full name"
+                  className="
+                    mt-2 w-full h-11 px-4 rounded-xl text-sm
+                    bg-slate-50 border border-slate-200
+                    focus:outline-none
+                    focus:ring-4 focus:ring-blue-300/40
+                  "
                 />
               </div>
 
               {/* Email */}
               <div>
                 <label className="text-sm font-semibold text-slate-700">
-                  Email Address
+                  Email
                 </label>
                 <input
                   type="email"
-                  placeholder="name@example.com"
-                  className="mt-2 w-full h-12 px-4 rounded-xl border
-              bg-slate-50 border-slate-200
-              focus:outline-none focus:ring-4 focus:ring-pink-300/30
-              focus:border-pink-400 transition"
+                  required
+                  placeholder="you@example.com"
+                  className="
+                    mt-2 w-full h-11 px-4 rounded-xl text-sm
+                    bg-slate-50 border border-slate-200
+                    focus:outline-none
+                    focus:ring-4 focus:ring-blue-300/40
+                  "
                 />
               </div>
 
@@ -173,47 +129,53 @@ const SignUp: React.FC = () => {
                 <div className="relative mt-2">
                   <input
                     type={showPassword ? "text" : "password"}
+                    required
                     placeholder="Create a password"
-                    className="w-full h-12 px-4 pr-12 rounded-xl border
-                bg-slate-50 border-slate-200
-                focus:outline-none focus:ring-4 focus:ring-pink-300/30
-                focus:border-pink-400 transition"
+                    className="
+                      w-full h-11 px-4 rounded-xl text-sm
+                      bg-slate-50 border border-slate-200
+                      focus:outline-none
+                      focus:ring-4 focus:ring-blue-300/40
+                    "
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"
+                    className="
+                      absolute right-4 top-1/2 -translate-y-1/2
+                      text-slate-400 hover:text-slate-600
+                    "
                   >
-                    <span className="material-symbols-outlined">
+                    <span className="material-symbols-outlined text-[20px]">
                       {showPassword ? "visibility" : "visibility_off"}
                     </span>
                   </button>
                 </div>
               </div>
 
-              {/* Submit */}
+              {/* Button */}
               <button
                 type="submit"
-                className="mt-4 h-12 rounded-xl text-white font-bold
-            bg-gradient-to-r from-pink-500 to-purple-500
-            hover:from-pink-600 hover:to-purple-600
-            shadow-lg shadow-pink-300/40
-            active:scale-95 transition-all"
+                className="
+                  mt-3 h-11 rounded-xl text-white text-sm font-bold
+                  bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500
+                  shadow-xl shadow-blue-300/40
+                  hover:scale-[1.03] transition
+                "
               >
                 Sign Up
               </button>
             </form>
 
-            {/* Footer */}
-            <p className="mt-8 text-center text-slate-600">
+            <p className="mt-5 text-center text-sm text-slate-600">
               Already have an account?
-              <a className="ml-1 font-bold text-pink-600 hover:underline">
+              <a className="ml-1 font-bold text-emerald-600 hover:underline">
                 Sign in
               </a>
             </p>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 };
