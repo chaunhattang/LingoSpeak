@@ -1,6 +1,10 @@
 import logo from "../../assets/images/logo.png";
-import avatar from "../../assets/images/avatar.jpg";
+import avatar from "../../assets/images/logo.png";
 import React from "react";
+import home from "../../assets/images/home.png";
+import newWord from "../../assets/images/newWord.png";
+import review from "../../assets/images/review.png";
+import handlist from "../../assets/images/handlist.png";
 
 const Navbar: React.FC = () => {
   return (
@@ -23,27 +27,34 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden flex-1 items-center justify-center gap-10 md:flex">
-            <a className="text-xl font-medium text-primary" href="#">
+          <nav className="hidden flex-lg items-center justify-between gap-20 md:flex px-10">
+            <a
+              className="flex flex-col items-center gap-1 flex-lg font-medium text-slate-600 hover:bg-[#CADAD9] hover:text-[#115E59]"
+              href="#"
+            >
+              <img src={home} alt="Home" className="h-10 w-10" />
               Trang chủ
             </a>
             <a
-              className="text-xl font-medium text-slate-600  hover:text-primary"
+              className="flex flex-col items-center gap-1 flex-lg font-medium text-slate-600 hover:bg-[#CADAD9] hover:text-[#115E59]"
               href="#"
             >
-              Học từ mới
+              <img src={newWord} alt="newWord" className="h-10 w-10" />
+              Học từ vựng
             </a>
             <a
-              className="text-xl font-medium text-slate-600  hover:text-primary"
+              className="flex flex-col items-center gap-1 flex-lg font-medium text-slate-600 hover:bg-[#CADAD9] hover:text-[#115E59]"
               href="#"
             >
+              <img src={review} alt="review" className="h-10 w-10" />
               Ôn tập
             </a>
             <a
-              className="text-xl font-medium text-slate-600  hover:text-primary"
+              className="flex flex-col items-center gap-1 flex-lg font-medium text-slate-600 hover:bg-[#CADAD9] hover:text-[#115E59]"
               href="#"
             >
-              About us
+              <img src={handlist} alt="handlist" className="h-10 w-10" />
+              Sổ tay
             </a>
           </nav>
 
