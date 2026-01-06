@@ -25,7 +25,7 @@ const SignUp: React.FC = () => {
             <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow">
               <img src={logo} alt="logo" className="rounded-full" />
             </div>
-            <h2 className="text-xl font-bold text-slate-900">LingoSpeak</h2>
+            <h2 className="text-4xl font-bold text-slate-900">LingoSpeak</h2>
           </div>
 
           <h1 className="text-4xl font-extrabold leading-snug text-slate-900">
