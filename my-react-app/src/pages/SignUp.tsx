@@ -19,13 +19,23 @@ const SignUp: React.FC = () => {
     >
       <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-14 px-6">
         {/* LEFT CONTENT */}
-        <div className="flex flex-col justify-center gap-8">
+        <div className="flex flex-col justify-center gap-8 ">
           {/* Logo */}
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow">
+          <div className="flex items-center gap-3 pb-8">
+            {/* <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow">
               <img src={logo} alt="logo" className="rounded-full" />
-            </div>
-            <h2 className="text-4xl font-bold text-slate-900">LingoSpeak</h2>
+            </div> */}
+            <h2 className="flex items-center text-6xl font-bold tracking-tight gap-1">
+              <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
+                Ling
+              </span>
+
+              <img src={logo} alt="logo" className="h-12 w-12 inline-block" />
+
+              <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
+                Speak
+              </span>
+            </h2>
           </div>
 
           <h1 className="text-4xl font-extrabold leading-snug text-slate-900">
@@ -56,7 +66,7 @@ const SignUp: React.FC = () => {
             <button
               className="
                 h-11 px-6 rounded-xl text-sm font-semibold text-blue-600
-                bg-white border border-blue-200
+                bg-white border border-cyan-300
                 hover:bg-blue-50 transition
               "
             >

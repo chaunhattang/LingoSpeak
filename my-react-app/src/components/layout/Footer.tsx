@@ -9,16 +9,23 @@ const HomeFooter = () => {
           {/* Brand */}
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center">
+              {/* <div className="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center">
                 <img
                   src={logo}
                   alt="Lingo Speak Logo"
                   className="w-full h-full object-contain rounded-full"
                 />
-              </div>
-              <h2 className="text-3xl font-bold tracking-tight">
-                <span style={{ color: "#115E59" }}>Lingo</span>
-                <span style={{ color: "#1E4F7A" }}>Speak</span>
+              </div> */}
+              <h2 className="flex items-center text-4xl font-bold tracking-tight gap-1">
+                <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
+                  Ling
+                </span>
+
+                <img src={logo} alt="logo" className="h-12 w-12 inline-block" />
+
+                <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
+                  Speak
+                </span>
               </h2>
             </div>
             <p className="text-sm text-slate-600 dark:text-slate-400 max-w-xs leading-relaxed">

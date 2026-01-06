@@ -22,10 +22,20 @@ const SignIn: React.FC = () => {
         <div className="flex flex-col justify-center ">
           {/* Logo */}
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow">
+            {/* <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow">
               <img src={logo} alt="logo" className="rounded-full" />
-            </div>
-            <h2 className="text-xl font-bold text-slate-900">LingoSpeak</h2>
+            </div> */}
+            <h2 className="flex items-center text-6xl font-bold tracking-tight gap-1">
+              <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
+                Ling
+              </span>
+
+              <img src={logo} alt="logo" className="h-12 w-12 inline-block" />
+
+              <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
+                Speak
+              </span>
+            </h2>
           </div>
 
           {/* Heading */}

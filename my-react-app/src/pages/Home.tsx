@@ -6,7 +6,6 @@ import user1 from "../assets/images/user1.jpg";
 import user2 from "../assets/images/user2.jpg";
 import user3 from "../assets/images/user3.jpg";
 
-
 const avatarList = [user1, user2, user3];
 const typeQuestion = [
   {
@@ -113,7 +112,8 @@ const Home: React.FC = () => {
               <div className="space-y-4">
                 <h1 className="text-4xl font-black leading-tight tracking-tight md:text-5xl lg:text-6xl">
                   Học nói tiếng Anh <br className="hidden lg:block" />
-                  <span className="text-primary">đơn giản</span> – hiệu quả
+                  <span className="text-primary italic">đơn giản</span> – hiệu
+                  quả
                 </h1>
                 <p className="text-base text-slate-600  md:text-lg">
                   Nâng cao vốn từ vựng và tự tin giao tiếp với lộ trình học tập
@@ -122,10 +122,20 @@ const Home: React.FC = () => {
               </div>
 
               <div className="flex flex-col items-center gap-3 sm:flex-row md:justify-start">
-                <button className="h-12 min-w-[160px] rounded-xl bg-primary px-6 text-base font-bold text-white shadow-lg shadow-primary/25 transition-transform hover:scale-105 active:scale-95">
+                <button
+                  className="h-11 px-6 rounded-xl text-white text-sm font-semibold
+                bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500
+                shadow-lg shadow-blue-300/40
+                hover:scale-[1.03] transition"
+                >
                   Bắt đầu học ngay
                 </button>
-                <button className="h-12 min-w-[160px] rounded-xl border border-slate-200  bg-white  px-6 text-base font-bold text-slate-700  hover:bg-slate-50 transition-colors">
+                <button
+                  className="h-11 px-6 rounded-xl text-sm font-semibold text-blue-600
+                bg-white border border-cyan-300
+
+                hover:bg-blue-50 transition"
+                >
                   Tìm hiểu thêm
                 </button>
               </div>
