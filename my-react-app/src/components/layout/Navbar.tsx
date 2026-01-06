@@ -16,31 +16,31 @@ const Navbar: React.FC = () => {
                 className="w-full h-full object-contain rounded-full"
               />
             </div>
-            <h2 className="text-lg font-bold tracking-tight">
+            <h2 className="text-4xl font-bold tracking-tight">
               <span style={{ color: "#115E59" }}>Lingo</span>
               <span style={{ color: "#1E4F7A" }}>Speak</span>
             </h2>
           </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden flex-1 items-center justify-center gap-8 md:flex">
-            <a className="text-sm font-medium text-primary" href="#">
+          <nav className="hidden flex-1 items-center justify-center gap-10 md:flex">
+            <a className="text-xl font-medium text-primary" href="#">
               Trang chủ
             </a>
             <a
-              className="text-sm font-medium text-slate-600  hover:text-primary"
+              className="text-xl font-medium text-slate-600  hover:text-primary"
               href="#"
             >
               Học từ mới
             </a>
             <a
-              className="text-sm font-medium text-slate-600  hover:text-primary"
+              className="text-xl font-medium text-slate-600  hover:text-primary"
               href="#"
             >
               Ôn tập
             </a>
             <a
-              className="text-sm font-medium text-slate-600  hover:text-primary"
+              className="text-xl font-medium text-slate-600  hover:text-primary"
               href="#"
             >
               About us
