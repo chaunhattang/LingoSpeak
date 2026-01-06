@@ -14,54 +14,110 @@ const SignIn: React.FC = () => {
       className="
         min-h-screen w-full flex items-center justify-center
         bg-gradient-to-br from-[#ecfeff] via-[#e0f2fe] to-[#ecfdf5]
-        font-display
+        font-display py-2
       "
     >
       <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-14 px-6">
         {/* LEFT CONTENT */}
-        <div className="flex flex-col justify-center gap-8">
+        <div className="flex flex-col justify-center ">
           {/* Logo */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow">
               <img src={logo} alt="logo" className="rounded-full" />
             </div>
-            <h2 className="text-4xl font-bold text-slate-900">LingoSpeak</h2>
+            <h2 className="text-xl font-bold text-slate-900">LingoSpeak</h2>
           </div>
 
-          <h1 className="text-4xl font-extrabold leading-snug text-slate-900">
-            Improve Your English Speaking Skills
-            <br />
-            <span className="text-blue-600 italic">
-              Effective – Practical – Every Day
-            </span>
-          </h1>
+          {/* Heading */}
+          <div className="flex flex-col gap-3">
+            <h1 className="text-4xl font-extrabold leading-snug text-slate-900">
+              Improve Your English Speaking Skills
+              <br />
+              <span className="text-blue-600 italic">
+                Effective – Practical – Every Day
+              </span>
+            </h1>
 
-          <p className="text-slate-600 max-w-xl text-sm leading-relaxed">
-            Practice speaking daily with a smart learning path to improve
-            pronunciation, fluency, and real-life communication naturally.
-          </p>
+            <p className="text-slate-600 max-w-xl text-sm leading-relaxed">
+              Practice speaking daily with a smart learning path to improve
+              pronunciation, fluency, and real-life communication naturally.
+            </p>
+          </div>
 
-          <div className="flex gap-4">
-            <button
-              className="
-                h-11 px-6 rounded-xl text-white text-sm font-semibold
-                bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500
-                shadow-lg shadow-blue-300/40
-                hover:scale-[1.03] transition
-              "
-            >
-              Start Learning
-            </button>
+          {/* FEATURES (ĐÃ GHÉP) */}
+          <div className="flex flex-col gap-6 mt-6">
+            {/* Feature 1 */}
+            <div className="flex items-start gap-4 group">
+              <div
+                className="
+                  flex h-12 w-12 shrink-0 items-center justify-center
+                  rounded-xl bg-blue-500/20 text-blue-600
+                  backdrop-blur-sm transition-transform
+                  group-hover:scale-110
+                "
+              >
+                <span className="material-symbols-outlined text-[24px]">
+                  headphones
+                </span>
+              </div>
+              <div className="flex flex-col gap-1">
+                <h3 className="text-lg font-bold text-slate-900">
+                  Listening – Speaking – Recording
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  Practice native pronunciation with clear and accurate
+                  guidance.
+                </p>
+              </div>
+            </div>
 
-            <button
-              className="
-                h-11 px-6 rounded-xl text-sm font-semibold text-blue-600
-                bg-white border border-blue-200
-                hover:bg-blue-50 transition
-              "
-            >
-              Learn More
-            </button>
+            {/* Feature 2 */}
+            <div className="flex items-start gap-4 group">
+              <div
+                className="
+                  flex h-12 w-12 shrink-0 items-center justify-center
+                  rounded-xl bg-cyan-500/20 text-cyan-600
+                  backdrop-blur-sm transition-transform
+                  group-hover:scale-110
+                "
+              >
+                <span className="material-symbols-outlined text-[24px]">
+                  psychology
+                </span>
+              </div>
+              <div className="flex flex-col gap-1">
+                <h3 className="text-lg font-bold text-slate-900">
+                  Smart Vocabulary Memory
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  Learn faster and remember longer with interactive lessons.
+                </p>
+              </div>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="flex items-start gap-4 group">
+              <div
+                className="
+                  flex h-12 w-12 shrink-0 items-center justify-center
+                  rounded-xl bg-emerald-500/20 text-emerald-600
+                  backdrop-blur-sm transition-transform
+                  group-hover:scale-110
+                "
+              >
+                <span className="material-symbols-outlined text-[24px]">
+                  trending_up
+                </span>
+              </div>
+              <div className="flex flex-col gap-1">
+                <h3 className="text-lg font-bold text-slate-900">
+                  Learning Progress Tracking
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  Clearly see your improvement day by day.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
