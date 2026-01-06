@@ -10,163 +10,212 @@ const SignUp: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen w-full flex flex-col lg:flex-row bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-x-hidden">
-      {/* Left Column: Branding & Features */}
-      <aside className="relative w-full lg:w-5/12 bg-primary flex flex-col justify-between p-8 lg:p-12 xl:p-16 overflow-hidden">
-        {/* Decorative circles for background visual interest */}
-        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 rounded-full bg-white/5 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-60 h-60 rounded-full bg-blue-900/10 blur-2xl pointer-events-none" />
+    <div className="min-h-screen w-full flex flex-col lg:flex-row font-display antialiased overflow-x-hidden">
+      {/* LEFT COLUMN */}
+      <aside
+        className="
+        relative w-full lg:w-5/12
+        bg-gradient-to-br from-[#C77DFF] via-[#F783AC] to-[#FF758F]
+        flex flex-col justify-between
+        p-8 lg:p-12 xl:p-16 overflow-hidden"
+      >
+        {/* Decorations */}
+        <div className="absolute top-0 right-0 -mr-24 -mt-24 w-96 h-96 rounded-full bg-white/10 blur-3xl" />
+        <div className="absolute bottom-0 left-0 -ml-24 -mb-24 w-72 h-72 rounded-full bg-white/10 blur-3xl" />
 
-        {/* Logo Area */}
+        {/* Logo */}
         <div className="relative z-10 flex items-center gap-3">
-          <div className="w-10 h-10 bg-white text-primary rounded-lg flex items-center justify-center shadow-sm">
-            <img src={logo} alt="Lingo Speak Logo" className="w-full h-full object-contain rounded-full" />
+          <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm">
+            <img
+              src={logo}
+              alt="Lingo Speak"
+              className="w-full h-full object-contain rounded-full"
+            />
           </div>
-          <h2 className="text-white text-2xl font-bold tracking-tight">Lingo Speak</h2>
+          <h2 className="text-white text-2xl font-bold tracking-tight">
+            Lingo Speak
+          </h2>
         </div>
 
-        {/* Main Features Content */}
-        <div className="relative z-10 flex flex-col gap-10 my-12 lg:my-0">
-          <h1 className="text-white text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight tracking-tight pb-2">
-            Luyện nói tiếng Anh mỗi ngày – <span className="text-blue-100">Tự tin hơn từng từ</span>
+        {/* Headline + Features */}
+        <div className="relative z-10 flex flex-col gap-12 my-12 lg:my-0">
+          {/* Headline */}
+          <h1 className="text-white font-extrabold tracking-tight">
+            <span className="block text-4xl lg:text-5xl leading-[1.25]">
+              Practice English
+            </span>
+            <span className="block text-4xl lg:text-5xl leading-[1.25]">
+              speaking every day
+            </span>
+            <span className="block text-4xl lg:text-5xl italic leading-[1.3] text-pink-100 mt-2">
+              Speak with confidence
+            </span>
           </h1>
+
+          {/* Features */}
           <div className="flex flex-col gap-6">
             {/* Feature 1 */}
-            <div className="flex items-start gap-4 group">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/20 text-white backdrop-blur-sm transition-transform group-hover:scale-110">
-                <span className="material-symbols-outlined text-[24px]">headphones</span>
+            <div className="flex items-start gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/25 text-white">
+                <span className="material-symbols-outlined text-[24px]">
+                  headphones
+                </span>
               </div>
-              <div className="flex flex-col gap-1">
-                <h3 className="text-lg font-bold text-white">Nghe – nói – ghi âm</h3>
-                <p className="text-blue-100 text-sm font-normal leading-relaxed opacity-90">Luyện phát âm chuẩn bản xứ với công nghệ AI.</p>
+              <div>
+                <h3 className="text-lg font-bold text-white">
+                  Listen – Speak – Record
+                </h3>
+                <p className="text-pink-100 text-sm leading-relaxed opacity-90">
+                  Improve native pronunciation with AI-powered feedback.
+                </p>
               </div>
             </div>
 
             {/* Feature 2 */}
-            <div className="flex items-start gap-4 group">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/20 text-white backdrop-blur-sm transition-transform group-hover:scale-110">
-                <span className="material-symbols-outlined text-[24px]">psychology</span>
+            <div className="flex items-start gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/25 text-white">
+                <span className="material-symbols-outlined text-[24px]">
+                  psychology
+                </span>
               </div>
-              <div className="flex flex-col gap-1">
-                <h3 className="text-lg font-bold text-white">Ghi nhớ từ vựng thông minh</h3>
-                <p className="text-blue-100 text-sm font-normal leading-relaxed opacity-90">Học nhanh, nhớ lâu qua các bài tập tương tác.</p>
+              <div>
+                <h3 className="text-lg font-bold text-white">
+                  Smart vocabulary memory
+                </h3>
+                <p className="text-pink-100 text-sm leading-relaxed opacity-90">
+                  Learn faster and remember longer with interactive exercises.
+                </p>
               </div>
             </div>
 
             {/* Feature 3 */}
-            <div className="flex items-start gap-4 group">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/20 text-white backdrop-blur-sm transition-transform group-hover:scale-110">
-                <span className="material-symbols-outlined text-[24px]">trending_up</span>
+            <div className="flex items-start gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/25 text-white">
+                <span className="material-symbols-outlined text-[24px]">
+                  trending_up
+                </span>
               </div>
-              <div className="flex flex-col gap-1">
-                <h3 className="text-lg font-bold text-white">Theo dõi tiến trình học</h3>
-                <p className="text-blue-100 text-sm font-normal leading-relaxed opacity-90">Thấy sự tiến bộ rõ rệt qua từng ngày học.</p>
+              <div>
+                <h3 className="text-lg font-bold text-white">
+                  Track your progress
+                </h3>
+                <p className="text-pink-100 text-sm leading-relaxed opacity-90">
+                  See your improvement clearly day by day.
+                </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Left Footer */}
-        <div className="relative z-10 hidden lg:block text-blue-100 text-sm font-medium">© 2026 Lingo Speak. All rights reserved.</div>
+        {/* Footer */}
+        <div className="relative z-10 hidden lg:block text-pink-100 text-sm mt-5">
+          © 2026 Lingo Speak. All rights reserved.
+        </div>
       </aside>
 
-      {/* Right Column: Sign Up Form */}
-      <main className="w-full lg:w-7/12 flex items-center justify-center p-4 py-12 lg:p-8 bg-slate-50 dark:bg-slate-900">
-        <div className="w-full max-w-[480px] flex flex-col">
-          {/* Card Container */}
-          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 dark:border-slate-700 p-8 sm:p-10">
-            <div className="flex flex-col gap-2 mb-8 text-center">
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">Create your account</h2>
-              <p className="text-slate-500 dark:text-slate-400 font-normal">Start your language journey today.</p>
+      {/* RIGHT COLUMN */}
+      {/* RIGHT COLUMN */}
+      <main
+        className="w-full lg:w-7/12 flex items-center justify-center p-6
+  bg-gradient-to-br from-[#fff5f9] via-[#fff1f6] to-[#fff8fb]"
+      >
+        <div className="w-full max-w-[480px]">
+          <div
+            className="bg-white/90 backdrop-blur-xl rounded-3xl p-10
+      shadow-2xl shadow-pink-200/50 border border-pink-100"
+          >
+            {/* Header */}
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-slate-900">
+                Create your account
+              </h2>
+              <p className="text-slate-500 mt-1">
+                Start your language journey today.
+              </p>
             </div>
 
-            <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
-              {/* Name Input */}
-              <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-semibold text-slate-700 dark:text-slate-300" htmlFor="fullname">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+              {/* Full Name */}
+              <div>
+                <label className="text-sm font-semibold text-slate-700">
                   Full Name
                 </label>
-                <div className="relative">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined text-[20px]">person</span>
-                  <input
-                    className="w-full h-12 pl-11 pr-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white text-base focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all placeholder:text-slate-400"
-                    id="fullname"
-                    placeholder="Enter your full name"
-                    type="text"
-                    name="fullname"
-                  />
-                </div>
+                <input
+                  type="text"
+                  placeholder="Enter your full name"
+                  className="mt-2 w-full h-12 px-4 rounded-xl border
+              bg-slate-50 border-slate-200
+              focus:outline-none focus:ring-4 focus:ring-pink-300/30
+              focus:border-pink-400 transition"
+                />
               </div>
 
-              {/* Email Input */}
-              <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-semibold text-slate-700 dark:text-slate-300" htmlFor="email">
+              {/* Email */}
+              <div>
+                <label className="text-sm font-semibold text-slate-700">
                   Email Address
                 </label>
-                <div className="relative">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined text-[20px]">mail</span>
-                  <input
-                    className="w-full h-12 pl-11 pr-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white text-base focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all placeholder:text-slate-400"
-                    id="email"
-                    placeholder="name@example.com"
-                    type="email"
-                    name="email"
-                  />
-                </div>
+                <input
+                  type="email"
+                  placeholder="name@example.com"
+                  className="mt-2 w-full h-12 px-4 rounded-xl border
+              bg-slate-50 border-slate-200
+              focus:outline-none focus:ring-4 focus:ring-pink-300/30
+              focus:border-pink-400 transition"
+                />
               </div>
 
-              {/* Password Input */}
-              <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-semibold text-slate-700 dark:text-slate-300" htmlFor="password">
+              {/* Password */}
+              <div>
+                <label className="text-sm font-semibold text-slate-700">
                   Password
                 </label>
-                <div className="relative">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined text-[20px]">lock</span>
+                <div className="relative mt-2">
                   <input
-                    className="w-full h-12 pl-11 pr-12 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white text-base focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all placeholder:text-slate-400"
-                    id="password"
-                    placeholder="Create a password"
                     type={showPassword ? "text" : "password"}
-                    name="password"
+                    placeholder="Create a password"
+                    className="w-full h-12 px-4 pr-12 rounded-xl border
+                bg-slate-50 border-slate-200
+                focus:outline-none focus:ring-4 focus:ring-pink-300/30
+                focus:border-pink-400 transition"
                   />
-                  <button className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer" type="button" aria-label={showPassword ? "Hide password" : "Show password"} onClick={() => setShowPassword((s) => !s)}>
-                    <span className="material-symbols-outlined text-[20px] pt-2">{showPassword ? "visibility_off" : "visibility"}</span>
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"
+                  >
+                    <span className="material-symbols-outlined">
+                      {showPassword ? "visibility" : "visibility_off"}
+                    </span>
                   </button>
                 </div>
               </div>
 
-              <div className="pt-2">
-                <button className="w-full h-12 bg-primary hover:bg-blue-600 text-white font-bold rounded-xl shadow-lg shadow-primary/25 transition-all active:scale-[0.98] flex items-center justify-center gap-2" type="submit">
-                  Sign Up
-                  <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
-                </button>
-              </div>
+              {/* Submit */}
+              <button
+                type="submit"
+                className="mt-4 h-12 rounded-xl text-white font-bold
+            bg-gradient-to-r from-pink-500 to-purple-500
+            hover:from-pink-600 hover:to-purple-600
+            shadow-lg shadow-pink-300/40
+            active:scale-95 transition-all"
+              >
+                Sign Up
+              </button>
             </form>
 
-            <div className="mt-8 text-center">
-              <p className="text-slate-500 dark:text-slate-400 text-sm">
-                Đã có tài khoản?
-                <a className="font-bold text-primary hover:text-blue-600 transition-colors ml-1" href="#">
-                  Sign in
-                </a>
-              </p>
-            </div>
+            {/* Footer */}
+            <p className="mt-8 text-center text-slate-600">
+              Already have an account?
+              <a className="ml-1 font-bold text-pink-600 hover:underline">
+                Sign in
+              </a>
+            </p>
           </div>
-
-          <p className="text-center text-xs text-slate-400 mt-8 max-w-xs mx-auto">
-            By signing up, you agree to our{" "}
-            <a className="underline hover:text-slate-600" href="#">
-              Terms of Service
-            </a>{" "}
-            and{" "}
-            <a className="underline hover:text-slate-600" href="#">
-              Privacy Policy
-            </a>
-            .
-          </p>
         </div>
       </main>
     </div>
   );
 };
+
 export default SignUp;
