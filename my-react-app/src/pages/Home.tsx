@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
-import speak from "../assets/images/speak.jpg";
+import a from "../assets/images/a.png";
 import user1 from "../assets/images/user1.jpg";
 import user2 from "../assets/images/user2.jpg";
 import user3 from "../assets/images/user3.jpg";
@@ -154,7 +154,7 @@ const Home: React.FC = () => {
               <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-100   shadow-2xl lg:aspect-[4/3]">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <img
-                    src={speak}
+                    src={a}
                     alt="Lingo Speak Logo"
                     className="w-full h-full object-cover"
                   />
