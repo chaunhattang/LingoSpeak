@@ -6,7 +6,7 @@ const SignUp: React.FC = () => {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    console.log("sign up");
+    console.log("đăng ký");
   }
 
   return (
@@ -18,14 +18,11 @@ const SignUp: React.FC = () => {
       "
     >
       <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-14 px-6">
-        {/* LEFT CONTENT */}
+        {/* PHẦN BÊN TRÁI */}
         <div className="flex flex-col justify-center gap-8 ">
           {/* Logo */}
           <div className="flex items-center gap-3 pb-8">
-            {/* <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow">
-              <img src={logo} alt="logo" className="rounded-full" />
-            </div> */}
-            <h2 className="flex items-center text-6xl font-bold tracking-tight gap-1 leading-normal">
+            <h2 className="flex items-center text-5xl font-bold tracking-tight gap-1 leading-normal">
               <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
                 Ling
               </span>
@@ -39,16 +36,16 @@ const SignUp: React.FC = () => {
           </div>
 
           <h1 className="text-4xl font-extrabold leading-snug text-slate-900">
-            Practice English speaking
+            Luyện nói tiếng Anh 
             <br />
-            <span className="text-blue-600 italic">
-              Confidently – Naturally – Every day
+            <span className="text-blue-600 italic whitespace-nowrap">
+              Tự tin – Linh hoạt – Mỗi ngày
             </span>
           </h1>
 
           <p className="text-slate-600 max-w-xl text-sm leading-relaxed">
-            Build your English speaking skills with a smart learning path,
-            interactive practice, and real-time feedback.
+            Phát triển kỹ năng nói tiếng Anh với lộ trình học thông minh, bài
+            luyện tương tác và phản hồi theo thời gian thực.
           </p>
 
           <div className="flex gap-4">
@@ -60,7 +57,7 @@ const SignUp: React.FC = () => {
                 hover:scale-[1.03] transition
               "
             >
-              Get started
+              Bắt đầu ngay
             </button>
 
             <button
@@ -70,12 +67,12 @@ const SignUp: React.FC = () => {
                 hover:bg-blue-50 transition
               "
             >
-              Learn more
+              Tìm hiểu thêm
             </button>
           </div>
         </div>
 
-        {/* RIGHT FORM */}
+        {/* PHẦN FORM BÊN PHẢI */}
         <div className="flex items-center justify-center">
           <div
             className="
@@ -87,23 +84,23 @@ const SignUp: React.FC = () => {
           >
             <div className="text-center mb-6">
               <h2 className="text-2xl font-bold text-slate-900">
-                Create your account
+                Tạo tài khoản của bạn
               </h2>
               <p className="text-slate-500 text-sm mt-1">
-                Start your English learning journey today.
+                Bắt đầu hành trình học tiếng Anh của bạn ngay hôm nay.
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-              {/* Full Name */}
+              {/* Họ và tên */}
               <div>
                 <label className="text-sm font-semibold text-slate-700">
-                  Full name
+                  Họ và tên
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder="Your full name"
+                  placeholder="Họ và tên của bạn"
                   className="
                     mt-2 w-full h-11 px-4 rounded-xl text-sm
                     bg-slate-50 border border-slate-200
@@ -121,7 +118,7 @@ const SignUp: React.FC = () => {
                 <input
                   type="email"
                   required
-                  placeholder="you@example.com"
+                  placeholder="ban@example.com"
                   className="
                     mt-2 w-full h-11 px-4 rounded-xl text-sm
                     bg-slate-50 border border-slate-200
@@ -131,16 +128,16 @@ const SignUp: React.FC = () => {
                 />
               </div>
 
-              {/* Password */}
+              {/* Mật khẩu */}
               <div>
                 <label className="text-sm font-semibold text-slate-700">
-                  Password
+                  Mật khẩu
                 </label>
                 <div className="relative mt-2">
                   <input
                     type={showPassword ? "text" : "password"}
                     required
-                    placeholder="Create a password"
+                    placeholder="Tạo mật khẩu"
                     className="
                       w-full h-11 px-4 rounded-xl text-sm
                       bg-slate-50 border border-slate-200
@@ -163,7 +160,7 @@ const SignUp: React.FC = () => {
                 </div>
               </div>
 
-              {/* Button */}
+              {/* Nút đăng ký */}
               <button
                 type="submit"
                 className="
@@ -173,14 +170,14 @@ const SignUp: React.FC = () => {
                   hover:scale-[1.03] transition
                 "
               >
-                Sign Up
+                Đăng ký
               </button>
             </form>
 
             <p className="mt-5 text-center text-sm text-slate-600">
-              Already have an account?
+              Đã có tài khoản?
               <a className="ml-1 font-bold text-emerald-600 hover:underline">
-                Sign in
+                Đăng nhập
               </a>
             </p>
           </div>

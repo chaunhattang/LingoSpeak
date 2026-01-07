@@ -6,7 +6,7 @@ const SignIn: React.FC = () => {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    console.log("sign in");
+    console.log("Đăng nhập");
   }
 
   return (
@@ -22,10 +22,7 @@ const SignIn: React.FC = () => {
         <div className="flex flex-col justify-center ">
           {/* Logo */}
           <div className="flex items-center gap-3 mb-4">
-            {/* <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow">
-              <img src={logo} alt="logo" className="rounded-full" />
-            </div> */}
-            <h2 className="flex items-center text-6xl font-bold tracking-tight gap-1 leading-normal">
+            <h2 className="flex items-center text-5xl font-bold tracking-tight gap-1 leading-normal">
               <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
                 Ling
               </span>
@@ -36,25 +33,26 @@ const SignIn: React.FC = () => {
                 Speak
               </span>
             </h2>
-          </div>
+          </div> 
 
           {/* Heading */}
           <div className="flex flex-col gap-3">
-            <h1 className="text-4xl font-extrabold leading-snug text-slate-900">
-              Improve Your English Speaking Skills
+            <h1 className="text-3xl font-extrabold leading-snug text-slate-900">
+              Cải thiện kỹ năng 
+              <br />nói tiếng Anh của bạn
               <br />
-              <span className="text-blue-600 italic">
-                Effective – Practical – Every Day
+              <span className="text-blue-600 italic whitespace-nowrap ">
+                Hiệu quả – Thực tế – Hàng ngày
               </span>
             </h1>
 
             <p className="text-slate-600 max-w-xl text-sm leading-relaxed">
-              Practice speaking daily with a smart learning path to improve
-              pronunciation, fluency, and real-life communication naturally.
+              Luyện nói hàng ngày với lộ trình học thông minh để cải thiện phát
+              âm, sự lưu loát và giao tiếp thực tế một cách tự nhiên.
             </p>
           </div>
 
-          {/* FEATURES (ĐÃ GHÉP) */}
+          {/* FEATURES */}
           <div className="flex flex-col gap-6 mt-6">
             {/* Feature 1 */}
             <div className="flex items-start gap-4 group">
@@ -72,11 +70,10 @@ const SignIn: React.FC = () => {
               </div>
               <div className="flex flex-col gap-1">
                 <h3 className="text-lg font-bold text-slate-900">
-                  Listening – Speaking – Recording
+                  Nghe – Nói – Ghi âm
                 </h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Practice native pronunciation with clear and accurate
-                  guidance.
+                  Luyện phát âm chuẩn như người bản xứ với hướng dẫn rõ ràng.
                 </p>
               </div>
             </div>
@@ -97,10 +94,10 @@ const SignIn: React.FC = () => {
               </div>
               <div className="flex flex-col gap-1">
                 <h3 className="text-lg font-bold text-slate-900">
-                  Smart Vocabulary Memory
+                  Ghi nhớ từ vựng thông minh
                 </h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Learn faster and remember longer with interactive lessons.
+                  Học nhanh hơn, nhớ lâu hơn với các bài học tương tác.
                 </p>
               </div>
             </div>
@@ -121,10 +118,10 @@ const SignIn: React.FC = () => {
               </div>
               <div className="flex flex-col gap-1">
                 <h3 className="text-lg font-bold text-slate-900">
-                  Learning Progress Tracking
+                  Theo dõi tiến trình học
                 </h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Clearly see your improvement day by day.
+                  Xem rõ sự tiến bộ của bạn từng ngày.
                 </p>
               </div>
             </div>
@@ -142,9 +139,9 @@ const SignIn: React.FC = () => {
             "
           >
             <div className="text-center mb-6">
-              <h2 className="text-2xl font-bold text-slate-900">Sign In</h2>
+              <h2 className="text-2xl font-bold text-slate-900">Đăng Nhập</h2>
               <p className="text-slate-500 text-sm mt-1">
-                Welcome back! Please sign in to continue learning.
+                Chào mừng quay lại! Vui lòng đăng nhập để tiếp tục học.
               </p>
             </div>
 
@@ -157,7 +154,7 @@ const SignIn: React.FC = () => {
                 <input
                   type="email"
                   required
-                  placeholder="you@example.com"
+                  placeholder="ban@example.com"
                   className="
                     mt-2 w-full h-11 px-4 rounded-xl text-sm
                     bg-slate-50 border border-slate-200
@@ -170,7 +167,7 @@ const SignIn: React.FC = () => {
               {/* Password */}
               <div>
                 <label className="text-sm font-semibold text-slate-700">
-                  Password
+                  Mật khẩu
                 </label>
                 <div className="relative mt-2">
                   <input
@@ -203,7 +200,7 @@ const SignIn: React.FC = () => {
                     href="#"
                     className="text-blue-600 text-sm font-medium hover:underline"
                   >
-                    Forgot password?
+                    Quên mật khẩu?
                   </a>
                 </div>
               </div>
@@ -218,14 +215,14 @@ const SignIn: React.FC = () => {
                   hover:scale-[1.03] transition
                 "
               >
-                Sign In
+                Đăng Nhập
               </button>
             </form>
 
             <p className="mt-5 text-center text-sm text-slate-600">
-              Don’t have an account?
+              Chưa có tài khoản?
               <a className="ml-1 font-bold text-emerald-600 hover:underline">
-                Sign up
+                Đăng ký
               </a>
             </p>
           </div>
