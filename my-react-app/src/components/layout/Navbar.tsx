@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
               href="#"
             >
               <img src={newWord} alt="newWord" className="h-10 w-10" />
-              Học từ vựng
+              Danh sách bài học
             </a>
             <a
               className="flex flex-col items-center gap-1 flex-lg font-medium text-slate-600 hover:bg-[#CADAD9] hover:text-[#115E59]"
@@ -61,7 +61,7 @@ const Navbar: React.FC = () => {
               href="#"
             >
               <img src={handlist} alt="handlist" className="h-10 w-10" />
-              Sổ tay
+              Sổ tay từ vựng
             </a>
           </nav>
 
