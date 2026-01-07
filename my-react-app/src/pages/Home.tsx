@@ -110,15 +110,16 @@ const Home: React.FC = () => {
             {/* Content */}
             <div className="flex flex-1 flex-col gap-6 text-center md:text-left">
               <div className="space-y-4">
-                <h1 className="text-4xl font-black leading-tight tracking-tight md:text-4xl lg:text-5xl">
-                  Learn to speak English
+                <h1 className="text-4xl font-black leading-tight tracking-tight md:text-4xl lg:text-6xl">
+                  Học nói tiếng Anh
                   <br className="hidden lg:block" />
-                  <span className="text-primary italic"> simply </span> –
-                  effectively
+                  <span className="text-primary italic"> đơn giản </span> – hiệu
+                  quả
                 </h1>
                 <p className="text-base text-slate-600  md:text-lg">
-                  Improve your vocabulary and communicate confidently with a
-                  personalized learning path. Practice anytime, anywhere.
+                  Giúp bạn tích lũy từ vựng một cách tự nhiên và làm quen với
+                  tiếng Anh qua các bài luyện thực tế, dễ dàng duy trì việc học
+                  mỗi ngày mà không cảm thấy áp lực.
                 </p>
               </div>
 
@@ -129,7 +130,7 @@ const Home: React.FC = () => {
                 shadow-lg shadow-blue-300/40
                 hover:scale-[1.03] transition"
                 >
-                  Start learning now
+                  Bắt đầu học ngay
                 </button>
                 <button
                   className="h-11 px-6 rounded-xl text-sm font-semibold text-blue-600
@@ -137,7 +138,7 @@ const Home: React.FC = () => {
 
                 hover:bg-blue-50 transition"
                 >
-                  Learn more
+                  Tìm hiểu thêm
                 </button>
               </div>
 
@@ -156,7 +157,7 @@ const Home: React.FC = () => {
                     </div>
                   ))}
                 </div>
-                <p>+10.000 active learners.</p>
+                <p>+10.000 học viên đang tham gia khóa học.</p>
               </div>
             </div>
 
@@ -182,11 +183,13 @@ const Home: React.FC = () => {
               <span className="mb-2 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
                 Tính năng
               </span>
-              <h2 className="text-3xl font-bold md:text-4xl">Features</h2>
+              <h2 className="text-3xl font-bold md:text-4xl">
+                Tính năng nổi bật
+              </h2>
               <p className="mt-4 mx-auto max-w-2xl text-slate-600 ">
-                A comprehensive English learning platform, personalized to your
-                level, helping you make rapid and sustainable progress every
-                day.
+                Một nền tảng học tiếng Anh trực tuyến hàng đầu, được cá nhân hóa
+                theo trình độ của bạn, giúp bạn tự tin giao tiếp mọi lúc, mọi
+                nơi.
               </p>
             </div>
 
@@ -226,10 +229,10 @@ const Home: React.FC = () => {
           <div className="mx-auto w-full max-w-[1280px] px-6 lg:px-10">
             <div className="mb-12 text-center">
               <span className="mb-2 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
-                Cộng đồng
+                Cộng đồng người dùng LingoSpeak
               </span>
               <h2 className="text-3xl font-bold md:text-4xl">
-                Feedback người dùng
+                Phản hồi của học viên
               </h2>
             </div>
 

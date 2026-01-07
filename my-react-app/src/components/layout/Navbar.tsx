@@ -40,28 +40,28 @@ const Navbar: React.FC = () => {
               href="#"
             >
               <img src={home} alt="Home" className="h-10 w-10" />
-              Home
+              Trang chủ
             </a>
             <a
               className="flex flex-col items-center gap-1 flex-lg font-medium text-slate-600 hover:bg-[#CADAD9] hover:text-[#115E59]"
               href="#"
             >
               <img src={newWord} alt="newWord" className="h-10 w-10" />
-              Learn Vocabbulary
+              Học từ vựng
             </a>
             <a
               className="flex flex-col items-center gap-1 flex-lg font-medium text-slate-600 hover:bg-[#CADAD9] hover:text-[#115E59]"
               href="#"
             >
               <img src={review} alt="review" className="h-10 w-10" />
-              Review
+              Ôn tập
             </a>
             <a
               className="flex flex-col items-center gap-1 flex-lg font-medium text-slate-600 hover:bg-[#CADAD9] hover:text-[#115E59]"
               href="#"
             >
               <img src={handlist} alt="handlist" className="h-10 w-10" />
-              Handlist
+              Sổ tay
             </a>
           </nav>
 
@@ -73,7 +73,7 @@ const Navbar: React.FC = () => {
                 shadow-lg shadow-blue-300/40
                 hover:scale-[1.03] transition"
             >
-              Log out
+              Đăng nhập
             </button>
             <div className="size-11 overflow-hidden rounded-full border-2 border-cyan-200 dark:border-slate-700 bg-slate-200">
               <img

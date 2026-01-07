@@ -29,8 +29,8 @@ const HomeFooter = () => {
               </h2>
             </div>
             <p className="text-sm text-slate-600 dark:text-slate-400 max-w-xs leading-relaxed">
-              The leading online English learning platform, helping you
-              confidently communicate anytime, anywhere.
+              Luyện nói tiếng Anh giúp cải thiện phát âm, phản xạ giao tiếp,
+              tăng tự tin và mở rộng cơ hội.
             </p>
           </div>
 
@@ -66,17 +66,17 @@ const HomeFooter = () => {
           {/* Support */}
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-900 dark:text-white">
-              Support
+              Hỗ trợ
             </h4>
             <ul className="flex flex-col gap-2 text-sm text-slate-600 dark:text-slate-400">
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  Help Center
+                  Trung tâm hỗ trợ
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  Contact Us
+                  Liên hệ
                 </a>
               </li>
               <li>
