@@ -20,7 +20,10 @@ const Navbar: React.FC = () => {
                 className="w-full h-full object-contain rounded-full"
               />
             </div> */}
-            <h2 className="flex items-center text-5xl font-bold tracking-tight gap-1 leading-normal">
+            <h2
+              className="flex items-center gap-1 font-bold tracking-tight
+               text-3xl sm:text-4xl lg:text-5xl leading-normal"
+            >
               <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
                 Ling
               </span>
@@ -34,7 +37,7 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden flex-lg items-center justify-between gap-20 md:flex px-10">
+          <nav className="hidden items-center justify-between gap-20 md:flex px-10">
             <a
               className="flex flex-col items-center gap-1 flex-lg font-medium text-slate-600 hover:bg-[#CADAD9] hover:text-[#115E59]"
               href="#"
@@ -66,23 +69,22 @@ const Navbar: React.FC = () => {
           </nav>
 
           {/* Actions */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <button
-              className="h-11 px-6 rounded-xl text-white text-sm font-semibold
-                bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500
-                shadow-lg shadow-blue-300/40
-                hover:scale-[1.03] transition"
+              className="hidden md:block h-11 px-6 rounded-xl text-white text-sm font-semibold
+      bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500
+      shadow-lg shadow-blue-300/40 hover:scale-[1.03] transition"
             >
               Đăng nhập
             </button>
-            <div className="size-11 overflow-hidden rounded-full border-2 border-cyan-200 dark:border-slate-700 bg-slate-200">
+            <div className="hidden md:block size-11 overflow-hidden rounded-full border-2 border-cyan-200 bg-slate-200">
               <img
                 src={avatar}
                 alt="Lingo Speak Logo"
                 className="w-full h-full object-contain rounded-full"
               />
             </div>
-            <button className="flex size-10 items-center justify-center rounded-full md:hidden hover:bg-slate-100 dark:hover:bg-slate-800">
+            <button className="flex md:hidden size-10 items-center justify-center rounded-full hover:bg-slate-100">
               <span className="material-symbols-outlined">menu</span>
             </button>
           </div>
