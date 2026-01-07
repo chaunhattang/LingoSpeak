@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
                 className="w-full h-full object-contain rounded-full"
               />
             </div> */}
-            <h2 className="flex items-baseline text-6xl font-bold tracking-tight gap-1 ">
+            <h2 className="flex items-center text-5xl font-bold tracking-tight gap-1 leading-normal">
               <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
                 Ling
               </span>
@@ -40,28 +40,28 @@ const Navbar: React.FC = () => {
               href="#"
             >
               <img src={home} alt="Home" className="h-10 w-10" />
-              Trang chủ
+              Home
             </a>
             <a
               className="flex flex-col items-center gap-1 flex-lg font-medium text-slate-600 hover:bg-[#CADAD9] hover:text-[#115E59]"
               href="#"
             >
               <img src={newWord} alt="newWord" className="h-10 w-10" />
-              Học từ vựng
+              Learn Vocabbulary
             </a>
             <a
               className="flex flex-col items-center gap-1 flex-lg font-medium text-slate-600 hover:bg-[#CADAD9] hover:text-[#115E59]"
               href="#"
             >
               <img src={review} alt="review" className="h-10 w-10" />
-              Ôn tập
+              Review
             </a>
             <a
               className="flex flex-col items-center gap-1 flex-lg font-medium text-slate-600 hover:bg-[#CADAD9] hover:text-[#115E59]"
               href="#"
             >
               <img src={handlist} alt="handlist" className="h-10 w-10" />
-              Sổ tay
+              Handlist
             </a>
           </nav>
 
@@ -73,7 +73,7 @@ const Navbar: React.FC = () => {
                 shadow-lg shadow-blue-300/40
                 hover:scale-[1.03] transition"
             >
-              Đăng xuất
+              Log out
             </button>
             <div className="size-11 overflow-hidden rounded-full border-2 border-cyan-200 dark:border-slate-700 bg-slate-200">
               <img

@@ -16,7 +16,7 @@ const HomeFooter = () => {
                   className="w-full h-full object-contain rounded-full"
                 />
               </div> */}
-              <h2 className="flex items-center text-4xl font-bold tracking-tight gap-1">
+              <h2 className="flex items-center text-4xl font-bold tracking-tight gap-1 leading-normal">
                 <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
                   Ling
                 </span>
@@ -29,8 +29,8 @@ const HomeFooter = () => {
               </h2>
             </div>
             <p className="text-sm text-slate-600 dark:text-slate-400 max-w-xs leading-relaxed">
-              Nền tảng học tiếng Anh trực tuyến hàng đầu, giúp bạn tự tin giao
-              tiếp mọi lúc mọi nơi.
+              The leading online English learning platform, helping you
+              confidently communicate anytime, anywhere.
             </p>
           </div>
 

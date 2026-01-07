@@ -25,7 +25,7 @@ const SignUp: React.FC = () => {
             {/* <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow">
               <img src={logo} alt="logo" className="rounded-full" />
             </div> */}
-            <h2 className="flex items-center text-6xl font-bold tracking-tight gap-1">
+            <h2 className="flex items-center text-6xl font-bold tracking-tight gap-1 leading-normal">
               <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
                 Ling
               </span>
