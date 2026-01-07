@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import logo from "../assets/images/logo.png";
 
 const SignUp: React.FC = () => {
@@ -6,167 +6,188 @@ const SignUp: React.FC = () => {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    console.log("submit");
+    console.log("sign up");
   }
 
   return (
-    <div className="min-h-screen w-full flex flex-col lg:flex-row bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-x-hidden">
-      {/* Left Column: Branding & Features */}
-      <aside className="relative w-full lg:w-5/12 bg-primary flex flex-col justify-between p-8 lg:p-12 xl:p-16 overflow-hidden">
-        {/* Decorative circles for background visual interest */}
-        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 rounded-full bg-white/5 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-60 h-60 rounded-full bg-blue-900/10 blur-2xl pointer-events-none" />
+    <div
+      className="
+        min-h-screen w-full flex items-center justify-center
+        bg-gradient-to-br from-[#ecfeff] via-[#e0f2fe] to-[#ecfdf5]
+        font-display
+      "
+    >
+      <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-14 px-6">
+        {/* LEFT CONTENT */}
+        <div className="flex flex-col justify-center gap-8 ">
+          {/* Logo */}
+          <div className="flex items-center gap-3 pb-8">
+            {/* <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow">
+              <img src={logo} alt="logo" className="rounded-full" />
+            </div> */}
+            <h2 className="flex items-center text-6xl font-bold tracking-tight gap-1">
+              <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
+                Ling
+              </span>
 
-        {/* Logo Area */}
-        <div className="relative z-10 flex items-center gap-3">
-          <div className="w-10 h-10 bg-white text-primary rounded-lg flex items-center justify-center shadow-sm">
-            <img src={logo} alt="Lingo Speak Logo" className="w-full h-full object-contain rounded-full" />
+              <img src={logo} alt="logo" className="h-12 w-12 inline-block" />
+
+              <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
+                Speak
+              </span>
+            </h2>
           </div>
-          <h2 className="text-white text-2xl font-bold tracking-tight">Lingo Speak</h2>
-        </div>
 
-        {/* Main Features Content */}
-        <div className="relative z-10 flex flex-col gap-10 my-12 lg:my-0">
-          <h1 className="text-white text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight tracking-tight pb-2">
-            Luyện nói tiếng Anh mỗi ngày – <span className="text-blue-100">Tự tin hơn từng từ</span>
+          <h1 className="text-4xl font-extrabold leading-snug text-slate-900">
+            Practice English speaking
+            <br />
+            <span className="text-blue-600 italic">
+              Confidently – Naturally – Every day
+            </span>
           </h1>
-          <div className="flex flex-col gap-6">
-            {/* Feature 1 */}
-            <div className="flex items-start gap-4 group">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/20 text-white backdrop-blur-sm transition-transform group-hover:scale-110">
-                <span className="material-symbols-outlined text-[24px]">headphones</span>
-              </div>
-              <div className="flex flex-col gap-1">
-                <h3 className="text-lg font-bold text-white">Nghe – nói – ghi âm</h3>
-                <p className="text-blue-100 text-sm font-normal leading-relaxed opacity-90">Luyện phát âm chuẩn bản xứ với công nghệ AI.</p>
-              </div>
-            </div>
 
-            {/* Feature 2 */}
-            <div className="flex items-start gap-4 group">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/20 text-white backdrop-blur-sm transition-transform group-hover:scale-110">
-                <span className="material-symbols-outlined text-[24px]">psychology</span>
-              </div>
-              <div className="flex flex-col gap-1">
-                <h3 className="text-lg font-bold text-white">Ghi nhớ từ vựng thông minh</h3>
-                <p className="text-blue-100 text-sm font-normal leading-relaxed opacity-90">Học nhanh, nhớ lâu qua các bài tập tương tác.</p>
-              </div>
-            </div>
+          <p className="text-slate-600 max-w-xl text-sm leading-relaxed">
+            Build your English speaking skills with a smart learning path,
+            interactive practice, and real-time feedback.
+          </p>
 
-            {/* Feature 3 */}
-            <div className="flex items-start gap-4 group">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/20 text-white backdrop-blur-sm transition-transform group-hover:scale-110">
-                <span className="material-symbols-outlined text-[24px]">trending_up</span>
-              </div>
-              <div className="flex flex-col gap-1">
-                <h3 className="text-lg font-bold text-white">Theo dõi tiến trình học</h3>
-                <p className="text-blue-100 text-sm font-normal leading-relaxed opacity-90">Thấy sự tiến bộ rõ rệt qua từng ngày học.</p>
-              </div>
-            </div>
+          <div className="flex gap-4">
+            <button
+              className="
+                h-11 px-6 rounded-xl text-white text-sm font-semibold
+                bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500
+                shadow-lg shadow-blue-300/40
+                hover:scale-[1.03] transition
+              "
+            >
+              Get started
+            </button>
+
+            <button
+              className="
+                h-11 px-6 rounded-xl text-sm font-semibold text-blue-600
+                bg-white border border-cyan-300
+                hover:bg-blue-50 transition
+              "
+            >
+              Learn more
+            </button>
           </div>
         </div>
 
-        {/* Left Footer */}
-        <div className="relative z-10 hidden lg:block text-blue-100 text-sm font-medium">© 2026 Lingo Speak. All rights reserved.</div>
-      </aside>
-
-      {/* Right Column: Sign Up Form */}
-      <main className="w-full lg:w-7/12 flex items-center justify-center p-4 py-12 lg:p-8 bg-slate-50 dark:bg-slate-900">
-        <div className="w-full max-w-[480px] flex flex-col">
-          {/* Card Container */}
-          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 dark:border-slate-700 p-8 sm:p-10">
-            <div className="flex flex-col gap-2 mb-8 text-center">
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">Create your account</h2>
-              <p className="text-slate-500 dark:text-slate-400 font-normal">Start your language journey today.</p>
+        {/* RIGHT FORM */}
+        <div className="flex items-center justify-center">
+          <div
+            className="
+              w-full max-w-md bg-white/80 backdrop-blur-2xl
+              rounded-3xl p-8
+              shadow-2xl shadow-blue-200/50
+              border border-blue-100
+            "
+          >
+            <div className="text-center mb-6">
+              <h2 className="text-2xl font-bold text-slate-900">
+                Create your account
+              </h2>
+              <p className="text-slate-500 text-sm mt-1">
+                Start your English learning journey today.
+              </p>
             </div>
 
-            <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
-              {/* Name Input */}
-              <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-semibold text-slate-700 dark:text-slate-300" htmlFor="fullname">
-                  Full Name
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              {/* Full Name */}
+              <div>
+                <label className="text-sm font-semibold text-slate-700">
+                  Full name
                 </label>
-                <div className="relative">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined text-[20px]">person</span>
-                  <input
-                    className="w-full h-12 pl-11 pr-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white text-base focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all placeholder:text-slate-400"
-                    id="fullname"
-                    placeholder="Enter your full name"
-                    type="text"
-                    name="fullname"
-                  />
-                </div>
+                <input
+                  type="text"
+                  required
+                  placeholder="Your full name"
+                  className="
+                    mt-2 w-full h-11 px-4 rounded-xl text-sm
+                    bg-slate-50 border border-slate-200
+                    focus:outline-none
+                    focus:ring-4 focus:ring-blue-300/40
+                  "
+                />
               </div>
 
-              {/* Email Input */}
-              <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-semibold text-slate-700 dark:text-slate-300" htmlFor="email">
-                  Email Address
+              {/* Email */}
+              <div>
+                <label className="text-sm font-semibold text-slate-700">
+                  Email
                 </label>
-                <div className="relative">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined text-[20px]">mail</span>
-                  <input
-                    className="w-full h-12 pl-11 pr-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white text-base focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all placeholder:text-slate-400"
-                    id="email"
-                    placeholder="name@example.com"
-                    type="email"
-                    name="email"
-                  />
-                </div>
+                <input
+                  type="email"
+                  required
+                  placeholder="you@example.com"
+                  className="
+                    mt-2 w-full h-11 px-4 rounded-xl text-sm
+                    bg-slate-50 border border-slate-200
+                    focus:outline-none
+                    focus:ring-4 focus:ring-blue-300/40
+                  "
+                />
               </div>
 
-              {/* Password Input */}
-              <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-semibold text-slate-700 dark:text-slate-300" htmlFor="password">
+              {/* Password */}
+              <div>
+                <label className="text-sm font-semibold text-slate-700">
                   Password
                 </label>
-                <div className="relative">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined text-[20px]">lock</span>
+                <div className="relative mt-2">
                   <input
-                    className="w-full h-12 pl-11 pr-12 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white text-base focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all placeholder:text-slate-400"
-                    id="password"
-                    placeholder="Create a password"
                     type={showPassword ? "text" : "password"}
-                    name="password"
+                    required
+                    placeholder="Create a password"
+                    className="
+                      w-full h-11 px-4 rounded-xl text-sm
+                      bg-slate-50 border border-slate-200
+                      focus:outline-none
+                      focus:ring-4 focus:ring-blue-300/40
+                    "
                   />
-                  <button className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer" type="button" aria-label={showPassword ? "Hide password" : "Show password"} onClick={() => setShowPassword((s) => !s)}>
-                    <span className="material-symbols-outlined text-[20px] pt-2">{showPassword ? "visibility_off" : "visibility"}</span>
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="
+                      absolute right-4 top-1/2 -translate-y-1/2
+                      text-slate-400 hover:text-slate-600
+                    "
+                  >
+                    <span className="material-symbols-outlined text-[20px]">
+                      {showPassword ? "visibility" : "visibility_off"}
+                    </span>
                   </button>
                 </div>
               </div>
 
-              <div className="pt-2">
-                <button className="w-full h-12 bg-primary hover:bg-blue-600 text-white font-bold rounded-xl shadow-lg shadow-primary/25 transition-all active:scale-[0.98] flex items-center justify-center gap-2" type="submit">
-                  Sign Up
-                  <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
-                </button>
-              </div>
+              {/* Button */}
+              <button
+                type="submit"
+                className="
+                  mt-3 h-11 rounded-xl text-white text-sm font-bold
+                  bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500
+                  shadow-xl shadow-blue-300/40
+                  hover:scale-[1.03] transition
+                "
+              >
+                Sign Up
+              </button>
             </form>
 
-            <div className="mt-8 text-center">
-              <p className="text-slate-500 dark:text-slate-400 text-sm">
-                Đã có tài khoản?
-                <a className="font-bold text-primary hover:text-blue-600 transition-colors ml-1" href="#">
-                  Sign in
-                </a>
-              </p>
-            </div>
+            <p className="mt-5 text-center text-sm text-slate-600">
+              Already have an account?
+              <a className="ml-1 font-bold text-emerald-600 hover:underline">
+                Sign in
+              </a>
+            </p>
           </div>
-
-          <p className="text-center text-xs text-slate-400 mt-8 max-w-xs mx-auto">
-            By signing up, you agree to our{" "}
-            <a className="underline hover:text-slate-600" href="#">
-              Terms of Service
-            </a>{" "}
-            and{" "}
-            <a className="underline hover:text-slate-600" href="#">
-              Privacy Policy
-            </a>
-            .
-          </p>
         </div>
-      </main>
+      </div>
     </div>
   );
 };
+
 export default SignUp;

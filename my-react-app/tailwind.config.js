@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#2b8cee",
+        primary: "#3B82F6",
         "background-light": "#f6f7f8",
         "background-dark": "#101922",
       },
@@ -12,7 +12,13 @@ export default {
         display: ["Lexend", "sans-serif"],
         body: ["Noto Sans", "sans-serif"],
       },
-      borderRadius: { DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", "2xl": "2rem", full: "9999px" },
+      borderRadius: {
+        DEFAULT: "0.5rem",
+        lg: "1rem",
+        xl: "1.5rem",
+        "2xl": "2rem",
+        full: "9999px",
+      },
     },
   },
   plugins: [],

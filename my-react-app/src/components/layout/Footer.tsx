@@ -9,17 +9,36 @@ const HomeFooter = () => {
           {/* Brand */}
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center">
-                <img src={logo} alt="Lingo Speak Logo" className="w-full h-full object-contain rounded-full" />
-              </div>
-              <h2 className="text-lg font-bold text-slate-900 dark:text-white">Lingo Speak</h2>
+              {/* <div className="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center">
+                <img
+                  src={logo}
+                  alt="Lingo Speak Logo"
+                  className="w-full h-full object-contain rounded-full"
+                />
+              </div> */}
+              <h2 className="flex items-center text-4xl font-bold tracking-tight gap-1">
+                <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
+                  Ling
+                </span>
+
+                <img src={logo} alt="logo" className="h-12 w-12 inline-block" />
+
+                <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
+                  Speak
+                </span>
+              </h2>
             </div>
-            <p className="text-sm text-slate-600 dark:text-slate-400 max-w-xs leading-relaxed">Nền tảng học tiếng Anh trực tuyến hàng đầu, giúp bạn tự tin giao tiếp mọi lúc mọi nơi.</p>
+            <p className="text-sm text-slate-600 dark:text-slate-400 max-w-xs leading-relaxed">
+              Nền tảng học tiếng Anh trực tuyến hàng đầu, giúp bạn tự tin giao
+              tiếp mọi lúc mọi nơi.
+            </p>
           </div>
 
           {/* Company */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-900 dark:text-white">Company</h4>
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-900 dark:text-white">
+              Company
+            </h4>
             <ul className="flex flex-col gap-2 text-sm text-slate-600 dark:text-slate-400">
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
@@ -46,7 +65,9 @@ const HomeFooter = () => {
 
           {/* Support */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-900 dark:text-white">Support</h4>
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-900 dark:text-white">
+              Support
+            </h4>
             <ul className="flex flex-col gap-2 text-sm text-slate-600 dark:text-slate-400">
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
@@ -73,7 +94,9 @@ const HomeFooter = () => {
 
           {/* Social */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-900 dark:text-white">Follow Us</h4>
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-900 dark:text-white">
+              Follow Us
+            </h4>
 
             <div className="flex items-center gap-4">
               {/* Facebook */}
@@ -84,12 +107,20 @@ const HomeFooter = () => {
                 aria-label="Facebook"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 text-slate-500 hover:bg-primary hover:text-white transition-colors"
               >
-                <span className="material-symbols-outlined text-[20px]">public</span>
+                <span className="material-symbols-outlined text-[20px]">
+                  public
+                </span>
               </a>
 
               {/* Email */}
-              <a href="mailto:support@lingospeak.com" aria-label="Email" className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 text-slate-500 hover:bg-primary hover:text-white transition-colors">
-                <span className="material-symbols-outlined text-[20px]">mail</span>
+              <a
+                href="mailto:support@lingospeak.com"
+                aria-label="Email"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 text-slate-500 hover:bg-primary hover:text-white transition-colors"
+              >
+                <span className="material-symbols-outlined text-[20px]">
+                  mail
+                </span>
               </a>
 
               {/* Instagram */}
@@ -100,7 +131,9 @@ const HomeFooter = () => {
                 aria-label="Instagram"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 text-slate-500 hover:bg-primary hover:text-white transition-colors"
               >
-                <span className="material-symbols-outlined text-[20px]">photo_camera</span>
+                <span className="material-symbols-outlined text-[20px]">
+                  photo_camera
+                </span>
               </a>
             </div>
           </div>
@@ -108,7 +141,9 @@ const HomeFooter = () => {
 
         {/* Bottom */}
         <div className="mt-12 border-t border-slate-200 dark:border-slate-800 pt-6 flex flex-col items-center justify-center">
-          <p className="text-xs text-slate-500 text-center">© {new Date().getFullYear()} Lingo Speak. All rights reserved.</p>
+          <p className="text-xs text-slate-500 text-center">
+            © {new Date().getFullYear()} Lingo Speak. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
