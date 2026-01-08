@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
+import img1 from "../assets/images/img1.png";
 
 const SignIn: React.FC = () => {
+  const { t } = useTranslation();
   const [showPassword, setShowPassword] = useState(false);
 
   function handleSubmit(e: React.FormEvent) {
@@ -33,98 +37,46 @@ const SignIn: React.FC = () => {
                 Speak
               </span>
             </h2>
-          </div> 
-
+          </div>
           {/* Heading */}
           <div className="flex flex-col gap-3">
             <h1 className="text-3xl font-extrabold leading-snug text-slate-900">
-              Cải thiện kỹ năng 
-              <br />nói tiếng Anh của bạn
+              {t("signin.title")}
               <br />
-              <span className="text-blue-600 italic whitespace-nowrap ">
-                Hiệu quả – Thực tế – Hàng ngày
+              <span className="text-blue-600 italic  ">
+                {t("signin.subtitle")}
               </span>
             </h1>
 
-            <p className="text-slate-600 max-w-xl text-sm leading-relaxed">
-              Luyện nói hàng ngày với lộ trình học thông minh để cải thiện phát
-              âm, sự lưu loát và giao tiếp thực tế một cách tự nhiên.
+            <p className="text-slate-600 max-w-xl text-sm leading-relaxed mb-6">
+              {t("signin.description")}
             </p>
           </div>
 
-          {/* FEATURES */}
-          <div className="flex flex-col gap-6 mt-6">
-            {/* Feature 1 */}
-            <div className="flex items-start gap-4 group">
-              <div
-                className="
-                  flex h-12 w-12 shrink-0 items-center justify-center
-                  rounded-xl bg-blue-500/20 text-blue-600
-                  backdrop-blur-sm transition-transform
-                  group-hover:scale-110
-                "
-              >
-                <span className="material-symbols-outlined text-[24px]">
-                  headphones
-                </span>
-              </div>
-              <div className="flex flex-col gap-1">
-                <h3 className="text-lg font-bold text-slate-900">
-                  Nghe – Nói – Ghi âm
-                </h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  Luyện phát âm chuẩn như người bản xứ với hướng dẫn rõ ràng.
-                </p>
-              </div>
-            </div>
+          <div className="flex gap-4 ">
+            <button
+              className="
+                h-11 px-6 rounded-xl text-white text-sm font-semibold
+                bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500
+                shadow-lg shadow-blue-300/40
+                hover:scale-[1.03] transition
+              "
+            >
+              {t("signin.startNow")}
+            </button>
 
-            {/* Feature 2 */}
-            <div className="flex items-start gap-4 group">
-              <div
-                className="
-                  flex h-12 w-12 shrink-0 items-center justify-center
-                  rounded-xl bg-cyan-500/20 text-cyan-600
-                  backdrop-blur-sm transition-transform
-                  group-hover:scale-110
-                "
-              >
-                <span className="material-symbols-outlined text-[24px]">
-                  psychology
-                </span>
-              </div>
-              <div className="flex flex-col gap-1">
-                <h3 className="text-lg font-bold text-slate-900">
-                  Ghi nhớ từ vựng thông minh
-                </h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  Học nhanh hơn, nhớ lâu hơn với các bài học tương tác.
-                </p>
-              </div>
-            </div>
-
-            {/* Feature 3 */}
-            <div className="flex items-start gap-4 group">
-              <div
-                className="
-                  flex h-12 w-12 shrink-0 items-center justify-center
-                  rounded-xl bg-emerald-500/20 text-emerald-600
-                  backdrop-blur-sm transition-transform
-                  group-hover:scale-110
-                "
-              >
-                <span className="material-symbols-outlined text-[24px]">
-                  trending_up
-                </span>
-              </div>
-              <div className="flex flex-col gap-1">
-                <h3 className="text-lg font-bold text-slate-900">
-                  Theo dõi tiến trình học
-                </h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  Xem rõ sự tiến bộ của bạn từng ngày.
-                </p>
-              </div>
-            </div>
+            <button
+              className="
+                h-11 px-8 rounded-xl text-sm font-semibold text-blue-600
+                bg-white border border-cyan-300
+                hover:bg-blue-50 transition
+              "
+            >
+              {t("signin.learnMore")}
+            </button>
+          </div>
+          <div>
+            <img src={img1} alt="img1" />
           </div>
         </div>
 
@@ -139,9 +91,11 @@ const SignIn: React.FC = () => {
             "
           >
             <div className="text-center mb-6">
-              <h2 className="text-2xl font-bold text-slate-900">Đăng Nhập</h2>
+              <h2 className="text-2xl font-bold text-slate-900">
+                {t("signin.formTitle")}
+              </h2>
               <p className="text-slate-500 text-sm mt-1">
-                Chào mừng quay lại! Vui lòng đăng nhập để tiếp tục học.
+                {t("signin.welcomeBack")}
               </p>
             </div>
 
@@ -149,7 +103,7 @@ const SignIn: React.FC = () => {
               {/* Email */}
               <div>
                 <label className="text-sm font-semibold text-slate-700">
-                  Email
+                  {t("signin.email")}
                 </label>
                 <input
                   type="email"
@@ -167,7 +121,7 @@ const SignIn: React.FC = () => {
               {/* Password */}
               <div>
                 <label className="text-sm font-semibold text-slate-700">
-                  Mật khẩu
+                  {t("signin.password")}
                 </label>
                 <div className="relative mt-2">
                   <input
@@ -200,7 +154,7 @@ const SignIn: React.FC = () => {
                     href="#"
                     className="text-blue-600 text-sm font-medium hover:underline"
                   >
-                    Quên mật khẩu?
+                    {t("signin.forgotPassword")}
                   </a>
                 </div>
               </div>
@@ -215,15 +169,18 @@ const SignIn: React.FC = () => {
                   hover:scale-[1.03] transition
                 "
               >
-                Đăng Nhập
+                {t("signin.signIn")}
               </button>
             </form>
 
             <p className="mt-5 text-center text-sm text-slate-600">
-              Chưa có tài khoản?
-              <a className="ml-1 font-bold text-emerald-600 hover:underline">
-                Đăng ký
-              </a>
+              {t("signin.noAccount")}
+              <Link
+                to="/register"
+                className="ml-1 font-bold text-emerald-600 hover:underline"
+              >
+                {t("signin.signUp")}
+              </Link>
             </p>
           </div>
         </div>
@@ -231,5 +188,4 @@ const SignIn: React.FC = () => {
     </div>
   );
 };
-
 export default SignIn;

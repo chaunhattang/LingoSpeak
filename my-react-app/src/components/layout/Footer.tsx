@@ -1,6 +1,8 @@
 import logo from "../../assets/images/logo.png";
+import { useTranslation } from "react-i18next";
 
 const HomeFooter = () => {
+  const { t } = useTranslation();
   return (
     <footer className="w-full bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800">
       <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-14">
@@ -29,15 +31,14 @@ const HomeFooter = () => {
               </h2>
             </div>
             <p className="text-sm text-slate-600 dark:text-slate-400 max-w-xs leading-relaxed">
-              Luyện nói tiếng Anh giúp cải thiện phát âm, phản xạ giao tiếp,
-              tăng tự tin và mở rộng cơ hội.
+              {t("footer.description")}
             </p>
           </div>
 
           {/* Company */}
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-900 dark:text-white">
-              Company
+              {t("footer.company")}
             </h4>
             <ul className="flex flex-col gap-2 text-sm text-slate-600 dark:text-slate-400">
               <li>
@@ -66,7 +67,7 @@ const HomeFooter = () => {
           {/* Support */}
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-900 dark:text-white">
-              Hỗ trợ
+              {t("footer.support")}
             </h4>
             <ul className="flex flex-col gap-2 text-sm text-slate-600 dark:text-slate-400">
               <li>
@@ -81,12 +82,12 @@ const HomeFooter = () => {
               </li>
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  Terms of Service
+                  Điều khoản dịch vụ
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  Privacy Policy
+                  Chính sách bảo mật
                 </a>
               </li>
             </ul>
@@ -95,7 +96,7 @@ const HomeFooter = () => {
           {/* Social */}
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-900 dark:text-white">
-              Follow Us
+              {t("footer.followUs")}
             </h4>
 
             <div className="flex items-center gap-4">
@@ -142,12 +143,14 @@ const HomeFooter = () => {
         {/* Bottom */}
         <div className="mt-12 border-t border-slate-200 dark:border-slate-800 pt-6 flex flex-col items-center justify-center">
           <p className="text-xs text-slate-500 text-center">
-            © {new Date().getFullYear()} Lingo Speak. All rights reserved.
+            {t("footer.copyright").replace(
+              "2024",
+              new Date().getFullYear().toString()
+            )}
           </p>
         </div>
       </div>
     </footer>
   );
 };
-
 export default HomeFooter;
