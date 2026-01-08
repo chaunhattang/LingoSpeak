@@ -164,11 +164,12 @@ const Home: React.FC = () => {
             {/* Image */}
             <div className="flex-1">
               <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-100   shadow-2xl lg:aspect-[4/3]">
-                <div className="absolute inset-0 flex items-center justify-center">
+                <div className="relative aspect-[5/5] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-100 shadow-2xl sm:aspect-square lg:aspect-[4/3]">
+                  {" "}
                   <img
                     src={lingo}
                     alt="Lingo Speak Logo"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-[33%_20%]"
                   />
                 </div>
               </div>
