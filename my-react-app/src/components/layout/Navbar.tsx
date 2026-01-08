@@ -49,16 +49,17 @@ const Navbar: React.FC = () => {
               />
             </div> */}
             <h2
-              className="flex items-center gap-1 font-bold tracking-tight
-               text-3xl sm:text-4xl lg:text-5xl leading-normal"
+              className="flex items-baseline gap-1 font-bold tracking-tight
+             text-3xl sm:text-4xl lg:text-5xl leading-normal
+             overflow-visible pb-1"
             >
-              <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
+              <span className="inline-block pb-[0.17em] bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
                 Ling
               </span>
 
               <img src={logo} alt="logo" className="h-12 w-12 inline-block" />
 
-              <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
+              <span className="inline-block pb-[0.17em] bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
                 Speak
               </span>
             </h2>
