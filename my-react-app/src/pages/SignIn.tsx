@@ -52,29 +52,6 @@ const SignIn: React.FC = () => {
               {t("signin.description")}
             </p>
           </div>
-
-          <div className="flex gap-4 ">
-            <button
-              className="
-                h-11 px-6 rounded-xl text-white text-sm font-semibold
-                bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500
-                shadow-lg shadow-blue-300/40
-                hover:scale-[1.03] transition
-              "
-            >
-              {t("signin.startNow")}
-            </button>
-
-            <button
-              className="
-                h-11 px-8 rounded-xl text-sm font-semibold text-blue-600
-                bg-white border border-cyan-300
-                hover:bg-blue-50 transition
-              "
-            >
-              {t("signin.learnMore")}
-            </button>
-          </div>
           <div>
             <img src={img1} alt="img1" />
           </div>
