@@ -1,7 +1,7 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import en from "./locales/en.json";
-import vn from "./locales/vn.json";
+import vi from "./locales/vi.json";
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -9,7 +9,7 @@ i18n.use(initReactI18next).init({
       translation: en,
     },
     vn: {
-      translation: vn,
+      translation: vi,
     },
   },
   lng: "en",
