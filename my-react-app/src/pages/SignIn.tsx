@@ -23,7 +23,7 @@ const SignIn: React.FC = () => {
     >
       <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-14 px-6">
         {/* LEFT CONTENT */}
-        <div className="flex flex-col justify-center ">
+        <div className="hidden lg:flex flex-col justify-center">
           {/* Logo */}
           <div className="flex items-center gap-3 mb-4">
             <h2 className="flex items-center text-5xl font-bold tracking-tight gap-1 leading-normal">
