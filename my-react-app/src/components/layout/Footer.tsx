@@ -141,7 +141,10 @@ const HomeFooter = () => {
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 border-t border-slate-200 dark:border-slate-800 pt-6 flex flex-col items-center justify-center">
+        <div
+          className="mt-5 border-t border-slate-200 dark:border-slate-800 
+        pt-6 flex flex-col items-center justify-center"
+        >
           <p className="text-xs text-slate-500 text-center">
             {t("footer.copyright").replace(
               "2024",
