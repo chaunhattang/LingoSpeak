@@ -1,8 +1,7 @@
 // src/data/topics.ts
 export interface Topic {
   id: number;
-  titleVi: string;
-  titleEn: string;
+  title: string;
   words: number;
   progress: number;
   icon: string;
@@ -12,8 +11,7 @@ export interface Topic {
 export const topics: Topic[] = [
   {
     id: 1,
-    titleVi: "Môi trường",
-    titleEn: "Environment",
+    title: "topics.environment",
     words: 25,
     progress: 40,
     icon: "eco",
@@ -22,11 +20,82 @@ export const topics: Topic[] = [
   },
   {
     id: 2,
-    titleVi: "Trường học",
-    titleEn: "School",
+    title: "topics.school",
     words: 30,
     progress: 0,
     icon: "school",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDyb1v5ipWk0q0dkYGRh_SXswTPONJ3gZPV0YQO3122mygd_SY_-aHU6N6V5KMFXbza2B9ZxuRFkkXzAwl7gOvR2UK3c7-uED3Ylsdhbj8lxfuq2kEbY8-KV_cFyg4FilrVxIbguQ251sMs10uz4GI86PPKKSeUqwrM1lKuahE3fLOTQDI7TPSV0BGkA59elliW_QEm37rt5XStDDw8giJNszrrOWqQ0b5zSzNpUfma6OoPHLOvOh3jumsuqMZg-4dkjDwAAvsvTkPl",
+  },
+  {
+    id: 3,
+    title: "topics.company",
+    words: 40,
+    progress: 15,
+    icon: "Company",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDyb1v5ipWk0q0dkYGRh_SXswTPONJ3gZPV0YQO3122mygd_SY_-aHU6N6V5KMFXbza2B9ZxuRFkkXzAwl7gOvR2UK3c7-uED3Ylsdhbj8lxfuq2kEbY8-KV_cFyg4FilrVxIbguQ251sMs10uz4GI86PPKKSeUqwrM1lKuahE3fLOTQDI7TPSV0BGkA59elliW_QEm37rt5XStDDw8giJNszrrOWqQ0b5zSzNpUfma6OoPHLOvOh3jumsuqMZg-4dkjDwAAvsvTkPl",
+  },
+  {
+    id: 4,
+    title: "topics.travel",
+    words: 20,
+    progress: 80,
+    icon: "Travel",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDyb1v5ipWk0q0dkYGRh_SXswTPONJ3gZPV0YQO3122mygd_SY_-aHU6N6V5KMFXbza2B9ZxuRFkkXzAwl7gOvR2UK3c7-uED3Ylsdhbj8lxfuq2kEbY8-KV_cFyg4FilrVxIbguQ251sMs10uz4GI86PPKKSeUqwrM1lKuahE3fLOTQDI7TPSV0BGkA59elliW_QEm37rt5XStDDw8giJNszrrOWqQ0b5zSzNpUfma6OoPHLOvOh3jumsuqMZg-4dkjDwAAvsvTkPl",
+  },
+  {
+    id: 5,
+    title: "topics.family",
+    words: 15,
+    progress: 0,
+    icon: "Family",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDyb1v5ipWk0q0dkYGRh_SXswTPONJ3gZPV0YQO3122mygd_SY_-aHU6N6V5KMFXbza2B9ZxuRFkkXzAwl7gOvR2UK3c7-uED3Ylsdhbj8lxfuq2kEbY8-KV_cFyg4FilrVxIbguQ251sMs10uz4GI86PPKKSeUqwrM1lKuahE3fLOTQDI7TPSV0BGkA59elliW_QEm37rt5XStDDw8giJNszrrOWqQ0b5zSzNpUfma6OoPHLOvOh3jumsuqMZg-4dkjDwAAvsvTkPl",
+  },
+  {
+    id: 6,
+    title: "topics.technology",
+    words: 35,
+    progress: 10,
+    icon: "Technology",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDyb1v5ipWk0q0dkYGRh_SXswTPONJ3gZPV0YQO3122mygd_SY_-aHU6N6V5KMFXbza2B9ZxuRFkkXzAwl7gOvR2UK3c7-uED3Ylsdhbj8lxfuq2kEbY8-KV_cFyg4FilrVxIbguQ251sMs10uz4GI86PPKKSeUqwrM1lKuahE3fLOTQDI7TPSV0BGkA59elliW_QEm37rt5XStDDw8giJNszrrOWqQ0b5zSzNpUfma6OoPHLOvOh3jumsuqMZg-4dkjDwAAvsvTkPl",
+  },
+  {
+    id: 7,
+    title: "topics.health",
+    words: 32,
+    progress: 0,
+    icon: "Health",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDyb1v5ipWk0q0dkYGRh_SXswTPONJ3gZPV0YQO3122mygd_SY_-aHU6N6V5KMFXbza2B9ZxuRFkkXzAwl7gOvR2UK3c7-uED3Ylsdhbj8lxfuq2kEbY8-KV_cFyg4FilrVxIbguQ251sMs10uz4GI86PPKKSeUqwrM1lKuahE3fLOTQDI7TPSV0BGkA59elliW_QEm37rt5XStDDw8giJNszrrOWqQ0b5zSzNpUfma6OoPHLOvOh3jumsuqMZg-4dkjDwAAvsvTkPl",
+  },
+  {
+    id: 8,
+    title: "topics.weather",
+    words: 18,
+    progress: 0,
+    icon: "Weather",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDyb1v5ipWk0q0dkYGRh_SXswTPONJ3gZPV0YQO3122mygd_SY_-aHU6N6V5KMFXbza2B9ZxuRFkkXzAwl7gOvR2UK3c7-uED3Ylsdhbj8lxfuq2kEbY8-KV_cFyg4FilrVxIbguQ251sMs10uz4GI86PPKKSeUqwrM1lKuahE3fLOTQDI7TPSV0BGkA59elliW_QEm37rt5XStDDw8giJNszrrOWqQ0b5zSzNpUfma6OoPHLOvOh3jumsuqMZg-4dkjDwAAvsvTkPl",
+  },
+  {
+    id: 9,
+    title: "topics.food",
+    words: 50,
+    progress: 60,
+    icon: "Food",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDyb1v5ipWk0q0dkYGRh_SXswTPONJ3gZPV0YQO3122mygd_SY_-aHU6N6V5KMFXbza2B9ZxuRFkkXzAwl7gOvR2UK3c7-uED3Ylsdhbj8lxfuq2kEbY8-KV_cFyg4FilrVxIbguQ251sMs10uz4GI86PPKKSeUqwrM1lKuahE3fLOTQDI7TPSV0BGkA59elliW_QEm37rt5XStDDw8giJNszrrOWqQ0b5zSzNpUfma6OoPHLOvOh3jumsuqMZg-4dkjDwAAvsvTkPl",
+  },
+  {
+    id: 10,
+    title: "topics.direction",
+    words: 28,
+    progress: 5,
+    icon: "Direction",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuDyb1v5ipWk0q0dkYGRh_SXswTPONJ3gZPV0YQO3122mygd_SY_-aHU6N6V5KMFXbza2B9ZxuRFkkXzAwl7gOvR2UK3c7-uED3Ylsdhbj8lxfuq2kEbY8-KV_cFyg4FilrVxIbguQ251sMs10uz4GI86PPKKSeUqwrM1lKuahE3fLOTQDI7TPSV0BGkA59elliW_QEm37rt5XStDDw8giJNszrrOWqQ0b5zSzNpUfma6OoPHLOvOh3jumsuqMZg-4dkjDwAAvsvTkPl",
   },

@@ -116,5 +116,22 @@
     "privacy": "Privacy Policy",
     "followUs": "Follow Us",
     "copyright": "© 2024 Lingo Speak. All rights reserved."
+  },
+  "topics": {
+    "environment": "Environment",
+    "school": "School",
+    "company": "Company",
+    "travel": "Travel",
+    "family": "Family",
+    "technology": "Technology",
+    "health": "Health",
+    "weather": "Weather",
+    "food": "Food",
+    "direction": "Direction"
+  },
+  "lesson": {
+    "words": "words",
+    "learned": "Learned {{percent}}%",
+    "notStarted": "Not started"
   }
 }

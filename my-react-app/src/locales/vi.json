@@ -116,5 +116,22 @@
     "privacy": "Chính sách bảo mật",
     "followUs": "Theo dõi chúng tôi",
     "copyright": "© 2026 Lingo Speak. Tất cả quyền được bảo lưu."
+  },
+  "topics": {
+    "environment": "Môi trường",
+    "school": "Trường học",
+    "company": "Công ty",
+    "travel": "Du lịch",
+    "family": "Gia đình",
+    "technology": "Công nghệ",
+    "health": "Sức khỏe",
+    "weather": "Thời tiết",
+    "food": "Ẩm thực",
+    "direction": "Phương hướng"
+  },
+  "lesson": {
+    "words": "từ",
+    "learned": "Đã học {{percent}}%",
+    "notStarted": "Chưa bắt đầu"
   }
 }

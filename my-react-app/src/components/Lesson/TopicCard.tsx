@@ -1,12 +1,14 @@
 // src/components/TopicCard.tsx
 // src/components/TopicCard.tsx
 import type { Topic } from "./Topics";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   topic: Topic;
 }
 
 const TopicCard = ({ topic }: Props) => {
+  const { t } = useTranslation();
   return (
     <div className="group flex flex-col bg-white dark:bg-[#1a2632] rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-[#e7edf3] dark:border-[#2a3b4d] overflow-hidden cursor-pointer h-full">
       <div className="relative h-40 w-full overflow-hidden">
@@ -22,7 +24,7 @@ const TopicCard = ({ topic }: Props) => {
             </span>
           </div>
           <span className="text-white font-bold text-lg drop-shadow-md">
-            {topic.titleVi}
+            {t(topic.title)}
           </span>
         </div>
       </div>
@@ -30,13 +32,13 @@ const TopicCard = ({ topic }: Props) => {
       <div className="p-4 flex flex-col flex-1 gap-3">
         <div className="flex justify-between items-center text-sm">
           <span className="bg-[#e7edf3] dark:bg-[#2a3b4d] text-[#4c739a] dark:text-slate-300 px-2 py-1 rounded-md font-medium text-xs">
-            {topic.titleEn}
+            {t(topic.title)}
           </span>
           <span className="text-[#4c739a] font-medium flex items-center gap-1">
             <span className="material-symbols-outlined text-[16px]">
               translate
             </span>
-            {topic.words} từ
+            {topic.words} {t("lesson.words")}
           </span>
         </div>
 
@@ -46,7 +48,9 @@ const TopicCard = ({ topic }: Props) => {
               topic.progress > 0 ? "text-primary" : "text-slate-400"
             }`}
           >
-            {topic.progress > 0 ? `Đã học ${topic.progress}%` : "Chưa bắt đầu"}
+            {topic.progress > 0
+              ? t("lesson.learned", { percent: topic.progress })
+              : t("lesson.notStarted")}
           </span>
 
           <div className="w-full bg-[#e7edf3] dark:bg-[#2a3b4d] rounded-full h-2 mt-1">
@@ -60,5 +64,4 @@ const TopicCard = ({ topic }: Props) => {
     </div>
   );
 };
-
 export default TopicCard;
