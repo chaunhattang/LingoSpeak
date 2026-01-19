@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <header className=" fixed  top-0 z-50 w-full border-b border-slate-200  bg-background-light/80  backdrop-blur-md ">
+    <header className=" fixed top-0 z-50 w-full border-b border-slate-200  bg-background-light/80  backdrop-blur-md ">
       <div className="flex w-full justify-center">
         <div className="flex w-full max-w-[1280px] items-center justify-between px-6 py-4 lg:px-10">
           {/* Logo */}
