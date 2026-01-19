@@ -1,6 +1,7 @@
 // src/components/TopicCard.tsx
 // src/components/TopicCard.tsx
 import type { Topic } from "./Topics";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 interface Props {
@@ -9,8 +10,12 @@ interface Props {
 
 const TopicCard = ({ topic }: Props) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   return (
-    <div className="group flex flex-col bg-white dark:bg-[#1a2632] rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-[#e7edf3] dark:border-[#2a3b4d] overflow-hidden cursor-pointer h-full">
+    <div
+      onClick={() => navigate(`/lesson/${topic.slug}`)}
+      className="group flex flex-col bg-white dark:bg-[#1a2632] rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-[#e7edf3] dark:border-[#2a3b4d] overflow-hidden cursor-pointer h-full"
+    >
       <div className="relative h-40 w-full overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
         <div
