@@ -14,24 +14,21 @@ const feedbackUser = [
     name: "Ngọc Anh",
     role: "Sinh viên năm 2",
     rating: 5,
-    feedback:
-      "Mình cải thiện phát âm rõ rệt sau vài tuần luyện tập. Các bài nghe – nói rất sát với giao tiếp thực tế.",
+    feedback: "Mình cải thiện phát âm rõ rệt sau vài tuần luyện tập. Các bài nghe – nói rất sát với giao tiếp thực tế.",
   },
   {
     img: user2,
     name: "Minh Tuấn",
     role: "Nhân viên văn phòng",
     rating: 4,
-    feedback:
-      "Flashcard thông minh giúp mình nhớ từ vựng lâu hơn. Học mỗi ngày 15–20 phút nhưng hiệu quả rõ ràng.",
+    feedback: "Flashcard thông minh giúp mình nhớ từ vựng lâu hơn. Học mỗi ngày 15–20 phút nhưng hiệu quả rõ ràng.",
   },
   {
     img: user3,
     name: "Thu Trang",
     role: "Người mới bắt đầu",
     rating: 5,
-    feedback:
-      "Giao diện dễ dùng, lộ trình rõ ràng nên mình không bị nản. Có động lực học đều mỗi ngày.",
+    feedback: "Giao diện dễ dùng, lộ trình rõ ràng nên mình không bị nản. Có động lực học đều mỗi ngày.",
   },
 ];
 
@@ -103,24 +100,19 @@ const Home: React.FC = () => {
     <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-background-light text-slate-900  transition-colors duration-200">
       <Navbar />
 
-      <main className="flex flex-1 flex-col items-center bg-slate-100">
+      <main className="flex flex-1 flex-col items-center bg-slate-100 mt-20 md:mt-20 ">
         {/* ================= HERO SECTION ================= */}
-        <section className="w-full max-w-[1280px] px-6 lg:px-10 py-12 lg:py-20">
+        <section className="w-full max-w-[1280px] px-6 lg:px-10 py-12 md:py-28">
           <div className="flex flex-col-reverse gap-10 md:flex-row md:items-center lg:gap-20">
             {/* Content */}
             <div className="flex flex-1 flex-col gap-6 text-center md:text-left">
               <div className="space-y-4">
                 <h1 className="text-4xl font-black leading-tight tracking-tight md:text-4xl lg:text-5xl">
                   {t("home.hero.title")}
-                  <br className="hidden lg:block" />
-                  <span className="text-primary italic">
-                    {" "}
-                    {t("home.hero.subtitle")}{" "}
-                  </span>
+                  <br className="hidden md:block" />
+                  <span className="text-primary italic block md:mt-4"> {t("home.hero.subtitle")} </span>
                 </h1>
-                <p className="text-base text-slate-600  md:text-lg">
-                  {t("home.hero.description")}
-                </p>
+                <p className="text-base text-slate-600  md:text-lg">{t("home.hero.description")}</p>
               </div>
 
               <div className="flex flex-col items-center gap-3 sm:flex-row md:justify-start">
@@ -142,22 +134,15 @@ const Home: React.FC = () => {
                 </button>
               </div>
 
-              <div className="mt-4 flex items-center justify-center gap-4 text-sm text-slate-500 md:justify-start">
+              <div className="mt-1 md:mt-4 flex items-center justify-center gap-4 text-sm text-slate-500 md:justify-start">
                 <div className="flex -space-x-2">
                   {avatarList.map((i) => (
-                    <div
-                      key={i}
-                      className="size-8 rounded-full border-2 border-white  bg-slate-200"
-                    >
-                      <img
-                        src={i}
-                        alt=""
-                        className="w-full h-full object-cover rounded-full"
-                      />
+                    <div key={i} className="size-8 rounded-full border-2 border-white  bg-slate-200">
+                      <img src={i} alt="" className="w-full h-full object-cover rounded-full" />
                     </div>
                   ))}
                 </div>
-                <p>{t("home.hero.studentsCount")}</p>
+                <p className="text-xs md:text-sm">{t("home.hero.studentsCount")}</p>
               </div>
             </div>
 
@@ -166,11 +151,7 @@ const Home: React.FC = () => {
               <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-100   shadow-2xl lg:aspect-[4/3]">
                 <div className="relative aspect-[5/5] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-100 shadow-2xl sm:aspect-square lg:aspect-[4/3]">
                   {" "}
-                  <img
-                    src={lingo}
-                    alt="Lingo Speak Logo"
-                    className="w-full h-full object-cover object-[33%_20%]"
-                  />
+                  <img src={lingo} alt="Lingo Speak Logo" className="w-full h-full object-cover object-[33%_20%]" />
                 </div>
               </div>
             </div>
@@ -181,15 +162,9 @@ const Home: React.FC = () => {
         <section className="w-full bg-white  py-16">
           <div className="mx-auto w-full max-w-[1280px] px-6 lg:px-10">
             <div className="mb-12 text-center">
-              <span className="mb-2 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
-                {t("home.features.sectionTitle")}
-              </span>
-              <h2 className="text-3xl font-bold md:text-4xl">
-                {t("home.features.title")}
-              </h2>
-              <p className="mt-4 mx-auto max-w-2xl text-slate-600 ">
-                {t("home.features.description")}
-              </p>
+              <span className="mb-2 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">{t("home.features.sectionTitle")}</span>
+              <h2 className="text-3xl font-bold md:text-4xl">{t("home.features.title")}</h2>
+              <p className="mt-4 mx-auto max-w-2xl text-slate-600 ">{t("home.features.description")}</p>
             </div>
 
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -197,24 +172,17 @@ const Home: React.FC = () => {
                 const color = colorMap[item.color];
 
                 return (
-                  <div
-                    key={index}
-                    className="flex flex-col gap-4 rounded-2xl border border-slate-100 bg-background-light p-6 transition hover:-translate-y-1 hover:shadow-lg"
-                  >
+                  <div key={index} className="flex flex-col gap-4 rounded-2xl border border-slate-100 bg-background-light p-6 transition hover:-translate-y-1 hover:shadow-lg">
                     <div
                       className={`flex size-14 items-center justify-center rounded-xl 
         ${color.bg} ${color.text} ${color.darkBg} ${color.darkText}`}
                     >
-                      <span className="material-symbols-outlined text-3xl">
-                        {item.icon}
-                      </span>
+                      <span className="material-symbols-outlined text-3xl">{item.icon}</span>
                     </div>
 
                     <div>
                       <h3 className="text-lg font-bold">{item.title}</h3>
-                      <p className="mt-2 text-sm text-slate-500">
-                        {item.description}
-                      </p>
+                      <p className="mt-2 text-sm text-slate-500">{item.description}</p>
                     </div>
                   </div>
                 );
@@ -227,53 +195,33 @@ const Home: React.FC = () => {
         <section className="w-full py-16 lg:py-24">
           <div className="mx-auto w-full max-w-[1280px] px-6 lg:px-10">
             <div className="mb-12 text-center">
-              <span className="mb-2 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
-                {t("home.testimonials.sectionTitle")}
-              </span>
-              <h2 className="text-3xl font-bold md:text-4xl">
-                {t("home.testimonials.title")}
-              </h2>
+              <span className="mb-2 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">{t("home.testimonials.sectionTitle")}</span>
+              <h2 className="text-3xl font-bold md:text-4xl">{t("home.testimonials.title")}</h2>
             </div>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {feedbackUser.map((user, index) => (
-                <div
-                  key={index}
-                  className="flex items-start gap-5 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200"
-                >
+                <div key={index} className="flex items-start gap-5 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
                   {/* Avatar */}
-                  <img
-                    src={user.img}
-                    alt={user.name}
-                    className="h-16 w-16 rounded-full object-cover ring-2 ring-primary/20"
-                  />
+                  <img src={user.img} alt={user.name} className="h-16 w-16 rounded-full object-cover ring-2 ring-primary/20" />
 
                   {/* Content */}
                   <div className="flex flex-col gap-2">
                     <div>
-                      <p className="font-bold text-slate-900">
-                        {t(`home.testimonials.user${index + 1}.name`)}
-                      </p>
-                      <p className="text-xs text-slate-500">
-                        {t(`home.testimonials.user${index + 1}.role`)}
-                      </p>
+                      <p className="font-bold text-slate-900">{t(`home.testimonials.user${index + 1}.name`)}</p>
+                      <p className="text-xs text-slate-500">{t(`home.testimonials.user${index + 1}.role`)}</p>
 
                       {/* Rating */}
                       <div className="mt-1 flex items-center gap-1 text-yellow-400">
                         {[...Array(5)].map((_, i) => (
-                          <span
-                            key={i}
-                            className="material-symbols-outlined text-base"
-                          >
+                          <span key={i} className="material-symbols-outlined text-base">
                             {i < user.rating ? "star" : "star_outline"}
                           </span>
                         ))}
                       </div>
                     </div>
 
-                    <p className="text-sm italic text-slate-700 leading-relaxed">
-                      "{t(`home.testimonials.user${index + 1}.feedback`)}"
-                    </p>
+                    <p className="text-sm italic text-slate-700 leading-relaxed">"{t(`home.testimonials.user${index + 1}.feedback`)}"</p>
                   </div>
                 </div>
               ))}

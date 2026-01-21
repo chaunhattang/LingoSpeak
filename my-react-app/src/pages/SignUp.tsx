@@ -40,10 +40,10 @@ const SignUp: React.FC = () => {
 
           {/* Heading */}
           <div className="flex flex-col gap-3">
-            <h1 className="text-3xl font-extrabold leading-snug text-slate-900">
+            <h1 className="text-2xl font-extrabold leading-snug text-slate-900">
               {t("signup.title")}
               <br />
-              <span className="text-blue-600 italic  ">
+              <span className="text-blue-600 italic text-2xl block mt-2">
                 {t("signup.subtitle")}
               </span>
             </h1>
