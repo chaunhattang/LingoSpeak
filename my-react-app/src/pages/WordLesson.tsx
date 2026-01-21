@@ -14,10 +14,10 @@ const WordLesson = () => {
         <div className="flex-1 max-w-md mx-10">
           <div className="flex justify-between text-sm mb-1">
             <span>Progress</span>
-            <span className="text-primary font-bold">5 / 20</span>
+            <span className="text-primary font-bold">6 / 20</span>
           </div>
           <div className="h-2 bg-slate-200 rounded-full">
-            <div className="h-2 w-1/4 bg-primary rounded-full" />
+            <div className="h-2 w-1/3 bg-primary rounded-full" />
           </div>
         </div>
 
@@ -40,13 +40,13 @@ const WordLesson = () => {
         {/* LEFT */}
         <div className="p-8 border-r">
           <img
-            src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1"
+            src="https://images.unsplash.com/photo-1503596476-1c12a8ba09a9"
             className="rounded-xl mb-6"
           />
           <p className="text-sm text-slate-500 text-center">
             MEANING (VIETNAMESE)
           </p>
-          <p className="text-2xl font-bold text-center">Vé lên máy bay</p>
+          <p className="text-2xl font-bold text-center">Tái chế</p>
         </div>
 
         {/* RIGHT */}
@@ -60,9 +60,9 @@ const WordLesson = () => {
             </span>
           </div>
 
-          {/* WORD INPUT (demo tĩnh) */}
+          {/* WORD INPUT */}
           <div className="flex flex-wrap justify-center gap-3 my-10">
-            {["B", "O", "A", "", "D", "I", "N", "G"].map((c, i) =>
+            {["R", "E", "", "Y", "C", "", "I", "N", "G"].map((c, i) =>
               c ? (
                 <div
                   key={i}
