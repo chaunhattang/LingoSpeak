@@ -1,12 +1,16 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
+import img1 from "../assets/images/img1.png";
 
 const SignIn: React.FC = () => {
+  const { t } = useTranslation();
   const [showPassword, setShowPassword] = useState(false);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    console.log("sign in");
+    console.log("Đăng nhập");
   }
 
   return (
@@ -19,13 +23,10 @@ const SignIn: React.FC = () => {
     >
       <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-14 px-6">
         {/* LEFT CONTENT */}
-        <div className="flex flex-col justify-center ">
+        <div className="hidden lg:flex flex-col justify-center">
           {/* Logo */}
           <div className="flex items-center gap-3 mb-4">
-            {/* <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow">
-              <img src={logo} alt="logo" className="rounded-full" />
-            </div> */}
-            <h2 className="flex items-center text-6xl font-bold tracking-tight gap-1">
+            <h2 className="flex items-center text-5xl font-bold tracking-tight gap-1 leading-normal">
               <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
                 Ling
               </span>
@@ -37,97 +38,22 @@ const SignIn: React.FC = () => {
               </span>
             </h2>
           </div>
-
           {/* Heading */}
           <div className="flex flex-col gap-3">
-            <h1 className="text-4xl font-extrabold leading-snug text-slate-900">
-              Improve Your English Speaking Skills
+            <h1 className="text-3xl font-extrabold leading-snug text-slate-900">
+              {t("signin.title")}
               <br />
-              <span className="text-blue-600 italic">
-                Effective – Practical – Every Day
+              <span className="text-blue-600 italic  ">
+                {t("signin.subtitle")}
               </span>
             </h1>
 
-            <p className="text-slate-600 max-w-xl text-sm leading-relaxed">
-              Practice speaking daily with a smart learning path to improve
-              pronunciation, fluency, and real-life communication naturally.
+            <p className="text-slate-600 max-w-xl text-sm leading-relaxed mb-6">
+              {t("signin.description")}
             </p>
           </div>
-
-          {/* FEATURES (ĐÃ GHÉP) */}
-          <div className="flex flex-col gap-6 mt-6">
-            {/* Feature 1 */}
-            <div className="flex items-start gap-4 group">
-              <div
-                className="
-                  flex h-12 w-12 shrink-0 items-center justify-center
-                  rounded-xl bg-blue-500/20 text-blue-600
-                  backdrop-blur-sm transition-transform
-                  group-hover:scale-110
-                "
-              >
-                <span className="material-symbols-outlined text-[24px]">
-                  headphones
-                </span>
-              </div>
-              <div className="flex flex-col gap-1">
-                <h3 className="text-lg font-bold text-slate-900">
-                  Listening – Speaking – Recording
-                </h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  Practice native pronunciation with clear and accurate
-                  guidance.
-                </p>
-              </div>
-            </div>
-
-            {/* Feature 2 */}
-            <div className="flex items-start gap-4 group">
-              <div
-                className="
-                  flex h-12 w-12 shrink-0 items-center justify-center
-                  rounded-xl bg-cyan-500/20 text-cyan-600
-                  backdrop-blur-sm transition-transform
-                  group-hover:scale-110
-                "
-              >
-                <span className="material-symbols-outlined text-[24px]">
-                  psychology
-                </span>
-              </div>
-              <div className="flex flex-col gap-1">
-                <h3 className="text-lg font-bold text-slate-900">
-                  Smart Vocabulary Memory
-                </h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  Learn faster and remember longer with interactive lessons.
-                </p>
-              </div>
-            </div>
-
-            {/* Feature 3 */}
-            <div className="flex items-start gap-4 group">
-              <div
-                className="
-                  flex h-12 w-12 shrink-0 items-center justify-center
-                  rounded-xl bg-emerald-500/20 text-emerald-600
-                  backdrop-blur-sm transition-transform
-                  group-hover:scale-110
-                "
-              >
-                <span className="material-symbols-outlined text-[24px]">
-                  trending_up
-                </span>
-              </div>
-              <div className="flex flex-col gap-1">
-                <h3 className="text-lg font-bold text-slate-900">
-                  Learning Progress Tracking
-                </h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  Clearly see your improvement day by day.
-                </p>
-              </div>
-            </div>
+          <div>
+            <img src={img1} alt="img1" />
           </div>
         </div>
 
@@ -142,9 +68,11 @@ const SignIn: React.FC = () => {
             "
           >
             <div className="text-center mb-6">
-              <h2 className="text-2xl font-bold text-slate-900">Sign In</h2>
+              <h2 className="text-2xl font-bold text-slate-900">
+                {t("signin.formTitle")}
+              </h2>
               <p className="text-slate-500 text-sm mt-1">
-                Welcome back! Please sign in to continue learning.
+                {t("signin.welcomeBack")}
               </p>
             </div>
 
@@ -152,12 +80,12 @@ const SignIn: React.FC = () => {
               {/* Email */}
               <div>
                 <label className="text-sm font-semibold text-slate-700">
-                  Email
+                  {t("signin.email")}
                 </label>
                 <input
                   type="email"
                   required
-                  placeholder="you@example.com"
+                  placeholder="ban@example.com"
                   className="
                     mt-2 w-full h-11 px-4 rounded-xl text-sm
                     bg-slate-50 border border-slate-200
@@ -170,7 +98,7 @@ const SignIn: React.FC = () => {
               {/* Password */}
               <div>
                 <label className="text-sm font-semibold text-slate-700">
-                  Password
+                  {t("signin.password")}
                 </label>
                 <div className="relative mt-2">
                   <input
@@ -203,7 +131,7 @@ const SignIn: React.FC = () => {
                     href="#"
                     className="text-blue-600 text-sm font-medium hover:underline"
                   >
-                    Forgot password?
+                    {t("signin.forgotPassword")}
                   </a>
                 </div>
               </div>
@@ -218,15 +146,18 @@ const SignIn: React.FC = () => {
                   hover:scale-[1.03] transition
                 "
               >
-                Sign In
+                {t("signin.signIn")}
               </button>
             </form>
 
             <p className="mt-5 text-center text-sm text-slate-600">
-              Don’t have an account?
-              <a className="ml-1 font-bold text-emerald-600 hover:underline">
-                Sign up
-              </a>
+              {t("signin.noAccount")}
+              <Link
+                to="/register"
+                className="ml-1 font-bold text-emerald-600 hover:underline"
+              >
+                {t("signin.signUp")}
+              </Link>
             </p>
           </div>
         </div>
@@ -234,5 +165,4 @@ const SignIn: React.FC = () => {
     </div>
   );
 };
-
 export default SignIn;

@@ -1,0 +1,137 @@
+{
+  "home": {
+    "hero": {
+      "title": "Learn to speak English",
+      "subtitle": "simply – effectively",
+      "description": "Help you accumulate vocabulary naturally and get familiar with English through practical exercises, easily maintaining daily learning without feeling pressured.",
+      "startLearning": "Start Learning Now",
+      "learnMore": "Learn More",
+      "studentsCount": "+10,000 students are participating in the course."
+    },
+    "features": {
+      "sectionTitle": "Features",
+      "title": "Featured Features",
+      "description": "A leading online English learning platform, personalized to your level, helping you communicate confidently anytime, anywhere.",
+      "listeningSpeaking": {
+        "title": "Listening & Speaking Practice",
+        "description": "Practice pronunciation, intonation, and communication reflexes through real-life conversations."
+      },
+      "smartFlashcards": {
+        "title": "Smart Flashcards",
+        "description": "Remember vocabulary faster with personalized flashcards based on your learning progress."
+      },
+      "recordingComparison": {
+        "title": "Recording & Comparison",
+        "description": "Compare your voice with native speakers to improve accurate pronunciation."
+      },
+      "learnByTopic": {
+        "title": "Learn by Topic",
+        "description": "Choose topics that suit your learning goals and daily communication."
+      }
+    },
+    "testimonials": {
+      "sectionTitle": "LingoSpeak User Community",
+      "title": "Student Feedback",
+      "user1": {
+        "name": "Ngoc Anh",
+        "role": "2nd Year Student",
+        "feedback": "I significantly improved my pronunciation after a few weeks of practice. The listening-speaking exercises are very close to real-life communication."
+      },
+      "user2": {
+        "name": "Minh Tuan",
+        "role": "Office Worker",
+        "feedback": "Smart flashcards help me remember vocabulary longer. Studying 15-20 minutes a day but the results are clear."
+      },
+      "user3": {
+        "name": "Thu Trang",
+        "role": "Beginner",
+        "feedback": "Easy-to-use interface, clear roadmap so I don't get discouraged. Motivated to study every day."
+      }
+    }
+  },
+  "signin": {
+    "title": "Practice speaking English with native speakers",
+    "subtitle": "Confident – Flexible – Every Day",
+    "description": "Develop English speaking skills with a smart learning path, interactive exercises, and real-time feedback.",
+    "startNow": "Start Now",
+    "learnMore": "Learn More",
+    "formTitle": "Sign In",
+    "welcomeBack": "Welcome back! Please sign in to continue learning.",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot password?",
+    "signIn": "Sign In",
+    "noAccount": "Don't have an account?",
+    "signUp": "Sign Up"
+  },
+  "signup": {
+    "title": "Improve your English speaking skills",
+    "subtitle": "Effective – Practical – Daily",
+    "description": "Practice speaking daily with a smart learning path to improve pronunciation, fluency, and natural communication.",
+    "features": {
+      "listenSpeakRecord": {
+        "title": "Listen – Speak – Record",
+        "description": "Practice standard pronunciation like native speakers with clear guidance."
+      },
+      "smartVocabulary": {
+        "title": "Smart Vocabulary Memorization",
+        "description": "Learn faster, remember longer with interactive lessons."
+      },
+      "trackProgress": {
+        "title": "Track Learning Progress",
+        "description": "See your progress clearly every day."
+      }
+    },
+    "formTitle": "Create Your Account",
+    "startJourney": "Start your English learning journey today.",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "emailPlaceholder": "Enter your email",
+    "passwordPlaceholder": "Enter password",
+    "confirmPasswordPlaceholder": "Enter password again",
+    "signUp": "Sign Up",
+    "haveAccount": "Already have an account?",
+    "signIn": "Sign In"
+  },
+  "navbar": {
+    "home": "Home",
+    "lessons": "Lesson List",
+    "review": "Review",
+    "vocabulary": "Vocabulary Notebook",
+    "signIn": "Sign In",
+    "signUp": "Sign Up"
+  },
+  "footer": {
+    "description": "Practicing English speaking helps improve pronunciation, communication reflexes, increase confidence, and expand opportunities.",
+    "company": "Company",
+    "aboutUs": "About Us",
+    "careers": "Careers",
+    "blog": "Blog",
+    "press": "Press",
+    "support": "Support",
+    "supportCenter": "Support Center",
+    "contact": "Contact",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "followUs": "Follow Us",
+    "copyright": "© 2024 Lingo Speak. All rights reserved."
+  },
+  "topics": {
+    "environment": "Environment",
+    "school": "School",
+    "company": "Company",
+    "travel": "Travel",
+    "family": "Family",
+    "technology": "Technology",
+    "health": "Health",
+    "weather": "Weather",
+    "food": "Food",
+    "direction": "Direction"
+  },
+  "lesson": {
+    "words": "words",
+    "learned": "Learned {{percent}}%",
+    "notStarted": "Not started"
+  }
+}

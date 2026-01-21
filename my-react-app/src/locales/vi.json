@@ -1,0 +1,137 @@
+{
+  "home": {
+    "hero": {
+      "title": "Học nói tiếng Anh",
+      "subtitle": "đơn giản – hiệu quả",
+      "description": "Giúp bạn tích lũy từ vựng một cách tự nhiên và làm quen với tiếng Anh qua các bài luyện thực tế, dễ dàng duy trì việc học mỗi ngày mà không cảm thấy áp lực.",
+      "startLearning": "Bắt đầu học ngay",
+      "learnMore": "Tìm hiểu thêm",
+      "studentsCount": "+10.000 học viên đang tham gia khóa học."
+    },
+    "features": {
+      "sectionTitle": "Tính năng",
+      "title": "Tính năng nổi bật",
+      "description": "Một nền tảng học tiếng Anh trực tuyến hàng đầu, được cá nhân hóa theo trình độ của bạn, giúp bạn tự tin giao tiếp mọi lúc, mọi nơi.",
+      "listeningSpeaking": {
+        "title": "Luyện nghe & nói",
+        "description": "Luyện phát âm, ngữ điệu và phản xạ giao tiếp qua hội thoại thực tế."
+      },
+      "smartFlashcards": {
+        "title": "Flashcard thông minh",
+        "description": "Ghi nhớ từ vựng nhanh hơn với flashcard cá nhân hóa theo tiến độ học."
+      },
+      "recordingComparison": {
+        "title": "Ghi âm & so sánh",
+        "description": "So sánh giọng nói với người bản xứ để cải thiện phát âm chính xác."
+      },
+      "learnByTopic": {
+        "title": "Học theo chủ đề",
+        "description": "Chọn chủ đề phù hợp với mục tiêu học tập và giao tiếp hằng ngày."
+      }
+    },
+    "testimonials": {
+      "sectionTitle": "Cộng đồng người dùng LingoSpeak",
+      "title": "Phản hồi của học viên",
+      "user1": {
+        "name": "Ngọc Anh",
+        "role": "Sinh viên năm 2",
+        "feedback": "Mình cải thiện phát âm rõ rệt sau vài tuần luyện tập. Các bài nghe – nói rất sát với giao tiếp thực tế."
+      },
+      "user2": {
+        "name": "Minh Tuấn",
+        "role": "Nhân viên văn phòng",
+        "feedback": "Flashcard thông minh giúp mình nhớ từ vựng lâu hơn. Học mỗi ngày 15–20 phút nhưng hiệu quả rõ ràng."
+      },
+      "user3": {
+        "name": "Thu Trang",
+        "role": "Người mới bắt đầu",
+        "feedback": "Giao diện dễ dùng, lộ trình rõ ràng nên mình không bị nản. Có động lực học đều mỗi ngày."
+      }
+    }
+  },
+  "signin": {
+    "title": "Luyện nói tiếng Anh cùng người bản xứ",
+    "subtitle": "Tự tin – Linh hoạt – Mỗi ngày",
+    "description": "Phát triển kỹ năng nói tiếng Anh với lộ trình học thông minh, bài luyện tương tác và phản hồi theo thời gian thực.",
+    "startNow": "Bắt đầu ngay",
+    "learnMore": "Tìm hiểu thêm",
+    "formTitle": "Đăng Nhập",
+    "welcomeBack": "Chào mừng quay lại! Vui lòng đăng nhập để tiếp tục học.",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "forgotPassword": "Quên mật khẩu?",
+    "signIn": "Đăng Nhập",
+    "noAccount": "Chưa có tài khoản?",
+    "signUp": "Đăng ký"
+  },
+  "signup": {
+    "title": "Cải thiện kỹ năng nói tiếng Anh của bạn",
+    "subtitle": "Hiệu quả – Thực tế – Hàng ngày",
+    "description": "Luyện nói hàng ngày với lộ trình học thông minh để cải thiện phát âm, sự lưu loát và giao tiếp thực tế một cách tự nhiên.",
+    "features": {
+      "listenSpeakRecord": {
+        "title": "Nghe – Nói – Ghi âm",
+        "description": "Luyện phát âm chuẩn như người bản xứ với hướng dẫn rõ ràng."
+      },
+      "smartVocabulary": {
+        "title": "Ghi nhớ từ vựng thông minh",
+        "description": "Học nhanh hơn, nhớ lâu hơn với các bài học tương tác."
+      },
+      "trackProgress": {
+        "title": "Theo dõi tiến trình học",
+        "description": "Xem rõ sự tiến bộ của bạn từng ngày."
+      }
+    },
+    "formTitle": "Tạo tài khoản của bạn",
+    "startJourney": "Bắt đầu hành trình học tiếng Anh của bạn ngay hôm nay.",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "confirmPassword": "Nhập lại mật khẩu",
+    "emailPlaceholder": "Nhập email của bạn",
+    "passwordPlaceholder": "Nhập mật khẩu",
+    "confirmPasswordPlaceholder": "Nhập lại mật khẩu",
+    "signUp": "Đăng ký",
+    "haveAccount": "Đã có tài khoản?",
+    "signIn": "Đăng nhập"
+  },
+  "navbar": {
+    "home": "Trang chủ",
+    "lessons": "Danh sách bài học",
+    "review": "Ôn tập",
+    "vocabulary": "Sổ tay từ vựng",
+    "signIn": "Đăng nhập",
+    "signUp": "Đăng ký"
+  },
+  "footer": {
+    "description": "Luyện nói tiếng Anh giúp cải thiện phát âm, phản xạ giao tiếp, tăng tự tin và mở rộng cơ hội.",
+    "company": "Công ty",
+    "aboutUs": "Về chúng tôi",
+    "careers": "Tuyển dụng",
+    "blog": "Blog",
+    "press": "Báo chí",
+    "support": "Hỗ trợ",
+    "supportCenter": "Trung tâm hỗ trợ",
+    "contact": "Liên hệ",
+    "terms": "Điều khoản dịch vụ",
+    "privacy": "Chính sách bảo mật",
+    "followUs": "Theo dõi chúng tôi",
+    "copyright": "© 2026 Lingo Speak. Tất cả quyền được bảo lưu."
+  },
+  "topics": {
+    "environment": "Môi trường",
+    "school": "Trường học",
+    "company": "Công ty",
+    "travel": "Du lịch",
+    "family": "Gia đình",
+    "technology": "Công nghệ",
+    "health": "Sức khỏe",
+    "weather": "Thời tiết",
+    "food": "Ẩm thực",
+    "direction": "Phương hướng"
+  },
+  "lesson": {
+    "words": "từ",
+    "learned": "Đã học {{percent}}%",
+    "notStarted": "Chưa bắt đầu"
+  }
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import lingo from "../assets/images/lingo.png";
@@ -7,36 +8,6 @@ import user2 from "../assets/images/user2.jpg";
 import user3 from "../assets/images/user3.jpg";
 
 const avatarList = [user1, user2, user3];
-const typeQuestion = [
-  {
-    title: "Luyện nghe & nói",
-    icon: "headphones",
-    color: "blue",
-    description:
-      "Luyện phát âm, ngữ điệu và phản xạ giao tiếp qua hội thoại thực tế.",
-  },
-  {
-    title: "Flashcard thông minh",
-    icon: "style",
-    color: "orange",
-    description:
-      "Ghi nhớ từ vựng nhanh hơn với flashcard cá nhân hóa theo tiến độ học.",
-  },
-  {
-    title: "Ghi âm & so sánh",
-    icon: "mic",
-    color: "red",
-    description:
-      "So sánh giọng nói với người bản xứ để cải thiện phát âm chính xác.",
-  },
-  {
-    title: "Học theo chủ đề",
-    icon: "category",
-    color: "emerald",
-    description:
-      "Chọn chủ đề phù hợp với mục tiêu học tập và giao tiếp hằng ngày.",
-  },
-];
 const feedbackUser = [
   {
     img: user1,
@@ -99,6 +70,35 @@ const colorMap: Record<
   },
 };
 const Home: React.FC = () => {
+  const { t } = useTranslation();
+
+  const typeQuestion = [
+    {
+      title: t("home.features.listeningSpeaking.title"),
+      icon: "headphones",
+      color: "blue",
+      description: t("home.features.listeningSpeaking.description"),
+    },
+    {
+      title: t("home.features.smartFlashcards.title"),
+      icon: "style",
+      color: "orange",
+      description: t("home.features.smartFlashcards.description"),
+    },
+    {
+      title: t("home.features.recordingComparison.title"),
+      icon: "mic",
+      color: "red",
+      description: t("home.features.recordingComparison.description"),
+    },
+    {
+      title: t("home.features.learnByTopic.title"),
+      icon: "category",
+      color: "emerald",
+      description: t("home.features.learnByTopic.description"),
+    },
+  ];
+
   return (
     <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-background-light text-slate-900  transition-colors duration-200">
       <Navbar />
@@ -110,14 +110,16 @@ const Home: React.FC = () => {
             {/* Content */}
             <div className="flex flex-1 flex-col gap-6 text-center md:text-left">
               <div className="space-y-4">
-                <h1 className="text-4xl font-black leading-tight tracking-tight md:text-5xl lg:text-6xl">
-                  Học nói tiếng Anh <br className="hidden lg:block" />
-                  <span className="text-primary italic">đơn giản</span> – hiệu
-                  quả
+                <h1 className="text-4xl font-black leading-tight tracking-tight md:text-4xl lg:text-5xl">
+                  {t("home.hero.title")}
+                  <br className="hidden lg:block" />
+                  <span className="text-primary italic">
+                    {" "}
+                    {t("home.hero.subtitle")}{" "}
+                  </span>
                 </h1>
                 <p className="text-base text-slate-600  md:text-lg">
-                  Nâng cao vốn từ vựng và tự tin giao tiếp với lộ trình học tập
-                  được cá nhân hóa. Luyện tập mọi lúc, mọi nơi.
+                  {t("home.hero.description")}
                 </p>
               </div>
 
@@ -128,15 +130,15 @@ const Home: React.FC = () => {
                 shadow-lg shadow-blue-300/40
                 hover:scale-[1.03] transition"
                 >
-                  Bắt đầu học ngay
+                  {t("home.hero.startLearning")}
                 </button>
                 <button
-                  className="h-11 px-6 rounded-xl text-sm font-semibold text-blue-600
+                  className="h-11 px-8 rounded-xl text-sm font-semibold text-blue-600
                 bg-white border border-cyan-300
 
                 hover:bg-blue-50 transition"
                 >
-                  Tìm hiểu thêm
+                  {t("home.hero.learnMore")}
                 </button>
               </div>
 
@@ -155,18 +157,19 @@ const Home: React.FC = () => {
                     </div>
                   ))}
                 </div>
-                <p>+10.000 học viên đang hoạt động</p>
+                <p>{t("home.hero.studentsCount")}</p>
               </div>
             </div>
 
             {/* Image */}
             <div className="flex-1">
               <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-100   shadow-2xl lg:aspect-[4/3]">
-                <div className="absolute inset-0 flex items-center justify-center">
+                <div className="relative aspect-[5/5] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-100 shadow-2xl sm:aspect-square lg:aspect-[4/3]">
+                  {" "}
                   <img
                     src={lingo}
                     alt="Lingo Speak Logo"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-[33%_20%]"
                   />
                 </div>
               </div>
@@ -179,14 +182,13 @@ const Home: React.FC = () => {
           <div className="mx-auto w-full max-w-[1280px] px-6 lg:px-10">
             <div className="mb-12 text-center">
               <span className="mb-2 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
-                Tính năng
+                {t("home.features.sectionTitle")}
               </span>
               <h2 className="text-3xl font-bold md:text-4xl">
-                Tính năng nổi bật
+                {t("home.features.title")}
               </h2>
               <p className="mt-4 mx-auto max-w-2xl text-slate-600 ">
-                Nền tảng học tiếng Anh toàn diện, cá nhân hóa theo trình độ,
-                giúp bạn tiến bộ nhanh và bền vững mỗi ngày.
+                {t("home.features.description")}
               </p>
             </div>
 
@@ -226,10 +228,10 @@ const Home: React.FC = () => {
           <div className="mx-auto w-full max-w-[1280px] px-6 lg:px-10">
             <div className="mb-12 text-center">
               <span className="mb-2 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
-                Cộng đồng
+                {t("home.testimonials.sectionTitle")}
               </span>
               <h2 className="text-3xl font-bold md:text-4xl">
-                Feedback người dùng
+                {t("home.testimonials.title")}
               </h2>
             </div>
 
@@ -249,8 +251,12 @@ const Home: React.FC = () => {
                   {/* Content */}
                   <div className="flex flex-col gap-2">
                     <div>
-                      <p className="font-bold text-slate-900">{user.name}</p>
-                      <p className="text-xs text-slate-500">{user.role}</p>
+                      <p className="font-bold text-slate-900">
+                        {t(`home.testimonials.user${index + 1}.name`)}
+                      </p>
+                      <p className="text-xs text-slate-500">
+                        {t(`home.testimonials.user${index + 1}.role`)}
+                      </p>
 
                       {/* Rating */}
                       <div className="mt-1 flex items-center gap-1 text-yellow-400">
@@ -266,7 +272,7 @@ const Home: React.FC = () => {
                     </div>
 
                     <p className="text-sm italic text-slate-700 leading-relaxed">
-                      “{user.feedback}”
+                      "{t(`home.testimonials.user${index + 1}.feedback`)}"
                     </p>
                   </div>
                 </div>

@@ -1,12 +1,15 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 
 const SignUp: React.FC = () => {
+  const { t } = useTranslation();
   const [showPassword, setShowPassword] = useState(false);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    console.log("sign up");
+    console.log("đăng ký");
   }
 
   return (
@@ -19,13 +22,10 @@ const SignUp: React.FC = () => {
     >
       <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-14 px-6">
         {/* LEFT CONTENT */}
-        <div className="flex flex-col justify-center gap-8 ">
+        <div className="hidden lg:flex flex-col justify-center">
           {/* Logo */}
-          <div className="flex items-center gap-3 pb-8">
-            {/* <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow">
-              <img src={logo} alt="logo" className="rounded-full" />
-            </div> */}
-            <h2 className="flex items-center text-6xl font-bold tracking-tight gap-1">
+          <div className="flex items-center gap-3 mb-4">
+            <h2 className="flex items-center text-5xl font-bold tracking-tight gap-1 leading-normal">
               <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
                 Ling
               </span>
@@ -38,44 +38,98 @@ const SignUp: React.FC = () => {
             </h2>
           </div>
 
-          <h1 className="text-4xl font-extrabold leading-snug text-slate-900">
-            Practice English speaking
-            <br />
-            <span className="text-blue-600 italic">
-              Confidently – Naturally – Every day
-            </span>
-          </h1>
+          {/* Heading */}
+          <div className="flex flex-col gap-3">
+            <h1 className="text-3xl font-extrabold leading-snug text-slate-900">
+              {t("signup.title")}
+              <br />
+              <span className="text-blue-600 italic  ">
+                {t("signup.subtitle")}
+              </span>
+            </h1>
 
-          <p className="text-slate-600 max-w-xl text-sm leading-relaxed">
-            Build your English speaking skills with a smart learning path,
-            interactive practice, and real-time feedback.
-          </p>
+            <p className="text-slate-600 max-w-xl text-sm leading-relaxed ">
+              {t("signup.description")}
+            </p>
+          </div>
 
-          <div className="flex gap-4">
-            <button
-              className="
-                h-11 px-6 rounded-xl text-white text-sm font-semibold
-                bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500
-                shadow-lg shadow-blue-300/40
-                hover:scale-[1.03] transition
-              "
-            >
-              Get started
-            </button>
+          {/* FEATURES */}
+          <div className="flex flex-col gap-6 mt-6">
+            {/* Feature 1 */}
+            <div className="flex items-start gap-4 group">
+              <div
+                className="
+                  flex h-12 w-12 shrink-0 items-center justify-center
+                  rounded-xl bg-blue-500/20 text-blue-600
+                  backdrop-blur-sm transition-transform
+                  group-hover:scale-110
+                "
+              >
+                <span className="material-symbols-outlined text-[24px]">
+                  headphones
+                </span>
+              </div>
+              <div className="flex flex-col gap-1">
+                <h3 className="text-lg font-bold text-slate-900">
+                  {t("signup.features.listenSpeakRecord.title")}
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  {t("signup.features.listenSpeakRecord.description")}
+                </p>
+              </div>
+            </div>
 
-            <button
-              className="
-                h-11 px-6 rounded-xl text-sm font-semibold text-blue-600
-                bg-white border border-cyan-300
-                hover:bg-blue-50 transition
-              "
-            >
-              Learn more
-            </button>
+            {/* Feature 2 */}
+            <div className="flex items-start gap-4 group">
+              <div
+                className="
+                  flex h-12 w-12 shrink-0 items-center justify-center
+                  rounded-xl bg-cyan-500/20 text-cyan-600
+                  backdrop-blur-sm transition-transform
+                  group-hover:scale-110
+                "
+              >
+                <span className="material-symbols-outlined text-[24px]">
+                  psychology
+                </span>
+              </div>
+              <div className="flex flex-col gap-1">
+                <h3 className="text-lg font-bold text-slate-900">
+                  {t("signup.features.smartVocabulary.title")}
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  {t("signup.features.smartVocabulary.description")}
+                </p>
+              </div>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="flex items-start gap-4 group">
+              <div
+                className="
+                  flex h-12 w-12 shrink-0 items-center justify-center
+                  rounded-xl bg-emerald-500/20 text-emerald-600
+                  backdrop-blur-sm transition-transform
+                  group-hover:scale-110
+                "
+              >
+                <span className="material-symbols-outlined text-[24px]">
+                  trending_up
+                </span>
+              </div>
+              <div className="flex flex-col gap-1">
+                <h3 className="text-lg font-bold text-slate-900">
+                  {t("signup.features.trackProgress.title")}
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  {t("signup.features.trackProgress.description")}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* RIGHT FORM */}
+        {/* PHẦN FORM BÊN PHẢI */}
         <div className="flex items-center justify-center">
           <div
             className="
@@ -87,41 +141,23 @@ const SignUp: React.FC = () => {
           >
             <div className="text-center mb-6">
               <h2 className="text-2xl font-bold text-slate-900">
-                Create your account
+                {t("signup.formTitle")}
               </h2>
               <p className="text-slate-500 text-sm mt-1">
-                Start your English learning journey today.
+                {t("signup.startJourney")}
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-              {/* Full Name */}
-              <div>
-                <label className="text-sm font-semibold text-slate-700">
-                  Full name
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder="Your full name"
-                  className="
-                    mt-2 w-full h-11 px-4 rounded-xl text-sm
-                    bg-slate-50 border border-slate-200
-                    focus:outline-none
-                    focus:ring-4 focus:ring-blue-300/40
-                  "
-                />
-              </div>
-
               {/* Email */}
               <div>
                 <label className="text-sm font-semibold text-slate-700">
-                  Email
+                  {t("signup.email")}
                 </label>
                 <input
                   type="email"
                   required
-                  placeholder="you@example.com"
+                  placeholder={t("signup.emailPlaceholder")}
                   className="
                     mt-2 w-full h-11 px-4 rounded-xl text-sm
                     bg-slate-50 border border-slate-200
@@ -131,16 +167,16 @@ const SignUp: React.FC = () => {
                 />
               </div>
 
-              {/* Password */}
+              {/* Mật khẩu */}
               <div>
                 <label className="text-sm font-semibold text-slate-700">
-                  Password
+                  {t("signup.password")}
                 </label>
                 <div className="relative mt-2">
                   <input
                     type={showPassword ? "text" : "password"}
                     required
-                    placeholder="Create a password"
+                    placeholder={t("signup.passwordPlaceholder")}
                     className="
                       w-full h-11 px-4 rounded-xl text-sm
                       bg-slate-50 border border-slate-200
@@ -163,7 +199,36 @@ const SignUp: React.FC = () => {
                 </div>
               </div>
 
-              {/* Button */}
+              {/* Mật khẩu again */}
+              <div>
+                <div className="relative mt-2">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    required
+                    placeholder={t("signup.confirmPasswordPlaceholder")}
+                    className="
+                      w-full h-11 px-4 rounded-xl text-sm
+                      bg-slate-50 border border-slate-200
+                      focus:outline-none
+                      focus:ring-4 focus:ring-blue-300/40
+                    "
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="
+                      absolute right-4 top-1/2 -translate-y-1/2
+                      text-slate-400 hover:text-slate-600
+                    "
+                  >
+                    <span className="material-symbols-outlined text-[20px]">
+                      {showPassword ? "visibility" : "visibility_off"}
+                    </span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Nút đăng ký */}
               <button
                 type="submit"
                 className="
@@ -173,15 +238,18 @@ const SignUp: React.FC = () => {
                   hover:scale-[1.03] transition
                 "
               >
-                Sign Up
+                {t("signup.signUp")}
               </button>
             </form>
 
             <p className="mt-5 text-center text-sm text-slate-600">
-              Already have an account?
-              <a className="ml-1 font-bold text-emerald-600 hover:underline">
-                Sign in
-              </a>
+              {t("signup.haveAccount")}
+              <Link
+                to="/login"
+                className="ml-1 font-bold text-emerald-600 hover:underline"
+              >
+                {t("signup.signIn")}
+              </Link>
             </p>
           </div>
         </div>

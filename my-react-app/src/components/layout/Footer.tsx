@@ -1,11 +1,13 @@
 import logo from "../../assets/images/logo.png";
+import { useTranslation } from "react-i18next";
 
 const HomeFooter = () => {
+  const { t } = useTranslation();
   return (
     <footer className="w-full bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800">
       <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-14">
         {/* Top */}
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 [&>div]:w-full1 gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
@@ -16,7 +18,7 @@ const HomeFooter = () => {
                   className="w-full h-full object-contain rounded-full"
                 />
               </div> */}
-              <h2 className="flex items-center text-4xl font-bold tracking-tight gap-1">
+              <h2 className="flex items-center text-4xl font-bold tracking-tight gap-1 leading-normal">
                 <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
                   Ling
                 </span>
@@ -29,15 +31,14 @@ const HomeFooter = () => {
               </h2>
             </div>
             <p className="text-sm text-slate-600 dark:text-slate-400 max-w-xs leading-relaxed">
-              Nền tảng học tiếng Anh trực tuyến hàng đầu, giúp bạn tự tin giao
-              tiếp mọi lúc mọi nơi.
+              {t("footer.description")}
             </p>
           </div>
 
           {/* Company */}
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-900 dark:text-white">
-              Company
+              {t("footer.company")}
             </h4>
             <ul className="flex flex-col gap-2 text-sm text-slate-600 dark:text-slate-400">
               <li>
@@ -66,27 +67,27 @@ const HomeFooter = () => {
           {/* Support */}
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-900 dark:text-white">
-              Support
+              {t("footer.support")}
             </h4>
             <ul className="flex flex-col gap-2 text-sm text-slate-600 dark:text-slate-400">
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  Help Center
+                  Trung tâm hỗ trợ
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  Contact Us
+                  Liên hệ
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  Terms of Service
+                  Điều khoản dịch vụ
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  Privacy Policy
+                  Chính sách bảo mật
                 </a>
               </li>
             </ul>
@@ -95,7 +96,7 @@ const HomeFooter = () => {
           {/* Social */}
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-900 dark:text-white">
-              Follow Us
+              {t("footer.followUs")}
             </h4>
 
             <div className="flex items-center gap-4">
@@ -140,14 +141,19 @@ const HomeFooter = () => {
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 border-t border-slate-200 dark:border-slate-800 pt-6 flex flex-col items-center justify-center">
+        <div
+          className="mt-5 border-t border-slate-200 dark:border-slate-800 
+        pt-6 flex flex-col items-center justify-center"
+        >
           <p className="text-xs text-slate-500 text-center">
-            © {new Date().getFullYear()} Lingo Speak. All rights reserved.
+            {t("footer.copyright").replace(
+              "2024",
+              new Date().getFullYear().toString()
+            )}
           </p>
         </div>
       </div>
     </footer>
   );
 };
-
 export default HomeFooter;

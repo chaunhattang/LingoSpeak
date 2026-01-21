@@ -2,6 +2,9 @@ import { Routes, Route } from "react-router-dom";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import Home from "./pages/Home";
+import Lesson from "./pages/Lesson";
+import WordLesson from "./pages/WordLesson";
+
 
 function App() {
   return (
@@ -9,6 +12,8 @@ function App() {
       <Route path="/" element={<Home />}></Route>
       <Route path="/register" element={<SignUp />} />
       <Route path="/login" element={<SignIn />} />
+      <Route path="/lesson" element={<Lesson />} />
+      <Route path="/lesson/:slug" element={<WordLesson />} />
     </Routes>
   );
 }
