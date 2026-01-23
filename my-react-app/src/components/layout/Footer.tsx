@@ -1,5 +1,8 @@
 import logo from "../../assets/images/logo.png";
 import { useTranslation } from "react-i18next";
+import { FaFacebookF } from "react-icons/fa";
+import { FaSquareInstagram } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
 
 const HomeFooter = () => {
   const { t } = useTranslation();
@@ -43,17 +46,17 @@ const HomeFooter = () => {
             <ul className="flex flex-col gap-2 text-sm text-slate-600 dark:text-slate-400">
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  About Us
+                  Khóa học
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  Careers
+                  Từ vựng
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  Blog
+                  Gói Vip
                 </a>
               </li>
               <li>
@@ -72,22 +75,22 @@ const HomeFooter = () => {
             <ul className="flex flex-col gap-2 text-sm text-slate-600 dark:text-slate-400">
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  Trung tâm hỗ trợ
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Liên hệ
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Điều khoản dịch vụ
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary transition-colors">
                   Chính sách bảo mật
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-primary transition-colors">
+                  Điều khoản sử dụng
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-primary transition-colors">
+                  Câu hỏi thường gặp (FAQ)
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-primary transition-colors">
+                  Trung tâm hỗ trợ
                 </a>
               </li>
             </ul>
@@ -96,7 +99,7 @@ const HomeFooter = () => {
           {/* Social */}
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-900 dark:text-white">
-              {t("footer.followUs")}
+              {t("footer.ContactUs")}
             </h4>
 
             <div className="flex items-center gap-4">
@@ -108,9 +111,7 @@ const HomeFooter = () => {
                 aria-label="Facebook"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 text-slate-500 hover:bg-primary hover:text-white transition-colors"
               >
-                <span className="material-symbols-outlined text-[20px]">
-                  public
-                </span>
+                <FaFacebookF size={20} />
               </a>
 
               {/* Email */}
@@ -119,9 +120,7 @@ const HomeFooter = () => {
                 aria-label="Email"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 text-slate-500 hover:bg-primary hover:text-white transition-colors"
               >
-                <span className="material-symbols-outlined text-[20px]">
-                  mail
-                </span>
+                <MdEmail size={20} />
               </a>
 
               {/* Instagram */}
@@ -132,9 +131,7 @@ const HomeFooter = () => {
                 aria-label="Instagram"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 text-slate-500 hover:bg-primary hover:text-white transition-colors"
               >
-                <span className="material-symbols-outlined text-[20px]">
-                  photo_camera
-                </span>
+                <FaSquareInstagram size={20} />
               </a>
             </div>
           </div>
@@ -148,7 +145,7 @@ const HomeFooter = () => {
           <p className="text-xs text-slate-500 text-center">
             {t("footer.copyright").replace(
               "2024",
-              new Date().getFullYear().toString()
+              new Date().getFullYear().toString(),
             )}
           </p>
         </div>
