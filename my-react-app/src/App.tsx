@@ -4,6 +4,8 @@ import SignIn from "./pages/SignIn";
 import Home from "./pages/Home";
 import Lesson from "./pages/Lesson";
 import WordLesson from "./pages/WordLesson";
+import LearningPage from "./pages/LearningPage";
+
 
 
 function App() {
@@ -14,6 +16,7 @@ function App() {
       <Route path="/login" element={<SignIn />} />
       <Route path="/lesson" element={<Lesson />} />
       <Route path="/lesson/:slug" element={<WordLesson />} />
+      <Route path="/lesson" element={<LearningPage />} />
     </Routes>
   );
 }
