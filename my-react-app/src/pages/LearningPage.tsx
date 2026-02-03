@@ -1,62 +1,75 @@
-import { useState } from "react";
 import LessonHeader from "../components/Lesson/LessonHeader";
 import LessonFooter from "../components/Lesson/LessonFooter";
 
-const LearningPage = () => {
-  const [answer, setAnswer] = useState("");
-
+const SpeakingPage = () => {
   return (
-    <div className="bg-background-light dark:bg-background-dark text-[#0d141b] dark:text-slate-50 flex flex-col min-h-screen transition-colors duration-200 font-display">
+    <div className="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
       {/* HEADER */}
       <LessonHeader />
 
       {/* MAIN */}
-      <main className="flex-grow flex flex-col items-center justify-center p-4 w-full max-w-3xl mx-auto">
-        <div className="w-full flex flex-col items-center gap-8 py-8">
-          {/* Audio */}
-          <div className="relative group">
-            <div className="absolute -inset-1 bg-primary/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
+      <main className="flex-grow flex flex-col items-center justify-center p-6">
+        <div className="w-full max-w-2xl bg-white dark:bg-[#1e2936] rounded-xl shadow border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col">
+          {/* IMAGE + WORD */}
+          <div className="relative h-64 md:h-80 w-full group overflow-hidden">
+            <div
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+              style={{
+                backgroundImage:
+                  "url(https://media.istockphoto.com/id/1141520118/vi/anh/th%E1%BA%A3m-h%E1%BB%8Da-sinh-th%C3%A1i.jpg?s=612x612&w=0&k=20&c=P2r42RP2CtCX8ZJZsPAERe0t1dh9C_ILrs4EvVfcBDM=)",
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-            <button className="relative flex flex-col items-center justify-center w-32 h-32 rounded-full bg-white dark:bg-slate-800 border-4 border-primary/10 hover:border-primary text-primary shadow-lg transition-all active:scale-95">
-              <span className="material-symbols-outlined text-[48px]">
-                headphones
-              </span>
-              <span className="text-sm font-bold mt-1">Play Audio</span>
-            </button>
+            <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col items-center text-center">
+              <p className="text-slate-300 text-lg font-medium mb-1">Ô nhiễm</p>
+
+              <div className="flex items-center gap-3">
+                <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight">
+                  Pollution
+                </h1>
+                <button className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center justify-center text-white">
+                  <span className="material-symbols-outlined text-2xl">
+                    volume_up
+                  </span>
+                </button>
+              </div>
+
+              <p className="text-slate-400 text-sm mt-2 font-mono">
+                /pəˈluː.ʃən/
+              </p>
+            </div>
           </div>
 
-          {/* Instructions */}
-          <div className="text-center space-y-1">
-            <p className="text-lg font-medium">Listen carefully</p>
-            <p className="text-slate-500 dark:text-slate-400 text-sm">
-              Type the word you hear in the box below
-            </p>
-          </div>
-
-          {/* Input */}
-          <div className="w-full max-w-md space-y-4">
-            <div className="relative">
-              <input
-                autoFocus
-                value={answer}
-                onChange={(e) => setAnswer(e.target.value)}
-                placeholder="Type here..."
-                className="w-full px-6 py-4 text-center text-xl md:text-2xl font-bold rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 placeholder:text-slate-300 dark:placeholder:text-slate-600 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all"
-              />
-
-              <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-slate-300 dark:text-slate-600 pointer-events-none">
-                keyboard
-              </span>
+          {/* RECORD AREA */}
+          <div className="p-8 flex flex-col items-center gap-8">
+            {/* Waveform giả lập */}
+            <div className="flex flex-col items-center gap-3 h-24 justify-center">
+              <div className="flex items-center justify-center gap-1 h-12 w-[200px]">
+                <div className="w-1.5 bg-primary/40 rounded-full animate-pulse h-full" />
+                <div className="w-1.5 bg-primary/60 rounded-full animate-pulse h-3/4" />
+                <div className="w-1.5 bg-primary rounded-full animate-pulse h-1/2" />
+                <div className="w-1.5 bg-primary/60 rounded-full animate-pulse h-3/4" />
+                <div className="w-1.5 bg-primary/40 rounded-full animate-pulse h-full" />
+              </div>
+              <p className="text-primary font-semibold animate-pulse">
+                Đang ghi âm...
+              </p>
             </div>
 
-            <button className="w-full py-3.5 bg-primary hover:bg-blue-600 text-white font-bold rounded-xl shadow-md hover:shadow-lg transition-all active:translate-y-0.5 flex items-center justify-center gap-2">
-              <span className="material-symbols-outlined">check_circle</span>
-              <span>Kiểm tra</span>
-            </button>
+            {/* BUTTONS */}
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <button className="flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-red-100 bg-red-50 text-red-600 font-bold dark:bg-red-900/20 dark:border-red-900/40 dark:text-red-400">
+                <span className="material-symbols-outlined">stop_circle</span>
+                <span>Dừng</span>
+              </button>
 
-            <div className="text-center pt-2">
-              <button className="text-sm text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary font-medium underline underline-offset-4">
-                Hiện đáp án & nghĩa
+              <button
+                disabled
+                className="flex items-center gap-2 px-8 py-3 rounded-xl bg-slate-200 text-slate-400 font-bold dark:bg-slate-700 dark:text-slate-500 cursor-not-allowed"
+              >
+                <span>Gửi kết quả</span>
+                <span className="material-symbols-outlined text-lg">send</span>
               </button>
             </div>
           </div>
@@ -69,4 +82,4 @@ const LearningPage = () => {
   );
 };
 
-export default LearningPage;
+export default SpeakingPage;
