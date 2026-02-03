@@ -1,11 +1,48 @@
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 import LessonHeader from "../components/Lesson/LessonHeader";
 import LessonFooter from "../components/Lesson/LessonFooter";
+
+const ANSWER = "RECYCLING";
+;
 
 const WordLesson = () => {
   const { slug } = useParams<{ slug: string }>();
 
+  // các ô trống người dùng nhập
+  const [inputs, setInputs] = useState<Record<number, string>>({});
+  const [result, setResult] = useState<"correct" | "wrong" | null>(null);
+
   if (!slug) return null;
+
+  const letters = ["R", "E", "", "Y", "C", "", "I", "N", "G"];
+
+  // xử lý nhập
+  const handleChange = (index: number, value: string) => {
+    if (!/^[a-zA-Z]?$/.test(value)) return;
+
+    setInputs((prev) => ({
+      ...prev,
+      [index]: value.toUpperCase(),
+    }));
+  };
+
+  // check đáp án
+  const handleCheck = () => {
+    const finalWord = letters.map((c, i) => (c ? c : inputs[i] || "")).join("");
+
+    // chưa nhập đủ chữ
+    if (finalWord.length !== ANSWER.length) {
+      setResult("wrong");
+      return;
+    }
+
+    if (finalWord === ANSWER) {
+      setResult("correct");
+    } else {
+      setResult("wrong");
+    }
+  };
 
   return (
     <div className="bg-background-light dark:bg-background-dark text-[#0d141b] dark:text-slate-50 flex flex-col min-h-screen font-display">
@@ -34,13 +71,13 @@ const WordLesson = () => {
                 🔊
               </button>
               <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold">
-                NOUN
+                VERB
               </span>
             </div>
 
             {/* WORD INPUT */}
             <div className="flex flex-wrap justify-center gap-3 my-10">
-              {["R", "E", "", "Y", "C", "", "I", "N", "G"].map((c, i) =>
+              {letters.map((c, i) =>
                 c ? (
                   <div
                     key={i}
@@ -52,13 +89,31 @@ const WordLesson = () => {
                   <input
                     key={i}
                     maxLength={1}
+                    value={inputs[i] || ""}
+                    onChange={(e) => handleChange(i, e.target.value)}
                     className="w-12 h-16 text-center border-2 border-primary rounded-lg text-2xl font-bold bg-transparent focus:outline-none"
                   />
                 ),
               )}
             </div>
 
-            <button className="w-full py-4 bg-primary text-white rounded-xl font-bold">
+            {/* FEEDBACK */}
+            {result && (
+              <p
+                className={`text-center font-bold mb-4 ${
+                  result === "correct" ? "text-green-600" : "text-red-500"
+                }`}
+              >
+                {result === "correct"
+                  ? "🎉 Chính xác!"
+                  : "❌ Chưa đúng, thử lại nhé"}
+              </p>
+            )}
+
+            <button
+              onClick={handleCheck}
+              className="w-full py-4 bg-primary text-white rounded-xl font-bold"
+            >
               Check Answer
             </button>
           </div>
