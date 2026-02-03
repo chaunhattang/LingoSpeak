@@ -16,7 +16,7 @@ function App() {
       <Route path="/login" element={<SignIn />} />
       <Route path="/lesson" element={<Lesson />} />
       <Route path="/lesson/:slug" element={<WordLesson />} />
-      <Route path="/lesson" element={<LearningPage />} />
+      <Route path="/lesson/:slug/learning" element={<LearningPage />} />
     </Routes>
   );
 }

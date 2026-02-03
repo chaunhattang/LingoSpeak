@@ -2,7 +2,6 @@ import { useState } from "react";
 import LessonHeader from "../components/Lesson/LessonHeader";
 import LessonFooter from "../components/Lesson/LessonFooter";
 
-
 const LearningPage = () => {
   const [answer, setAnswer] = useState("");
 
@@ -17,6 +16,7 @@ const LearningPage = () => {
           {/* Audio */}
           <div className="relative group">
             <div className="absolute -inset-1 bg-primary/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
+
             <button className="relative flex flex-col items-center justify-center w-32 h-32 rounded-full bg-white dark:bg-slate-800 border-4 border-primary/10 hover:border-primary text-primary shadow-lg transition-all active:scale-95">
               <span className="material-symbols-outlined text-[48px]">
                 headphones
@@ -43,6 +43,7 @@ const LearningPage = () => {
                 placeholder="Type here..."
                 className="w-full px-6 py-4 text-center text-xl md:text-2xl font-bold rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 placeholder:text-slate-300 dark:placeholder:text-slate-600 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all"
               />
+
               <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-slate-300 dark:text-slate-600 pointer-events-none">
                 keyboard
               </span>
