@@ -28,7 +28,7 @@ export const topics: Topic[] = [
     slug: "school",
     icon: "school",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDyb1v5ipWk0q0dkYGRh_SXswTPONJ3gZPV0YQO3122mygd_SY_-aHU6N6V5KMFXbza2B9ZxuRFkkXzAwl7gOvR2UK3c7-uED3Ylsdhbj8lxfuq2kEbY8-KV_cFyg4FilrVxIbguQ251sMs10uz4GI86PPKKSeUqwrM1lKuahE3fLOTQDI7TPSV0BGkA59elliW_QEm37rt5XStDDw8giJNszrrOWqQ0b5zSzNpUfma6OoPHLOvOh3jumsuqMZg-4dkjDwAAvsvTkPl",
+      "https://lh4.googleusercontent.com/proxy/YkowADixt3SUnl8P2AiTMCsDkdXX_7zJ1tQ_q9xg69M8pxQSLeYtrQe7Wro3qX_EavqYsEsWXVBBTql1D3SmEyHd-WvlB4kq5zLfElDiOvg8rogOQSlZJz0RLR8tnKA6w7FXoM6E305NsJrdO3c-rDKa_vBqhal62ZzxhMnHmC3j-3WU",
   },
   {
     id: 3,
@@ -36,9 +36,9 @@ export const topics: Topic[] = [
     words: 40,
     progress: 15,
     slug: "company",
-    icon: "Company",
+    icon: "office-building",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDyb1v5ipWk0q0dkYGRh_SXswTPONJ3gZPV0YQO3122mygd_SY_-aHU6N6V5KMFXbza2B9ZxuRFkkXzAwl7gOvR2UK3c7-uED3Ylsdhbj8lxfuq2kEbY8-KV_cFyg4FilrVxIbguQ251sMs10uz4GI86PPKKSeUqwrM1lKuahE3fLOTQDI7TPSV0BGkA59elliW_QEm37rt5XStDDw8giJNszrrOWqQ0b5zSzNpUfma6OoPHLOvOh3jumsuqMZg-4dkjDwAAvsvTkPl",
+      "https://tuvanthanhtuyen.com/wp-content/uploads/2025/09/1-thanh-lap-1tv-min.png",
   },
   {
     id: 4,
@@ -47,8 +47,7 @@ export const topics: Topic[] = [
     progress: 80,
     slug: "travel",
     icon: "Travel",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDyb1v5ipWk0q0dkYGRh_SXswTPONJ3gZPV0YQO3122mygd_SY_-aHU6N6V5KMFXbza2B9ZxuRFkkXzAwl7gOvR2UK3c7-uED3Ylsdhbj8lxfuq2kEbY8-KV_cFyg4FilrVxIbguQ251sMs10uz4GI86PPKKSeUqwrM1lKuahE3fLOTQDI7TPSV0BGkA59elliW_QEm37rt5XStDDw8giJNszrrOWqQ0b5zSzNpUfma6OoPHLOvOh3jumsuqMZg-4dkjDwAAvsvTkPl",
+    image: "https://booking.pystravel.vn/uploads/posts/avatar/1731596232.jpg",
   },
   {
     id: 5,
@@ -56,9 +55,9 @@ export const topics: Topic[] = [
     words: 15,
     progress: 0,
     slug: "family",
-    icon: "Family",
+    icon: "family",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDyb1v5ipWk0q0dkYGRh_SXswTPONJ3gZPV0YQO3122mygd_SY_-aHU6N6V5KMFXbza2B9ZxuRFkkXzAwl7gOvR2UK3c7-uED3Ylsdhbj8lxfuq2kEbY8-KV_cFyg4FilrVxIbguQ251sMs10uz4GI86PPKKSeUqwrM1lKuahE3fLOTQDI7TPSV0BGkA59elliW_QEm37rt5XStDDw8giJNszrrOWqQ0b5zSzNpUfma6OoPHLOvOh3jumsuqMZg-4dkjDwAAvsvTkPl",
+      "https://hoanghamobile.com/tin-tuc/wp-content/uploads/2024/07/hinh-anh-gia-dinh-hanh-phuc.jpg",
   },
   {
     id: 6,
@@ -68,7 +67,7 @@ export const topics: Topic[] = [
     slug: "technology",
     icon: "Technology",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDyb1v5ipWk0q0dkYGRh_SXswTPONJ3gZPV0YQO3122mygd_SY_-aHU6N6V5KMFXbza2B9ZxuRFkkXzAwl7gOvR2UK3c7-uED3Ylsdhbj8lxfuq2kEbY8-KV_cFyg4FilrVxIbguQ251sMs10uz4GI86PPKKSeUqwrM1lKuahE3fLOTQDI7TPSV0BGkA59elliW_QEm37rt5XStDDw8giJNszrrOWqQ0b5zSzNpUfma6OoPHLOvOh3jumsuqMZg-4dkjDwAAvsvTkPl",
+      "https://www.pace.edu.vn/uploads/news/2024/01/1-cong-nghe-so-la-gi.jpg",
   },
   {
     id: 7,
@@ -77,8 +76,7 @@ export const topics: Topic[] = [
     progress: 0,
     slug: "health",
     icon: "Health",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDyb1v5ipWk0q0dkYGRh_SXswTPONJ3gZPV0YQO3122mygd_SY_-aHU6N6V5KMFXbza2B9ZxuRFkkXzAwl7gOvR2UK3c7-uED3Ylsdhbj8lxfuq2kEbY8-KV_cFyg4FilrVxIbguQ251sMs10uz4GI86PPKKSeUqwrM1lKuahE3fLOTQDI7TPSV0BGkA59elliW_QEm37rt5XStDDw8giJNszrrOWqQ0b5zSzNpUfma6OoPHLOvOh3jumsuqMZg-4dkjDwAAvsvTkPl",
+    image: "https://cafefcdn.com/2018/10/12/photo-1-1539305257846963855301.jpg",
   },
   {
     id: 8,
@@ -88,7 +86,7 @@ export const topics: Topic[] = [
     slug: "weather",
     icon: "Weather",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDyb1v5ipWk0q0dkYGRh_SXswTPONJ3gZPV0YQO3122mygd_SY_-aHU6N6V5KMFXbza2B9ZxuRFkkXzAwl7gOvR2UK3c7-uED3Ylsdhbj8lxfuq2kEbY8-KV_cFyg4FilrVxIbguQ251sMs10uz4GI86PPKKSeUqwrM1lKuahE3fLOTQDI7TPSV0BGkA59elliW_QEm37rt5XStDDw8giJNszrrOWqQ0b5zSzNpUfma6OoPHLOvOh3jumsuqMZg-4dkjDwAAvsvTkPl",
+      "https://photo.znews.vn/w660/Uploaded/tmuitg/2022_09_01/2_Luo_Xing.jpg",
   },
   {
     id: 9,
@@ -98,7 +96,7 @@ export const topics: Topic[] = [
     slug: "food",
     icon: "Food",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDyb1v5ipWk0q0dkYGRh_SXswTPONJ3gZPV0YQO3122mygd_SY_-aHU6N6V5KMFXbza2B9ZxuRFkkXzAwl7gOvR2UK3c7-uED3Ylsdhbj8lxfuq2kEbY8-KV_cFyg4FilrVxIbguQ251sMs10uz4GI86PPKKSeUqwrM1lKuahE3fLOTQDI7TPSV0BGkA59elliW_QEm37rt5XStDDw8giJNszrrOWqQ0b5zSzNpUfma6OoPHLOvOh3jumsuqMZg-4dkjDwAAvsvTkPl",
+      "https://thietbiquayphim.com/wp-content/uploads/2022/05/meo-chup-anh-do-an-toi-dep.png",
   },
   {
     id: 10,
@@ -108,6 +106,6 @@ export const topics: Topic[] = [
     slug: "direction",
     icon: "Direction",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDyb1v5ipWk0q0dkYGRh_SXswTPONJ3gZPV0YQO3122mygd_SY_-aHU6N6V5KMFXbza2B9ZxuRFkkXzAwl7gOvR2UK3c7-uED3Ylsdhbj8lxfuq2kEbY8-KV_cFyg4FilrVxIbguQ251sMs10uz4GI86PPKKSeUqwrM1lKuahE3fLOTQDI7TPSV0BGkA59elliW_QEm37rt5XStDDw8giJNszrrOWqQ0b5zSzNpUfma6OoPHLOvOh3jumsuqMZg-4dkjDwAAvsvTkPl",
+      "https://media.istockphoto.com/id/455642243/vi/anh/c%E1%BA%A3m-th%E1%BA%A5y-m%E1%BA%A5t-ph%C6%B0%C6%A1ng-h%C6%B0%E1%BB%9Bng-ho%E1%BA%B7c-m%E1%BA%A5t-ph%C6%B0%C6%A1ng-h%C6%B0%E1%BB%9Bng.jpg?s=1024x1024&w=is&k=20&c=Y3XYDPOPUO1NQIuqypYZRUmEa1fRFwMmQmfYHaRovkU=",
   },
 ];
