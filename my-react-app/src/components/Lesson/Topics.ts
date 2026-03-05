@@ -46,7 +46,7 @@ export const topics: Topic[] = [
     words: 20,
     progress: 80,
     slug: "travel",
-    icon: "Travel",
+    icon: "travel",
     image: "https://booking.pystravel.vn/uploads/posts/avatar/1731596232.jpg",
   },
   {
@@ -65,7 +65,7 @@ export const topics: Topic[] = [
     words: 35,
     progress: 10,
     slug: "technology",
-    icon: "Technology",
+    icon: "technology",
     image:
       "https://www.pace.edu.vn/uploads/news/2024/01/1-cong-nghe-so-la-gi.jpg",
   },
@@ -75,7 +75,7 @@ export const topics: Topic[] = [
     words: 32,
     progress: 0,
     slug: "health",
-    icon: "Health",
+    icon: "halth",
     image: "https://cafefcdn.com/2018/10/12/photo-1-1539305257846963855301.jpg",
   },
   {
@@ -84,7 +84,7 @@ export const topics: Topic[] = [
     words: 18,
     progress: 0,
     slug: "weather",
-    icon: "Weather",
+    icon: "weather",
     image:
       "https://photo.znews.vn/w660/Uploaded/tmuitg/2022_09_01/2_Luo_Xing.jpg",
   },
@@ -94,7 +94,7 @@ export const topics: Topic[] = [
     words: 50,
     progress: 60,
     slug: "food",
-    icon: "Food",
+    icon: "food",
     image:
       "https://thietbiquayphim.com/wp-content/uploads/2022/05/meo-chup-anh-do-an-toi-dep.png",
   },
@@ -104,7 +104,7 @@ export const topics: Topic[] = [
     words: 28,
     progress: 5,
     slug: "direction",
-    icon: "Direction",
+    icon: "direction",
     image:
       "https://media.istockphoto.com/id/455642243/vi/anh/c%E1%BA%A3m-th%E1%BA%A5y-m%E1%BA%A5t-ph%C6%B0%C6%A1ng-h%C6%B0%E1%BB%9Bng-ho%E1%BA%B7c-m%E1%BA%A5t-ph%C6%B0%C6%A1ng-h%C6%B0%E1%BB%9Bng.jpg?s=1024x1024&w=is&k=20&c=Y3XYDPOPUO1NQIuqypYZRUmEa1fRFwMmQmfYHaRovkU=",
   },
