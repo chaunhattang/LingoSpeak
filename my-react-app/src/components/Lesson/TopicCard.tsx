@@ -11,6 +11,7 @@ interface Props {
 const TopicCard = ({ topic }: Props) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const Icon = topic.icon;
   return (
     <div
       onClick={() => navigate(`/lesson/${topic.slug}`)}
@@ -24,9 +25,7 @@ const TopicCard = ({ topic }: Props) => {
         />
         <div className="absolute bottom-3 left-4 z-20 flex items-center gap-2">
           <div className="bg-white/20 backdrop-blur-md p-1.5 rounded-lg text-white">
-            <span className="material-symbols-outlined text-[20px]">
-              {topic.icon}
-            </span>
+            <Icon size={20} />
           </div>
           <span className="text-white font-bold text-lg drop-shadow-md">
             {t(topic.title)}

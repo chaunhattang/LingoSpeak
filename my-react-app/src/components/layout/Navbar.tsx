@@ -38,7 +38,7 @@ const Navbar: React.FC = () => {
   return (
     <header className=" fixed top-0 z-50 w-full border-b border-slate-200  bg-background-light/80  backdrop-blur-md ">
       <div className="flex w-full justify-center">
-        <div className="flex w-full max-w-[1280px] items-center justify-between px-6 py-4 lg:px-10">
+        <div className="flex w-full max-w-[1280px] items-center justify-between px-6 py-3 lg:px-10">
           {/* Logo */}
           <div className="flex items-center gap-3">
             {/* <div className="w-10 h-10 bg-white text-primary rounded-lg flex items-center justify-center shadow-sm">
@@ -66,33 +66,33 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden items-center justify-between gap-20 md:flex px-10">
-            <a
-              className="flex flex-col items-center gap-1 flex-lg font-medium text-slate-600 hover:bg-[#CADAD9] hover:text-[#115E59]"
-              href="#"
+          <nav className="hidden items-center justify-between gap-10 md:flex px-10">
+            <Link
+              className="px-4 py-1 rounded-lg flex flex-col items-center gap-1 flex-lg font-medium text-slate-600 hover:bg-[#CADAD9] hover:text-[#115E59]"
+              to="/"
             >
-              <img src={home} alt="Home" className="h-10 w-10" />
+              <img src={home} alt="Home" className="h-12 w-12" />
               {t("navbar.home")}
-            </a>
-            <a
-              className="flex flex-col items-center gap-1 flex-lg font-medium text-slate-600 hover:bg-[#CADAD9] hover:text-[#115E59]"
-              href="#"
+            </Link>
+            <Link
+              className="px-4 py-1 rounded-lg flex flex-col items-center gap-1 flex-lg font-medium text-slate-600 hover:bg-[#CADAD9] hover:text-[#115E59]"
+              to="/lesson"
             >
-              <img src={newWord} alt="newWord" className="h-10 w-10" />
+              <img src={newWord} alt="newWord" className="h-12 w-12" />
               {t("navbar.lessons")}
-            </a>
+            </Link>
             <a
-              className="flex flex-col items-center gap-1 flex-lg font-medium text-slate-600 hover:bg-[#CADAD9] hover:text-[#115E59]"
+              className="px-4 py-1 rounded-lg flex flex-col items-center gap-1 flex-lg font-medium text-slate-600 hover:bg-[#CADAD9] hover:text-[#115E59]"
               href="#"
             >
-              <img src={review} alt="review" className="h-10 w-10" />
+              <img src={review} alt="review" className="h-12 w-12" />
               {t("navbar.review")}
             </a>
             <a
-              className="flex flex-col items-center gap-1 flex-lg font-medium text-slate-600 hover:bg-[#CADAD9] hover:text-[#115E59]"
+              className="px-4 py-1 rounded-lg flex flex-col items-center gap-1 flex-lg font-medium text-slate-600 hover:bg-[#CADAD9] hover:text-[#115E59]"
               href="#"
             >
-              <img src={handlist} alt="handlist" className="h-10 w-10" />
+              <img src={handlist} alt="handlist" className="h-12 w-12" />
               {t("navbar.vocabulary")}
             </a>
           </nav>
@@ -133,11 +133,7 @@ const Navbar: React.FC = () => {
                       i18n.changeLanguage("en");
                       setIsLanguageDropdownOpen(false);
                     }}
-                    className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-50 first:rounded-t-lg ${
-                      i18n.language === "en"
-                        ? "bg-blue-50 text-blue-600 font-medium"
-                        : "text-gray-700"
-                    }`}
+                    className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-50 first:rounded-t-lg ${i18n.language === "en" ? "bg-blue-50 text-blue-600 font-medium" : "text-gray-700"}`}
                   >
                     EN
                   </button>
@@ -146,11 +142,7 @@ const Navbar: React.FC = () => {
                       i18n.changeLanguage("vn");
                       setIsLanguageDropdownOpen(false);
                     }}
-                    className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-50 last:rounded-b-lg ${
-                      i18n.language === "vn"
-                        ? "bg-blue-50 text-blue-600 font-medium"
-                        : "text-gray-700"
-                    }`}
+                    className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-50 last:rounded-b-lg ${i18n.language === "vn" ? "bg-blue-50 text-blue-600 font-medium" : "text-gray-700"}`}
                   >
                     VN
                   </button>
@@ -218,21 +210,13 @@ const Navbar: React.FC = () => {
                 <div className="flex gap-2">
                   <button
                     onClick={() => i18n.changeLanguage("en")}
-                    className={`px-3 py-1 rounded text-sm font-medium transition ${
-                      i18n.language === "en"
-                        ? "bg-blue-500 text-white"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                    }`}
+                    className={`px-3 py-1 rounded text-sm font-medium transition ${i18n.language === "en" ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"}`}
                   >
                     EN
                   </button>
                   <button
                     onClick={() => i18n.changeLanguage("vn")}
-                    className={`px-3 py-1 rounded text-sm font-medium transition ${
-                      i18n.language === "vn"
-                        ? "bg-blue-500 text-white"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                    }`}
+                    className={`px-3 py-1 rounded text-sm font-medium transition ${i18n.language === "vn" ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"}`}
                   >
                     VN
                   </button>
