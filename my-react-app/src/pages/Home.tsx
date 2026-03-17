@@ -2,12 +2,14 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
+
 import lingo from "../assets/images/lingo.png";
 import user1 from "../assets/images/user1.jpg";
 import user2 from "../assets/images/user2.jpg";
 import user3 from "../assets/images/user3.jpg";
 
 const avatarList = [user1, user2, user3];
+
 const feedbackUser = [
   {
     img: user1,
@@ -37,12 +39,7 @@ const feedbackUser = [
 
 const colorMap: Record<
   string,
-  {
-    bg: string;
-    text: string;
-    darkBg: string;
-    darkText: string;
-  }
+  { bg: string; text: string; darkBg: string; darkText: string }
 > = {
   blue: {
     bg: "bg-blue-100",
@@ -69,6 +66,7 @@ const colorMap: Record<
     darkText: "dark:text-emerald-400",
   },
 };
+
 const Home: React.FC = () => {
   const { t } = useTranslation();
 
@@ -100,122 +98,87 @@ const Home: React.FC = () => {
   ];
 
   return (
-    <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-background-light text-slate-900  transition-colors duration-200">
+    <div className="min-h-screen flex flex-col bg-background-light text-slate-900">
       <Navbar />
 
-      <main className="flex flex-1 flex-col items-center bg-slate-100">
-        {/* ================= HERO SECTION ================= */}
-        <section className="w-full max-w-[1280px] px-6 lg:px-10 py-12 lg:py-20">
-          <div className="flex flex-col-reverse gap-10 md:flex-row md:items-center lg:gap-20">
-            {/* Content */}
-            <div className="flex flex-1 flex-col gap-6 text-center md:text-left">
-              <div className="space-y-4">
-                <h1 className="text-4xl font-black leading-tight tracking-tight md:text-4xl lg:text-5xl">
-                  {t("home.hero.title")}
-                  <br className="hidden lg:block" />
-                  <span className="text-primary italic">
-                    {" "}
-                    {t("home.hero.subtitle")}{" "}
-                  </span>
-                </h1>
-                <p className="text-base text-slate-600  md:text-lg">
-                  {t("home.hero.description")}
-                </p>
-              </div>
+      <main className="flex-1 pt-24 bg-slate-100">
+        {/* HERO */}
+        <section className="max-w-[1280px] mx-auto px-6 lg:px-10 py-12 lg:py-20">
+          <div className="flex flex-col-reverse md:flex-row items-center gap-10 lg:gap-20">
+            {/* TEXT */}
+            <div className="flex-1 text-center md:text-left space-y-6">
+              <h1 className="text-4xl lg:text-5xl font-black">
+                {t("home.hero.title")}
+                <span className="text-primary italic">
+                  {" "}
+                  {t("home.hero.subtitle")}
+                </span>
+              </h1>
 
-              <div className="flex flex-col items-center gap-3 sm:flex-row md:justify-start">
-                <button
-                  className="h-11 px-6 rounded-xl text-white text-sm font-semibold
-                bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500
-                shadow-lg shadow-blue-300/40
-                hover:scale-[1.03] transition"
-                >
+              <p className="text-slate-600">{t("home.hero.description")}</p>
+
+              <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+                <button className="h-11 px-6 rounded-xl text-white font-semibold bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500 hover:scale-105 transition">
                   {t("home.hero.startLearning")}
                 </button>
-                <button
-                  className="h-11 px-8 rounded-xl text-sm font-semibold text-blue-600
-                bg-white border border-cyan-300
 
-                hover:bg-blue-50 transition"
-                >
+                <button className="h-11 px-6 rounded-xl text-blue-600 bg-white border border-cyan-300 hover:bg-blue-50">
                   {t("home.hero.learnMore")}
                 </button>
               </div>
 
-              <div className="mt-4 flex items-center justify-center gap-4 text-sm text-slate-500 md:justify-start">
+              <div className="flex items-center gap-4 justify-center md:justify-start text-sm text-slate-500">
                 <div className="flex -space-x-2">
                   {avatarList.map((i) => (
-                    <div
+                    <img
                       key={i}
-                      className="size-8 rounded-full border-2 border-white  bg-slate-200"
-                    >
-                      <img
-                        src={i}
-                        alt=""
-                        className="w-full h-full object-cover rounded-full"
-                      />
-                    </div>
+                      src={i}
+                      alt="avatar"
+                      className="w-8 h-8 rounded-full border-2 border-white"
+                    />
                   ))}
                 </div>
                 <p>{t("home.hero.studentsCount")}</p>
               </div>
             </div>
 
-            {/* Image */}
+            {/* IMAGE */}
             <div className="flex-1">
-              <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-100   shadow-2xl lg:aspect-[4/3]">
-                <div className="relative aspect-[5/5] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-100 shadow-2xl sm:aspect-square lg:aspect-[4/3]">
-                  {" "}
-                  <img
-                    src={lingo}
-                    alt="Lingo Speak Logo"
-                    className="w-full h-full object-cover object-[33%_20%]"
-                  />
-                </div>
-              </div>
+              <img
+                src={lingo}
+                alt="lingo"
+                className="rounded-2xl shadow-xl w-full"
+              />
             </div>
           </div>
         </section>
 
-        {/* ================= FEATURES SECTION ================= */}
-        <section className="w-full bg-white  py-16">
-          <div className="mx-auto w-full max-w-[1280px] px-6 lg:px-10">
-            <div className="mb-12 text-center">
-              <span className="mb-2 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
-                {t("home.features.sectionTitle")}
-              </span>
-              <h2 className="text-3xl font-bold md:text-4xl">
-                {t("home.features.title")}
-              </h2>
-              <p className="mt-4 mx-auto max-w-2xl text-slate-600 ">
-                {t("home.features.description")}
-              </p>
+        {/* FEATURES */}
+        <section className="bg-white py-16">
+          <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold">{t("home.features.title")}</h2>
             </div>
 
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {typeQuestion.map((item, index) => {
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {typeQuestion.map((item, i) => {
                 const color = colorMap[item.color];
 
                 return (
                   <div
-                    key={index}
-                    className="flex flex-col gap-4 rounded-2xl border border-slate-100 bg-background-light p-6 transition hover:-translate-y-1 hover:shadow-lg"
+                    key={i}
+                    className="p-6 rounded-xl border hover:shadow-lg"
                   >
                     <div
-                      className={`flex size-14 items-center justify-center rounded-xl 
-        ${color.bg} ${color.text} ${color.darkBg} ${color.darkText}`}
+                      className={`w-12 h-12 flex items-center justify-center rounded-xl ${color.bg} ${color.text}`}
                     >
-                      <span className="material-symbols-outlined text-3xl">
+                      <span className="material-symbols-outlined">
                         {item.icon}
                       </span>
                     </div>
 
-                    <div>
-                      <h3 className="text-lg font-bold">{item.title}</h3>
-                      <p className="mt-2 text-sm text-slate-500">
-                        {item.description}
-                      </p>
-                    </div>
+                    <h3 className="mt-4 font-bold">{item.title}</h3>
+                    <p className="text-sm text-slate-500">{item.description}</p>
                   </div>
                 );
               })}
@@ -223,58 +186,29 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        {/* ================= TESTIMONIALS ================= */}
-        <section className="w-full py-16 lg:py-24">
-          <div className="mx-auto w-full max-w-[1280px] px-6 lg:px-10">
-            <div className="mb-12 text-center">
-              <span className="mb-2 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
-                {t("home.testimonials.sectionTitle")}
-              </span>
-              <h2 className="text-3xl font-bold md:text-4xl">
-                {t("home.testimonials.title")}
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {feedbackUser.map((user, index) => (
-                <div
-                  key={index}
-                  className="flex items-start gap-5 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200"
-                >
-                  {/* Avatar */}
+        {/* TESTIMONIAL */}
+        <section className="py-16">
+          <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {feedbackUser.map((user, i) => (
+                <div key={i} className="bg-white p-6 rounded-xl shadow">
                   <img
                     src={user.img}
                     alt={user.name}
-                    className="h-16 w-16 rounded-full object-cover ring-2 ring-primary/20"
+                    className="w-14 h-14 rounded-full mb-3"
                   />
 
-                  {/* Content */}
-                  <div className="flex flex-col gap-2">
-                    <div>
-                      <p className="font-bold text-slate-900">
-                        {t(`home.testimonials.user${index + 1}.name`)}
-                      </p>
-                      <p className="text-xs text-slate-500">
-                        {t(`home.testimonials.user${index + 1}.role`)}
-                      </p>
+                  <p className="font-bold">
+                    {t(`home.testimonials.user${i + 1}.name`)}
+                  </p>
 
-                      {/* Rating */}
-                      <div className="mt-1 flex items-center gap-1 text-yellow-400">
-                        {[...Array(5)].map((_, i) => (
-                          <span
-                            key={i}
-                            className="material-symbols-outlined text-base"
-                          >
-                            {i < user.rating ? "star" : "star_outline"}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+                  <p className="text-sm text-slate-500">
+                    {t(`home.testimonials.user${i + 1}.role`)}
+                  </p>
 
-                    <p className="text-sm italic text-slate-700 leading-relaxed">
-                      "{t(`home.testimonials.user${index + 1}.feedback`)}"
-                    </p>
-                  </div>
+                  <p className="text-sm italic mt-2">
+                    "{t(`home.testimonials.user${i + 1}.feedback`)}"
+                  </p>
                 </div>
               ))}
             </div>
