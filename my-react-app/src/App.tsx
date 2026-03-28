@@ -13,8 +13,7 @@ function App() {
 
   return (
     <>
-      {/* Navbar */}
-      {!["/login", "/register"].includes(location.pathname) && <Navbar />}
+      {location.pathname === "/" && <Navbar />}
 
       {/* Pages */}
       <Routes>
