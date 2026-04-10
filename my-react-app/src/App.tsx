@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 
 import SignUp from "./pages/SignUp";
@@ -9,10 +9,15 @@ import WordLesson from "./pages/WordLesson";
 import LearningPage from "./pages/LearningPage";
 
 function App() {
+  const location = useLocation();
+
+  // Navbar chỉ hiển thị ở trang Home
+  const showNavbar = location.pathname === "/";
+
   return (
     <>
       {/* Navbar */}
-      <Navbar />
+      {showNavbar && <Navbar />}
 
       {/* Pages */}
       <Routes>

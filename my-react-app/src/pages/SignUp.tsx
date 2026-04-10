@@ -22,15 +22,19 @@ const SignUp: React.FC = () => {
       {/* NÚT X */}{" "}
       <Link
         to="/"
-        className=" fixed top-24 right-5 z-[100] 
-              w-10 h-10 flex items-center justify-center rounded-full
-               bg-white shadow-md
-            hover:bg-gray-100 hover:scale-110 transition"
+        className="
+    absolute top-3 right-3 z-50
+    w-8 h-8 sm:w-9 sm:h-9
+    flex items-center justify-center
+    rounded-full bg-white
+    shadow-md border border-slate-200
+    hover:bg-gray-100 active:scale-95
+    transition
+  "
       >
-        {" "}
-        <span className="material-symbols-outlined text-xl text-slate-700">
-          close{" "}
-        </span>{" "}
+        <span className="material-symbols-outlined text-[16px] sm:text-[18px] text-slate-600">
+          close
+        </span>
       </Link>
       <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-14 px-6">
         {/* LEFT CONTENT */}
