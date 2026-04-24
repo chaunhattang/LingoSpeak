@@ -1,5 +1,6 @@
 import LessonHeader from "../components/Lesson/LessonHeader";
 import LessonFooter from "../components/Lesson/LessonFooter";
+import Flashcard from "../components/practice/Flashcard";
 
 const LearningPage = () => {
   return (
@@ -38,6 +39,13 @@ const LearningPage = () => {
               <p className="text-slate-400 text-sm mt-2 font-mono">
                 /pəˈluː.ʃən/
               </p>
+            </div>
+          </div>
+          {/* ===== FLASHCARD ===== */}
+
+          <div className="flex justify-center py-8">
+            <div className="w-[320px]">
+              <Flashcard />
             </div>
           </div>
 

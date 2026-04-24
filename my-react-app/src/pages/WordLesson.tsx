@@ -1,13 +1,13 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import LessonHeader from "../components/Lesson/LessonHeader";
 import LessonFooter from "../components/Lesson/LessonFooter";
 
 const ANSWER = "RECYCLING";
-;
 
 const WordLesson = () => {
   const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
 
   // các ô trống người dùng nhập
   const [inputs, setInputs] = useState<Record<number, string>>({});
@@ -38,7 +38,13 @@ const WordLesson = () => {
     }
 
     if (finalWord === ANSWER) {
+      console.log("Correct answer");
       setResult("correct");
+
+      setTimeout(() => {
+        console.log("Navigating to flashcard");
+        navigate(`/lesson/${slug}/falastcard`);
+      }, 1000);
     } else {
       setResult("wrong");
     }
@@ -58,18 +64,22 @@ const WordLesson = () => {
               src="https://images.unsplash.com/photo-1503596476-1c12a8ba09a9"
               className="rounded-xl mb-6"
             />
+
             <p className="text-sm text-slate-500 text-center">
               MEANING (VIETNAMESE)
             </p>
+
             <p className="text-2xl font-bold text-center">Tái chế</p>
           </div>
 
           {/* RIGHT */}
           <div className="p-8 flex flex-col justify-between">
+            {/* TOP */}
             <div className="flex justify-between items-center">
               <button className="w-12 h-12 rounded-full bg-primary/10 text-primary">
                 🔊
               </button>
+
               <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold">
                 VERB
               </span>
@@ -110,6 +120,7 @@ const WordLesson = () => {
               </p>
             )}
 
+            {/* BUTTON */}
             <button
               onClick={handleCheck}
               className="w-full py-4 bg-primary text-white rounded-xl font-bold"

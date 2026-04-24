@@ -71,10 +71,13 @@ const Navbar: React.FC = () => {
               {t("navbar.review")}
             </div>
 
-            <div className="flex flex-col items-center text-slate-600">
+            <Link
+              to="/notebook"
+              className="flex flex-col items-center text-slate-600 hover:text-[#115E59]"
+            >
               <img src={handlist} alt="vocabulary" className="h-10 w-10" />
               {t("navbar.vocabulary")}
-            </div>
+            </Link>
           </nav>
 
           {/* Right actions */}
