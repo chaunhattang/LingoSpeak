@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import LessonHeader from "../components/Lesson/LessonHeader";
 import LessonFooter from "../components/Lesson/LessonFooter";
-import Flashcard from "../components/practice/Flashcard";
 
 const LearningPage = () => {
   const word = "Pollution";
@@ -16,10 +15,11 @@ const LearningPage = () => {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "en-US";
     utterance.rate = 0.9;
+    window.speechSynthesis.cancel();
     window.speechSynthesis.speak(utterance);
   };
 
-  // 🎙 INIT SPEECH RECOGNITION (ONLY ONCE)
+  // 🎙 INIT SPEECH RECOGNITION
   const initRecognition = () => {
     const SpeechRecognition =
       (window as any).SpeechRecognition ||
@@ -54,7 +54,6 @@ const LearningPage = () => {
     recognitionRef.current = recognition;
     setTranscript("");
     setIsRecording(true);
-
     recognition.start();
   };
 
@@ -67,10 +66,9 @@ const LearningPage = () => {
     <div className="min-h-screen flex flex-col text-slate-900 bg-gradient-to-br from-sky-50 via-white to-blue-50">
       <LessonHeader />
 
-      <main className="flex-grow flex flex-col items-center justify-center p-6">
-        {/* CARD */}
-        <div className="w-full max-w-2xl bg-white dark:bg-[#1e2936] rounded-xl shadow border overflow-hidden flex flex-col">
-          
+      <main className="flex-grow flex items-center justify-center p-6">
+        <div className="w-full max-w-2xl bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden flex flex-col">
+          {/* IMAGE + WORD */}
           <div className="relative h-64 md:h-80 w-full group overflow-hidden">
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
@@ -86,11 +84,10 @@ const LearningPage = () => {
               <p className="text-slate-300 text-lg font-medium mb-1">Ô nhiễm</p>
 
               <div className="flex items-center gap-3">
-                <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight">
+                <h1 className="text-5xl md:text-6xl font-bold text-white">
                   {word}
                 </h1>
 
-                {/* 🔊 SPEAK BUTTON */}
                 <button
                   onClick={() => speak(word)}
                   className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center justify-center text-white transition"
@@ -106,23 +103,20 @@ const LearningPage = () => {
               </p>
             </div>
           </div>
-          {/* ===== FLASHCARD ===== */}
-
-          <div className="flex justify-center py-8">
-            <div className="w-[320px]">
-              <Flashcard />
-            </div>
-          </div>
 
           {/* SPEAKING AREA */}
-          <div className="p-8 flex flex-col items-center gap-6">
-            {/* MIC BUTTON */}
+          <div className="p-10 flex flex-col items-center gap-6">
+            {/* MIC */}
             <button
               onClick={isRecording ? stopRecording : startRecording}
               className={`
                 relative w-16 h-16 rounded-full flex items-center justify-center
                 transition-all duration-300 shadow-md
-                ${isRecording ? "bg-red-500 text-white scale-110" : "bg-blue-500 text-white"}
+                ${
+                  isRecording
+                    ? "bg-red-500 text-white scale-110"
+                    : "bg-blue-500 text-white hover:scale-105"
+                }
               `}
             >
               <span className="material-symbols-outlined text-2xl">mic</span>
@@ -136,7 +130,9 @@ const LearningPage = () => {
             </button>
 
             <p
-              className={`font-semibold ${isRecording ? "text-red-500" : "text-blue-500"}`}
+              className={`font-semibold ${
+                isRecording ? "text-red-500" : "text-blue-500"
+              }`}
             >
               {isRecording ? "Listening..." : "Tap to speak"}
             </p>

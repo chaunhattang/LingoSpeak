@@ -32,7 +32,8 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 w-full z-50 border-b border-slate-200 bg-background-light/80 backdrop-blur-md">
+    <header className="fixed top-0 w-full z-50 bg-white border-b border-slate-200 shadow-sm">
+      {" "}
       <div className="flex justify-center w-full">
         <div className="flex w-full max-w-[1280px] items-center justify-between px-6 py-3 lg:px-10">
           {/* Logo */}
@@ -49,53 +50,66 @@ const Navbar: React.FC = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <nav className="hidden md:flex items-center gap-10">
+          <nav className="hidden md:flex items-center gap-8">
+            {/* HOME */}
             <Link
               to="/"
-              className={`flex flex-col items-center ${
-                location.pathname === "/"
-                  ? "text-[#115E59]"
-                  : "text-slate-600 hover:text-[#115E59]"
-              }`}
+              className="flex flex-col items-center px-4 py-2 rounded-xl text-slate-600
+    transition-all duration-300 ease-out
+    hover:scale-110 hover:-translate-y-1
+    hover:bg-white/60 backdrop-blur
+    hover:shadow-[0_10px_30px_rgba(59,130,246,0.25)]
+    hover:text-primary active:scale-95"
             >
-              <img src={home} alt="home" className="h-10 w-10" />
-              {t("navbar.home")}
+              <img src={home} alt="home" className="h-10 w-10 mb-1" />
+              <span className="text-sm font-semibold">{t("navbar.home")}</span>
             </Link>
 
+            {/* LESSON */}
             <Link
               to="/lesson"
-              className={`flex flex-col items-center ${
-                location.pathname.startsWith("/lesson")
-                  ? "text-[#115E59]"
-                  : "text-slate-600 hover:text-[#115E59]"
-              }`}
+              className="flex flex-col items-center px-4 py-2 rounded-xl text-slate-600
+    transition-all duration-300 ease-out
+    hover:scale-110 hover:-translate-y-1
+    hover:bg-white/60 backdrop-blur
+    hover:shadow-[0_10px_30px_rgba(59,130,246,0.25)]
+    hover:text-primary active:scale-95"
             >
-              <img src={newWord} alt="lesson" className="h-10 w-10" />
-              {t("navbar.lessons")}
+              <img src={newWord} alt="lesson" className="h-10 w-10 mb-1" />
+              <span className="text-sm font-semibold">
+                {t("navbar.lessons")}
+              </span>
             </Link>
 
+            {/* REVIEW */}
             <div
-              className={`flex flex-col items-center ${
-                location.pathname.startsWith("/review")
-                  ? "text-[#115E59]"
-                  : "text-slate-600 hover:text-[#115E59]"
-              }`}
+              className="flex flex-col items-center px-4 py-2 rounded-xl text-slate-600
+    transition-all duration-300 ease-out cursor-pointer
+    hover:scale-110 hover:-translate-y-1
+    hover:bg-white/60 backdrop-blur
+    hover:shadow-[0_10px_30px_rgba(59,130,246,0.25)]
+    hover:text-primary active:scale-95"
             >
-              <img src={review} alt="review" className="h-10 w-10" />
-              {t("navbar.review")}
+              <img src={review} alt="review" className="h-10 w-10 mb-1" />
+              <span className="text-sm font-semibold">
+                {t("navbar.review")}
+              </span>
             </div>
 
-            <Link
-              to="/notebook"
-              className={`flex flex-col items-center ${
-                location.pathname.startsWith("/notebook")
-                  ? "text-[#115E59]"
-                  : "text-slate-600 hover:text-[#115E59]"
-              }`}
+            {/* VOCAB */}
+            <div
+              className="flex flex-col items-center px-4 py-2 rounded-xl text-slate-600
+    transition-all duration-300 ease-out cursor-pointer
+    hover:scale-110 hover:-translate-y-1
+    hover:bg-white/60 backdrop-blur
+    hover:shadow-[0_10px_30px_rgba(59,130,246,0.25)]
+    hover:text-primary active:scale-95"
             >
-              <img src={handlist} alt="vocabulary" className="h-10 w-10" />
-              {t("navbar.vocabulary")}
-            </Link>
+              <img src={handlist} alt="vocabulary" className="h-10 w-10 mb-1" />
+              <span className="text-sm font-semibold">
+                {t("navbar.vocabulary")}
+              </span>
+            </div>
           </nav>
 
           {/* Right actions */}
@@ -153,7 +167,6 @@ const Navbar: React.FC = () => {
           </div>
         </div>
       </div>
-
       {/* Mobile menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white border-t border-slate-200">
