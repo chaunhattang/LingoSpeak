@@ -15,8 +15,8 @@ export default function VocabularyNotebook() {
 
         {/* Topic list */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {topics.map((topic: Topic) => (
-            <TopicCard key={topic.id} topic={topic} basePath="/lesson" />
+          {topics.map((topic) => (
+            <TopicCard key={topic.id} topic={topic} mode="vocabulary" />
           ))}
         </div>
       </main>

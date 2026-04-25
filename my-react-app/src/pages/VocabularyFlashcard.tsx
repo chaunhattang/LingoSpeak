@@ -30,7 +30,7 @@ export default function FalastCard() {
       <Flashcard />
 
       <button
-        onClick={() => navigate(`/lesson/${slug}/learning`)}
+        onClick={() => navigate(`/notebook/${slug}/learning`)}
         className="w-full bg-gradient-to-r from-blue-500 to-teal-400 text-white py-4 rounded-full shadow-md mt-8"
       >
         Tiếp tục →

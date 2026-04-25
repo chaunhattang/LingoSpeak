@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18n from "../../i18n";
+import { NavLink } from "react-router-dom";
 
 import logo from "../../assets/images/logo.png";
 import home from "../../assets/images/home.png";
@@ -52,34 +53,51 @@ const Navbar: React.FC = () => {
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center gap-8">
             {/* HOME */}
-            <Link
+            <NavLink
               to="/"
-              className="flex flex-col items-center px-4 py-2 rounded-xl text-slate-600
-    transition-all duration-300 ease-out
-    hover:scale-110 hover:-translate-y-1
-    hover:bg-white/60 backdrop-blur
-    hover:shadow-[0_10px_30px_rgba(59,130,246,0.25)]
-    hover:text-primary active:scale-95"
+              end
+              className={({ isActive }) =>
+                `flex flex-col items-center px-4 py-2 rounded-xl
+     transition-all duration-300 ease-out
+     backdrop-blur
+     hover:scale-110 hover:-translate-y-1
+     hover:bg-white/60
+     hover:shadow-[0_10px_30px_rgba(59,130,246,0.25)]
+     active:scale-95
+     ${
+       isActive
+         ? "text-[#2563EB] bg-white/60 shadow-[0_10px_30px_rgba(59,130,246,0.25)] scale-105"
+         : "text-slate-600 hover:text-[#2563EB]"
+     }`
+              }
             >
               <img src={home} alt="home" className="h-10 w-10 mb-1" />
               <span className="text-sm font-semibold">{t("navbar.home")}</span>
-            </Link>
+            </NavLink>
 
             {/* LESSON */}
-            <Link
+            <NavLink
               to="/lesson"
-              className="flex flex-col items-center px-4 py-2 rounded-xl text-slate-600
-    transition-all duration-300 ease-out
-    hover:scale-110 hover:-translate-y-1
-    hover:bg-white/60 backdrop-blur
-    hover:shadow-[0_10px_30px_rgba(59,130,246,0.25)]
-    hover:text-primary active:scale-95"
+              className={({ isActive }) =>
+                `flex flex-col items-center px-4 py-2 rounded-xl
+     transition-all duration-300 ease-out
+     backdrop-blur
+     hover:scale-110 hover:-translate-y-1
+     hover:bg-white/60
+     hover:shadow-[0_10px_30px_rgba(59,130,246,0.25)]
+     active:scale-95
+     ${
+       isActive
+         ? "text-[#2563EB] bg-white/60 shadow-[0_10px_30px_rgba(59,130,246,0.25)] scale-105"
+         : "text-slate-600 hover:text-[#2563EB]"
+     }`
+              }
             >
               <img src={newWord} alt="lesson" className="h-10 w-10 mb-1" />
               <span className="text-sm font-semibold">
                 {t("navbar.lessons")}
               </span>
-            </Link>
+            </NavLink>
 
             {/* REVIEW */}
             <div
@@ -97,19 +115,28 @@ const Navbar: React.FC = () => {
             </div>
 
             {/* VOCAB */}
-            <div
-              className="flex flex-col items-center px-4 py-2 rounded-xl text-slate-600
-    transition-all duration-300 ease-out cursor-pointer
-    hover:scale-110 hover:-translate-y-1
-    hover:bg-white/60 backdrop-blur
-    hover:shadow-[0_10px_30px_rgba(59,130,246,0.25)]
-    hover:text-primary active:scale-95"
+            <NavLink
+              to="/notebook"
+              className={({ isActive }) =>
+                `flex flex-col items-center px-4 py-2 rounded-xl
+     transition-all duration-300 ease-out
+     cursor-pointer backdrop-blur
+     hover:scale-110 hover:-translate-y-1
+     hover:bg-white/60
+     hover:shadow-[0_10px_30px_rgba(59,130,246,0.25)]
+     active:scale-95
+     ${
+       isActive
+         ? "text-[#2563EB] bg-white/60 shadow-[0_10px_30px_rgba(59,130,246,0.25)] scale-105"
+         : "text-slate-600 hover:text-[#2563EB]"
+     }`
+              }
             >
               <img src={handlist} alt="vocabulary" className="h-10 w-10 mb-1" />
               <span className="text-sm font-semibold">
                 {t("navbar.vocabulary")}
               </span>
-            </div>
+            </NavLink>
           </nav>
 
           {/* Right actions */}

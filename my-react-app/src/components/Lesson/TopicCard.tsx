@@ -4,18 +4,30 @@ import { useTranslation } from "react-i18next";
 
 interface Props {
   topic: Topic;
-  basePath?: string;
+  mode: "vocabulary" | "lesson";
 }
 
-const TopicCard = ({ topic, basePath = "/lesson" }: Props) => {
-  const { t } = useTranslation();
+const TopicCard = ({ topic, mode }: Props) => {
   const navigate = useNavigate();
-  const Icon = topic.icon;
+  const { t } = useTranslation(); // ✅ THÊM
+  const Icon = topic.icon; // ✅ THÊM
 
   const handleClick = () => {
-    navigate(`${basePath}/${topic.slug}/falastcard`);
-  };
+    console.log("mode:", mode);
+    console.log("slug:", topic.slug);
 
+    // ===== VOCABULARY =====
+    if (mode === "vocabulary") {
+      navigate(`/notebook/${topic.slug}/falastcard`);
+      return;
+    }
+
+    // ===== LESSON =====
+    if (mode === "lesson") {
+      navigate(`/lesson/${topic.slug}`);
+      return;
+    }
+  };
   return (
     <div
       onClick={handleClick}

@@ -5,38 +5,62 @@ import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import Home from "./pages/Home";
 import Lesson from "./pages/Lesson";
-import WordLesson from "./pages/WordLesson";
-import LearningPage from "./pages/LearningPage";
-import SpeakingPractice from "./pages/SpeakingPractice";
-import FalastCard from "./pages/falastCard";
+
+import LessonSpeakingPractice from "./pages/LessonSpeakingPractice";
+import ConversationPage from "./pages/ConversationPage";
+import SpeakingResult from "./pages/SpeakingResult";
+
 import VocabularyNotebook from "./pages/VocabularyNotebook";
+import VocabularyFlashcard from "./pages/VocabularyFlashcard";
+import VocabularyLearningPage from "./pages/VocabularyLearningPage";
+import LearningPage from "./pages/LearningPage";
 
 function App() {
   const location = useLocation();
 
-  // hiển thị navbar ở nhiều trang
   const showNavbar =
     location.pathname === "/" ||
-    location.pathname.startsWith("/lesson") ||
+    location.pathname.startsWith("/") ||
     location.pathname.startsWith("/notebook");
 
   return (
     <>
-      {showNavbar && <Navbar />}
+      {/* {showNavbar && <Navbar />} */}
 
       <Routes>
+        {/* HOME */}
         <Route path="/" element={<Home />} />
+
         <Route path="/register" element={<SignUp />} />
         <Route path="/login" element={<SignIn />} />
 
-        <Route path="/lesson" element={<Lesson />} />
-        <Route path="/lesson/:slug" element={<WordLesson />} />
+        {/* ================= LESSON ================= */}
 
-        <Route path="/lesson/:slug/falastcard" element={<FalastCard />} />
-        <Route path="/lesson/:slug/learning" element={<LearningPage />} />
-        <Route path="/lesson/:slug/speaking" element={<SpeakingPractice />} />
+        <Route path="/lesson" element={<Lesson />} />
+
+        <Route path="/lesson/:slug" element={<ConversationPage />} />
+
+        <Route
+          path="/lesson/:slug/practice"
+          element={<LessonSpeakingPractice />}
+        />
+
+        <Route path="/lesson/:slug/result" element={<SpeakingResult />} />
+
+        {/* ================= VOCABULARY ================= */}
 
         <Route path="/notebook" element={<VocabularyNotebook />} />
+
+        <Route
+          path="/notebook/:slug/falastcard"
+          element={<VocabularyFlashcard />}
+        />
+
+        <Route
+          path="/notebook/:slug/learning"
+          element={<VocabularyLearningPage />}
+        />
+        <Route path="/notebook/:slug/learning" element={<LearningPage />} />
       </Routes>
     </>
   );
