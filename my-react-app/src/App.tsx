@@ -8,23 +8,35 @@ import Lesson from "./pages/Lesson";
 import WordLesson from "./pages/WordLesson";
 import LearningPage from "./pages/LearningPage";
 import SpeakingPractice from "./pages/SpeakingPractice";
+import FalastCard from "./pages/falastCard";
+import VocabularyNotebook from "./pages/VocabularyNotebook";
 
 function App() {
   const location = useLocation();
 
+  // hiển thị navbar ở nhiều trang
+  const showNavbar =
+    location.pathname === "/" ||
+    location.pathname.startsWith("/lesson") ||
+    location.pathname.startsWith("/notebook");
+
   return (
     <>
-      {location.pathname === "/" && <Navbar />}
+      {showNavbar && <Navbar />}
 
-      {/* Pages */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<SignUp />} />
         <Route path="/login" element={<SignIn />} />
+
         <Route path="/lesson" element={<Lesson />} />
         <Route path="/lesson/:slug" element={<WordLesson />} />
+
+        <Route path="/lesson/:slug/falastcard" element={<FalastCard />} />
         <Route path="/lesson/:slug/learning" element={<LearningPage />} />
         <Route path="/lesson/:slug/speaking" element={<SpeakingPractice />} />
+
+        <Route path="/notebook" element={<VocabularyNotebook />} />
       </Routes>
     </>
   );

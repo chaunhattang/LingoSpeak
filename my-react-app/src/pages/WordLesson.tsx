@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import LessonHeader from "../components/Lesson/LessonHeader";
 import LessonFooter from "../components/Lesson/LessonFooter";
@@ -6,27 +6,28 @@ import LessonFooter from "../components/Lesson/LessonFooter";
 const ANSWER = "RECYCLING";
 
 const WordLesson = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const { slug } = useParams();
+  const navigate = useNavigate();
 
-  const [inputs, setInputs] = useState<Record<number, string>>({});
-  const [result, setResult] = useState<"correct" | "wrong" | null>(null);
+  const [inputs, setInputs] = useState({});
+  const [result, setResult] = useState(null);
 
   if (!slug) return null;
 
   const letters = ["R", "E", "", "Y", "C", "", "I", "N", "G"];
 
   // 🔊 TEXT TO SPEECH
-  const speak = (text: string) => {
+  const speak = (text) => {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "en-US";
     utterance.rate = 0.9;
 
-    window.speechSynthesis.cancel(); // tránh chồng âm
+    window.speechSynthesis.cancel();
     window.speechSynthesis.speak(utterance);
   };
 
   // input handler
-  const handleChange = (index: number, value: string) => {
+  const handleChange = (index, value) => {
     if (!/^[a-zA-Z]?$/.test(value)) return;
 
     setInputs((prev) => ({
@@ -35,7 +36,7 @@ const WordLesson = () => {
     }));
   };
 
-  // check answer
+  // check answer + navigate
   const handleCheck = () => {
     const finalWord = letters.map((c, i) => (c ? c : inputs[i] || "")).join("");
 
@@ -44,7 +45,16 @@ const WordLesson = () => {
       return;
     }
 
-    setResult(finalWord === ANSWER ? "correct" : "wrong");
+    if (finalWord === ANSWER) {
+      setResult("correct");
+
+      // delay nhẹ cho UX đẹp
+      setTimeout(() => {
+        navigate(`/lesson/${slug}/falastcard`);
+      }, 800);
+    } else {
+      setResult("wrong");
+    }
   };
 
   return (
@@ -73,7 +83,7 @@ const WordLesson = () => {
           <div className="p-8 flex flex-col justify-between">
             {/* TOP */}
             <div className="flex justify-between items-center">
-              {/* 🔊 SPEAK BUTTON */}
+              {/* 🔊 SPEAK */}
               <button
                 onClick={() => speak("recycling")}
                 className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-sky-500 text-white shadow-md hover:scale-105 transition flex items-center justify-center"
@@ -129,8 +139,8 @@ const WordLesson = () => {
             <button
               onClick={handleCheck}
               className="w-full py-4 rounded-xl font-bold text-white 
-                bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-400
-                hover:opacity-90 shadow-lg transition"
+              bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-400
+              hover:opacity-90 shadow-lg transition"
             >
               Check Answer
             </button>
