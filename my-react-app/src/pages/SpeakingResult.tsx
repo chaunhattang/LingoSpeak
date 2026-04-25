@@ -82,7 +82,7 @@ export default function SpeakingResult() {
           {/* Buttons */}
           <div className="w-full flex flex-col gap-4">
             <button
-              onClick={() => navigate(`/lesson/${slug}`)}
+              onClick={() => navigate("/lesson")}
               className="w-full py-4 px-6 bg-primary text-white rounded-lg font-semibold shadow-sm hover:bg-primary/90 transition flex items-center justify-center gap-2"
             >
               <span className="material-symbols-outlined">library_books</span>
