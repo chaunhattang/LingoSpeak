@@ -9,47 +9,67 @@ const LessonFooter = () => {
   const isLearningPage = location.pathname === `/lesson/${slug}/learning`;
 
   return (
-    <footer className="w-full border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-4 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* ⬅️ TỪ TRƯỚC */}
+    <footer className="w-full border-t border-slate-200 bg-gradient-to-r from-slate-50 via-white to-sky-50 py-4 px-4 md:px-8">
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
+        {/* LEFT */}
         <button
           onClick={() => {
             if (isLearningPage) {
               navigate(`/lesson/${slug}`);
             }
           }}
-          disabled={isWordPage} 
-          className={`flex items-center gap-2 px-5 py-3 rounded-lg font-bold
+          disabled={isWordPage}
+          className={`flex items-center gap-2 px-4 py-2 rounded-xl transition font-medium
             ${
               isWordPage
-                ? "opacity-40 cursor-not-allowed bg-slate-100 dark:bg-slate-800"
-                : "bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700"
+                ? "opacity-40 cursor-not-allowed text-slate-400"
+                : "text-blue-600 hover:bg-blue-50"
             }`}
         >
-          <span className="material-symbols-outlined">arrow_back</span>
-          <span className="hidden sm:inline">Từ trước</span>
+          <span className="material-symbols-outlined text-lg">arrow_back</span>
+          Previous
         </button>
 
-        <div className="hidden sm:flex gap-1.5 opacity-50">
-          <div className="w-2 h-2 rounded-full bg-primary" />
-          <div className="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-600" />
-          <div className="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-600" />
+        {/* CENTER - step indicator (blue system) */}
+        <div className="flex items-center gap-2">
+          <div
+            className={`w-2.5 h-2.5 rounded-full transition ${
+              isWordPage
+                ? "bg-blue-500 shadow-md shadow-blue-200"
+                : "bg-slate-300"
+            }`}
+          />
+
+          <div
+            className={`w-2.5 h-2.5 rounded-full transition ${
+              isLearningPage
+                ? "bg-sky-500 shadow-md shadow-sky-200"
+                : "bg-slate-300"
+            }`}
+          />
+
+          <div className="w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-md shadow-cyan-200" />
         </div>
 
-        {/* ➡️ TỪ TIẾP THEO */}
+        {/* RIGHT */}
         <button
           onClick={() => {
             if (isWordPage) {
               navigate(`/lesson/${slug}/learning`);
             }
             if (isLearningPage) {
-              navigate(`/lesson/${slug}/next`); 
+              navigate(`/lesson/${slug}/speaking`);
             }
           }}
-          className="flex items-center gap-2 px-5 py-3 rounded-lg text-white font-bold bg-slate-900 dark:bg-slate-700 hover:bg-slate-700 dark:hover:bg-slate-600"
+          className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-medium 
+                     bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-400
+                     hover:from-blue-600 hover:via-sky-600 hover:to-cyan-500
+                     shadow-md hover:shadow-lg transition"
         >
-          <span className="hidden sm:inline">Từ tiếp theo</span>
-          <span className="material-symbols-outlined">arrow_forward</span>
+          Next
+          <span className="material-symbols-outlined text-lg">
+            arrow_forward
+          </span>
         </button>
       </div>
     </footer>

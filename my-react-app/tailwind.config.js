@@ -4,14 +4,28 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#3B82F6",
-        "background-light": "#f6f7f8",
-        "background-dark": "#101922",
+        primary: "#2563eb",
+        "primary-light": "#3b82f6",
+
+        background: "#f5f7fb",
+        surface: "#ffffff",
+
+        text: "#1e293b",
+        "text-light": "#64748b",
+
+        border: "#e2e8f0",
+
+        success: "#22c55e",
+        info: "#3b82f6",
+        warning: "#f59e0b",
+        danger: "#ef4444",
       },
+
       fontFamily: {
         display: ["Lexend", "sans-serif"],
         body: ["Noto Sans", "sans-serif"],
       },
+
       borderRadius: {
         DEFAULT: "0.5rem",
         lg: "1rem",

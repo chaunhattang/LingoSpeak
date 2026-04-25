@@ -1,16 +1,75 @@
+import { useRef, useState } from "react";
 import LessonHeader from "../components/Lesson/LessonHeader";
 import LessonFooter from "../components/Lesson/LessonFooter";
 
 const LearningPage = () => {
+  const word = "Pollution";
+
+  const [isRecording, setIsRecording] = useState(false);
+  const [transcript, setTranscript] = useState("");
+
+  const recognitionRef = useRef<any>(null);
+
+  // 🔊 TEXT TO SPEECH
+  const speak = (text: string) => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "en-US";
+    utterance.rate = 0.9;
+    window.speechSynthesis.speak(utterance);
+  };
+
+  // 🎙 INIT SPEECH RECOGNITION (ONLY ONCE)
+  const initRecognition = () => {
+    const SpeechRecognition =
+      (window as any).SpeechRecognition ||
+      (window as any).webkitSpeechRecognition;
+
+    if (!SpeechRecognition) return null;
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = "en-US";
+    recognition.interimResults = true;
+    recognition.continuous = true;
+
+    recognition.onresult = (event: any) => {
+      let text = "";
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        text += event.results[i][0].transcript;
+      }
+      setTranscript(text);
+    };
+
+    recognition.onend = () => {
+      setIsRecording(false);
+    };
+
+    return recognition;
+  };
+
+  const startRecording = () => {
+    const recognition = initRecognition();
+    if (!recognition) return;
+
+    recognitionRef.current = recognition;
+    setTranscript("");
+    setIsRecording(true);
+
+    recognition.start();
+  };
+
+  const stopRecording = () => {
+    recognitionRef.current?.stop();
+    setIsRecording(false);
+  };
+
   return (
-    <div className="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
-      {/* HEADER */}
+    <div className="min-h-screen flex flex-col text-slate-900 bg-gradient-to-br from-sky-50 via-white to-blue-50">
       <LessonHeader />
 
-      {/* MAIN */}
       <main className="flex-grow flex flex-col items-center justify-center p-6">
-        <div className="w-full max-w-2xl bg-white dark:bg-[#1e2936] rounded-xl shadow border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col">
-          {/* IMAGE + WORD */}
+        {/* CARD */}
+        <div className="w-full max-w-2xl bg-white dark:bg-[#1e2936] rounded-xl shadow border overflow-hidden flex flex-col">
+          
           <div className="relative h-64 md:h-80 w-full group overflow-hidden">
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
@@ -19,6 +78,7 @@ const LearningPage = () => {
                   "url(https://media.istockphoto.com/id/1141520118/vi/anh/th%E1%BA%A3m-h%E1%BB%8Da-sinh-th%C3%A1i.jpg?s=612x612&w=0&k=20&c=P2r42RP2CtCX8ZJZsPAERe0t1dh9C_ILrs4EvVfcBDM=)",
               }}
             />
+
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
             <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col items-center text-center">
@@ -26,9 +86,14 @@ const LearningPage = () => {
 
               <div className="flex items-center gap-3">
                 <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight">
-                  Pollution
+                  {word}
                 </h1>
-                <button className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center justify-center text-white">
+
+                {/* 🔊 SPEAK BUTTON */}
+                <button
+                  onClick={() => speak(word)}
+                  className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center justify-center text-white transition"
+                >
                   <span className="material-symbols-outlined text-2xl">
                     volume_up
                   </span>
@@ -41,42 +106,41 @@ const LearningPage = () => {
             </div>
           </div>
 
-          {/* RECORD AREA */}
-          <div className="p-8 flex flex-col items-center gap-8">
-            {/* Waveform giả lập */}
-            <div className="flex flex-col items-center gap-3 h-24 justify-center">
-              <div className="flex items-center justify-center gap-1 h-12 w-[200px]">
-                <div className="w-1.5 bg-primary/40 rounded-full animate-pulse h-full" />
-                <div className="w-1.5 bg-primary/60 rounded-full animate-pulse h-3/4" />
-                <div className="w-1.5 bg-primary rounded-full animate-pulse h-1/2" />
-                <div className="w-1.5 bg-primary/60 rounded-full animate-pulse h-3/4" />
-                <div className="w-1.5 bg-primary/40 rounded-full animate-pulse h-full" />
-              </div>
-              <p className="text-primary font-semibold animate-pulse">
-                Đang ghi âm...
-              </p>
-            </div>
+          {/* SPEAKING AREA */}
+          <div className="p-8 flex flex-col items-center gap-6">
+            {/* MIC BUTTON */}
+            <button
+              onClick={isRecording ? stopRecording : startRecording}
+              className={`
+                relative w-16 h-16 rounded-full flex items-center justify-center
+                transition-all duration-300 shadow-md
+                ${isRecording ? "bg-red-500 text-white scale-110" : "bg-blue-500 text-white"}
+              `}
+            >
+              <span className="material-symbols-outlined text-2xl">mic</span>
 
-            {/* BUTTONS */}
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <button className="flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-red-100 bg-red-50 text-red-600 font-bold dark:bg-red-900/20 dark:border-red-900/40 dark:text-red-400">
-                <span className="material-symbols-outlined">stop_circle</span>
-                <span>Dừng</span>
-              </button>
+              {isRecording && (
+                <>
+                  <span className="absolute w-full h-full rounded-full bg-red-400 opacity-40 animate-ping" />
+                  <span className="absolute w-[140%] h-[140%] rounded-full border-2 border-red-300 animate-pulse" />
+                </>
+              )}
+            </button>
 
-              <button
-                disabled
-                className="flex items-center gap-2 px-8 py-3 rounded-xl bg-slate-200 text-slate-400 font-bold dark:bg-slate-700 dark:text-slate-500 cursor-not-allowed"
-              >
-                <span>Gửi kết quả</span>
-                <span className="material-symbols-outlined text-lg">send</span>
-              </button>
+            <p
+              className={`font-semibold ${isRecording ? "text-red-500" : "text-blue-500"}`}
+            >
+              {isRecording ? "Listening..." : "Tap to speak"}
+            </p>
+
+            {/* TRANSCRIPT */}
+            <div className="w-full p-4 bg-slate-50 rounded-xl border min-h-[60px] text-center text-slate-700">
+              {transcript || "Your speech will appear here..."}
             </div>
           </div>
         </div>
       </main>
 
-      {/* FOOTER */}
       <LessonFooter />
     </div>
   );

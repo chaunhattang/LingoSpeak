@@ -4,12 +4,10 @@ import LessonHeader from "../components/Lesson/LessonHeader";
 import LessonFooter from "../components/Lesson/LessonFooter";
 
 const ANSWER = "RECYCLING";
-;
 
 const WordLesson = () => {
   const { slug } = useParams<{ slug: string }>();
 
-  // các ô trống người dùng nhập
   const [inputs, setInputs] = useState<Record<number, string>>({});
   const [result, setResult] = useState<"correct" | "wrong" | null>(null);
 
@@ -17,7 +15,17 @@ const WordLesson = () => {
 
   const letters = ["R", "E", "", "Y", "C", "", "I", "N", "G"];
 
-  // xử lý nhập
+  // 🔊 TEXT TO SPEECH
+  const speak = (text: string) => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "en-US";
+    utterance.rate = 0.9;
+
+    window.speechSynthesis.cancel(); // tránh chồng âm
+    window.speechSynthesis.speak(utterance);
+  };
+
+  // input handler
   const handleChange = (index: number, value: string) => {
     if (!/^[a-zA-Z]?$/.test(value)) return;
 
@@ -27,61 +35,68 @@ const WordLesson = () => {
     }));
   };
 
-  // check đáp án
+  // check answer
   const handleCheck = () => {
     const finalWord = letters.map((c, i) => (c ? c : inputs[i] || "")).join("");
 
-    // chưa nhập đủ chữ
     if (finalWord.length !== ANSWER.length) {
       setResult("wrong");
       return;
     }
 
-    if (finalWord === ANSWER) {
-      setResult("correct");
-    } else {
-      setResult("wrong");
-    }
+    setResult(finalWord === ANSWER ? "correct" : "wrong");
   };
 
   return (
-    <div className="bg-background-light dark:bg-background-dark text-[#0d141b] dark:text-slate-50 flex flex-col min-h-screen font-display">
-      {/* HEADER */}
+    <div className="min-h-screen flex flex-col text-slate-900 bg-gradient-to-br from-sky-50 via-white to-blue-50">
       <LessonHeader />
 
-      {/* MAIN */}
-      <main className="flex-grow flex items-center justify-center p-4 max-w-5xl mx-auto w-full">
-        <div className="w-full bg-white dark:bg-slate-800 rounded-2xl shadow border grid grid-cols-1 md:grid-cols-2 overflow-hidden">
+      <main className="flex-grow flex items-center justify-center p-4">
+        <div className="w-full max-w-5xl grid md:grid-cols-2 bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
           {/* LEFT */}
-          <div className="p-8 border-b md:border-b-0 md:border-r dark:border-slate-700">
+          <div className="p-8 bg-gradient-to-br from-sky-50 via-white to-blue-50 border-b md:border-b-0 md:border-r border-slate-100">
             <img
               src="https://images.unsplash.com/photo-1503596476-1c12a8ba09a9"
-              className="rounded-xl mb-6"
+              className="rounded-2xl mb-6 shadow-md"
             />
-            <p className="text-sm text-slate-500 text-center">
-              MEANING (VIETNAMESE)
+
+            <p className="text-xs uppercase tracking-wider text-slate-400 text-center">
+              Meaning
             </p>
-            <p className="text-2xl font-bold text-center">Tái chế</p>
+
+            <p className="text-3xl font-bold text-center bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent">
+              Tái chế
+            </p>
           </div>
 
           {/* RIGHT */}
           <div className="p-8 flex flex-col justify-between">
+            {/* TOP */}
             <div className="flex justify-between items-center">
-              <button className="w-12 h-12 rounded-full bg-primary/10 text-primary">
-                🔊
+              {/* 🔊 SPEAK BUTTON */}
+              <button
+                onClick={() => speak("recycling")}
+                className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-sky-500 text-white shadow-md hover:scale-105 transition flex items-center justify-center"
+              >
+                <span className="material-symbols-outlined">volume_up</span>
               </button>
-              <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold">
+
+              {/* BADGE */}
+              <span
+                className="px-3 py-1 rounded-full text-xs font-semibold 
+                bg-blue-50 text-blue-600 border border-blue-200"
+              >
                 VERB
               </span>
             </div>
 
-            {/* WORD INPUT */}
+            {/* INPUT */}
             <div className="flex flex-wrap justify-center gap-3 my-10">
               {letters.map((c, i) =>
                 c ? (
                   <div
                     key={i}
-                    className="w-12 h-16 flex items-center justify-center bg-slate-100 dark:bg-slate-700 rounded-lg text-2xl font-bold"
+                    className="w-12 h-16 flex items-center justify-center rounded-xl bg-slate-100 text-2xl font-bold shadow-sm"
                   >
                     {c}
                   </div>
@@ -91,7 +106,7 @@ const WordLesson = () => {
                     maxLength={1}
                     value={inputs[i] || ""}
                     onChange={(e) => handleChange(i, e.target.value)}
-                    className="w-12 h-16 text-center border-2 border-primary rounded-lg text-2xl font-bold bg-transparent focus:outline-none"
+                    className="w-12 h-16 text-center border-2 border-blue-200 rounded-xl text-2xl font-bold bg-white focus:outline-none focus:ring-4 focus:ring-blue-200 transition"
                   />
                 ),
               )}
@@ -99,20 +114,23 @@ const WordLesson = () => {
 
             {/* FEEDBACK */}
             {result && (
-              <p
-                className={`text-center font-bold mb-4 ${
-                  result === "correct" ? "text-green-600" : "text-red-500"
+              <div
+                className={`text-center mb-4 font-bold px-4 py-2 rounded-xl ${
+                  result === "correct"
+                    ? "bg-blue-50 text-blue-600 border border-blue-200"
+                    : "bg-red-50 text-red-500 border border-red-200"
                 }`}
               >
-                {result === "correct"
-                  ? "🎉 Chính xác!"
-                  : "❌ Chưa đúng, thử lại nhé"}
-              </p>
+                {result === "correct" ? "🎉 Perfect!" : "❌ Try again"}
+              </div>
             )}
 
+            {/* BUTTON */}
             <button
               onClick={handleCheck}
-              className="w-full py-4 bg-primary text-white rounded-xl font-bold"
+              className="w-full py-4 rounded-xl font-bold text-white 
+                bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-400
+                hover:opacity-90 shadow-lg transition"
             >
               Check Answer
             </button>
@@ -120,7 +138,6 @@ const WordLesson = () => {
         </div>
       </main>
 
-      {/* FOOTER */}
       <LessonFooter />
     </div>
   );

@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Lesson from "./pages/Lesson";
 import WordLesson from "./pages/WordLesson";
 import LearningPage from "./pages/LearningPage";
+import SpeakingPractice from "./pages/SpeakingPractice";
 
 function App() {
   const location = useLocation();
@@ -23,6 +24,7 @@ function App() {
         <Route path="/lesson" element={<Lesson />} />
         <Route path="/lesson/:slug" element={<WordLesson />} />
         <Route path="/lesson/:slug/learning" element={<LearningPage />} />
+        <Route path="/lesson/:slug/speaking" element={<SpeakingPractice />} />
       </Routes>
     </>
   );
