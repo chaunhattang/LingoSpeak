@@ -1,8 +1,26 @@
 import { useNavigate, useParams } from "react-router-dom";
+import applauseSound from "../assets/sounds/applause.mp3";
+import { useEffect } from "react";
 
 export default function SpeakingResult() {
   const navigate = useNavigate();
   const { slug } = useParams();
+
+  useEffect(() => {
+    const audio = new Audio(applauseSound);
+
+    audio.volume = 0.6;
+
+    audio.play().catch(() => {
+      console.log("Autoplay blocked");
+    });
+
+    return () => {
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, []);
+
   return (
     <div className="bg-background min-h-screen flex flex-col font-body-sm text-on-background relative overflow-hidden">
       {/* Decorative Confetti */}

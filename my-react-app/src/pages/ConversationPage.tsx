@@ -1,4 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 const conversation = [
   {
@@ -58,6 +59,42 @@ const conversation = [
 export default function ConversationPage() {
   const navigate = useNavigate();
   const { slug } = useParams();
+
+  const speakText = (text: string, speaker: string): void => {
+    if (!window.speechSynthesis) {
+      alert("Browser does not support speech");
+      return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(text);
+
+    const voices = window.speechSynthesis.getVoices();
+
+    // tìm giọng nữ
+    const femaleVoice = voices.find(
+      (voice) => voice.name.includes("Zira") || voice.name.includes("Female"),
+    );
+
+    // tìm giọng nam
+    const maleVoice = voices.find(
+      (voice) => voice.name.includes("David") || voice.name.includes("Male"),
+    );
+
+    // chọn voice theo speaker
+    if (speaker.toLowerCase() === "customer" && femaleVoice) {
+      utterance.voice = femaleVoice;
+    }
+
+    if (speaker.toLowerCase() === "barista" && maleVoice) {
+      utterance.voice = maleVoice;
+    }
+
+    utterance.lang = "en-US";
+    utterance.rate = 1;
+
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utterance);
+  };
 
   return (
     <div className="bg-surface text-on-surface antialiased min-h-screen pb-24">
@@ -166,6 +203,7 @@ export default function ConversationPage() {
                     </div>
 
                     <button
+                      onClick={() => speakText(line.text, line.speaker)}
                       className={`p-2 rounded-full transition ${
                         isUser
                           ? "hover:bg-white/10 text-white"
