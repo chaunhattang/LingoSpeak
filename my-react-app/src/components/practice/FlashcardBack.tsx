@@ -1,7 +1,36 @@
 export default function FlashcardBack() {
+  const speak = (text: string) => {
+    const utterance = new SpeechSynthesisUtterance(text);
+
+    utterance.lang = "en-US"; // giọng tiếng Anh
+    utterance.rate = 0.9; // tốc độ
+    utterance.pitch = 1;
+
+    window.speechSynthesis.cancel(); // dừng âm cũ
+    window.speechSynthesis.speak(utterance);
+  };
   return (
     <div className="absolute inset-0 bg-white rounded-2xl shadow-lg flex flex-col items-center justify-center p-8">
-      <button className="mb-4 bg-gray-100 p-3 rounded-full">🔊</button>
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          speak("Environment");
+        }}
+        className="
+    w-10
+    h-10
+    rounded-full
+    bg-white/80
+    hover:bg-white
+    flex
+    items-center
+    justify-center
+    transition
+    shadow
+  "
+      >
+        <span className="material-symbols-outlined">volume_up</span>
+      </button>
 
       <h2 className="text-2xl font-bold text-blue-600">Environment</h2>
 

@@ -13,15 +13,12 @@ import SpeakingResult from "./pages/SpeakingResult";
 import VocabularyNotebook from "./pages/VocabularyNotebook";
 import VocabularyFlashcard from "./pages/VocabularyFlashcard";
 import VocabularyLearningPage from "./pages/VocabularyLearningPage";
-import LearningPage from "./pages/LearningPage";
-
+import WordLesson from "./pages/WordLesson";
 function App() {
   const location = useLocation();
 
   const showNavbar =
-    location.pathname === "/" ||
-    location.pathname.startsWith("/") ||
-    location.pathname.startsWith("/notebook");
+    location.pathname === "/" || location.pathname.startsWith("/notebook");
 
   return (
     <>
@@ -50,7 +47,7 @@ function App() {
         {/* ================= VOCABULARY ================= */}
 
         <Route path="/notebook" element={<VocabularyNotebook />} />
-
+        <Route path="/notebook/:slug/word" element={<WordLesson />} />
         <Route
           path="/notebook/:slug/falastcard"
           element={<VocabularyFlashcard />}
@@ -60,7 +57,6 @@ function App() {
           path="/notebook/:slug/learning"
           element={<VocabularyLearningPage />}
         />
-        <Route path="/notebook/:slug/learning" element={<LearningPage />} />
       </Routes>
     </>
   );

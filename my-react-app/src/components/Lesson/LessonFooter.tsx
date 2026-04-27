@@ -5,71 +5,59 @@ const LessonFooter = () => {
   const { slug } = useParams<{ slug: string }>();
   const location = useLocation();
 
-  const isWordPage = location.pathname === `/lesson/${slug}`;
-  const isLearningPage = location.pathname === `/lesson/${slug}/learning`;
+  const path = location.pathname;
+
+  // ===== VOCABULARY =====
+  const isFlashcard = path === `/notebook/${slug}/falastcard`;
+  const isWordPage = path === `/notebook/${slug}/word`;
+  const isVocabularyLearning = path === `/notebook/${slug}/learning`;
+
+  // ===== LESSON =====
+  const isLessonConversation = path === `/lesson/${slug}`;
+
+  const isLessonLearning = path === `/lesson/${slug}/learning`;
 
   return (
     <footer className="w-full border-t border-slate-200 bg-gradient-to-r from-slate-50 via-white to-sky-50 py-4 px-4 md:px-8">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* LEFT */}
-        <button
-          onClick={() => {
-            if (isLearningPage) {
-              navigate(`/lesson/${slug}`);
-            }
-          }}
-          disabled={isWordPage}
-          className={`flex items-center gap-2 px-4 py-2 rounded-xl transition font-medium
-            ${
-              isWordPage
-                ? "opacity-40 cursor-not-allowed text-slate-400"
-                : "text-blue-600 hover:bg-blue-50"
-            }`}
-        >
-          <span className="material-symbols-outlined text-lg">arrow_back</span>
-          Previous
-        </button>
-
-        {/* CENTER - step indicator (blue system) */}
-        <div className="flex items-center gap-2">
-          <div
-            className={`w-2.5 h-2.5 rounded-full transition ${
-              isWordPage
-                ? "bg-blue-500 shadow-md shadow-blue-200"
-                : "bg-slate-300"
-            }`}
-          />
-
-          <div
-            className={`w-2.5 h-2.5 rounded-full transition ${
-              isLearningPage
-                ? "bg-sky-500 shadow-md shadow-sky-200"
-                : "bg-slate-300"
-            }`}
-          />
-
-          <div className="w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-md shadow-cyan-200" />
-        </div>
-
-        {/* RIGHT */}
+        {/* PREVIOUS */}
         <button
           onClick={() => {
             if (isWordPage) {
-              navigate(`/lesson/${slug}/learning`);
+              navigate(`/notebook/${slug}/falastcard`);
+            } else if (isVocabularyLearning) {
+              navigate(`/notebook/${slug}/word`);
+            } else if (isLessonLearning) {
+              navigate(`/lesson/${slug}`);
             }
-            if (isLearningPage) {
-              navigate(`/lesson/${slug}/speaking`);
+          }}
+          disabled={isFlashcard}
+          className="flex items-center gap-2 px-4 py-2 rounded-xl transition font-medium
+                     text-blue-600 hover:bg-blue-50"
+        >
+          <span className="material-symbols-outlined">arrow_back</span>
+          Previous
+        </button>
+
+        {/* NEXT */}
+        <button
+          onClick={() => {
+            if (isFlashcard) {
+              navigate(`/notebook/${slug}/word`);
+            } else if (isWordPage) {
+              navigate(`/notebook/${slug}/learning`);
+            } else if (isLessonConversation) {
+              navigate(`/lesson/${slug}/learning`);
+            } else if (isLessonLearning) {
+              navigate(`/lesson/${slug}/practice`);
             }
           }}
           className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-medium 
                      bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-400
-                     hover:from-blue-600 hover:via-sky-600 hover:to-cyan-500
                      shadow-md hover:shadow-lg transition"
         >
           Next
-          <span className="material-symbols-outlined text-lg">
-            arrow_forward
-          </span>
+          <span className="material-symbols-outlined">arrow_forward</span>
         </button>
       </div>
     </footer>

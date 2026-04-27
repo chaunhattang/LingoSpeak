@@ -1,4 +1,3 @@
-import Flashcard from "../components/practice/Flashcard";
 import PassageCard from "../components/PassageCard";
 import ScoreDashboard from "../components/ScoreDashboard";
 import RecordingToolbar from "../components/RecordingToolbar";
@@ -20,8 +19,6 @@ export default function VocabularyLearningPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 flex flex-col gap-6">
-              <Flashcard />
-
               <PassageCard />
             </div>
 
