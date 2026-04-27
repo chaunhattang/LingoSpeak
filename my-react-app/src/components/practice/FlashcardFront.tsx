@@ -47,8 +47,13 @@ export default function FlashcardFront() {
         <p className="text-lg font-semibold">
           The <strong>environment</strong> is our most precious resource.
         </p>
+        <i>Môi trường là nguồn tài nguyên quý giá nhất của chúng ta.</i>
 
-        <p className="text-sm text-gray-500 mt-4">Tap to flip</p>
+        <div className="mt-4 opacity-60">
+          <span className="material-symbols-outlined text-4xl animate-pulse">
+            touch_app
+          </span>
+        </div>
       </div>
     </div>
   );

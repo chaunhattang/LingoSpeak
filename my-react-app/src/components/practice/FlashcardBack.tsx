@@ -44,7 +44,11 @@ export default function FlashcardBack() {
         The <strong>environment</strong> is our most precious resource.
       </div>
 
-      <p className="text-sm text-gray-500 mt-6">Tap to flip</p>
+      <div className="mt-4 opacity-60">
+        <span className="material-symbols-outlined text-4xl animate-pulse">
+          touch_app
+        </span>
+      </div>
     </div>
   );
 }
