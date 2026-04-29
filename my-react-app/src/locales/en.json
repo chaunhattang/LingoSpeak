@@ -131,6 +131,7 @@
   },
   "lesson": {
     "words": "words",
+    "sentences": "sentences",
     "learned": "Learned {{percent}}%",
     "notStarted": "Not started"
   }

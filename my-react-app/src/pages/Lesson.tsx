@@ -1,7 +1,8 @@
-// src/pages/VocabularyTopics.tsx
+// src/pages/Lesson.tsx
+
 import Navbar from "../components/layout/Navbar";
 import TopicCard from "../components/Lesson/TopicCard";
-import { topics } from "../components/Lesson/Topics";
+import { conversationTopics } from "../components/Lesson/conversationTopics";
 
 const Lesson = () => {
   return (
@@ -14,7 +15,7 @@ const Lesson = () => {
         </h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {topics.map((topic) => (
+          {conversationTopics.map((topic) => (
             <TopicCard key={topic.id} topic={topic} mode="lesson" />
           ))}
         </div>

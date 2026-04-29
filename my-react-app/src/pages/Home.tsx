@@ -8,6 +8,8 @@ import user1 from "../assets/images/user1.jpg";
 import user2 from "../assets/images/user2.jpg";
 import user3 from "../assets/images/user3.jpg";
 
+import { useNavigate } from "react-router-dom";
+
 const avatarList = [user1, user2, user3];
 
 const feedbackUser = [
@@ -69,6 +71,7 @@ const colorMap: Record<
 
 const Home: React.FC = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate(); //
 
   const typeQuestion = [
     {
@@ -118,12 +121,11 @@ const Home: React.FC = () => {
               <p className="text-slate-600">{t("home.hero.description")}</p>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-                <button className="h-11 px-6 rounded-xl text-white font-semibold bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500 hover:scale-105 transition">
+                <button
+                  onClick={() => navigate("/lesson")}
+                  className="h-11 px-20 rounded-xl text-white font-semibold bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500 hover:scale-105 transition"
+                >
                   {t("home.hero.startLearning")}
-                </button>
-
-                <button className="h-11 px-6 rounded-xl text-blue-600 bg-white border border-cyan-300 hover:bg-blue-50">
-                  {t("home.hero.learnMore")}
                 </button>
               </div>
 

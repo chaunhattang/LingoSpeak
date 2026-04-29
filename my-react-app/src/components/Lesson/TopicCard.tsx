@@ -1,4 +1,4 @@
-import type { Topic } from "./Topics";
+import type { Topic } from "./vocabularyTopics";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -66,7 +66,10 @@ const TopicCard = ({ topic, mode }: Props) => {
             <span className="material-symbols-outlined text-[16px]">
               translate
             </span>
-            {topic.words} {t("lesson.words")}
+
+            {mode === "lesson"
+              ? `${topic.sentences} ${t("lesson.sentences")}`
+              : `${topic.words} ${t("lesson.words")}`}
           </span>
         </div>
 

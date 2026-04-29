@@ -131,6 +131,7 @@
   },
   "lesson": {
     "words": "từ",
+    "sentences": "câu",
     "learned": "Đã học {{percent}}%",
     "notStarted": "Chưa bắt đầu"
   }

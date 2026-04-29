@@ -99,21 +99,6 @@ const Navbar: React.FC = () => {
               </span>
             </NavLink>
 
-            {/* REVIEW */}
-            <div
-              className="flex flex-col items-center px-4 py-2 rounded-xl text-slate-600
-    transition-all duration-300 ease-out cursor-pointer
-    hover:scale-110 hover:-translate-y-1
-    hover:bg-white/60 backdrop-blur
-    hover:shadow-[0_10px_30px_rgba(59,130,246,0.25)]
-    hover:text-primary active:scale-95"
-            >
-              <img src={review} alt="review" className="h-10 w-10 mb-1" />
-              <span className="text-sm font-semibold">
-                {t("navbar.review")}
-              </span>
-            </div>
-
             {/* VOCAB */}
             <NavLink
               to="/notebook"
@@ -137,6 +122,21 @@ const Navbar: React.FC = () => {
                 {t("navbar.vocabulary")}
               </span>
             </NavLink>
+
+            {/* REVIEW */}
+            <div
+              className="flex flex-col items-center px-4 py-2 rounded-xl text-slate-600
+    transition-all duration-300 ease-out cursor-pointer
+    hover:scale-110 hover:-translate-y-1
+    hover:bg-white/60 backdrop-blur
+    hover:shadow-[0_10px_30px_rgba(59,130,246,0.25)]
+    hover:text-primary active:scale-95"
+            >
+              <img src={review} alt="review" className="h-10 w-10 mb-1" />
+              <span className="text-sm font-semibold">
+                {t("navbar.review")}
+              </span>
+            </div>
           </nav>
 
           {/* Right actions */}
@@ -198,15 +198,48 @@ const Navbar: React.FC = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white border-t border-slate-200">
           <div className="flex flex-col p-4 gap-4">
-            <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
+            {/* HOME */}
+            <Link
+              to="/"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="py-2 font-semibold text-slate-700 hover:text-blue-600"
+            >
               {t("navbar.home")}
             </Link>
 
-            <Link to="/lesson" onClick={() => setIsMobileMenuOpen(false)}>
+            {/* LESSON */}
+            <Link
+              to="/lesson"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="py-2 font-semibold text-slate-700 hover:text-blue-600"
+            >
               {t("navbar.lessons")}
             </Link>
 
-            <Link to="/login" onClick={() => setIsMobileMenuOpen(false)}>
+            {/* VOCABULARY */}
+            <Link
+              to="/notebook"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="py-2 font-semibold text-slate-700 hover:text-blue-600"
+            >
+              {t("navbar.vocabulary")}
+            </Link>
+
+            {/* REVIEW */}
+            <Link
+              to="/review"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="py-2 font-semibold text-slate-700 hover:text-blue-600"
+            >
+              {t("navbar.review")}
+            </Link>
+
+            {/* SIGN IN */}
+            <Link
+              to="/login"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="py-2 font-semibold text-slate-700 hover:text-blue-600"
+            >
               {t("navbar.signIn")}
             </Link>
           </div>
