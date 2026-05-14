@@ -1,0 +1,181 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\project\\Demo\\LingoSpeak\\LingoSpeak.API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C6D2734C-56F1-88B6-DA43-4AE056362367}|LingoSpeak.API\\LingoSpeak.API.csproj|d:\\project\\demo\\lingospeak\\lingospeak.api\\lingospeak.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6D2734C-56F1-88B6-DA43-4AE056362367}|LingoSpeak.API\\LingoSpeak.API.csproj|solutionrelative:lingospeak.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6D2734C-56F1-88B6-DA43-4AE056362367}|LingoSpeak.API\\LingoSpeak.API.csproj|d:\\project\\demo\\lingospeak\\lingospeak.api\\lingospeak.api\\dtos\\changepassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6D2734C-56F1-88B6-DA43-4AE056362367}|LingoSpeak.API\\LingoSpeak.API.csproj|solutionrelative:lingospeak.api\\dtos\\changepassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6D2734C-56F1-88B6-DA43-4AE056362367}|LingoSpeak.API\\LingoSpeak.API.csproj|d:\\project\\demo\\lingospeak\\lingospeak.api\\lingospeak.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6D2734C-56F1-88B6-DA43-4AE056362367}|LingoSpeak.API\\LingoSpeak.API.csproj|solutionrelative:lingospeak.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6D2734C-56F1-88B6-DA43-4AE056362367}|LingoSpeak.API\\LingoSpeak.API.csproj|d:\\project\\demo\\lingospeak\\lingospeak.api\\lingospeak.api\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6D2734C-56F1-88B6-DA43-4AE056362367}|LingoSpeak.API\\LingoSpeak.API.csproj|solutionrelative:lingospeak.api\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6D2734C-56F1-88B6-DA43-4AE056362367}|LingoSpeak.API\\LingoSpeak.API.csproj|d:\\project\\demo\\lingospeak\\lingospeak.api\\lingospeak.api\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6D2734C-56F1-88B6-DA43-4AE056362367}|LingoSpeak.API\\LingoSpeak.API.csproj|solutionrelative:lingospeak.api\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6D2734C-56F1-88B6-DA43-4AE056362367}|LingoSpeak.API\\LingoSpeak.API.csproj|d:\\project\\demo\\lingospeak\\lingospeak.api\\lingospeak.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C6D2734C-56F1-88B6-DA43-4AE056362367}|LingoSpeak.API\\LingoSpeak.API.csproj|solutionrelative:lingospeak.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6D2734C-56F1-88B6-DA43-4AE056362367}|LingoSpeak.API\\LingoSpeak.API.csproj|d:\\project\\demo\\lingospeak\\lingospeak.api\\lingospeak.api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6D2734C-56F1-88B6-DA43-4AE056362367}|LingoSpeak.API\\LingoSpeak.API.csproj|solutionrelative:lingospeak.api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6D2734C-56F1-88B6-DA43-4AE056362367}|LingoSpeak.API\\LingoSpeak.API.csproj|d:\\project\\demo\\lingospeak\\lingospeak.api\\lingospeak.api\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6D2734C-56F1-88B6-DA43-4AE056362367}|LingoSpeak.API\\LingoSpeak.API.csproj|solutionrelative:lingospeak.api\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6D2734C-56F1-88B6-DA43-4AE056362367}|LingoSpeak.API\\LingoSpeak.API.csproj|d:\\project\\demo\\lingospeak\\lingospeak.api\\lingospeak.api\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6D2734C-56F1-88B6-DA43-4AE056362367}|LingoSpeak.API\\LingoSpeak.API.csproj|solutionrelative:lingospeak.api\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6D2734C-56F1-88B6-DA43-4AE056362367}|LingoSpeak.API\\LingoSpeak.API.csproj|d:\\project\\demo\\lingospeak\\lingospeak.api\\lingospeak.api\\migrations\\20260513160551_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6D2734C-56F1-88B6-DA43-4AE056362367}|LingoSpeak.API\\LingoSpeak.API.csproj|solutionrelative:lingospeak.api\\migrations\\20260513160551_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ChangePasswordDto.cs",
+              "DocumentMoniker": "D:\\project\\Demo\\LingoSpeak\\LingoSpeak.API\\LingoSpeak.API\\DTOs\\ChangePasswordDto.cs",
+              "RelativeDocumentMoniker": "LingoSpeak.API\\DTOs\\ChangePasswordDto.cs",
+              "ToolTip": "D:\\project\\Demo\\LingoSpeak\\LingoSpeak.API\\LingoSpeak.API\\DTOs\\ChangePasswordDto.cs",
+              "RelativeToolTip": "LingoSpeak.API\\DTOs\\ChangePasswordDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T18:44:31.1Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\project\\Demo\\LingoSpeak\\LingoSpeak.API\\LingoSpeak.API\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "LingoSpeak.API\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\project\\Demo\\LingoSpeak\\LingoSpeak.API\\LingoSpeak.API\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "LingoSpeak.API\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAUwFEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T16:13:11.666Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\project\\Demo\\LingoSpeak\\LingoSpeak.API\\LingoSpeak.API\\Program.cs",
+              "RelativeDocumentMoniker": "LingoSpeak.API\\Program.cs",
+              "ToolTip": "D:\\project\\Demo\\LingoSpeak\\LingoSpeak.API\\LingoSpeak.API\\Program.cs",
+              "RelativeToolTip": "LingoSpeak.API\\Program.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAACkAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T16:01:22.544Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoginDto.cs",
+              "DocumentMoniker": "D:\\project\\Demo\\LingoSpeak\\LingoSpeak.API\\LingoSpeak.API\\DTOs\\LoginDto.cs",
+              "RelativeDocumentMoniker": "LingoSpeak.API\\DTOs\\LoginDto.cs",
+              "ToolTip": "D:\\project\\Demo\\LingoSpeak\\LingoSpeak.API\\LingoSpeak.API\\DTOs\\LoginDto.cs",
+              "RelativeToolTip": "LingoSpeak.API\\DTOs\\LoginDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T17:46:36.457Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RegisterDto.cs",
+              "DocumentMoniker": "D:\\project\\Demo\\LingoSpeak\\LingoSpeak.API\\LingoSpeak.API\\DTOs\\RegisterDto.cs",
+              "RelativeDocumentMoniker": "LingoSpeak.API\\DTOs\\RegisterDto.cs",
+              "ToolTip": "D:\\project\\Demo\\LingoSpeak\\LingoSpeak.API\\LingoSpeak.API\\DTOs\\RegisterDto.cs",
+              "RelativeToolTip": "LingoSpeak.API\\DTOs\\RegisterDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T16:10:36.489Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "20260513160551_InitialCreate.cs",
+              "DocumentMoniker": "D:\\project\\Demo\\LingoSpeak\\LingoSpeak.API\\LingoSpeak.API\\Migrations\\20260513160551_InitialCreate.cs",
+              "RelativeDocumentMoniker": "LingoSpeak.API\\Migrations\\20260513160551_InitialCreate.cs",
+              "ToolTip": "D:\\project\\Demo\\LingoSpeak\\LingoSpeak.API\\LingoSpeak.API\\Migrations\\20260513160551_InitialCreate.cs",
+              "RelativeToolTip": "LingoSpeak.API\\Migrations\\20260513160551_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T16:05:51.857Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\project\\Demo\\LingoSpeak\\LingoSpeak.API\\LingoSpeak.API\\appsettings.json",
+              "RelativeDocumentMoniker": "LingoSpeak.API\\appsettings.json",
+              "ToolTip": "D:\\project\\Demo\\LingoSpeak\\LingoSpeak.API\\LingoSpeak.API\\appsettings.json",
+              "RelativeToolTip": "LingoSpeak.API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-13T16:00:13.854Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\project\\Demo\\LingoSpeak\\LingoSpeak.API\\LingoSpeak.API\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "LingoSpeak.API\\Data\\AppDbContext.cs",
+              "ToolTip": "D:\\project\\Demo\\LingoSpeak\\LingoSpeak.API\\LingoSpeak.API\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "LingoSpeak.API\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T15:55:40.694Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\project\\Demo\\LingoSpeak\\LingoSpeak.API\\LingoSpeak.API\\Models\\User.cs",
+              "RelativeDocumentMoniker": "LingoSpeak.API\\Models\\User.cs",
+              "ToolTip": "D:\\project\\Demo\\LingoSpeak\\LingoSpeak.API\\LingoSpeak.API\\Models\\User.cs",
+              "RelativeToolTip": "LingoSpeak.API\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T15:54:18.158Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TestController.cs",
+              "DocumentMoniker": "D:\\project\\Demo\\LingoSpeak\\LingoSpeak.API\\LingoSpeak.API\\Controllers\\TestController.cs",
+              "RelativeDocumentMoniker": "LingoSpeak.API\\Controllers\\TestController.cs",
+              "ToolTip": "D:\\project\\Demo\\LingoSpeak\\LingoSpeak.API\\LingoSpeak.API\\Controllers\\TestController.cs",
+              "RelativeToolTip": "LingoSpeak.API\\Controllers\\TestController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T15:05:43.322Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

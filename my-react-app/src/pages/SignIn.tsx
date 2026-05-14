@@ -1,15 +1,43 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import img1 from "../assets/images/img1.png";
 
 const SignIn: React.FC = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    console.log("Đăng nhập");
+
+    try {
+      const response = await fetch("https://localhost:44346/api/Auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+
+      if (!response.ok) {
+        alert("Sai email hoặc mật khẩu");
+        return;
+      }
+
+      const user = await response.json();
+
+      localStorage.setItem("user", JSON.stringify(user));
+
+      navigate("/profile");
+    } catch (error) {
+      alert("Không kết nối được backend");
+    }
   }
 
   return (
@@ -88,6 +116,8 @@ const SignIn: React.FC = () => {
                 <input
                   type="email"
                   required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="ban@example.com"
                   className="
                 mt-2 w-full h-11 px-4 rounded-xl text-sm
@@ -107,6 +137,8 @@ const SignIn: React.FC = () => {
                   <input
                     type={showPassword ? "text" : "password"}
                     required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     placeholder="••••••••"
                     className="
                   w-full h-11 px-4 rounded-xl text-sm

@@ -1,14 +1,38 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 const SignUp: React.FC = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    console.log("đăng ký");
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    try {
+      await axios.post("https://localhost:44346/api/Auth/register", {
+        fullName: fullName,
+        email: email,
+        password: password,
+      });
+
+      alert("Register success");
+      navigate("/login");
+    } catch (error) {
+      console.error(error);
+      alert("Register failed");
+    }
   }
 
   return (
@@ -158,16 +182,32 @@ const SignUp: React.FC = () => {
                 <input
                   type="email"
                   required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder={t("signup.emailPlaceholder")}
-                  className="
-                    mt-2 w-full h-11 px-4 rounded-xl text-sm
+                  className="mt-2 w-full h-11 px-4 rounded-xl text-sm
                     bg-slate-50 border border-slate-200
                     focus:outline-none
-                    focus:ring-4 focus:ring-blue-300/40
-                  "
+                    focus:ring-4 focus:ring-blue-300/40"
                 />
               </div>
+              <div>
+                <label className="text-sm font-semibold text-slate-700">
+                  Full Name
+                </label>
 
+                <input
+                  type="text"
+                  required
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  placeholder="Enter your Full Name"
+                  className="mt-2 w-full h-11 px-4 rounded-xl text-sm
+      bg-slate-50 border border-slate-200
+      focus:outline-none
+      focus:ring-4 focus:ring-blue-300/40"
+                />
+              </div>
               {/* Mật khẩu */}
               <div>
                 <label className="text-sm font-semibold text-slate-700">
@@ -177,13 +217,14 @@ const SignUp: React.FC = () => {
                   <input
                     type={showPassword ? "text" : "password"}
                     required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     placeholder={t("signup.passwordPlaceholder")}
-                    className="
-                      w-full h-11 px-4 rounded-xl text-sm
+                    className="w-full h-11 px-4 rounded-xl text-sm
                       bg-slate-50 border border-slate-200
                       focus:outline-none
                       focus:ring-4 focus:ring-blue-300/40
-                    "
+"
                   />
                   <button
                     type="button"
@@ -206,13 +247,14 @@ const SignUp: React.FC = () => {
                   <input
                     type={showPassword ? "text" : "password"}
                     required
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                     placeholder={t("signup.confirmPasswordPlaceholder")}
-                    className="
-                      w-full h-11 px-4 rounded-xl text-sm
+                    className="w-full h-11 px-4 rounded-xl text-sm
                       bg-slate-50 border border-slate-200
                       focus:outline-none
                       focus:ring-4 focus:ring-blue-300/40
-                    "
+"
                   />
                   <button
                     type="button"

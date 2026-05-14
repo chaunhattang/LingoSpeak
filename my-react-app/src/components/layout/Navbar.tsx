@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate, NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18n from "../../i18n";
-import { NavLink } from "react-router-dom";
 
 import logo from "../../assets/images/logo.png";
 import home from "../../assets/images/home.png";
@@ -16,6 +15,7 @@ const Navbar: React.FC = () => {
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -147,6 +147,17 @@ const Navbar: React.FC = () => {
                 {t("navbar.signIn")}
               </button>
             </Link>
+
+            <button
+              onClick={() => navigate("/profile")}
+              className="hidden md:flex items-center justify-center h-10 w-10 rounded-full border-2 border-cyan-300 bg-white hover:scale-105 transition overflow-hidden"
+            >
+              <img
+                src={logo}
+                alt="profile"
+                className="h-7 w-7 object-contain"
+              />
+            </button>
 
             {/* Language switcher */}
             <div className="relative" ref={dropdownRef}>
