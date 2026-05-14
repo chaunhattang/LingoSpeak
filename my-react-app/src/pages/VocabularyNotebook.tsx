@@ -1,8 +1,6 @@
 import Navbar from "../components/layout/Navbar";
 import TopicCard from "../components/Lesson/TopicCard";
 import { vocabularyTopics } from "../components/Lesson/vocabularyTopics";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 export default function VocabularyNotebook() {
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">

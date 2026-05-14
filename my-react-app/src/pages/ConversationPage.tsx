@@ -1,5 +1,4 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useEffect } from "react";
 
 const conversation = [
   {

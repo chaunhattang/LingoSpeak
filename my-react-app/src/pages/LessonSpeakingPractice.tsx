@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 
 const LessonSpeakingPractice = () => {
@@ -10,10 +10,10 @@ const LessonSpeakingPractice = () => {
   const currentSentence = conversation[currentIndex];
 
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
-  const [showHint, setShowHint] = useState(false);
+  const [, setShowHint] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
-  const [transcript, setTranscript] = useState("");
+  const [, setTranscript] = useState("");
 
   const handleNext = () => {
     setTranscript("");

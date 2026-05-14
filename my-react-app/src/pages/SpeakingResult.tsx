@@ -1,10 +1,9 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import applauseSound from "../assets/sounds/applause.mp3";
 import { useEffect } from "react";
 
 export default function SpeakingResult() {
   const navigate = useNavigate();
-  const { slug } = useParams();
 
   useEffect(() => {
     const audio = new Audio(applauseSound);

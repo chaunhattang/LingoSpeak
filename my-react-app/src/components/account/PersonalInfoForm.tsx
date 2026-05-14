@@ -68,6 +68,7 @@ const PersonalInfoForm = () => {
 
         <div className="flex justify-end">
           <button
+            onClick={handleSave}
             className="
     h-11 px-6 rounded-xl text-white font-bold
     bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500
