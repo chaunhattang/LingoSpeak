@@ -60,7 +60,7 @@
               "RelativeDocumentMoniker": "LingoSpeak.API\\Controllers\\AuthController.cs",
               "ToolTip": "D:\\project\\Demo\\LingoSpeak\\LingoSpeak.API\\LingoSpeak.API\\Controllers\\AuthController.cs",
               "RelativeToolTip": "LingoSpeak.API\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAgwDIAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAgwEMAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-13T16:13:11.666Z",
               "EditorCaption": ""
@@ -75,8 +75,7 @@
               "RelativeToolTip": "LingoSpeak.API\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T16:01:22.544Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-13T16:01:22.544Z"
             },
             {
               "$type": "Document",
@@ -88,8 +87,7 @@
               "RelativeToolTip": "LingoSpeak.API\\DTOs\\LoginDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T17:46:36.457Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-13T17:46:36.457Z"
             },
             {
               "$type": "Document",
@@ -125,8 +123,7 @@
               "RelativeToolTip": "LingoSpeak.API\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-05-13T16:00:13.854Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-13T16:00:13.854Z"
             },
             {
               "$type": "Document",
@@ -150,8 +147,7 @@
               "RelativeToolTip": "LingoSpeak.API\\Models\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T15:54:18.158Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-13T15:54:18.158Z"
             },
             {
               "$type": "Document",

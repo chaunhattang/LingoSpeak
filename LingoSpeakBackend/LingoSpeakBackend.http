@@ -1,0 +1,6 @@
+@LingoSpeakBackend_HostAddress = http://localhost:5007
+
+GET {{LingoSpeakBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

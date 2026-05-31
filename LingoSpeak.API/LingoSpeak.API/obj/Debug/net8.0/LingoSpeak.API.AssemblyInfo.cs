@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LingoSpeak.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+32b49cd3c6712113defe9ca3acabbeeca676ca91")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b51cee8064c2179ff60728d9a86fc11318c8a70")]
 [assembly: System.Reflection.AssemblyProductAttribute("LingoSpeak.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LingoSpeak.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

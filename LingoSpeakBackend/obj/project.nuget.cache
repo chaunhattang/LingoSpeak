@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "lzUFmo/EEaY=",
+  "success": true,
+  "projectFilePath": "D:\\project\\Demo\\LingoSpeak\\LingoSpeakBackend\\LingoSpeakBackend.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Legion Y7000\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.23.0\\microsoft.visualstudio.azure.containers.tools.targets.1.23.0.nupkg.sha512"
+  ],
+  "logs": []
+}
