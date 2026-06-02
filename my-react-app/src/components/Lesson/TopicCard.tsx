@@ -1,4 +1,4 @@
-import type { Topic } from "./vocabularyTopics";
+import type { Topic } from "../../types/topic";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -9,25 +9,17 @@ interface Props {
 
 const TopicCard = ({ topic, mode }: Props) => {
   const navigate = useNavigate();
-  const { t } = useTranslation(); // ✅ THÊM
-  const Icon = topic.icon; // ✅ THÊM
+  const { t } = useTranslation();
+  const Icon = topic.icon;
 
   const handleClick = () => {
-    console.log("mode:", mode);
-    console.log("slug:", topic.slug);
-
-    // ===== VOCABULARY =====
     if (mode === "vocabulary") {
       navigate(`/notebook/${topic.slug}/falastcard`);
-      return;
-    }
-
-    // ===== LESSON =====
-    if (mode === "lesson") {
+    } else {
       navigate(`/lesson/${topic.slug}`);
-      return;
     }
   };
+
   return (
     <div
       onClick={handleClick}
@@ -36,19 +28,14 @@ const TopicCard = ({ topic, mode }: Props) => {
       {/* IMAGE */}
       <div className="relative h-40 w-full overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
-
         <div
           className="w-full h-full bg-center bg-cover group-hover:scale-110 transition-transform duration-500"
-          style={{
-            backgroundImage: `url(${topic.image})`,
-          }}
+          style={{ backgroundImage: `url(${topic.image})` }}
         />
-
         <div className="absolute bottom-3 left-4 z-20 flex items-center gap-2">
           <div className="bg-white/20 backdrop-blur-md p-1.5 rounded-lg text-white">
             <Icon size={20} />
           </div>
-
           <span className="text-white font-bold text-lg drop-shadow-md">
             {t(topic.title)}
           </span>
@@ -61,12 +48,10 @@ const TopicCard = ({ topic, mode }: Props) => {
           <span className="bg-[#e7edf3] dark:bg-[#2a3b4d] text-[#4c739a] dark:text-slate-300 px-2 py-1 rounded-md font-medium text-xs">
             {t(topic.title)}
           </span>
-
           <span className="text-[#4c739a] font-medium flex items-center gap-1">
             <span className="material-symbols-outlined text-[16px]">
               translate
             </span>
-
             {mode === "lesson"
               ? `${topic.sentences} ${t("lesson.sentences")}`
               : `${topic.words} ${t("lesson.words")}`}
@@ -80,18 +65,13 @@ const TopicCard = ({ topic, mode }: Props) => {
             }`}
           >
             {topic.progress > 0
-              ? t("lesson.learned", {
-                  percent: topic.progress,
-                })
+              ? t("lesson.learned", { percent: topic.progress })
               : t("lesson.notStarted")}
           </span>
-
           <div className="w-full bg-[#e7edf3] dark:bg-[#2a3b4d] rounded-full h-2 mt-1">
             <div
               className="bg-primary h-2 rounded-full transition-all"
-              style={{
-                width: `${topic.progress}%`,
-              }}
+              style={{ width: `${topic.progress}%` }}
             />
           </div>
         </div>

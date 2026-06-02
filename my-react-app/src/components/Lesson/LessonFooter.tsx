@@ -2,20 +2,14 @@ import { useNavigate, useParams, useLocation } from "react-router-dom";
 
 const LessonFooter = () => {
   const navigate = useNavigate();
-  const { slug } = useParams<{ slug: string }>();
+  const { id } = useParams<{ id: string }>();
   const location = useLocation();
 
   const path = location.pathname;
 
-  // ===== VOCABULARY =====
-  const isFlashcard = path === `/notebook/${slug}/falastcard`;
-  const isWordPage = path === `/notebook/${slug}/word`;
-  const isVocabularyLearning = path === `/notebook/${slug}/learning`;
-
-  // ===== LESSON =====
-  const isLessonConversation = path === `/lesson/${slug}`;
-
-  const isLessonLearning = path === `/lesson/${slug}/learning`;
+  const isFlashcard = path === `/notebook/${id}/falastcard`;
+  const isWordPage = path === `/notebook/${id}/word`;
+  const isVocabularyLearning = path === `/notebook/${id}/learning`;
 
   return (
     <footer className="w-full border-t border-slate-200 bg-gradient-to-r from-slate-50 via-white to-sky-50 py-4 px-4 md:px-8">
@@ -23,17 +17,11 @@ const LessonFooter = () => {
         {/* PREVIOUS */}
         <button
           onClick={() => {
-            if (isWordPage) {
-              navigate(`/notebook/${slug}/falastcard`);
-            } else if (isVocabularyLearning) {
-              navigate(`/notebook/${slug}/word`);
-            } else if (isLessonLearning) {
-              navigate(`/lesson/${slug}`);
-            }
+            if (isWordPage) navigate(`/notebook/${id}/falastcard`);
+            else if (isVocabularyLearning) navigate(`/notebook/${id}/word`);
           }}
           disabled={isFlashcard}
-          className="flex items-center gap-2 px-4 py-2 rounded-xl transition font-medium
-                     text-blue-600 hover:bg-blue-50"
+          className="flex items-center gap-2 px-4 py-2 rounded-xl transition font-medium text-blue-600 hover:bg-blue-50"
         >
           <span className="material-symbols-outlined">arrow_back</span>
           Previous
@@ -42,19 +30,10 @@ const LessonFooter = () => {
         {/* NEXT */}
         <button
           onClick={() => {
-            if (isFlashcard) {
-              navigate(`/notebook/${slug}/word`);
-            } else if (isWordPage) {
-              navigate(`/notebook/${slug}/learning`);
-            } else if (isLessonConversation) {
-              navigate(`/lesson/${slug}/learning`);
-            } else if (isLessonLearning) {
-              navigate(`/lesson/${slug}/practice`);
-            }
+            if (isFlashcard) navigate(`/notebook/${id}/word`);
+            else if (isWordPage) navigate(`/notebook/${id}/learning`);
           }}
-          className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-medium 
-                     bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-400
-                     shadow-md hover:shadow-lg transition"
+          className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-medium bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-400 shadow-md hover:shadow-lg transition"
         >
           Next
           <span className="material-symbols-outlined">arrow_forward</span>

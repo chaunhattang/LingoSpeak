@@ -3,36 +3,31 @@ import { useNavigate, useParams, useLocation } from "react-router-dom";
 
 const LessonSpeakingPractice = () => {
   const navigate = useNavigate();
-  const { slug } = useParams();
+  const { id } = useParams();
   const location = useLocation();
-  const conversation = location.state?.conversation || [];
+  // conversation là mảng ConversationMessage: { senderName, translation: {english, vietnamese}, order }
+  const conversation: { senderName: string; translation: { english: string; vietnamese: string }; order: number }[] =
+    location.state?.conversation || [];
   const [currentIndex, setCurrentIndex] = useState(0);
   const currentSentence = conversation[currentIndex];
 
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
-  const [, setShowHint] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
-  const [, setTranscript] = useState("");
 
   const handleNext = () => {
-    setTranscript("");
-    setShowHint(false);
     setAudioUrl(null);
-
     if (currentIndex < conversation.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      navigate(`/lesson/${slug}/result`);
+      navigate(`/lesson/${id}/result`);
     }
   };
+
   useEffect(() => {
     return () => {
       window.speechSynthesis.cancel();
-
-      if (audioUrl) {
-        URL.revokeObjectURL(audioUrl);
-      }
+      if (audioUrl) URL.revokeObjectURL(audioUrl);
     };
   }, [audioUrl]);
 
@@ -43,36 +38,30 @@ const LessonSpeakingPractice = () => {
     }
 
     const synth = window.speechSynthesis;
-
     const utterance = new SpeechSynthesisUtterance(text);
-
     const voices = synth.getVoices();
 
     if (!voices.length) {
-      synth.onvoiceschanged = () => {
-        speakText(text, speaker);
-      };
+      synth.onvoiceschanged = () => speakText(text, speaker);
       return;
     }
 
     const femaleVoice = voices.find(
-      (voice) =>
-        voice.name.includes("Zira") ||
-        voice.name.includes("Female") ||
-        voice.name.includes("Google US English"),
+      (v) =>
+        v.name.includes("Zira") ||
+        v.name.includes("Female") ||
+        v.name.includes("Google US English"),
     );
-
     const maleVoice = voices.find(
-      (voice) =>
-        voice.name.includes("David") ||
-        voice.name.includes("Male") ||
-        voice.name.includes("Google UK English"),
+      (v) =>
+        v.name.includes("David") ||
+        v.name.includes("Male") ||
+        v.name.includes("Google UK English"),
     );
 
     if (speaker.toLowerCase() === "customer" && femaleVoice) {
       utterance.voice = femaleVoice;
     }
-
     if (speaker.toLowerCase() === "barista" && maleVoice) {
       utterance.voice = maleVoice;
     }
@@ -80,12 +69,8 @@ const LessonSpeakingPractice = () => {
     utterance.lang = "en-US";
     utterance.rate = 1;
 
-    // 👇 bắt đầu phát
     setIsSpeaking(true);
-
-    utterance.onend = () => {
-      setIsSpeaking(false);
-    };
+    utterance.onend = () => setIsSpeaking(false);
 
     synth.cancel();
     synth.speak(utterance);
@@ -93,8 +78,8 @@ const LessonSpeakingPractice = () => {
 
   const startListening = async () => {
     if (isListening) return;
-    //reset audio cũ ngay khi bắt đầu ghi mới
     setAudioUrl(null);
+
     const SpeechRecognition =
       (window as any).SpeechRecognition ||
       (window as any).webkitSpeechRecognition;
@@ -105,12 +90,8 @@ const LessonSpeakingPractice = () => {
     }
 
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({
-        audio: true,
-      });
-
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       const mediaRecorder = new MediaRecorder(stream);
-
       const audioChunks: BlobPart[] = [];
 
       mediaRecorder.ondataavailable = (event) => {
@@ -118,16 +99,10 @@ const LessonSpeakingPractice = () => {
       };
 
       mediaRecorder.onstop = () => {
-        const audioBlob = new Blob(audioChunks, {
-          type: "audio/webm",
-        });
-
+        const audioBlob = new Blob(audioChunks, { type: "audio/webm" });
         const url = URL.createObjectURL(audioBlob);
-
         setAudioUrl((prevUrl) => {
-          if (prevUrl) {
-            URL.revokeObjectURL(prevUrl);
-          }
+          if (prevUrl) URL.revokeObjectURL(prevUrl);
           return url;
         });
       };
@@ -135,26 +110,15 @@ const LessonSpeakingPractice = () => {
       mediaRecorder.start();
 
       const recognition = new SpeechRecognition();
-
       recognition.lang = "en-US";
       recognition.interimResults = false;
 
       setIsListening(true);
 
-      recognition.onresult = (event: any) => {
-        const speechText = event.results[0][0].transcript;
-        setTranscript(speechText);
-      };
-
-      recognition.onspeechend = () => {
-        recognition.stop();
-      };
+      recognition.onspeechend = () => recognition.stop();
       recognition.onend = () => {
         setIsListening(false);
-
-        if (mediaRecorder.state !== "inactive") {
-          mediaRecorder.stop();
-        }
+        if (mediaRecorder.state !== "inactive") mediaRecorder.stop();
       };
 
       recognition.start();
@@ -194,7 +158,6 @@ const LessonSpeakingPractice = () => {
                   }}
                 />
               </div>
-
               <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">
                 {currentIndex + 1} / {conversation.length}
               </span>
@@ -212,34 +175,27 @@ const LessonSpeakingPractice = () => {
         <div className="max-w-[672px] w-full space-y-8">
           {/* Card */}
           <div className="bg-white rounded-xl overflow-hidden shadow-lg">
-            {/* Image */}
             <div className="relative h-48 sm:h-64 w-full">
               <img
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGhqHFbZZEjz12z6uKFQqeyN-Q4gloLKcZIbrZhq1zGgmdnLez69Dx4m9Yy8p6cjneZLyS4v5xP3jA960qMiVkyWet2dGuPsR6MKtTGDKtgCY71IE1TE2Ct2Qx3jarhsoQuTDdM4pSE-rQDqai5V5hN4o2rbYMCGkzi3yD2zMRLS0KMaE6AUNE7ZrDb6UBPF63mLNpsiwihB7IF6fkui9JXN3zpxaJiN7F3iAtJSvbw5zKx4daEc0RU6qiCJ_fRDH5SlEUK0jKGg"
                 alt="coffee shop"
                 className="w-full h-full object-cover"
               />
-
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-
               <div className="absolute bottom-4 left-6">
                 <span className="px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full uppercase">
-                  {currentSentence?.speaker}
+                  {currentSentence?.senderName}
                 </span>
               </div>
             </div>
 
-            {/* Text */}
             <div className="p-8 space-y-6 text-center">
               <div className="space-y-4">
                 <h2 className="text-lg font-semibold">
-                  {currentSentence?.text}{" "}
+                  {currentSentence?.translation?.english}
                 </h2>
-
-                <p className="text-gray-500">{currentSentence?.translation}</p>
+                <p className="text-gray-500">{currentSentence?.translation?.vietnamese}</p>
               </div>
-
-              {/* Wave */}
 
               <div className="flex items-end justify-center gap-1.5 h-12 py-2">
                 <div className="w-1.5 bg-blue-300 rounded-full h-3" />
@@ -253,15 +209,11 @@ const LessonSpeakingPractice = () => {
 
           {/* Buttons */}
           <div className="flex flex-col items-center gap-2 w-full max-w-screen-md mx-auto px-4 sm:px-6 py-2">
-            {/* Row buttons */}
             <div className="flex items-center justify-between w-full">
               {/* Previous */}
               <button
                 onClick={() => {
-                  setTranscript("");
-                  setShowHint(false);
                   setAudioUrl(null);
-
                   if (currentIndex > 0) {
                     setCurrentIndex(currentIndex - 1);
                   } else {
@@ -269,27 +221,13 @@ const LessonSpeakingPractice = () => {
                   }
                 }}
                 className="
-    flex
-    items-center
-    gap-1
-    text-white
-    rounded-xl
-    bg-gradient-to-r
-    from-blue-500
-    via-cyan-500
-    to-emerald-500
-    shadow
-    transition
-    hover:scale-105
-    px-3 py-2
-    sm:px-6 sm:py-3
-    text-sm sm:text-base
-  "
+                  flex items-center gap-1 text-white rounded-xl
+                  bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500
+                  shadow transition hover:scale-105
+                  px-3 py-2 sm:px-6 sm:py-3 text-sm sm:text-base
+                "
               >
-                <span className="material-symbols-outlined">
-                  navigate_before
-                </span>
-
+                <span className="material-symbols-outlined">navigate_before</span>
                 <span className="hidden sm:inline">Previous</span>
               </button>
 
@@ -298,8 +236,8 @@ const LessonSpeakingPractice = () => {
                 <button
                   onClick={() =>
                     speakText(
-                      currentSentence?.text || "",
-                      currentSentence?.speaker || "",
+                      currentSentence?.translation?.english || "",
+                      currentSentence?.senderName || "",
                     )
                   }
                   className={`w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center rounded-full transition shadow-xl ${
@@ -313,7 +251,6 @@ const LessonSpeakingPractice = () => {
                   </span>
                 </button>
 
-                {/* Mic - lớn hơn */}
                 <button
                   onClick={startListening}
                   className={`w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center rounded-full text-white transition shadow-xl ${
@@ -330,10 +267,7 @@ const LessonSpeakingPractice = () => {
                 <button
                   disabled={!audioUrl}
                   onClick={() => {
-                    if (audioUrl) {
-                      const audio = new Audio(audioUrl);
-                      audio.play();
-                    }
+                    if (audioUrl) new Audio(audioUrl).play();
                   }}
                   className={`w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center rounded-full transition shadow-xl ${
                     audioUrl
@@ -351,27 +285,15 @@ const LessonSpeakingPractice = () => {
               <button
                 onClick={handleNext}
                 className="
-    flex
-    items-center
-    gap-1
-    text-white
-    rounded-xl
-    bg-gradient-to-r
-    from-blue-500
-    via-cyan-500
-    to-emerald-500
-    shadow
-    transition
-    hover:scale-105
-    px-3 py-2
-    sm:px-6 sm:py-3
-    text-sm sm:text-base
-  "
+                  flex items-center gap-1 text-white rounded-xl
+                  bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500
+                  shadow transition hover:scale-105
+                  px-3 py-2 sm:px-6 sm:py-3 text-sm sm:text-base
+                "
               >
                 <span className="hidden sm:inline">
                   {currentIndex === conversation.length - 1 ? "Finish" : "Next"}
                 </span>
-
                 <span className="material-symbols-outlined">
                   {currentIndex === conversation.length - 1
                     ? "check"

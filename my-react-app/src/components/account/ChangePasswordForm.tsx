@@ -1,59 +1,50 @@
 import { useState, useRef } from "react";
+import { getUser, setUser } from "../../utils/auth";
+import { changePassword } from "../../api/auth";
+import { toast } from "sonner";
 
 const ChangePasswordForm = () => {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const currentPasswordRef = useRef<HTMLInputElement>(null);
   const newPasswordRef = useRef<HTMLInputElement>(null);
   const confirmPasswordRef = useRef<HTMLInputElement>(null);
 
   const handleChangePassword = async () => {
-    const user = JSON.parse(localStorage.getItem("user") || "{}");
+    const user = getUser();
+    if (!user) return;
 
+    if (!currentPassword) {
+      toast.error("Vui lòng nhập mật khẩu hiện tại");
+      return;
+    }
     if (newPassword !== confirmPassword) {
-      alert("Mật khẩu xác nhận không khớp");
+      toast.error("Mật khẩu xác nhận không khớp");
+      return;
+    }
+    if (newPassword.length < 6) {
+      toast.error("Mật khẩu mới phải có ít nhất 6 ký tự");
       return;
     }
 
+    setLoading(true);
     try {
-      const response = await fetch(
-        "https://localhost:44346/api/Auth/change-password",
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            id: user.id,
-            currentPassword: currentPassword,
-            newPassword: newPassword,
-          }),
-        },
-      );
-
-      if (!response.ok) {
-        const errorMessage = await response.text();
-        alert(errorMessage);
-        return;
-      }
-
-      const updatedUser = await response.json();
-
-      localStorage.setItem("user", JSON.stringify(updatedUser));
-
-      alert("Đổi mật khẩu thành công");
-
+      const updatedUser = await changePassword(user.id, newPassword);
+      setUser(updatedUser);
+      toast.success("Đổi mật khẩu thành công");
       setCurrentPassword("");
       setNewPassword("");
       setConfirmPassword("");
-    } catch (error) {
-      alert("Không kết nối được backend");
+    } catch (error: any) {
+      toast.error("Không kết nối được backend");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -64,7 +55,6 @@ const ChangePasswordForm = () => {
       <div className="space-y-6">
         <div className="relative">
           <input
-            ref={currentPasswordRef}
             type={showCurrentPassword ? "text" : "password"}
             placeholder="Mật khẩu cũ"
             value={currentPassword}
@@ -77,7 +67,6 @@ const ChangePasswordForm = () => {
             }}
             className="w-full h-12 px-4 pr-12 rounded-xl border"
           />
-
           <button
             type="button"
             onClick={() => setShowCurrentPassword(!showCurrentPassword)}
@@ -105,7 +94,6 @@ const ChangePasswordForm = () => {
               }}
               className="w-full h-12 px-4 pr-12 rounded-xl border"
             />
-
             <button
               type="button"
               onClick={() => setShowNewPassword(!showNewPassword)}
@@ -132,7 +120,6 @@ const ChangePasswordForm = () => {
               }}
               className="w-full h-12 px-4 pr-12 rounded-xl border"
             />
-
             <button
               type="button"
               onClick={() => setShowConfirmPassword(!showConfirmPassword)}
@@ -148,14 +135,16 @@ const ChangePasswordForm = () => {
         <div className="flex justify-end">
           <button
             onClick={handleChangePassword}
+            disabled={loading}
             className="
-    h-11 px-6 rounded-xl text-white font-bold
-    bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500
-    shadow-xl shadow-blue-300/40
-    hover:scale-105 transition
-  "
+              h-11 px-6 rounded-xl text-white font-bold
+              bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500
+              shadow-xl shadow-blue-300/40
+              hover:scale-105 transition
+              disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100
+            "
           >
-            Cập nhật mật khẩu
+            {loading ? "Đang cập nhật..." : "Cập nhật mật khẩu"}
           </button>
         </div>
       </div>

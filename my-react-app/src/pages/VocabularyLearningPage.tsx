@@ -1,6 +1,6 @@
-import PassageCard from "../components/PassageCard";
-import ScoreDashboard from "../components/ScoreDashboard";
-import RecordingToolbar from "../components/RecordingToolbar";
+import PassageCard from "../components/vocabulary/PassageCard";
+import ScoreDashboard from "../components/vocabulary/ScoreDashboard";
+import RecordingToolbar from "../components/vocabulary/RecordingToolbar";
 
 export default function VocabularyLearningPage() {
   return (
@@ -11,7 +11,6 @@ export default function VocabularyLearningPage() {
             <h1 className="text-3xl font-bold text-primary">
               Vocabulary Practice
             </h1>
-
             <p className="text-on-surface-variant">
               Learn vocabulary and practice reading aloud.
             </p>
@@ -21,7 +20,6 @@ export default function VocabularyLearningPage() {
             <div className="lg:col-span-2 flex flex-col gap-6">
               <PassageCard />
             </div>
-
             <ScoreDashboard />
           </div>
         </div>

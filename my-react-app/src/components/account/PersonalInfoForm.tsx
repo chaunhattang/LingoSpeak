@@ -1,37 +1,25 @@
 import { useState } from "react";
+import { getUser, setUser } from "../../utils/auth";
+import { updateProfile } from "../../api/auth";
+import { toast } from "sonner";
 
 const PersonalInfoForm = () => {
-  const user = JSON.parse(localStorage.getItem("user") || "{}");
-
-  const [fullName, setFullName] = useState(user.fullName || "");
+  const user = getUser();
+  const [fullName, setFullName] = useState(user?.fullName ?? "");
+  const [loading, setLoading] = useState(false);
 
   const handleSave = async () => {
+    if (!user) return;
+    setLoading(true);
     try {
-      const response = await fetch(
-        "https://localhost:44346/api/Auth/update-profile",
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            id: user.id,
-            fullName: fullName,
-            email: user.email,
-            passwordHash: user.passwordHash,
-          }),
-        },
-      );
-
-      const updatedUser = await response.json();
-
-      localStorage.setItem("user", JSON.stringify(updatedUser));
-
-      alert("Cập nhật thành công");
-
-      window.location.reload();
-    } catch (error) {
-      alert("Không cập nhật được");
+      const updatedUser = await updateProfile(user.id, { fullName });
+      setUser(updatedUser);
+      toast.success("Cập nhật thành công");
+      setTimeout(() => window.location.reload(), 1500);
+    } catch {
+      toast.error("Không cập nhật được");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -46,7 +34,6 @@ const PersonalInfoForm = () => {
           <label className="block mb-2 font-medium dark:text-white">
             Họ và tên
           </label>
-
           <input
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
@@ -58,9 +45,8 @@ const PersonalInfoForm = () => {
           <label className="block mb-2 font-medium dark:text-white">
             Email
           </label>
-
           <input
-            value={user.email || ""}
+            value={user?.email ?? ""}
             disabled
             className="w-full h-12 px-4 rounded-xl border bg-gray-100"
           />
@@ -69,14 +55,16 @@ const PersonalInfoForm = () => {
         <div className="flex justify-end">
           <button
             onClick={handleSave}
+            disabled={loading}
             className="
-    h-11 px-6 rounded-xl text-white font-bold
-    bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500
-    shadow-xl shadow-blue-300/40
-    hover:scale-105 transition
-  "
+              h-11 px-6 rounded-xl text-white font-bold
+              bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500
+              shadow-xl shadow-blue-300/40
+              hover:scale-105 transition
+              disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100
+            "
           >
-            Lưu thay đổi
+            {loading ? "Đang lưu..." : "Lưu thay đổi"}
           </button>
         </div>
       </div>

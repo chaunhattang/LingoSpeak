@@ -1,37 +1,35 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { register } from "../api/auth";
+import { toast } from "sonner";
+
 const SignUp: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-
     if (password !== confirmPassword) {
-      alert("Passwords do not match");
+      toast.error("Passwords do not match");
       return;
     }
-
+    setLoading(true);
     try {
-      await axios.post("https://localhost:44346/api/Auth/register", {
-        fullName: fullName,
-        email: email,
-        password: password,
-      });
-
-      alert("Register success");
+      await register({ email, password, fullName });
+      toast.success("Đăng ký thành công!");
       navigate("/login");
-    } catch (error) {
-      console.error(error);
-      alert("Register failed");
+    } catch (error: any) {
+      const msg = error.response?.data?.message ?? "Đăng ký thất bại";
+      toast.error(msg);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -40,56 +38,42 @@ const SignUp: React.FC = () => {
       className="
         relative min-h-screen w-full flex items-center justify-center
         bg-gradient-to-br from-[#ecfeff] via-[#e0f2fe] to-[#ecfdf5]
-        font-display 
+        font-display
       "
     >
-      {/* NÚT X */}{" "}
       <Link
         to="/"
         className="
-    absolute top-3 right-3 z-50
-    w-8 h-8 sm:w-9 sm:h-9
-    flex items-center justify-center
-    rounded-full bg-white
-    shadow-md border border-slate-200
-    hover:bg-gray-100 active:scale-95
-    transition
-  "
+          absolute top-3 right-3 z-50
+          w-8 h-8 sm:w-9 sm:h-9
+          flex items-center justify-center
+          rounded-full bg-white
+          shadow-md border border-slate-200
+          hover:bg-gray-100 active:scale-95 transition
+        "
       >
         <span className="material-symbols-outlined text-[16px] sm:text-[18px] text-slate-600">
           close
         </span>
       </Link>
+
       <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-14 px-6">
-        {/* LEFT CONTENT */}
+        {/* LEFT */}
         <div className="hidden lg:flex flex-col justify-center">
-          {/* Heading */}
           <div className="flex flex-col gap-3">
             <h1 className="text-3xl font-extrabold leading-snug text-slate-900">
               {t("signup.title")}
               <br />
-              <span className="text-blue-600 italic  ">
-                {t("signup.subtitle")}
-              </span>
+              <span className="text-blue-600 italic">{t("signup.subtitle")}</span>
             </h1>
-
-            <p className="text-slate-600 max-w-xl text-sm leading-relaxed ">
+            <p className="text-slate-600 max-w-xl text-sm leading-relaxed">
               {t("signup.description")}
             </p>
           </div>
 
-          {/* FEATURES */}
           <div className="flex flex-col gap-6 mt-6">
-            {/* Feature 1 */}
             <div className="flex items-start gap-4 group">
-              <div
-                className="
-                  flex h-12 w-12 shrink-0 items-center justify-center
-                  rounded-xl bg-blue-500/20 text-blue-600
-                  backdrop-blur-sm transition-transform
-                  group-hover:scale-110
-                "
-              >
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-500/20 text-blue-600 backdrop-blur-sm transition-transform group-hover:scale-110">
                 <span className="material-symbols-outlined text-[24px]">
                   headphones
                 </span>
@@ -104,16 +88,8 @@ const SignUp: React.FC = () => {
               </div>
             </div>
 
-            {/* Feature 2 */}
             <div className="flex items-start gap-4 group">
-              <div
-                className="
-                  flex h-12 w-12 shrink-0 items-center justify-center
-                  rounded-xl bg-cyan-500/20 text-cyan-600
-                  backdrop-blur-sm transition-transform
-                  group-hover:scale-110
-                "
-              >
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-cyan-500/20 text-cyan-600 backdrop-blur-sm transition-transform group-hover:scale-110">
                 <span className="material-symbols-outlined text-[24px]">
                   psychology
                 </span>
@@ -128,16 +104,8 @@ const SignUp: React.FC = () => {
               </div>
             </div>
 
-            {/* Feature 3 */}
             <div className="flex items-start gap-4 group">
-              <div
-                className="
-                  flex h-12 w-12 shrink-0 items-center justify-center
-                  rounded-xl bg-emerald-500/20 text-emerald-600
-                  backdrop-blur-sm transition-transform
-                  group-hover:scale-110
-                "
-              >
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-emerald-500/20 text-emerald-600 backdrop-blur-sm transition-transform group-hover:scale-110">
                 <span className="material-symbols-outlined text-[24px]">
                   trending_up
                 </span>
@@ -154,7 +122,7 @@ const SignUp: React.FC = () => {
           </div>
         </div>
 
-        {/* PHẦN FORM BÊN PHẢI */}
+        {/* RIGHT FORM */}
         <div className="flex items-center justify-center">
           <div
             className="
@@ -174,7 +142,6 @@ const SignUp: React.FC = () => {
             </div>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-              {/* Email */}
               <div>
                 <label className="text-sm font-semibold text-slate-700">
                   {t("signup.email")}
@@ -187,15 +154,14 @@ const SignUp: React.FC = () => {
                   placeholder={t("signup.emailPlaceholder")}
                   className="mt-2 w-full h-11 px-4 rounded-xl text-sm
                     bg-slate-50 border border-slate-200
-                    focus:outline-none
-                    focus:ring-4 focus:ring-blue-300/40"
+                    focus:outline-none focus:ring-4 focus:ring-blue-300/40"
                 />
               </div>
+
               <div>
                 <label className="text-sm font-semibold text-slate-700">
                   Full Name
                 </label>
-
                 <input
                   type="text"
                   required
@@ -203,12 +169,11 @@ const SignUp: React.FC = () => {
                   onChange={(e) => setFullName(e.target.value)}
                   placeholder="Enter your Full Name"
                   className="mt-2 w-full h-11 px-4 rounded-xl text-sm
-      bg-slate-50 border border-slate-200
-      focus:outline-none
-      focus:ring-4 focus:ring-blue-300/40"
+                    bg-slate-50 border border-slate-200
+                    focus:outline-none focus:ring-4 focus:ring-blue-300/40"
                 />
               </div>
-              {/* Mật khẩu */}
+
               <div>
                 <label className="text-sm font-semibold text-slate-700">
                   {t("signup.password")}
@@ -222,17 +187,12 @@ const SignUp: React.FC = () => {
                     placeholder={t("signup.passwordPlaceholder")}
                     className="w-full h-11 px-4 rounded-xl text-sm
                       bg-slate-50 border border-slate-200
-                      focus:outline-none
-                      focus:ring-4 focus:ring-blue-300/40
-"
+                      focus:outline-none focus:ring-4 focus:ring-blue-300/40"
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="
-                      absolute right-4 top-1/2 -translate-y-1/2
-                      text-slate-400 hover:text-slate-600
-                    "
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
                   >
                     <span className="material-symbols-outlined text-[20px]">
                       {showPassword ? "visibility" : "visibility_off"}
@@ -241,7 +201,6 @@ const SignUp: React.FC = () => {
                 </div>
               </div>
 
-              {/* Mật khẩu again */}
               <div>
                 <div className="relative mt-2">
                   <input
@@ -252,17 +211,12 @@ const SignUp: React.FC = () => {
                     placeholder={t("signup.confirmPasswordPlaceholder")}
                     className="w-full h-11 px-4 rounded-xl text-sm
                       bg-slate-50 border border-slate-200
-                      focus:outline-none
-                      focus:ring-4 focus:ring-blue-300/40
-"
+                      focus:outline-none focus:ring-4 focus:ring-blue-300/40"
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="
-                      absolute right-4 top-1/2 -translate-y-1/2
-                      text-slate-400 hover:text-slate-600
-                    "
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
                   >
                     <span className="material-symbols-outlined text-[20px]">
                       {showPassword ? "visibility" : "visibility_off"}
@@ -271,17 +225,18 @@ const SignUp: React.FC = () => {
                 </div>
               </div>
 
-              {/* Nút đăng ký */}
               <button
                 type="submit"
+                disabled={loading}
                 className="
                   mt-3 h-11 rounded-xl text-white text-sm font-bold
                   bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500
                   shadow-xl shadow-blue-300/40
                   hover:scale-[1.03] transition
+                  disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100
                 "
               >
-                {t("signup.signUp")}
+                {loading ? "Đang đăng ký..." : t("signup.signUp")}
               </button>
             </form>
 
