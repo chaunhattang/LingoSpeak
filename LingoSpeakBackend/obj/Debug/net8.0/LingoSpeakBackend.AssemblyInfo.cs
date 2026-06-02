@@ -11,11 +11,10 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("2e692123-115f-4cff-aac2-d2aa57a11c10")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("LingoSpeakBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b51cee8064c2179ff60728d9a86fc11318c8a70")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+20140493244284e082c0ba3ab61be8471e32a55d")]
 [assembly: System.Reflection.AssemblyProductAttribute("LingoSpeakBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LingoSpeakBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

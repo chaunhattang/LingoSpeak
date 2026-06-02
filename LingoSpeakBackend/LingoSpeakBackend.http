@@ -1,4 +1,4 @@
-@LingoSpeakBackend_HostAddress = http://localhost:5007
+@LingoSpeakBackend_HostAddress = http://localhost:5120
 
 GET {{LingoSpeakBackend_HostAddress}}/weatherforecast/
 Accept: application/json

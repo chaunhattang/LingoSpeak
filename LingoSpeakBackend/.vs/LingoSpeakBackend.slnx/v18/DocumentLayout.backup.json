@@ -1,12 +1,121 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\project\\Demo\\LingoSpeak\\LingoSpeakBackend\\",
-  "Documents": [],
+  "WorkspaceRootPath": "D:\\FinalLingoSpeak\\LingoSpeakBackend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\FinalLingoSpeak\\LingoSpeakBackend\\Migrations\\20260602162623_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20260602162623_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{356423A8-C0CA-769E-8AAC-D98B090438DB}|LingoSpeakBackend.csproj|d:\\finallingospeak\\lingospeakbackend\\models\\conversation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{356423A8-C0CA-769E-8AAC-D98B090438DB}|LingoSpeakBackend.csproj|solutionrelative:models\\conversation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{356423A8-C0CA-769E-8AAC-D98B090438DB}|LingoSpeakBackend.csproj|d:\\finallingospeak\\lingospeakbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{356423A8-C0CA-769E-8AAC-D98B090438DB}|LingoSpeakBackend.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{356423A8-C0CA-769E-8AAC-D98B090438DB}|LingoSpeakBackend.csproj|d:\\finallingospeak\\lingospeakbackend\\dtos\\authdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{356423A8-C0CA-769E-8AAC-D98B090438DB}|LingoSpeakBackend.csproj|solutionrelative:dtos\\authdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{356423A8-C0CA-769E-8AAC-D98B090438DB}|LingoSpeakBackend.csproj|d:\\finallingospeak\\lingospeakbackend\\services\\implementations\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{356423A8-C0CA-769E-8AAC-D98B090438DB}|LingoSpeakBackend.csproj|solutionrelative:services\\implementations\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Project\\bk\\LingoSpeakBackend\\Migrations\\20260602062513_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20260602162623_InitialCreate.cs",
+              "DocumentMoniker": "D:\\FinalLingoSpeak\\LingoSpeakBackend\\Migrations\\20260602162623_InitialCreate.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260602162623_InitialCreate.cs",
+              "ToolTip": "D:\\FinalLingoSpeak\\LingoSpeakBackend\\Migrations\\20260602162623_InitialCreate.cs",
+              "RelativeToolTip": "Migrations\\20260602162623_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-02T16:26:23.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "20260602062513_InitialCreate.cs",
+              "DocumentMoniker": "D:\\project\\bk\\LingoSpeakBackend\\Migrations\\20260602062513_InitialCreate.cs",
+              "RelativeDocumentMoniker": "..\\..\\project\\bk\\LingoSpeakBackend\\Migrations\\20260602062513_InitialCreate.cs",
+              "ToolTip": "D:\\project\\bk\\LingoSpeakBackend\\Migrations\\20260602062513_InitialCreate.cs",
+              "RelativeToolTip": "..\\..\\project\\bk\\LingoSpeakBackend\\Migrations\\20260602062513_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-02T06:25:14.144Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\FinalLingoSpeak\\LingoSpeakBackend\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\FinalLingoSpeak\\LingoSpeakBackend\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAgwG4AAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-02T06:24:17.055Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Conversation.cs",
+              "DocumentMoniker": "D:\\FinalLingoSpeak\\LingoSpeakBackend\\Models\\Conversation.cs",
+              "RelativeDocumentMoniker": "Models\\Conversation.cs",
+              "ToolTip": "D:\\FinalLingoSpeak\\LingoSpeakBackend\\Models\\Conversation.cs",
+              "RelativeToolTip": "Models\\Conversation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-02T04:08:27.825Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\FinalLingoSpeak\\LingoSpeakBackend\\Services\\Implementations\\AuthService.cs",
+              "RelativeDocumentMoniker": "Services\\Implementations\\AuthService.cs",
+              "ToolTip": "D:\\FinalLingoSpeak\\LingoSpeakBackend\\Services\\Implementations\\AuthService.cs",
+              "RelativeToolTip": "Services\\Implementations\\AuthService.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T17:26:45.618Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthDto.cs",
+              "DocumentMoniker": "D:\\FinalLingoSpeak\\LingoSpeakBackend\\DTOs\\AuthDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\AuthDto.cs",
+              "ToolTip": "D:\\FinalLingoSpeak\\LingoSpeakBackend\\DTOs\\AuthDto.cs",
+              "RelativeToolTip": "DTOs\\AuthDto.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAwwBgAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T17:26:09.063Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
