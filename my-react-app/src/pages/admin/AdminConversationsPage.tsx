@@ -130,7 +130,9 @@ export default function AdminConversationsPage() {
             >
               <span className="material-symbols-outlined">arrow_back</span>
             </button>
-            <h2 className="text-2xl font-black max-w-2xl mx-auto">{selected.topic}</h2>
+            <h2 className="text-2xl font-black max-w-2xl mx-auto">
+              {selected.topic}
+            </h2>
           </div>
 
           <div className="space-y-4 max-w-2xl max-w-2xl mx-auto">
@@ -139,7 +141,10 @@ export default function AdminConversationsPage() {
               .map((msg, i) => {
                 const isRight = msg.senderName === selected.speaker2Name;
                 return (
-                  <div key={i} className={`flex gap-3 ${isRight ? "flex-row-reverse" : ""}`}>
+                  <div
+                    key={i}
+                    className={`flex gap-3 ${isRight ? "flex-row-reverse" : ""}`}
+                  >
                     <div className="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold text-slate-500 flex-shrink-0">
                       {msg.senderName?.[0] ?? "?"}
                     </div>
@@ -148,9 +153,15 @@ export default function AdminConversationsPage() {
                         isRight ? "bg-primary text-white" : "bg-white"
                       }`}
                     >
-                      <p className="text-xs font-semibold mb-1 opacity-70">{msg.senderName}</p>
-                      <p className="text-sm font-medium">{msg.translation.english}</p>
-                      <p className={`text-xs mt-1 italic ${isRight ? "opacity-80" : "text-slate-400"}`}>
+                      <p className="text-xs font-semibold mb-1 opacity-70">
+                        {msg.senderName}
+                      </p>
+                      <p className="text-sm font-medium">
+                        {msg.translation.english}
+                      </p>
+                      <p
+                        className={`text-xs mt-1 italic ${isRight ? "opacity-80" : "text-slate-400"}`}
+                      >
                         {msg.translation.vietnamese}
                       </p>
                     </div>
@@ -176,11 +187,21 @@ export default function AdminConversationsPage() {
             <table className="w-full text-sm min-w-[500px]">
               <thead className="bg-slate-50 border-b border-slate-100">
                 <tr>
-                  <th className="text-left px-6 py-4 text-slate-500 font-semibold">Ảnh</th>
-                  <th className="text-left px-6 py-4 text-slate-500 font-semibold">Chủ đề</th>
-                  <th className="text-left px-6 py-4 text-slate-500 font-semibold">Speaker 1</th>
-                  <th className="text-left px-6 py-4 text-slate-500 font-semibold">Speaker 2</th>
-                  <th className="text-left px-6 py-4 text-slate-500 font-semibold">Tin nhắn</th>
+                  <th className="text-left px-6 py-4 text-slate-500 font-semibold">
+                    Ảnh
+                  </th>
+                  <th className="text-left px-6 py-4 text-slate-500 font-semibold">
+                    Chủ đề
+                  </th>
+                  <th className="text-left px-6 py-4 text-slate-500 font-semibold">
+                    Speaker 1
+                  </th>
+                  <th className="text-left px-6 py-4 text-slate-500 font-semibold">
+                    Speaker 2
+                  </th>
+                  <th className="text-left px-6 py-4 text-slate-500 font-semibold">
+                    Tin nhắn
+                  </th>
                   <th className="px-6 py-4" />
                 </tr>
               </thead>
@@ -193,37 +214,57 @@ export default function AdminConversationsPage() {
                           src={`${API_BASE_URL}/uploads/images/${conv.image}`}
                           alt={conv.topic}
                           className="w-14 h-10 object-cover rounded-lg"
-                          onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).style.display =
+                              "none";
+                          }}
                         />
                       ) : (
                         <div className="w-14 h-10 rounded-lg bg-slate-100 flex items-center justify-center">
-                          <span className="material-symbols-outlined text-slate-400 text-[18px]">image</span>
+                          <span className="material-symbols-outlined text-slate-400 text-[18px]">
+                            image
+                          </span>
                         </div>
                       )}
                     </td>
                     <td className="px-6 py-4 font-medium">{conv.topic}</td>
-                    <td className="px-6 py-4 text-slate-500">{conv.speaker1Name ?? "—"}</td>
-                    <td className="px-6 py-4 text-slate-500">{conv.speaker2Name ?? "—"}</td>
-                    <td className="px-6 py-4 text-slate-400">{conv.messages.length} tin</td>
+                    <td className="px-6 py-4 text-slate-500">
+                      {conv.speaker1Name ?? "—"}
+                    </td>
+                    <td className="px-6 py-4 text-slate-500">
+                      {conv.speaker2Name ?? "—"}
+                    </td>
+                    <td className="px-6 py-4 text-slate-400">
+                      {conv.messages.length} tin
+                    </td>
                     <td className="px-6 py-4">
                       <div className="flex gap-2 justify-end">
                         <button
-                          onClick={() => { setSelected(conv); setView("detail"); }}
+                          onClick={() => {
+                            setSelected(conv);
+                            setView("detail");
+                          }}
                           className="p-1.5 rounded-lg text-slate-500 hover:bg-slate-100"
                         >
-                          <span className="material-symbols-outlined text-[16px]">visibility</span>
+                          <span className="material-symbols-outlined text-[16px]">
+                            visibility
+                          </span>
                         </button>
                         <button
                           onClick={() => openEdit(conv)}
                           className="p-1.5 rounded-lg text-blue-600 hover:bg-blue-50"
                         >
-                          <span className="material-symbols-outlined text-[16px]">edit</span>
+                          <span className="material-symbols-outlined text-[16px]">
+                            edit
+                          </span>
                         </button>
                         <button
                           onClick={() => handleDelete(conv.id)}
                           className="p-1.5 rounded-lg text-red-500 hover:bg-red-50"
                         >
-                          <span className="material-symbols-outlined text-[16px]">delete</span>
+                          <span className="material-symbols-outlined text-[16px]">
+                            delete
+                          </span>
                         </button>
                       </div>
                     </td>
@@ -250,11 +291,15 @@ export default function AdminConversationsPage() {
                 { key: "speaker2Name", label: "Speaker 2" },
               ].map(({ key, label }) => (
                 <div key={key}>
-                  <label className="text-sm font-medium text-slate-600 mb-1 block">{label}</label>
+                  <label className="text-sm font-medium text-slate-600 mb-1 block">
+                    {label}
+                  </label>
                   <input
                     type="text"
-                    value={(form as Record<string, string>)[key]}
-                    onChange={(e) => setForm((f) => ({ ...f, [key]: e.target.value }))}
+                    value={form[key as keyof ConversationPayload] as string}
+                    onChange={(e) =>
+                      setForm((f) => ({ ...f, [key]: e.target.value }))
+                    }
                     className="w-full border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
@@ -263,13 +308,17 @@ export default function AdminConversationsPage() {
 
             {/* Image upload */}
             <div className="mb-4">
-              <label className="text-sm font-medium text-slate-600 mb-1 block">Ảnh hội thoại (tuỳ chọn)</label>
+              <label className="text-sm font-medium text-slate-600 mb-1 block">
+                Ảnh hội thoại (tuỳ chọn)
+              </label>
               {editing?.image && !imageFile && (
                 <img
                   src={`${API_BASE_URL}/uploads/images/${editing.image}`}
                   alt="current"
                   className="w-full h-32 object-cover rounded-xl mb-2"
-                  onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = "none";
+                  }}
                 />
               )}
               {imageFile && (
@@ -300,22 +349,33 @@ export default function AdminConversationsPage() {
 
               <div className="space-y-3 max-h-64 overflow-y-auto pr-1">
                 {(form.messages ?? []).map((msg, i) => (
-                  <div key={i} className="border border-slate-100 rounded-xl p-3 bg-slate-50">
+                  <div
+                    key={i}
+                    className="border border-slate-100 rounded-xl p-3 bg-slate-50"
+                  >
                     <div className="flex gap-2 mb-2">
                       <select
                         value={msg.senderName}
-                        onChange={(e) => updateMessage(i, { senderName: e.target.value })}
+                        onChange={(e) =>
+                          updateMessage(i, { senderName: e.target.value })
+                        }
                         className="flex-1 border border-slate-200 rounded-lg px-2 py-1.5 text-xs focus:outline-none"
                       >
                         <option value="">-- Chọn người nói --</option>
-                        <option value={form.speaker1Name}>{form.speaker1Name || "Speaker 1"}</option>
-                        <option value={form.speaker2Name}>{form.speaker2Name || "Speaker 2"}</option>
+                        <option value={form.speaker1Name}>
+                          {form.speaker1Name || "Speaker 1"}
+                        </option>
+                        <option value={form.speaker2Name}>
+                          {form.speaker2Name || "Speaker 2"}
+                        </option>
                       </select>
                       <button
                         onClick={() => removeMessage(i)}
                         className="text-red-400 hover:text-red-600"
                       >
-                        <span className="material-symbols-outlined text-[16px]">close</span>
+                        <span className="material-symbols-outlined text-[16px]">
+                          close
+                        </span>
                       </button>
                     </div>
                     <input
@@ -324,7 +384,10 @@ export default function AdminConversationsPage() {
                       value={msg.translation.english}
                       onChange={(e) =>
                         updateMessage(i, {
-                          translation: { ...msg.translation, english: e.target.value },
+                          translation: {
+                            ...msg.translation,
+                            english: e.target.value,
+                          },
                         })
                       }
                       className="w-full border border-slate-200 rounded-lg px-3 py-1.5 text-xs mb-1 focus:outline-none"
@@ -335,7 +398,10 @@ export default function AdminConversationsPage() {
                       value={msg.translation.vietnamese}
                       onChange={(e) =>
                         updateMessage(i, {
-                          translation: { ...msg.translation, vietnamese: e.target.value },
+                          translation: {
+                            ...msg.translation,
+                            vietnamese: e.target.value,
+                          },
                         })
                       }
                       className="w-full border border-slate-200 rounded-lg px-3 py-1.5 text-xs focus:outline-none"
