@@ -15,6 +15,21 @@ public static class VocabularyMapper
             Vietnamese = translation.Vietnamese
         };
     }
+    public static ReadingPassageResponse? ToReadingPassageResponse(this ReadingPassage? readingPassage)
+    {
+        if (readingPassage == null) return null;
+
+        return new ReadingPassageResponse
+        {
+            Id = readingPassage.Id,
+            Title = readingPassage.Title.ToTranslationDto()!,
+            Content = readingPassage.Content.ToTranslationDto()!
+        };
+    }
+
+    private static bool HasContent(TranslationDto? t) =>
+        !string.IsNullOrWhiteSpace(t?.English) || !string.IsNullOrWhiteSpace(t?.Vietnamese);
+
     public static VocabularyResponse ToVocabularyResponse(this Vocabulary topic)
     {
         if (topic == null) return null!;
@@ -26,15 +41,39 @@ public static class VocabularyMapper
             TopicName = topic.TopicName.ToTranslationDto()!,
             VocabularyItems = topic.VocabularyItems?
                 .Select(item => item.ToItemResponse())
-                .ToList() ?? new List<VocabularyItemResponse>()
+                .ToList() ?? new List<VocabularyItemResponse>(),
+            Conversation = topic.Conversation.ToConversationResponse(),
+            Reading = topic.ReadingPassage.ToReadingPassageResponse()
         };
+    }
+
+    private static List<ConversationMessage> BuildMessages(List<MessageDto>? messages)
+    {
+        var result = new List<ConversationMessage>();
+        if (messages == null) return result;
+
+        foreach (var m in messages)
+        {
+            result.Add(new ConversationMessage
+            {
+                SenderName = m.SenderName ?? string.Empty,
+                Content = new Translation
+                {
+                    English = m.Translation?.English ?? string.Empty,
+                    Vietnamese = m.Translation?.Vietnamese ?? string.Empty
+                },
+                Order = m.Order ?? 0
+            });
+        }
+
+        return result;
     }
 
     public static Vocabulary ToVocabulary(this VocabularyCreateRequest request)
     {
         if (request == null) return null!;
 
-        return new Vocabulary
+        var vocabulary = new Vocabulary
         {
             Image = request.Image != null ? request.Image.FileName : null,
             TopicName = new Translation
@@ -43,6 +82,35 @@ public static class VocabularyMapper
                 Vietnamese = request.TopicName.Vietnamese ?? ""
             }
         };
+
+        if (request.Speaker1Name != null || request.Speaker2Name != null || (request.Messages != null && request.Messages.Count > 0))
+        {
+            vocabulary.Conversation = new Conversation
+            {
+                Speaker1Name = request.Speaker1Name,
+                Speaker2Name = request.Speaker2Name,
+                Messages = BuildMessages(request.Messages)
+            };
+        }
+
+        if (HasContent(request.ReadingTitle) || HasContent(request.ReadingContent))
+        {
+            vocabulary.ReadingPassage = new ReadingPassage
+            {
+                Title = new Translation
+                {
+                    English = request.ReadingTitle?.English ?? "",
+                    Vietnamese = request.ReadingTitle?.Vietnamese ?? ""
+                },
+                Content = new Translation
+                {
+                    English = request.ReadingContent?.English ?? "",
+                    Vietnamese = request.ReadingContent?.Vietnamese ?? ""
+                }
+            };
+        }
+
+        return vocabulary;
     }
 
     public static void UpdateVocabularyFromDto(this Vocabulary existingVocabulary, VocabularyUpdateRequest request)
@@ -63,6 +131,44 @@ public static class VocabularyMapper
             }
             existingVocabulary.TopicName.English = request.TopicName.English ?? existingVocabulary.TopicName.English;
             existingVocabulary.TopicName.Vietnamese = request.TopicName.Vietnamese ?? existingVocabulary.TopicName.Vietnamese;
+        }
+
+        if (request.Speaker1Name != null || request.Speaker2Name != null || request.Messages != null)
+        {
+            existingVocabulary.Conversation ??= new Conversation();
+
+            if (request.Speaker1Name != null) existingVocabulary.Conversation.Speaker1Name = request.Speaker1Name;
+            if (request.Speaker2Name != null) existingVocabulary.Conversation.Speaker2Name = request.Speaker2Name;
+
+            if (request.Messages != null)
+            {
+                existingVocabulary.Conversation.Messages.Clear();
+                existingVocabulary.Conversation.Messages.AddRange(BuildMessages(request.Messages));
+            }
+        }
+
+        if (HasContent(request.ReadingTitle) || HasContent(request.ReadingContent))
+        {
+            if (existingVocabulary.ReadingPassage == null)
+            {
+                existingVocabulary.ReadingPassage = new ReadingPassage
+                {
+                    Title = new Translation(),
+                    Content = new Translation()
+                };
+            }
+
+            if (request.ReadingTitle != null)
+            {
+                existingVocabulary.ReadingPassage.Title.English = request.ReadingTitle.English ?? existingVocabulary.ReadingPassage.Title.English;
+                existingVocabulary.ReadingPassage.Title.Vietnamese = request.ReadingTitle.Vietnamese ?? existingVocabulary.ReadingPassage.Title.Vietnamese;
+            }
+
+            if (request.ReadingContent != null)
+            {
+                existingVocabulary.ReadingPassage.Content.English = request.ReadingContent.English ?? existingVocabulary.ReadingPassage.Content.English;
+                existingVocabulary.ReadingPassage.Content.Vietnamese = request.ReadingContent.Vietnamese ?? existingVocabulary.ReadingPassage.Content.Vietnamese;
+            }
         }
     }
 

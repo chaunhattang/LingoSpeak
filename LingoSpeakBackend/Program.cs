@@ -33,13 +33,13 @@ public class Program
         builder.Services.AddScoped<IUserRepository, UserRepository>();
         builder.Services.AddScoped<IVocabularyRepository, VocabularyRepository>();
         builder.Services.AddScoped<IConversationRepository, ConversationRepository>();
+        builder.Services.AddScoped<IReadingPassageRepository, ReadingPassageRepository>();
         builder.Services.AddScoped<IUserProgressRepository, UserProgressRepository>();
 
         builder.Services.AddScoped<IFileStorageService, FileStorageService>();
         builder.Services.AddScoped<IAuthService, AuthService>();
         builder.Services.AddScoped<IUserService, UserService>();
         builder.Services.AddScoped<IVocabularyService, VocabularyService>();
-        builder.Services.AddScoped<IConversationService, ConversationService>();
         builder.Services.AddScoped<IUserProgressService, UserProgressService>();
 
         var jwt = builder.Configuration.GetSection("JwtSettings");

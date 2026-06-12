@@ -19,4 +19,5 @@ public class UserResponse
     public string? Image { get; set; }
     public ICollection<int>? StudiedConversationIds { get; set; }
     public ICollection<int>? StudiedVocabularyIds { get; set; }
+    public ICollection<int>? StudiedReadingPassageIds { get; set; }
 }

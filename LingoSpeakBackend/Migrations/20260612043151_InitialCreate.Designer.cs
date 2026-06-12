@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LingoSpeakBackend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260602162623_InitialCreate")]
+    [Migration("20260612043151_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -33,17 +33,10 @@ namespace LingoSpeakBackend.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Speaker1Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Speaker2Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Topic")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -81,6 +74,29 @@ namespace LingoSpeakBackend.Migrations
                     b.ToTable("ConversationMessages");
                 });
 
+            modelBuilder.Entity("LingoSpeakBackend.Models.ReadingPassage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ContentId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TitleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ContentId");
+
+                    b.HasIndex("TitleId");
+
+                    b.ToTable("ReadingPassages");
+                });
+
             modelBuilder.Entity("LingoSpeakBackend.Models.StudiedConversation", b =>
                 {
                     b.Property<int>("Id")
@@ -102,6 +118,29 @@ namespace LingoSpeakBackend.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("StudiedConversations");
+                });
+
+            modelBuilder.Entity("LingoSpeakBackend.Models.StudiedReadingPassage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ReadingPassageId")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReadingPassageId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("StudiedReadingPassages");
                 });
 
             modelBuilder.Entity("LingoSpeakBackend.Models.StudiedVocabulary", b =>
@@ -185,13 +224,27 @@ namespace LingoSpeakBackend.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("ConversationId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ReadingPassageId")
+                        .HasColumnType("int");
 
                     b.Property<int>("TopicNameId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ConversationId")
+                        .IsUnique()
+                        .HasFilter("[ConversationId] IS NOT NULL");
+
+                    b.HasIndex("ReadingPassageId")
+                        .IsUnique()
+                        .HasFilter("[ReadingPassageId] IS NOT NULL");
 
                     b.HasIndex("TopicNameId");
 
@@ -252,6 +305,25 @@ namespace LingoSpeakBackend.Migrations
                     b.Navigation("Conversation");
                 });
 
+            modelBuilder.Entity("LingoSpeakBackend.Models.ReadingPassage", b =>
+                {
+                    b.HasOne("LingoSpeakBackend.Models.Translation", "Content")
+                        .WithMany()
+                        .HasForeignKey("ContentId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("LingoSpeakBackend.Models.Translation", "Title")
+                        .WithMany()
+                        .HasForeignKey("TitleId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Content");
+
+                    b.Navigation("Title");
+                });
+
             modelBuilder.Entity("LingoSpeakBackend.Models.StudiedConversation", b =>
                 {
                     b.HasOne("LingoSpeakBackend.Models.Conversation", "Conversation")
@@ -267,6 +339,25 @@ namespace LingoSpeakBackend.Migrations
                         .IsRequired();
 
                     b.Navigation("Conversation");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("LingoSpeakBackend.Models.StudiedReadingPassage", b =>
+                {
+                    b.HasOne("LingoSpeakBackend.Models.ReadingPassage", "ReadingPassage")
+                        .WithMany()
+                        .HasForeignKey("ReadingPassageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LingoSpeakBackend.Models.User", "User")
+                        .WithMany("StudiedReadingPassages")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ReadingPassage");
 
                     b.Navigation("User");
                 });
@@ -292,11 +383,25 @@ namespace LingoSpeakBackend.Migrations
 
             modelBuilder.Entity("LingoSpeakBackend.Models.Vocabulary", b =>
                 {
+                    b.HasOne("LingoSpeakBackend.Models.Conversation", "Conversation")
+                        .WithOne()
+                        .HasForeignKey("LingoSpeakBackend.Models.Vocabulary", "ConversationId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.HasOne("LingoSpeakBackend.Models.ReadingPassage", "ReadingPassage")
+                        .WithOne()
+                        .HasForeignKey("LingoSpeakBackend.Models.Vocabulary", "ReadingPassageId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
                     b.HasOne("LingoSpeakBackend.Models.Translation", "TopicName")
                         .WithMany()
                         .HasForeignKey("TopicNameId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
+
+                    b.Navigation("Conversation");
+
+                    b.Navigation("ReadingPassage");
 
                     b.Navigation("TopicName");
                 });
@@ -328,6 +433,8 @@ namespace LingoSpeakBackend.Migrations
             modelBuilder.Entity("LingoSpeakBackend.Models.User", b =>
                 {
                     b.Navigation("StudiedConversations");
+
+                    b.Navigation("StudiedReadingPassages");
 
                     b.Navigation("StudiedVocabularies");
                 });

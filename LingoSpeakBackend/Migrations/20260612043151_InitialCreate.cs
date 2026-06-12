@@ -17,10 +17,8 @@ namespace LingoSpeakBackend.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Topic = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Speaker1Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Speaker2Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Speaker2Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -85,20 +83,25 @@ namespace LingoSpeakBackend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Vocabularies",
+                name: "ReadingPassages",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TopicNameId = table.Column<int>(type: "int", nullable: false),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    TitleId = table.Column<int>(type: "int", nullable: false),
+                    ContentId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Vocabularies", x => x.Id);
+                    table.PrimaryKey("PK_ReadingPassages", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Vocabularies_Translations_TopicNameId",
-                        column: x => x.TopicNameId,
+                        name: "FK_ReadingPassages_Translations_ContentId",
+                        column: x => x.ContentId,
+                        principalTable: "Translations",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_ReadingPassages_Translations_TitleId",
+                        column: x => x.TitleId,
                         principalTable: "Translations",
                         principalColumn: "Id");
                 });
@@ -127,6 +130,65 @@ namespace LingoSpeakBackend.Migrations
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "StudiedReadingPassages",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ReadingPassageId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_StudiedReadingPassages", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_StudiedReadingPassages_ReadingPassages_ReadingPassageId",
+                        column: x => x.ReadingPassageId,
+                        principalTable: "ReadingPassages",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_StudiedReadingPassages_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Vocabularies",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TopicNameId = table.Column<int>(type: "int", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConversationId = table.Column<int>(type: "int", nullable: true),
+                    ReadingPassageId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Vocabularies", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Vocabularies_Conversations_ConversationId",
+                        column: x => x.ConversationId,
+                        principalTable: "Conversations",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.SetNull);
+                    table.ForeignKey(
+                        name: "FK_Vocabularies_ReadingPassages_ReadingPassageId",
+                        column: x => x.ReadingPassageId,
+                        principalTable: "ReadingPassages",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.SetNull);
+                    table.ForeignKey(
+                        name: "FK_Vocabularies_Translations_TopicNameId",
+                        column: x => x.TopicNameId,
+                        principalTable: "Translations",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -195,6 +257,16 @@ namespace LingoSpeakBackend.Migrations
                 column: "ConversationId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ReadingPassages_ContentId",
+                table: "ReadingPassages",
+                column: "ContentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ReadingPassages_TitleId",
+                table: "ReadingPassages",
+                column: "TitleId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_StudiedConversations_ConversationId",
                 table: "StudiedConversations",
                 column: "ConversationId");
@@ -202,6 +274,16 @@ namespace LingoSpeakBackend.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_StudiedConversations_UserId",
                 table: "StudiedConversations",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_StudiedReadingPassages_ReadingPassageId",
+                table: "StudiedReadingPassages",
+                column: "ReadingPassageId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_StudiedReadingPassages_UserId",
+                table: "StudiedReadingPassages",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
@@ -213,6 +295,20 @@ namespace LingoSpeakBackend.Migrations
                 name: "IX_StudiedVocabularies_VocabularyId",
                 table: "StudiedVocabularies",
                 column: "VocabularyId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Vocabularies_ConversationId",
+                table: "Vocabularies",
+                column: "ConversationId",
+                unique: true,
+                filter: "[ConversationId] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Vocabularies_ReadingPassageId",
+                table: "Vocabularies",
+                column: "ReadingPassageId",
+                unique: true,
+                filter: "[ReadingPassageId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Vocabularies_TopicNameId",
@@ -240,19 +336,25 @@ namespace LingoSpeakBackend.Migrations
                 name: "StudiedConversations");
 
             migrationBuilder.DropTable(
+                name: "StudiedReadingPassages");
+
+            migrationBuilder.DropTable(
                 name: "StudiedVocabularies");
 
             migrationBuilder.DropTable(
                 name: "VocabularyItems");
 
             migrationBuilder.DropTable(
-                name: "Conversations");
-
-            migrationBuilder.DropTable(
                 name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Vocabularies");
+
+            migrationBuilder.DropTable(
+                name: "Conversations");
+
+            migrationBuilder.DropTable(
+                name: "ReadingPassages");
 
             migrationBuilder.DropTable(
                 name: "Translations");

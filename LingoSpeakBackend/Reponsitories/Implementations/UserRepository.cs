@@ -18,6 +18,7 @@ public class UserRepository : IUserRepository
         return await _context.Users
             .Include(u => u.StudiedConversations)
             .Include(u => u.StudiedVocabularies)
+            .Include(u => u.StudiedReadingPassages)
             .ToListAsync();
     }
     public async Task<User?> GetByEmailAsync(string email)
@@ -25,6 +26,7 @@ public class UserRepository : IUserRepository
         return await _context.Users
             .Include(u => u.StudiedConversations)
             .Include(u => u.StudiedVocabularies)
+            .Include(u => u.StudiedReadingPassages)
             .FirstOrDefaultAsync(u => u.Email == email);
     }
 
@@ -33,6 +35,7 @@ public class UserRepository : IUserRepository
         return await _context.Users
             .Include(u => u.StudiedConversations)
             .Include(u => u.StudiedVocabularies)
+            .Include(u => u.StudiedReadingPassages)
             .FirstOrDefaultAsync(u => u.Id == id);
     }
 

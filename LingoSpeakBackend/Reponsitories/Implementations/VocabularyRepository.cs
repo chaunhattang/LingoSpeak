@@ -20,6 +20,13 @@ public class VocabularyRepository : IVocabularyRepository
             .Include(v => v.TopicName)
             .Include(v => v.VocabularyItems)
                 .ThenInclude(vi => vi.Meaning)
+            .Include(v => v.Conversation)
+                .ThenInclude(c => c!.Messages)
+                    .ThenInclude(m => m.Content)
+            .Include(v => v.ReadingPassage)
+                .ThenInclude(r => r!.Title)
+            .Include(v => v.ReadingPassage)
+                .ThenInclude(r => r!.Content)
             .ToListAsync();
     }
 
@@ -29,6 +36,13 @@ public class VocabularyRepository : IVocabularyRepository
             .Include(v => v.TopicName)
             .Include(v => v.VocabularyItems)
                 .ThenInclude(vi => vi.Meaning)
+            .Include(v => v.Conversation)
+                .ThenInclude(c => c!.Messages)
+                    .ThenInclude(m => m.Content)
+            .Include(v => v.ReadingPassage)
+                .ThenInclude(r => r!.Title)
+            .Include(v => v.ReadingPassage)
+                .ThenInclude(r => r!.Content)
             .FirstOrDefaultAsync(v => v.Id == id);
     }
 

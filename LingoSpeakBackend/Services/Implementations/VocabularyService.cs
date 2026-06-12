@@ -9,10 +9,14 @@ namespace LingoSpeakBackend.Services.Implementations;
 public class VocabularyService : IVocabularyService
 {
     private readonly IVocabularyRepository _vocabularyRepo;
-    private readonly IFileStorageService _fileStorageService; 
-    public VocabularyService(IVocabularyRepository vocabularyRepo, IFileStorageService fileStorageService)
+    private readonly IConversationRepository _conversationRepo;
+    private readonly IReadingPassageRepository _readingPassageRepo;
+    private readonly IFileStorageService _fileStorageService;
+    public VocabularyService(IVocabularyRepository vocabularyRepo, IConversationRepository conversationRepo, IReadingPassageRepository readingPassageRepo, IFileStorageService fileStorageService)
     {
         _vocabularyRepo = vocabularyRepo;
+        _conversationRepo = conversationRepo;
+        _readingPassageRepo = readingPassageRepo;
         _fileStorageService = fileStorageService;
     }
 
@@ -81,6 +85,16 @@ public class VocabularyService : IVocabularyService
         if (!string.IsNullOrEmpty(v.Image))
         {
             _fileStorageService.DeleteFile(v.Image);
+        }
+
+        if (v.Conversation != null)
+        {
+            _conversationRepo.Delete(v.Conversation);
+        }
+
+        if (v.ReadingPassage != null)
+        {
+            _readingPassageRepo.Delete(v.ReadingPassage);
         }
 
         _vocabularyRepo.Delete(v);

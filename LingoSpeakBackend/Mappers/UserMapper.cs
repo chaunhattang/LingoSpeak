@@ -21,6 +21,9 @@ public static class UserMapper
                 : new List<int>(),
             StudiedVocabularyIds = user.StudiedVocabularies != null
                 ? user.StudiedVocabularies.Select(sv => sv.VocabularyId).ToList()
+                : new List<int>(),
+            StudiedReadingPassageIds = user.StudiedReadingPassages != null
+                ? user.StudiedReadingPassages.Select(sr => sr.ReadingPassageId).ToList()
                 : new List<int>()
         };
     }

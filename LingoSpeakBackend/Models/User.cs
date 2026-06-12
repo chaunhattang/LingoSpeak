@@ -15,4 +15,5 @@ public class User
     public string? Image { get; set; }
     public ICollection<StudiedConversation> StudiedConversations { get; set; } = new List<StudiedConversation>();
     public ICollection<StudiedVocabulary> StudiedVocabularies { get; set; } = new List<StudiedVocabulary>();
+    public ICollection<StudiedReadingPassage> StudiedReadingPassages { get; set; } = new List<StudiedReadingPassage>();
 }

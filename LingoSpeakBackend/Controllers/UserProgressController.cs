@@ -42,4 +42,18 @@ public class UserProgressController : BaseApiController
         await _progressService.UnmarkConversationAsync(id, CurrentUserId);
         return Ok(new { Message = "Đã hủy đánh dấu bài hội thoại." });
     }
+
+    [HttpPost("reading/{id}")]
+    public async Task<IActionResult> MarkReadingPassage(int id)
+    {
+        await _progressService.MarkReadingPassageAsStudiedAsync(id, CurrentUserId);
+        return Ok(new { Message = "Đã đánh dấu bài đọc là HOÀN THÀNH." });
+    }
+
+    [HttpDelete("reading/{id}")]
+    public async Task<IActionResult> UnmarkReadingPassage(int id)
+    {
+        await _progressService.UnmarkReadingPassageAsync(id, CurrentUserId);
+        return Ok(new { Message = "Đã hủy đánh dấu bài đọc." });
+    }
 }

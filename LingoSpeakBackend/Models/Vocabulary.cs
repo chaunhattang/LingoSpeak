@@ -12,5 +12,11 @@ public class Vocabulary
 
     public string? Image { get; set; }
 
+    public int? ConversationId { get; set; }
+    public Conversation? Conversation { get; set; }
+
+    public int? ReadingPassageId { get; set; }
+    public ReadingPassage? ReadingPassage { get; set; }
+
     public ICollection<VocabularyItem> VocabularyItems { get; set; } = new List<VocabularyItem>();
 }

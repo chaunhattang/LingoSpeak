@@ -26,6 +26,12 @@ public class UserProgressRepository : IUserProgressRepository
             .FirstOrDefaultAsync(sc => sc.UserId == userId && sc.ConversationId == conversationId);
     }
 
+    public async Task<StudiedReadingPassage?> GetStudiedReadingPassageAsync(Guid userId, int readingPassageId)
+    {
+        return await _context.StudiedReadingPassages
+            .FirstOrDefaultAsync(sr => sr.UserId == userId && sr.ReadingPassageId == readingPassageId);
+    }
+
     public async Task AddStudiedVocabularyAsync(StudiedVocabulary studiedVocabulary)
     {
         await _context.StudiedVocabularies.AddAsync(studiedVocabulary);
@@ -36,6 +42,11 @@ public class UserProgressRepository : IUserProgressRepository
         await _context.StudiedConversations.AddAsync(studiedConversation);
     }
 
+    public async Task AddStudiedReadingPassageAsync(StudiedReadingPassage studiedReadingPassage)
+    {
+        await _context.StudiedReadingPassages.AddAsync(studiedReadingPassage);
+    }
+
     public void RemoveStudiedVocabulary(StudiedVocabulary studiedVocabulary)
     {
         _context.StudiedVocabularies.Remove(studiedVocabulary);
@@ -44,6 +55,11 @@ public class UserProgressRepository : IUserProgressRepository
     public void RemoveStudiedConversation(StudiedConversation studiedConversation)
     {
         _context.StudiedConversations.Remove(studiedConversation);
+    }
+
+    public void RemoveStudiedReadingPassage(StudiedReadingPassage studiedReadingPassage)
+    {
+        _context.StudiedReadingPassages.Remove(studiedReadingPassage);
     }
 
     public async Task<bool> SaveChangesAsync()

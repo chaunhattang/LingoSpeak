@@ -17,52 +17,18 @@ public static class ConversationMapper
         };
     }
 
-    public static ConversationResponse ToConversationResponse(this Conversation conversation)
+    public static ConversationResponse? ToConversationResponse(this Conversation? conversation)
     {
-        if (conversation == null) return null!;
+        if (conversation == null) return null;
 
         return new ConversationResponse
         {
             Id = conversation.Id,
-            Topic = conversation.Topic,
             Speaker1Name = conversation.Speaker1Name,
             Speaker2Name = conversation.Speaker2Name,
-            Image = conversation.Image,
             Messages = conversation.Messages != null
-                ? conversation.Messages.Select(m => m.ToMessageDto()).ToList()
+                ? conversation.Messages.OrderBy(m => m.Order).Select(m => m.ToMessageDto()).ToList()
                 : new List<MessageDto>()
         };
-    }
-
-    public static Conversation ToConversation(this ConversationCreateRequest request)
-    {
-        if (request == null) return null!;
-
-        var conversation = new Conversation
-        {
-            Topic = request.Topic,
-            Speaker1Name = request.Speaker1Name,
-            Speaker2Name = request.Speaker2Name,
-            Messages = new List<ConversationMessage>()
-        };
-
-        if (request.Messages != null)
-        {
-            foreach (var m in request.Messages)
-            {
-                conversation.Messages.Add(new ConversationMessage
-                {
-                    SenderName = m.SenderName ?? string.Empty,
-                    Content = new Translation
-                    {
-                        English = m.Translation?.English ?? string.Empty,
-                        Vietnamese = m.Translation?.Vietnamese ?? string.Empty
-                    },
-                    Order = m.Order ?? 0
-                });
-            }
-        }
-
-        return conversation;
     }
 }
