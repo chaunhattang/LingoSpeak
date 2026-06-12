@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { getAllUsers, updateUser, deleteUser } from "../../api/admin";
 import type { UserResponse } from "../../types/api";
 import { API_BASE_URL } from "../../api/client";
 
 export default function AdminUsersPage() {
+  const { t } = useTranslation();
   const [users, setUsers] = useState<UserResponse[]>([]);
   const [loading, setLoading] = useState(true);
   const [editingUser, setEditingUser] = useState<UserResponse | null>(null);
@@ -41,7 +43,7 @@ export default function AdminUsersPage() {
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm("Bạn có chắc muốn xoá tài khoản này?")) return;
+    if (!confirm(t("admin.users.confirmDelete"))) return;
     setDeletingId(id);
     try {
       await deleteUser(id);
@@ -60,10 +62,10 @@ export default function AdminUsersPage() {
   return (
     <div className="p-4 sm:p-6 lg:p-8 lg:mt-10 mt-16">
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mb-6">
-        <h2 className="text-2xl font-black">Quản lý tài khoản</h2>
+        <h2 className="text-2xl font-black">{t("admin.users.title")}</h2>
         <input
           type="text"
-          placeholder="Tìm kiếm..."
+          placeholder={t("admin.users.searchPlaceholder")}
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="border border-slate-200 rounded-xl px-4 py-2 text-sm w-full sm:w-64 focus:outline-none focus:ring-2 focus:ring-primary"
@@ -79,10 +81,10 @@ export default function AdminUsersPage() {
           <table className="w-full text-sm min-w-[600px]">
             <thead className="bg-slate-50 border-b border-slate-100">
               <tr>
-                <th className="text-left px-6 py-4 text-slate-500 font-semibold">Người dùng</th>
-                <th className="text-left px-6 py-4 text-slate-500 font-semibold">Email</th>
-                <th className="text-left px-6 py-4 text-slate-500 font-semibold">Vai trò</th>
-                <th className="text-left px-6 py-4 text-slate-500 font-semibold">Tiến độ</th>
+                <th className="text-left px-6 py-4 text-slate-500 font-semibold">{t("admin.users.user")}</th>
+                <th className="text-left px-6 py-4 text-slate-500 font-semibold">{t("admin.users.email")}</th>
+                <th className="text-left px-6 py-4 text-slate-500 font-semibold">{t("admin.users.role")}</th>
+                <th className="text-left px-6 py-4 text-slate-500 font-semibold">{t("admin.users.progress")}</th>
                 <th className="px-6 py-4" />
               </tr>
             </thead>
@@ -117,7 +119,7 @@ export default function AdminUsersPage() {
                     </span>
                   </td>
                   <td className="px-6 py-4 text-slate-400 text-xs">
-                    {user.studiedVocabularyIds.length} từ · {user.studiedConversationIds.length} hội thoại
+                    {user.studiedVocabularyIds.length} {t("admin.users.words")} · {user.studiedConversationIds.length} {t("admin.users.conversations")}
                   </td>
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-2 justify-end">
@@ -147,11 +149,11 @@ export default function AdminUsersPage() {
       {editingUser && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
           <div className="bg-white rounded-2xl p-6 w-full max-w-md shadow-2xl">
-            <h3 className="text-lg font-bold mb-4">Chỉnh sửa tài khoản</h3>
+            <h3 className="text-lg font-bold mb-4">{t("admin.users.editTitle")}</h3>
 
             <div className="space-y-4">
               <div>
-                <label className="text-sm font-medium text-slate-600 mb-1 block">Họ tên</label>
+                <label className="text-sm font-medium text-slate-600 mb-1 block">{t("admin.users.fullName")}</label>
                 <input
                   type="text"
                   value={form.fullName}
@@ -161,7 +163,7 @@ export default function AdminUsersPage() {
               </div>
 
               <div>
-                <label className="text-sm font-medium text-slate-600 mb-1 block">Vai trò</label>
+                <label className="text-sm font-medium text-slate-600 mb-1 block">{t("admin.users.role")}</label>
                 <select
                   value={form.role}
                   onChange={(e) => setForm((f) => ({ ...f, role: e.target.value }))}
@@ -178,14 +180,14 @@ export default function AdminUsersPage() {
                 onClick={() => setEditingUser(null)}
                 className="flex-1 py-2.5 rounded-xl border border-slate-200 text-sm font-medium hover:bg-slate-50"
               >
-                Huỷ
+                {t("admin.users.cancel")}
               </button>
               <button
                 onClick={handleSave}
                 disabled={saving}
                 className="flex-1 py-2.5 rounded-xl bg-primary text-white text-sm font-medium hover:opacity-90 disabled:opacity-60"
               >
-                {saving ? "Đang lưu..." : "Lưu"}
+                {saving ? t("admin.users.saving") : t("admin.users.save")}
               </button>
             </div>
           </div>

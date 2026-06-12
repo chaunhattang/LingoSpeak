@@ -1,19 +1,21 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { getAllUsers } from "../../api/admin";
-import { getAllConversations } from "../../api/conversations";
 import { getAllVocabularies } from "../../api/vocabularies";
 
 export default function AdminDashboard() {
+  const { t } = useTranslation();
   const [stats, setStats] = useState({ users: 0, conversations: 0, topics: 0, words: 0 });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    Promise.all([getAllUsers(), getAllConversations(), getAllVocabularies()])
-      .then(([users, convs, vocabs]) => {
+    Promise.all([getAllUsers(), getAllVocabularies()])
+      .then(([users, vocabs]) => {
         const totalWords = vocabs.reduce((sum, v) => sum + v.vocabularyItems.length, 0);
+        const withConversation = vocabs.filter((v) => v.conversation !== null).length;
         setStats({
           users: users.length,
-          conversations: convs.length,
+          conversations: withConversation,
           topics: vocabs.length,
           words: totalWords,
         });
@@ -22,15 +24,15 @@ export default function AdminDashboard() {
   }, []);
 
   const cards = [
-    { label: "Tài khoản", value: stats.users, icon: "group", color: "bg-blue-500" },
-    { label: "Chủ đề từ vựng", value: stats.topics, icon: "menu_book", color: "bg-emerald-500" },
-    { label: "Từ vựng", value: stats.words, icon: "translate", color: "bg-violet-500" },
-    { label: "Hội thoại", value: stats.conversations, icon: "chat", color: "bg-amber-500" },
+    { label: t("admin.dashboard.accounts"), value: stats.users, icon: "group", color: "bg-blue-500" },
+    { label: t("admin.dashboard.topics"), value: stats.topics, icon: "menu_book", color: "bg-emerald-500" },
+    { label: t("admin.dashboard.words"), value: stats.words, icon: "translate", color: "bg-violet-500" },
+    { label: t("admin.dashboard.conversations"), value: stats.conversations, icon: "chat", color: "bg-amber-500" },
   ];
 
   return (
     <div className="p-4 sm:p-6 lg:p-8 mt-16 lg:mt-10 ">
-      <h2 className="text-2xl font-black mb-6">Tổng quan</h2>
+      <h2 className="text-2xl font-black mb-6">{t("admin.dashboard.title")}</h2>
 
       {loading ? (
         <div className="flex justify-center py-20">

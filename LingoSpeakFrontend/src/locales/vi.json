@@ -97,6 +97,7 @@
   "navbar": {
     "home": "Trang chủ",
     "lessons": "Danh sách bài học",
+    "topics": "Chủ đề",
     "about": "Giới thiệu",
     "vocabulary": "Sổ tay từ vựng",
     "signIn": "Đăng nhập",
@@ -134,5 +135,111 @@
     "sentences": "câu",
     "learned": "Đã học {{percent}}%",
     "notStarted": "Chưa bắt đầu"
+  },
+  "about": {
+    "heroDescription": "Nền tảng học tiếng Anh thông minh — giúp bạn luyện nói, tích lũy từ vựng và tự tin giao tiếp mỗi ngày.",
+    "version": "Phiên bản 1.0.0",
+    "missionTitle": "Sứ mệnh của chúng tôi",
+    "missionText": "LingoSpeak được xây dựng với mục tiêu giúp người học tiếng Anh tại Việt Nam tiếp cận ngôn ngữ một cách tự nhiên và hiệu quả — không áp lực, không nhàm chán, chỉ cần 15–20 phút mỗi ngày.",
+    "featuresTitle": "Tính năng nổi bật",
+    "features": {
+      "listeningSpeaking": { "title": "Luyện nghe & nói", "desc": "Thực hành hội thoại thực tế cùng phản xạ giao tiếp tự nhiên." },
+      "smartFlashcard": { "title": "Flashcard thông minh", "desc": "Ghi nhớ từ vựng nhanh hơn với flashcard cá nhân hóa theo tiến độ." },
+      "recording": { "title": "Ghi âm & so sánh", "desc": "So sánh giọng nói với người bản xứ để cải thiện phát âm." },
+      "topicLearning": { "title": "Học theo chủ đề", "desc": "Chọn chủ đề phù hợp với mục tiêu học tập và giao tiếp hằng ngày." }
+    },
+    "learningPathTitle": "Lộ trình học tập",
+    "learningPathSubtitle": "Mỗi chủ đề trên LingoSpeak đều theo một lộ trình rõ ràng, giúp bạn học từ vựng và luyện nói cùng lúc.",
+    "learningPath": {
+      "step1": { "title": "Chọn chủ đề", "desc": "Bắt đầu với chủ đề quen thuộc trong cuộc sống như gia đình, du lịch, công việc..." },
+      "step2": { "title": "Học từ vựng", "desc": "Ghi nhớ từ mới qua flashcard, phát âm chuẩn IPA và ví dụ minh hoạ." },
+      "step3": { "title": "Luyện hội thoại", "desc": "Đọc và nghe các đoạn hội thoại mẫu để hiểu cách dùng từ trong ngữ cảnh thực tế." },
+      "step4": { "title": "Luyện nói", "desc": "Thực hành phát âm, ghi âm và so sánh với người bản xứ để tự tin giao tiếp." }
+    },
+    "step": "Bước",
+    "developedBy": "Được phát triển bởi",
+    "team": "LingoSpeak Team",
+    "copyright": "© 2026 LingoSpeak. Tất cả quyền được bảo lưu."
+  },
+  "topicsPage": {
+    "title": "Chủ đề",
+    "noTopics": "Chưa có chủ đề nào.",
+    "words": "từ",
+    "conversationLines": "câu hội thoại",
+    "learned": "Đã học {{percent}}%",
+    "notStarted": "Chưa học"
+  },
+  "admin": {
+    "sidebar": {
+      "title": "Quản trị",
+      "dashboard": "Dashboard",
+      "users": "Tài khoản",
+      "topics": "Chủ đề",
+      "logout": "Đăng xuất"
+    },
+    "dashboard": {
+      "title": "Tổng quan",
+      "accounts": "Tài khoản",
+      "topics": "Chủ đề từ vựng",
+      "words": "Từ vựng",
+      "conversations": "Hội thoại"
+    },
+    "users": {
+      "title": "Quản lý tài khoản",
+      "searchPlaceholder": "Tìm kiếm...",
+      "user": "Người dùng",
+      "email": "Email",
+      "role": "Vai trò",
+      "progress": "Tiến độ",
+      "words": "từ",
+      "conversations": "hội thoại",
+      "confirmDelete": "Bạn có chắc muốn xoá tài khoản này?",
+      "editTitle": "Chỉnh sửa tài khoản",
+      "fullName": "Họ tên",
+      "cancel": "Huỷ",
+      "save": "Lưu",
+      "saving": "Đang lưu..."
+    },
+    "topics": {
+      "breadcrumb": "Chủ đề",
+      "manageTitle": "Quản lý chủ đề",
+      "addTopic": "Thêm chủ đề",
+      "vocabularyCount": "từ vựng",
+      "messagesCount": "tin nhắn hội thoại",
+      "vocabulary": "Từ vựng",
+      "vocabOf": "Từ vựng:",
+      "addWord": "Thêm từ",
+      "english": "Tiếng Anh",
+      "vietnamese": "Tiếng Việt",
+      "ipa": "IPA",
+      "wordType": "Loại từ",
+      "confirmDeleteTopic": "Xoá chủ đề này và toàn bộ từ vựng, hội thoại bên trong?",
+      "confirmDeleteItem": "Xoá từ vựng này?",
+      "editTopicTitle": "Chỉnh sửa chủ đề",
+      "addTopicTitle": "Thêm chủ đề mới",
+      "nameEn": "Tên tiếng Anh",
+      "nameVi": "Tên tiếng Việt",
+      "topicImage": "Ảnh chủ đề",
+      "conversationSection": "Hội thoại của chủ đề",
+      "speaker1": "Speaker 1",
+      "speaker2": "Speaker 2",
+      "messagesLabel": "Tin nhắn",
+      "addMessage": "+ Thêm tin",
+      "selectSpeaker": "-- Chọn người nói --",
+      "readingSection": "Bài đọc của chủ đề",
+      "titleEn": "Tiêu đề (Anh)",
+      "titleVi": "Tiêu đề (Việt)",
+      "contentEn": "Nội dung (Anh)",
+      "contentVi": "Nội dung (Việt)",
+      "cancel": "Huỷ",
+      "save": "Lưu",
+      "saving": "Đang lưu...",
+      "editItemTitle": "Chỉnh sửa từ vựng",
+      "addItemTitle": "Thêm từ vựng mới",
+      "ipaOptional": "IPA (tuỳ chọn)",
+      "wordTypeOptional": "Loại từ (tuỳ chọn)",
+      "descriptionOptional": "Mô tả / Ví dụ (tuỳ chọn)",
+      "imageOptional": "Ảnh (tuỳ chọn)"
+    }
   }
 }

@@ -97,6 +97,7 @@
   "navbar": {
     "home": "Home",
     "lessons": "Lesson List",
+    "topics": "Topics",
     "about": "About",
     "vocabulary": "Vocabulary Notebook",
     "signIn": "Sign In",
@@ -134,5 +135,111 @@
     "sentences": "sentences",
     "learned": "Learned {{percent}}%",
     "notStarted": "Not started"
+  },
+  "about": {
+    "heroDescription": "A smart English learning platform — helping you practice speaking, build vocabulary, and communicate confidently every day.",
+    "version": "Version 1.0.0",
+    "missionTitle": "Our Mission",
+    "missionText": "LingoSpeak is built to help English learners in Vietnam approach the language naturally and effectively — no pressure, no boredom, just 15-20 minutes a day.",
+    "featuresTitle": "Outstanding Features",
+    "features": {
+      "listeningSpeaking": { "title": "Listening & Speaking Practice", "desc": "Practice real conversations with natural communication reflexes." },
+      "smartFlashcard": { "title": "Smart Flashcards", "desc": "Memorize vocabulary faster with flashcards personalized to your progress." },
+      "recording": { "title": "Recording & Comparison", "desc": "Compare your voice with native speakers to improve pronunciation." },
+      "topicLearning": { "title": "Learn by Topic", "desc": "Choose topics that match your learning goals and daily communication." }
+    },
+    "learningPathTitle": "Learning Path",
+    "learningPathSubtitle": "Each topic on LingoSpeak follows a clear path, helping you learn vocabulary and practice speaking at the same time.",
+    "learningPath": {
+      "step1": { "title": "Choose a Topic", "desc": "Start with familiar everyday topics like family, travel, work..." },
+      "step2": { "title": "Learn Vocabulary", "desc": "Memorize new words with flashcards, standard IPA pronunciation, and illustrative examples." },
+      "step3": { "title": "Practice Conversation", "desc": "Read and listen to sample conversations to understand how words are used in real context." },
+      "step4": { "title": "Practice Speaking", "desc": "Practice pronunciation, record and compare with native speakers to communicate confidently." }
+    },
+    "step": "Step",
+    "developedBy": "Developed by",
+    "team": "LingoSpeak Team",
+    "copyright": "© 2026 LingoSpeak. All rights reserved."
+  },
+  "topicsPage": {
+    "title": "Topics",
+    "noTopics": "No topics yet.",
+    "words": "words",
+    "conversationLines": "conversation lines",
+    "learned": "Learned {{percent}}%",
+    "notStarted": "Not started"
+  },
+  "admin": {
+    "sidebar": {
+      "title": "Administration",
+      "dashboard": "Dashboard",
+      "users": "Accounts",
+      "topics": "Topics",
+      "logout": "Log out"
+    },
+    "dashboard": {
+      "title": "Overview",
+      "accounts": "Accounts",
+      "topics": "Vocabulary Topics",
+      "words": "Vocabulary",
+      "conversations": "Conversations"
+    },
+    "users": {
+      "title": "Account Management",
+      "searchPlaceholder": "Search...",
+      "user": "User",
+      "email": "Email",
+      "role": "Role",
+      "progress": "Progress",
+      "words": "words",
+      "conversations": "conversations",
+      "confirmDelete": "Are you sure you want to delete this account?",
+      "editTitle": "Edit Account",
+      "fullName": "Full Name",
+      "cancel": "Cancel",
+      "save": "Save",
+      "saving": "Saving..."
+    },
+    "topics": {
+      "breadcrumb": "Topics",
+      "manageTitle": "Manage Topics",
+      "addTopic": "Add Topic",
+      "vocabularyCount": "vocabulary",
+      "messagesCount": "conversation messages",
+      "vocabulary": "Vocabulary",
+      "vocabOf": "Vocabulary:",
+      "addWord": "Add Word",
+      "english": "English",
+      "vietnamese": "Vietnamese",
+      "ipa": "IPA",
+      "wordType": "Word Type",
+      "confirmDeleteTopic": "Delete this topic and all its vocabulary and conversation?",
+      "confirmDeleteItem": "Delete this vocabulary item?",
+      "editTopicTitle": "Edit Topic",
+      "addTopicTitle": "Add New Topic",
+      "nameEn": "English Name",
+      "nameVi": "Vietnamese Name",
+      "topicImage": "Topic Image",
+      "conversationSection": "Topic Conversation",
+      "speaker1": "Speaker 1",
+      "speaker2": "Speaker 2",
+      "messagesLabel": "Messages",
+      "addMessage": "+ Add message",
+      "selectSpeaker": "-- Select speaker --",
+      "readingSection": "Topic Reading",
+      "titleEn": "Title (English)",
+      "titleVi": "Title (Vietnamese)",
+      "contentEn": "Content (English)",
+      "contentVi": "Content (Vietnamese)",
+      "cancel": "Cancel",
+      "save": "Save",
+      "saving": "Saving...",
+      "editItemTitle": "Edit Vocabulary",
+      "addItemTitle": "Add New Vocabulary",
+      "ipaOptional": "IPA (optional)",
+      "wordTypeOptional": "Word type (optional)",
+      "descriptionOptional": "Description / Example (optional)",
+      "imageOptional": "Image (optional)"
+    }
   }
 }

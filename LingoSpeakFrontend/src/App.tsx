@@ -4,19 +4,17 @@ import ProfilePage from "./pages/ProfilePage";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import Home from "./pages/Home";
-import Lesson from "./pages/Lesson";
+import TopicsPage from "./pages/TopicsPage";
+import TopicDetailPage from "./pages/TopicDetailPage";
 import LessonSpeakingPractice from "./pages/LessonSpeakingPractice";
-import ConversationPage from "./pages/ConversationPage";
 import SpeakingResult from "./pages/SpeakingResult";
-import VocabularyNotebook from "./pages/VocabularyNotebook";
 import VocabularyFlashcard from "./pages/VocabularyFlashcard";
-import VocabularyLearningPage from "./pages/VocabularyLearningPage";
+import ReadingPracticePage from "./pages/ReadingPracticePage";
 import WordLesson from "./pages/WordLesson";
 import AdminLayout from "./pages/admin/AdminLayout";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminUsersPage from "./pages/admin/AdminUsersPage";
 import AdminTopicsPage from "./pages/admin/AdminTopicsPage";
-import AdminConversationsPage from "./pages/admin/AdminConversationsPage";
 import About from "./pages/About";
 
 function App() {
@@ -29,17 +27,14 @@ function App() {
         <Route path="/register" element={<SignUp />} />
         <Route path="/login" element={<SignIn />} />
 
-        {/* Lesson (Conversations) */}
-        <Route path="/lesson" element={<Lesson />} />
-        <Route path="/lesson/:id" element={<ConversationPage />} />
-        <Route path="/lesson/:id/practice" element={<LessonSpeakingPractice />} />
-        <Route path="/lesson/:id/result" element={<SpeakingResult />} />
-
-        {/* Vocabulary Notebook */}
-        <Route path="/notebook" element={<VocabularyNotebook />} />
-        <Route path="/notebook/:id/word" element={<WordLesson />} />
-        <Route path="/notebook/:id/falastcard" element={<VocabularyFlashcard />} />
-        <Route path="/notebook/:id/learning" element={<VocabularyLearningPage />} />
+        {/* Topics (Vocabulary + Conversation) */}
+        <Route path="/topics" element={<TopicsPage />} />
+        <Route path="/topics/:id" element={<TopicDetailPage />} />
+        <Route path="/topics/:id/practice" element={<LessonSpeakingPractice />} />
+        <Route path="/topics/:id/result" element={<SpeakingResult />} />
+        <Route path="/topics/:id/word" element={<WordLesson />} />
+        <Route path="/topics/:id/falastcard" element={<VocabularyFlashcard />} />
+        <Route path="/topics/:id/reading" element={<ReadingPracticePage />} />
 
         {/* About */}
         <Route path="/about" element={<About />} />
@@ -52,7 +47,6 @@ function App() {
           <Route index element={<AdminDashboard />} />
           <Route path="users" element={<AdminUsersPage />} />
           <Route path="topics" element={<AdminTopicsPage />} />
-          <Route path="conversations" element={<AdminConversationsPage />} />
         </Route>
       </Routes>
     </>

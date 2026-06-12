@@ -1,18 +1,19 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { getUser, logout } from "../../utils/auth";
 import { useEffect } from "react";
 import Navbar from "../../components/layout/Navbar";
 
-const navItems = [
-  { to: "/admin", label: "Dashboard", icon: "dashboard" },
-  { to: "/admin/users", label: "Tài khoản", icon: "group" },
-  { to: "/admin/topics", label: "Chủ đề", icon: "menu_book" },
-  { to: "/admin/conversations", label: "Hội thoại", icon: "chat" },
-];
-
 export default function AdminLayout() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const user = getUser();
+
+  const navItems = [
+    { to: "/admin", label: t("admin.sidebar.dashboard"), icon: "dashboard" },
+    { to: "/admin/users", label: t("admin.sidebar.users"), icon: "group" },
+    { to: "/admin/topics", label: t("admin.sidebar.topics"), icon: "menu_book" },
+  ];
 
   useEffect(() => {
     if (!user || user.role !== "ADMIN") {
@@ -36,7 +37,7 @@ export default function AdminLayout() {
         <aside className="pt-12 hidden lg:flex w-64 flex-col sticky top-16 h-[calc(100vh-64px)] bg-white border-r border-slate-200 overflow-y-auto flex-shrink-0">
           <div className="px-4 pt-5 pb-2">
             <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest px-3">
-              Quản trị
+              {t("admin.sidebar.title")}
             </p>
           </div>
 
@@ -74,7 +75,7 @@ export default function AdminLayout() {
               className="w-full flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-medium text-red-500 hover:bg-red-50 transition"
             >
               <span className="material-symbols-outlined text-[20px]">logout</span>
-              Đăng xuất
+              {t("admin.sidebar.logout")}
             </button>
           </div>
         </aside>

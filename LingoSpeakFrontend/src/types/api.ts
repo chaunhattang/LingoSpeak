@@ -13,13 +13,6 @@ export interface VocabularyItem {
   vocabularyTopicId: number;
 }
 
-export interface Vocabulary {
-  id: number;
-  topicName: Translation;
-  image: string | null;
-  vocabularyItems: VocabularyItem[];
-}
-
 export interface ConversationMessage {
   senderName: string;
   translation: Translation;
@@ -28,11 +21,24 @@ export interface ConversationMessage {
 
 export interface Conversation {
   id: number;
-  topic: string;
   speaker1Name: string | null;
   speaker2Name: string | null;
-  image: string | null;
   messages: ConversationMessage[];
+}
+
+export interface ReadingPassage {
+  id: number;
+  title: Translation;
+  content: Translation;
+}
+
+export interface Vocabulary {
+  id: number;
+  topicName: Translation;
+  image: string | null;
+  vocabularyItems: VocabularyItem[];
+  conversation: Conversation | null;
+  reading: ReadingPassage | null;
 }
 
 export interface UserResponse {
@@ -43,4 +49,5 @@ export interface UserResponse {
   image: string | null;
   studiedConversationIds: number[];
   studiedVocabularyIds: number[];
+  studiedReadingPassageIds: number[];
 }

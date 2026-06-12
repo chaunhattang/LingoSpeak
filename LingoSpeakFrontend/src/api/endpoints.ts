@@ -19,18 +19,13 @@ const endpoints = {
     updateItem: (vocabId: number, itemId: number) => `/vocabularies/${vocabId}/items/${itemId}`,
     deleteItem: (vocabId: number, itemId: number) => `/vocabularies/${vocabId}/items/${itemId}`,
   },
-  conversations: {
-    getAll: "/conversations",
-    getById: (id: number) => `/conversations/${id}`,
-    create: "/conversations",
-    update: (id: number) => `/conversations/${id}`,
-    delete: (id: number) => `/conversations/${id}`,
-  },
   userProgress: {
     markVocabulary: (id: number) => `/userprogress/vocabulary/${id}`,
     unmarkVocabulary: (id: number) => `/userprogress/vocabulary/${id}`,
     markConversation: (id: number) => `/userprogress/conversation/${id}`,
     unmarkConversation: (id: number) => `/userprogress/conversation/${id}`,
+    markReading: (id: number) => `/userprogress/reading/${id}`,
+    unmarkReading: (id: number) => `/userprogress/reading/${id}`,
   },
 };
 

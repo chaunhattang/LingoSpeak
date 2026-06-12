@@ -4,11 +4,13 @@ import Flashcard from "../components/practice/Flashcard";
 import { getVocabularyById } from "../api/vocabularies";
 import { markVocabularyStudied } from "../api/userProgress";
 import { getUser, setUser } from "../utils/auth";
-import type { VocabularyItem } from "../types/api";
+import { getNextStepPath } from "../utils/learningFlow";
+import type { Vocabulary, VocabularyItem } from "../types/api";
 
 export default function VocabularyFlashcard() {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
+  const [vocab, setVocab] = useState<Vocabulary | null>(null);
   const [items, setItems] = useState<VocabularyItem[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -19,6 +21,7 @@ export default function VocabularyFlashcard() {
     if (!id) return;
     getVocabularyById(Number(id))
       .then((vocab) => {
+        setVocab(vocab);
         setItems(vocab.vocabularyItems);
         setTopicName(vocab.topicName.english);
       })
@@ -45,8 +48,14 @@ export default function VocabularyFlashcard() {
     }
     if (currentIndex < items.length - 1) {
       setCurrentIndex((i) => i + 1);
-    } else {
-      navigate(`/notebook/${id}/word`);
+    } else if (vocab) {
+      const nextPath = getNextStepPath(vocab, "flashcard");
+      if (vocab.conversation && nextPath === `/topics/${id}/practice`) {
+        const sortedMessages = [...vocab.conversation.messages].sort((a, b) => a.order - b.order);
+        navigate(nextPath, { state: { conversation: sortedMessages } });
+      } else {
+        navigate(nextPath);
+      }
     }
   };
 
@@ -62,7 +71,7 @@ export default function VocabularyFlashcard() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-4">
         <p className="text-slate-400">Chủ đề này chưa có từ vựng nào.</p>
-        <button onClick={() => navigate("/notebook")} className="text-primary underline">
+        <button onClick={() => navigate(`/topics/${id}`)} className="text-primary underline">
           Quay lại
         </button>
       </div>
@@ -72,7 +81,7 @@ export default function VocabularyFlashcard() {
   return (
     <div className="min-h-screen flex flex-col items-center px-4 py-8 max-w-3xl mx-auto">
       <div className="w-full flex justify-between items-center mb-8">
-        <button onClick={() => navigate("/notebook")} className="p-2 text-xl">
+        <button onClick={() => navigate(`/topics/${id}`)} className="p-2 text-xl">
           ✖
         </button>
 

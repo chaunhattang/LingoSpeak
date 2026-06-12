@@ -9,7 +9,6 @@ import logo from "../../assets/images/logo.png";
 import home from "../../assets/images/home.png";
 import newWord from "../../assets/images/newWord.png";
 import about from "../../assets/images/review.png";
-import handlist from "../../assets/images/handlist.png";
 import admin from "../../assets/images/admin.png"
 
 const Navbar: React.FC = () => {
@@ -81,9 +80,9 @@ const Navbar: React.FC = () => {
               <span className="text-sm font-semibold">{t("navbar.home")}</span>
             </NavLink>
 
-            {/* LESSON */}
+            {/* TOPICS */}
             <NavLink
-              to="/lesson"
+              to="/topics"
               className={({ isActive }) =>
                 `flex flex-col items-center px-4 py-2 rounded-xl
      transition-all duration-300 ease-out
@@ -99,33 +98,9 @@ const Navbar: React.FC = () => {
      }`
               }
             >
-              <img src={newWord} alt="lesson" className="h-10 w-10 mb-1" />
+              <img src={newWord} alt="topics" className="h-10 w-10 mb-1" />
               <span className="text-sm font-semibold">
-                {t("navbar.lessons")}
-              </span>
-            </NavLink>
-
-            {/* VOCAB */}
-            <NavLink
-              to="/notebook"
-              className={({ isActive }) =>
-                `flex flex-col items-center px-4 py-2 rounded-xl
-     transition-all duration-300 ease-out
-     cursor-pointer backdrop-blur
-     hover:scale-110 hover:-translate-y-1
-     hover:bg-white/60
-     hover:shadow-[0_10px_30px_rgba(59,130,246,0.25)]
-     active:scale-95
-     ${
-       isActive
-         ? "text-[#2563EB] bg-white/60 shadow-[0_10px_30px_rgba(59,130,246,0.25)] scale-105"
-         : "text-slate-600 hover:text-[#2563EB]"
-     }`
-              }
-            >
-              <img src={handlist} alt="vocabulary" className="h-10 w-10 mb-1" />
-              <span className="text-sm font-semibold">
-                {t("navbar.vocabulary")}
+                {t("navbar.topics")}
               </span>
             </NavLink>
 
@@ -260,22 +235,13 @@ const Navbar: React.FC = () => {
               {t("navbar.home")}
             </Link>
 
-            {/* LESSON */}
+            {/* TOPICS */}
             <Link
-              to="/lesson"
+              to="/topics"
               onClick={() => setIsMobileMenuOpen(false)}
               className="py-2 font-semibold text-slate-700 hover:text-blue-600"
             >
-              {t("navbar.lessons")}
-            </Link>
-
-            {/* VOCABULARY */}
-            <Link
-              to="/notebook"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="py-2 font-semibold text-slate-700 hover:text-blue-600"
-            >
-              {t("navbar.vocabulary")}
+              {t("navbar.topics")}
             </Link>
 
             {/* ABOUT */}

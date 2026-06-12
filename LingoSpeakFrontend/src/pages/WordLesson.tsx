@@ -3,13 +3,15 @@ import { useParams, useNavigate } from "react-router-dom";
 import { getVocabularyById } from "../api/vocabularies";
 import { markVocabularyStudied } from "../api/userProgress";
 import { getUser, setUser } from "../utils/auth";
-import type { VocabularyItem } from "../types/api";
+import { getNextStepPath } from "../utils/learningFlow";
+import type { Vocabulary, VocabularyItem } from "../types/api";
 import LessonHeader from "../components/Lesson/LessonHeader";
 import LessonFooter from "../components/Lesson/LessonFooter";
 
 const WordLesson = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const [vocab, setVocab] = useState<Vocabulary | null>(null);
   const [items, setItems] = useState<VocabularyItem[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [inputs, setInputs] = useState<Record<number, string>>({});
@@ -21,7 +23,10 @@ const WordLesson = () => {
   useEffect(() => {
     if (!id) return;
     getVocabularyById(Number(id))
-      .then((vocab) => setItems(vocab.vocabularyItems))
+      .then((vocab) => {
+        setVocab(vocab);
+        setItems(vocab.vocabularyItems);
+      })
       .finally(() => setLoading(false));
   }, [id]);
 
@@ -81,8 +86,8 @@ const WordLesson = () => {
     inputRefs.current = [];
     if (currentIndex < items.length - 1) {
       setCurrentIndex((i) => i + 1);
-    } else {
-      navigate(`/notebook`);
+    } else if (vocab) {
+      navigate(getNextStepPath(vocab, "word"));
     }
   };
 

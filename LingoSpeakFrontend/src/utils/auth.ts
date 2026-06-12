@@ -9,7 +9,14 @@ export const removeToken = (): void => localStorage.removeItem(TOKEN_KEY);
 
 export const getUser = (): User | null => {
   const raw = localStorage.getItem(USER_KEY);
-  return raw ? (JSON.parse(raw) as User) : null;
+  if (!raw) return null;
+  const user = JSON.parse(raw) as User;
+  return {
+    ...user,
+    studiedConversationIds: user.studiedConversationIds ?? [],
+    studiedVocabularyIds: user.studiedVocabularyIds ?? [],
+    studiedReadingPassageIds: user.studiedReadingPassageIds ?? [],
+  };
 };
 export const setUser = (user: User): void =>
   localStorage.setItem(USER_KEY, JSON.stringify(user));

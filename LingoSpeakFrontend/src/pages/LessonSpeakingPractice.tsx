@@ -20,7 +20,7 @@ const LessonSpeakingPractice = () => {
     if (currentIndex < conversation.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      navigate(`/lesson/${id}/result`);
+      navigate(`/topics/${id}/result`);
     }
   };
 

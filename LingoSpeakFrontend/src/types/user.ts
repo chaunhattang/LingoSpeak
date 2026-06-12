@@ -6,4 +6,5 @@ export interface User {
   image: string | null;
   studiedConversationIds: number[];
   studiedVocabularyIds: number[];
+  studiedReadingPassageIds: number[];
 }
