@@ -4320,11 +4320,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Legion Y7000\\FinalLingoSpeak\\LingoSpeakBackend\\LingoSpeakBackend.csproj",
+      "projectUniqueName": "D:\\project\\Demo\\LingoSpeak\\LingoSpeakBackend\\LingoSpeakBackend.csproj",
       "projectName": "LingoSpeakBackend",
-      "projectPath": "C:\\Users\\Legion Y7000\\FinalLingoSpeak\\LingoSpeakBackend\\LingoSpeakBackend.csproj",
+      "projectPath": "D:\\project\\Demo\\LingoSpeak\\LingoSpeakBackend\\LingoSpeakBackend.csproj",
       "packagesPath": "C:\\Users\\Legion Y7000\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Legion Y7000\\FinalLingoSpeak\\LingoSpeakBackend\\obj\\",
+      "outputPath": "D:\\project\\Demo\\LingoSpeak\\LingoSpeakBackend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
