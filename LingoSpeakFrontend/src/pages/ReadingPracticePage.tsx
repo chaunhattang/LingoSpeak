@@ -83,7 +83,7 @@ export default function ReadingPracticePage() {
       {" "}
       <div className="fixed top-4 right-4 z-50">
         <button
-          onClick={() => navigate("/topics")}
+          onClick={() => navigate(`/topics/${id}`)}
           className="w-11 h-11 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition"
         >
           <span className="material-symbols-outlined text-slate-600">
