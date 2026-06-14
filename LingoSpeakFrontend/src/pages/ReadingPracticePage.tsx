@@ -40,7 +40,10 @@ export default function ReadingPracticePage() {
         await markReadingStudied(reading.id);
         setUser({
           ...user,
-          studiedReadingPassageIds: [...user.studiedReadingPassageIds, reading.id],
+          studiedReadingPassageIds: [
+            ...user.studiedReadingPassageIds,
+            reading.id,
+          ],
         });
       } catch {
         // ignore if already marked
@@ -63,7 +66,10 @@ export default function ReadingPracticePage() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-4">
         <p className="text-slate-400">Chủ đề này chưa có bài đọc.</p>
-        <button onClick={() => navigate(`/topics/${id}`)} className="text-primary underline">
+        <button
+          onClick={() => navigate(`/topics/${id}`)}
+          className="text-primary underline"
+        >
           Quay lại chủ đề
         </button>
       </div>
@@ -73,18 +79,37 @@ export default function ReadingPracticePage() {
   const { reading } = topic;
 
   return (
-    <div className="bg-background text-on-surface min-h-screen pb-32">
+    <div className="bg-background text-on-surface min-h-screen pb-32 relative">
+      {" "}
+      <div className="fixed top-4 right-4 z-50">
+        <button
+          onClick={() => navigate("/topics")}
+          className="w-11 h-11 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition"
+        >
+          <span className="material-symbols-outlined text-slate-600">
+            close
+          </span>
+        </button>
+      </div>
       <main className="max-w-[800px] mx-auto px-4 py-12">
         <div className="flex flex-col gap-6">
           <div className="min-w-0">
-            <p className="text-xs uppercase tracking-wider text-slate-400 mb-1">Luyện đọc</p>
-            <h1 className="text-2xl font-bold text-primary break-words">{reading.title.english}</h1>
-            <p className="text-sm text-slate-500 italic break-words">{reading.title.vietnamese}</p>
+            <p className="text-xs uppercase tracking-wider text-slate-400 mb-1">
+              Luyện đọc
+            </p>
+            <h1 className="text-2xl font-bold text-primary break-words">
+              {reading.title.english}
+            </h1>
+            <p className="text-sm text-slate-500 italic break-words">
+              {reading.title.vietnamese}
+            </p>
           </div>
 
           <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 space-y-4 min-w-0">
             <div className="flex items-center justify-between">
-              <span className="text-sm font-semibold text-slate-500">Nội dung bài đọc</span>
+              <span className="text-sm font-semibold text-slate-500">
+                Nội dung bài đọc
+              </span>
               <button
                 onClick={() => speak(reading.content.english)}
                 className="w-10 h-10 rounded-full bg-primary text-white shadow-md hover:scale-105 active:scale-95 transition flex items-center justify-center flex-shrink-0"
@@ -109,7 +134,6 @@ export default function ReadingPracticePage() {
           </button>
         </div>
       </main>
-
       <RecordingToolbar />
     </div>
   );
