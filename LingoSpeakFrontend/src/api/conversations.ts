@@ -3,10 +3,14 @@ import endpoints from "./endpoints";
 import type { Conversation, Translation } from "../types/api";
 
 export const getAllConversations = () =>
-  apiClient.get<Conversation[]>(endpoints.conversations.getAll).then((r) => r.data);
+  apiClient
+    .get<Conversation[]>(endpoints.conversations.getAll)
+    .then((r) => r.data);
 
 export const getConversationById = (id: number) =>
-  apiClient.get<Conversation>(endpoints.conversations.getById(id)).then((r) => r.data);
+  apiClient
+    .get<Conversation>(endpoints.conversations.getById(id))
+    .then((r) => r.data);
 
 export interface MessagePayload {
   senderName: string;
@@ -31,8 +35,14 @@ const buildFormData = (payload: ConversationPayload): FormData => {
   if (payload.messages) {
     payload.messages.forEach((msg, i) => {
       form.append(`Messages[${i}].SenderName`, msg.senderName);
-      form.append(`Messages[${i}].Translation.English`, msg.translation.english);
-      form.append(`Messages[${i}].Translation.Vietnamese`, msg.translation.vietnamese);
+      form.append(
+        `Messages[${i}].Translation.English`,
+        msg.translation.english,
+      );
+      form.append(
+        `Messages[${i}].Translation.Vietnamese`,
+        msg.translation.vietnamese,
+      );
       form.append(`Messages[${i}].Order`, String(msg.order));
     });
   }
@@ -46,7 +56,9 @@ export const createConversation = (payload: ConversationPayload) =>
 
 export const updateConversation = (id: number, payload: ConversationPayload) =>
   apiClient
-    .put<{ message: string }>(endpoints.conversations.update(id), buildFormData(payload))
+    .put<{
+      message: string;
+    }>(endpoints.conversations.update(id), buildFormData(payload))
     .then((r) => r.data);
 
 export const deleteConversation = (id: number) =>

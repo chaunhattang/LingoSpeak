@@ -21,6 +21,8 @@ export interface ConversationMessage {
 
 export interface Conversation {
   id: number;
+  topic: string;
+  image?: string | null;
   speaker1Name: string | null;
   speaker2Name: string | null;
   messages: ConversationMessage[];

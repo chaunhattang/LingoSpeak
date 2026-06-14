@@ -1,6 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
 import LessonHeader from "../components/Lesson/LessonHeader";
-import LessonFooter from "../components/Lesson/LessonFooter";
 
 interface ConversationLine {
   speaker: string;
@@ -81,7 +80,7 @@ export default function SpeakingConversation() {
       </main>
 
       {/* FOOTER */}
-      <LessonFooter />
+
     </div>
   );
 }

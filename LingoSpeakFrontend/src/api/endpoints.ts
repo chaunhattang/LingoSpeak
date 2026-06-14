@@ -9,6 +9,13 @@ const endpoints = {
     update: (id: string) => `/users/${id}`,
     delete: (id: string) => `/users/${id}`,
   },
+  conversations: {
+    getAll: "/conversations",
+    getById: (id: number) => `/conversations/${id}`,
+    create: "/conversations",
+    update: (id: number) => `/conversations/${id}`,
+    delete: (id: number) => `/conversations/${id}`,
+  },
   vocabularies: {
     getAll: "/vocabularies",
     getById: (id: number) => `/vocabularies/${id}`,
@@ -16,8 +23,10 @@ const endpoints = {
     update: (id: number) => `/vocabularies/${id}`,
     delete: (id: number) => `/vocabularies/${id}`,
     createItem: (vocabId: number) => `/vocabularies/${vocabId}/items`,
-    updateItem: (vocabId: number, itemId: number) => `/vocabularies/${vocabId}/items/${itemId}`,
-    deleteItem: (vocabId: number, itemId: number) => `/vocabularies/${vocabId}/items/${itemId}`,
+    updateItem: (vocabId: number, itemId: number) =>
+      `/vocabularies/${vocabId}/items/${itemId}`,
+    deleteItem: (vocabId: number, itemId: number) =>
+      `/vocabularies/${vocabId}/items/${itemId}`,
   },
   userProgress: {
     markVocabulary: (id: number) => `/userprogress/vocabulary/${id}`,

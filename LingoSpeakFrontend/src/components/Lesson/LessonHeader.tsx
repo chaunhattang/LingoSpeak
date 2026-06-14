@@ -18,7 +18,7 @@ const LessonHeader = () => {
       <div className="max-w-7xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
         {/* LEFT */}
         <button
-          onClick={() => navigate("/notebook")}
+          onClick={() => navigate("/topics/1")}
           className="flex items-center gap-2 text-slate-600 hover:text-blue-600 transition group"
         >
           <span className="material-symbols-outlined text-lg group-hover:-translate-x-1 transition">

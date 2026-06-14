@@ -6,7 +6,6 @@ import { getUser, setUser } from "../utils/auth";
 import { getNextStepPath } from "../utils/learningFlow";
 import type { Vocabulary, VocabularyItem } from "../types/api";
 import LessonHeader from "../components/Lesson/LessonHeader";
-import LessonFooter from "../components/Lesson/LessonFooter";
 
 const WordLesson = () => {
   const { id } = useParams<{ id: string }>();
@@ -50,14 +49,39 @@ const WordLesson = () => {
     });
   };
 
-  const letters = currentItem ? buildLetterSlots(currentItem.meaning.english) : [];
+  const letters = currentItem
+    ? buildLetterSlots(currentItem.meaning.english)
+    : [];
   const answer = currentItem?.meaning.english.toUpperCase() ?? "";
+
+  useEffect(() => {
+    if (!currentItem) return;
+
+    const firstEmptyIndex = letters.findIndex((c) => c === "");
+
+    const timer = setTimeout(() => {
+      inputRefs.current[firstEmptyIndex]?.focus();
+    }, 50);
+
+    return () => clearTimeout(timer);
+  }, [currentIndex, currentItem]);
 
   const handleChange = (index: number, value: string) => {
     if (!/^[a-zA-Z]?$/.test(value)) return;
-    setInputs((prev) => ({ ...prev, [index]: value.toUpperCase() }));
-    if (value && inputRefs.current[index + 1]) {
-      inputRefs.current[index + 1]?.focus();
+
+    setInputs((prev) => ({
+      ...prev,
+      [index]: value.toUpperCase(),
+    }));
+
+    if (value) {
+      let next = index + 1;
+
+      while (letters[next] && next < letters.length) {
+        next++;
+      }
+
+      inputRefs.current[next]?.focus();
     }
   };
 
@@ -66,7 +90,12 @@ const WordLesson = () => {
     const correct = finalWord === answer;
     setResult(correct ? "correct" : "wrong");
 
-    if (correct && currentItem && user && !user.studiedVocabularyIds.includes(currentItem.id)) {
+    if (
+      correct &&
+      currentItem &&
+      user &&
+      !user.studiedVocabularyIds.includes(currentItem.id)
+    ) {
       try {
         await markVocabularyStudied(currentItem.id);
         const updated = {
@@ -88,6 +117,14 @@ const WordLesson = () => {
       setCurrentIndex((i) => i + 1);
     } else if (vocab) {
       navigate(getNextStepPath(vocab, "word"));
+    }
+  };
+  const handlePrevious = () => {
+    if (currentIndex > 0) {
+      setInputs({});
+      setResult(null);
+      inputRefs.current = [];
+      setCurrentIndex((i) => i - 1);
     }
   };
 
@@ -122,13 +159,17 @@ const WordLesson = () => {
               className="rounded-2xl mb-6 shadow-md w-full object-cover h-48"
             />
 
-            <p className="text-xs uppercase tracking-wider text-slate-400 text-center">Meaning</p>
+            <p className="text-xs uppercase tracking-wider text-slate-400 text-center">
+              Meaning
+            </p>
             <p className="text-3xl font-bold text-center text-slate-800">
               {currentItem.meaning.vietnamese}
             </p>
 
             {currentItem.description && (
-              <p className="text-sm text-slate-500 text-center mt-2">{currentItem.description}</p>
+              <p className="text-sm text-slate-500 text-center mt-2">
+                {currentItem.description}
+              </p>
             )}
           </div>
 
@@ -161,11 +202,31 @@ const WordLesson = () => {
                 ) : (
                   <input
                     key={i}
-                    ref={(el) => { if (el) inputRefs.current[i] = el; }}
+                    ref={(el) => {
+                      if (el) inputRefs.current[i] = el;
+                    }}
                     maxLength={1}
                     value={inputs[i] || ""}
                     onChange={(e) => handleChange(i, e.target.value)}
-                    onKeyDown={(e) => { if (e.key === "Enter") handleCheck(); }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        if (result === "correct") {
+                          handleNext();
+                        } else {
+                          handleCheck();
+                        }
+                      }
+
+                      if (e.key === "Backspace" && !inputs[i]) {
+                        let prev = i - 1;
+
+                        while (letters[prev] && prev >= 0) {
+                          prev--;
+                        }
+
+                        inputRefs.current[prev]?.focus();
+                      }
+                    }}
                     className="w-12 h-16 text-center border-2 border-slate-200 rounded-xl text-2xl font-bold bg-white focus:outline-none focus:ring-2 focus:ring-slate-300 transition"
                   />
                 ),
@@ -185,13 +246,25 @@ const WordLesson = () => {
             )}
 
             <div className="flex gap-3">
-              <button
-                onClick={handleCheck}
-                className="flex-1 py-4 rounded-xl font-bold text-white bg-primary hover:opacity-90 shadow-lg transition active:scale-95"
-              >
-                Check Answer
-              </button>
-              {result === "correct" && (
+              {/* Previous chỉ hiện từ thứ 2 trở đi */}
+              {currentIndex > 0 && (
+                <button
+                  onClick={handlePrevious}
+                  className="flex-1 py-4 rounded-xl font-bold text-white bg-slate-500 hover:opacity-90 shadow-lg transition active:scale-95"
+                >
+                  ← Previous
+                </button>
+              )}
+
+              {/* Chưa đúng hoặc chưa check */}
+              {result !== "correct" ? (
+                <button
+                  onClick={handleCheck}
+                  className="flex-1 py-4 rounded-xl font-bold text-white bg-primary hover:opacity-90 shadow-lg transition active:scale-95"
+                >
+                  Check Answer
+                </button>
+              ) : (
                 <button
                   onClick={handleNext}
                   className="flex-1 py-4 rounded-xl font-bold text-white bg-green-500 hover:opacity-90 shadow-lg transition active:scale-95"
@@ -207,8 +280,6 @@ const WordLesson = () => {
           </div>
         </div>
       </main>
-
-      <LessonFooter />
     </div>
   );
 };

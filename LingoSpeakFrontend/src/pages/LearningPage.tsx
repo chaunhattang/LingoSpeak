@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
 import LessonHeader from "../components/Lesson/LessonHeader";
-import LessonFooter from "../components/Lesson/LessonFooter";
 const LearningPage = () => {
   const word = "Pollution";
 
@@ -143,8 +142,6 @@ const LearningPage = () => {
           </div>
         </div>
       </main>
-
-      <LessonFooter />
     </div>
   );
 };
