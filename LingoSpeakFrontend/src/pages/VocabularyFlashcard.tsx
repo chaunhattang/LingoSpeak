@@ -112,7 +112,7 @@ export default function VocabularyFlashcard() {
 
       <h1 className="text-2xl font-bold mb-8">New Word</h1>
 
-      {currentItem && <Flashcard item={currentItem} />}
+      {currentItem && <Flashcard key={currentItem.id} item={currentItem} />}
 
       <button
         onClick={handleNext}

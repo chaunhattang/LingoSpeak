@@ -163,7 +163,7 @@ const WordLesson = () => {
               Meaning
             </p>
             <p className="text-3xl font-bold text-center text-slate-800">
-              {currentItem.meaning.vietnamese}
+              {currentItem.meaning.english}
             </p>
 
             {currentItem.description && (

@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import FlashcardFront from "./FlashcardFront";
 import FlashcardBack from "./FlashcardBack";
 import type { VocabularyItem } from "../../types/api";
-
+import luotFlashCard from "../../assets/sounds/luotFlashCard.mp3";
 interface Props {
   item: VocabularyItem;
 }
@@ -10,10 +10,21 @@ interface Props {
 export default function Flashcard({ item }: Props) {
   const [isFlipped, setIsFlipped] = useState(false);
 
+  const flipSoundRef = useRef(
+    typeof Audio !== "undefined" ? new Audio(luotFlashCard) : null,
+  );
+
   return (
     <div
       className="w-full max-w-md h-[420px] perspective"
-      onClick={() => setIsFlipped((prev) => !prev)}
+      onClick={() => {
+        if (flipSoundRef.current) {
+          flipSoundRef.current.currentTime = 0;
+          flipSoundRef.current.play();
+        }
+
+        setIsFlipped((prev) => !prev);
+      }}
     >
       <div
         className={`relative w-full h-full duration-500 transform-style ${
