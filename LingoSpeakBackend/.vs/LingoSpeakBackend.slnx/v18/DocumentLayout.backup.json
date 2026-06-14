@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\project\\Demo\\LingoSpeak\\LingoSpeakBackend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{356423A8-C0CA-769E-8AAC-D98B090438DB}|LingoSpeakBackend.csproj|d:\\project\\demo\\lingospeak\\lingospeakbackend\\mappers\\vocabularymapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{356423A8-C0CA-769E-8AAC-D98B090438DB}|LingoSpeakBackend.csproj|solutionrelative:mappers\\vocabularymapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{356423A8-C0CA-769E-8AAC-D98B090438DB}|LingoSpeakBackend.csproj|d:\\project\\demo\\lingospeak\\lingospeakbackend\\migrations\\20260612043151_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{356423A8-C0CA-769E-8AAC-D98B090438DB}|LingoSpeakBackend.csproj|solutionrelative:migrations\\20260612043151_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -27,19 +31,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "VocabularyMapper.cs",
+              "DocumentMoniker": "D:\\project\\Demo\\LingoSpeak\\LingoSpeakBackend\\Mappers\\VocabularyMapper.cs",
+              "RelativeDocumentMoniker": "Mappers\\VocabularyMapper.cs",
+              "ToolTip": "D:\\project\\Demo\\LingoSpeak\\LingoSpeakBackend\\Mappers\\VocabularyMapper.cs",
+              "RelativeToolTip": "Mappers\\VocabularyMapper.cs",
+              "ViewState": "AgIAAM8AAAAAAAAAAAAgwNUAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-14T16:38:49.287Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "20260612043151_InitialCreate.cs",
               "DocumentMoniker": "D:\\project\\Demo\\LingoSpeak\\LingoSpeakBackend\\Migrations\\20260612043151_InitialCreate.cs",
               "RelativeDocumentMoniker": "Migrations\\20260612043151_InitialCreate.cs",
               "ToolTip": "D:\\project\\Demo\\LingoSpeak\\LingoSpeakBackend\\Migrations\\20260612043151_InitialCreate.cs",
               "RelativeToolTip": "Migrations\\20260612043151_InitialCreate.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAQwDwAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwDwAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-12T04:31:51.483Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\project\\Demo\\LingoSpeak\\LingoSpeakBackend\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",

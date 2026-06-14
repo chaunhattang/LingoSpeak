@@ -29,8 +29,9 @@ export default function VocabularyFlashcard() {
   }, [id]);
 
   const currentItem = items[currentIndex];
-  const progress = items.length > 0 ? ((currentIndex) / items.length) * 100 : 0;
-  const isStudied = (itemId: number) => user?.studiedVocabularyIds.includes(itemId) ?? false;
+  const progress = items.length > 0 ? (currentIndex / items.length) * 100 : 0;
+  const isStudied = (itemId: number) =>
+    user?.studiedVocabularyIds.includes(itemId) ?? false;
 
   const handleNext = async () => {
     if (!currentItem) return;
@@ -51,7 +52,9 @@ export default function VocabularyFlashcard() {
     } else if (vocab) {
       const nextPath = getNextStepPath(vocab, "flashcard");
       if (vocab.conversation && nextPath === `/topics/${id}/practice`) {
-        const sortedMessages = [...vocab.conversation.messages].sort((a, b) => a.order - b.order);
+        const sortedMessages = [...vocab.conversation.messages].sort(
+          (a, b) => a.order - b.order,
+        );
         navigate(nextPath, { state: { conversation: sortedMessages } });
       } else {
         navigate(nextPath);
@@ -71,7 +74,10 @@ export default function VocabularyFlashcard() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-4">
         <p className="text-slate-400">Chủ đề này chưa có từ vựng nào.</p>
-        <button onClick={() => navigate(`/topics/${id}`)} className="text-primary underline">
+        <button
+          onClick={() => navigate(`/topics/${id}`)}
+          className="text-primary underline"
+        >
           Quay lại
         </button>
       </div>
@@ -81,12 +87,17 @@ export default function VocabularyFlashcard() {
   return (
     <div className="min-h-screen flex flex-col items-center px-4 py-8 max-w-3xl mx-auto">
       <div className="w-full flex justify-between items-center mb-8">
-        <button onClick={() => navigate(`/topics/${id}`)} className="p-2 text-xl">
+        <button
+          onClick={() => navigate(`/topics/${id}`)}
+          className="p-2 text-xl"
+        >
           ✖
         </button>
 
         <div className="flex flex-col items-center flex-grow mx-4">
-          <p className="text-sm font-semibold text-slate-500 mb-1">{topicName}</p>
+          <p className="text-sm font-semibold text-slate-500 mb-1">
+            {topicName}
+          </p>
           <div className="w-full h-2 bg-gray-200 rounded-full">
             <div
               className="h-full bg-blue-500 rounded-full transition-all"
@@ -96,10 +107,6 @@ export default function VocabularyFlashcard() {
           <p className="text-xs text-slate-400 mt-1">
             {currentIndex + 1} / {items.length}
           </p>
-        </div>
-
-        <div className="flex items-center text-blue-600 font-semibold text-sm">
-          {items.filter((item) => isStudied(item.id)).length} ✓
         </div>
       </div>
 

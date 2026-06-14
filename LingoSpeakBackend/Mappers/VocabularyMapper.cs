@@ -117,7 +117,7 @@ public static class VocabularyMapper
     {
         if (request == null) return;
 
-        if (request.Image != null) existingVocabulary.Image = request.Image.FileName;
+      
 
         if (request.TopicName != null)
         {
@@ -214,7 +214,6 @@ public static class VocabularyMapper
         if (request.IPA != null) existingItem.IPA = request.IPA;
         if (request.WordType != null) existingItem.WordType = request.WordType;
         if (request.Description != null) existingItem.Description = request.Description;
-        if (request.Image != null) existingItem.Image = request.Image.FileName;
 
         if (request.Meaning != null)
         {

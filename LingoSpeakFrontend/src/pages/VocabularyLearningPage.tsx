@@ -1,4 +1,3 @@
-import ScoreDashboard from "../components/vocabulary/ScoreDashboard";
 import RecordingToolbar from "../components/vocabulary/RecordingToolbar";
 
 export default function VocabularyLearningPage() {
@@ -15,9 +14,7 @@ export default function VocabularyLearningPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <ScoreDashboard />
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8"></div>
         </div>
       </main>
 
