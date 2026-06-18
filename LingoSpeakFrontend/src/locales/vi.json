@@ -110,13 +110,21 @@
     "careers": "Tuyển dụng",
     "blog": "Blog",
     "press": "Báo chí",
+    "menu": {
+      "courses": "Khóa học",
+      "vocabulary": "Từ vựng",
+      "vipPlan": "Gói VIP"
+    },
     "support": "Hỗ trợ",
     "supportCenter": "Trung tâm hỗ trợ",
     "contact": "Liên hệ",
     "terms": "Điều khoản dịch vụ",
+    "termsOfUse": "Điều khoản sử dụng",
     "privacy": "Chính sách bảo mật",
+    "faq": "Câu hỏi thường gặp (FAQ)",
     "followUs": "Theo dõi chúng tôi",
-    "copyright": "© 2026 Lingo Speak. Tất cả quyền được bảo lưu."
+    "ContactUs": "Liên hệ",
+    "copyright": "© 2026 LingoSpeak. Tất cả quyền được bảo lưu."
   },
   "topics": {
     "environment": "Môi trường",
@@ -139,26 +147,98 @@
   "about": {
     "heroDescription": "Nền tảng học tiếng Anh thông minh — giúp bạn luyện nói, tích lũy từ vựng và tự tin giao tiếp mỗi ngày.",
     "version": "Phiên bản 1.0.0",
+    "page": {
+      "hero": {
+        "title": "Về chúng tôi",
+        "paragraph1": "Chúng tôi là một đội ngũ gồm những chuyên gia ngôn ngữ và kỹ sư công nghệ tâm huyết, cùng chung một mục tiêu: phá bỏ rào cản ngôn ngữ cho người học Việt Nam.",
+        "paragraph2": "Chúng tôi tập trung vào việc nghiên cứu và ứng dụng các phương pháp giáo dục hiện đại nhằm tạo ra tác động thực sự cho cộng đồng.",
+        "imageAlt": "Học viên LingoSpeak đang học cùng nhau"
+      },
+      "mission": {
+        "title": "Sứ mệnh của chúng tôi",
+        "text": "Giúp 1 triệu người Việt tự tin giao tiếp tiếng Anh thông qua phương pháp học tập hiện đại, thực hành thực tế và công nghệ hỗ trợ."
+      },
+      "story": {
+        "chapterOne": {
+          "title": "Câu chuyện của chúng tôi",
+          "paragraph1": "Đội ngũ sáng lập LingoSpeak khởi đầu là những người học tiếng Anh đầy nhiệt huyết nhưng thường xuyên cảm thấy bế tắc. Dù đạt điểm cao trong các kỳ thi, chúng tôi vẫn gặp khó khăn khi giao tiếp với người bản xứ.",
+          "paragraph2": "Chúng tôi nhận thấy lỗ hổng nằm ở sự kết nối giữa “biết” và “nói”. Đó là lúc ý tưởng về một nền tảng tập trung tối đa vào phản xạ âm thanh được hình thành."
+        },
+        "chapterTwo": {
+          "title": "Tầm nhìn và Phát triển",
+          "paragraph1": "Sau nhiều tháng nghiên cứu cùng các chuyên gia ngôn ngữ, chúng tôi đã phát triển hệ thống “Tam Giác Phản Xạ”: Nghe sâu - Viết chuẩn - Nói tự tin.",
+          "paragraph2": "Không chỉ là học từ vựng, mà là học cách bộ não xử lý âm thanh một cách trực diện và tức thì."
+        },
+        "teamImageAlt": "Đội ngũ cùng nhau phát triển việc học ngôn ngữ",
+        "visionImageAlt": "Tầm nhìn và quá trình phát triển của LingoSpeak",
+        "learnersLabel": "Học viên",
+        "topicsLabel": "Chủ đề"
+      },
+      "values": {
+        "title": "Giá trị cốt lõi",
+        "people": {
+          "title": "Con người là trung tâm",
+          "description": "Luôn đặt trải nghiệm học tập của người học lên hàng đầu."
+        },
+        "innovation": {
+          "title": "Đổi mới không ngừng",
+          "description": "Nghiên cứu và áp dụng công nghệ mới vào giáo dục."
+        },
+        "community": {
+          "title": "Tác động cộng đồng",
+          "description": "Mang đến cơ hội học tiếng Anh cho nhiều người Việt hơn."
+        }
+      },
+      "cta": {
+        "title": "Bạn đã sẵn sàng thay đổi?",
+        "description": "Đừng để tiếng Anh là rào cản ngăn bạn chạm tới những ước mơ lớn. Hãy bắt đầu hành trình nói tiếng Anh tự tin ngay hôm nay.",
+        "button": "Đăng ký ngay"
+      }
+    },
     "missionTitle": "Sứ mệnh của chúng tôi",
     "missionText": "LingoSpeak được xây dựng với mục tiêu giúp người học tiếng Anh tại Việt Nam tiếp cận ngôn ngữ một cách tự nhiên và hiệu quả — không áp lực, không nhàm chán, chỉ cần 15–20 phút mỗi ngày.",
     "featuresTitle": "Tính năng nổi bật",
     "features": {
-      "listeningSpeaking": { "title": "Luyện nghe & nói", "desc": "Thực hành hội thoại thực tế cùng phản xạ giao tiếp tự nhiên." },
-      "smartFlashcard": { "title": "Flashcard thông minh", "desc": "Ghi nhớ từ vựng nhanh hơn với flashcard cá nhân hóa theo tiến độ." },
-      "recording": { "title": "Ghi âm & so sánh", "desc": "So sánh giọng nói với người bản xứ để cải thiện phát âm." },
-      "topicLearning": { "title": "Học theo chủ đề", "desc": "Chọn chủ đề phù hợp với mục tiêu học tập và giao tiếp hằng ngày." }
+      "listeningSpeaking": {
+        "title": "Luyện nghe & nói",
+        "desc": "Thực hành hội thoại thực tế cùng phản xạ giao tiếp tự nhiên."
+      },
+      "smartFlashcard": {
+        "title": "Flashcard thông minh",
+        "desc": "Ghi nhớ từ vựng nhanh hơn với flashcard cá nhân hóa theo tiến độ."
+      },
+      "recording": {
+        "title": "Ghi âm & so sánh",
+        "desc": "So sánh giọng nói với người bản xứ để cải thiện phát âm."
+      },
+      "topicLearning": {
+        "title": "Học theo chủ đề",
+        "desc": "Chọn chủ đề phù hợp với mục tiêu học tập và giao tiếp hằng ngày."
+      }
     },
     "learningPathTitle": "Lộ trình học tập",
     "learningPathSubtitle": "Mỗi chủ đề trên LingoSpeak đều theo một lộ trình rõ ràng, giúp bạn học từ vựng và luyện nói cùng lúc.",
     "learningPath": {
-      "step1": { "title": "Chọn chủ đề", "desc": "Bắt đầu với chủ đề quen thuộc trong cuộc sống như gia đình, du lịch, công việc..." },
-      "step2": { "title": "Học từ vựng", "desc": "Ghi nhớ từ mới qua flashcard, phát âm chuẩn IPA và ví dụ minh hoạ." },
-      "step3": { "title": "Luyện hội thoại", "desc": "Đọc và nghe các đoạn hội thoại mẫu để hiểu cách dùng từ trong ngữ cảnh thực tế." },
-      "step4": { "title": "Luyện nói", "desc": "Thực hành phát âm, ghi âm và so sánh với người bản xứ để tự tin giao tiếp." }
+      "step1": {
+        "title": "Chọn chủ đề",
+        "desc": "Bắt đầu với chủ đề quen thuộc trong cuộc sống như gia đình, du lịch, công việc..."
+      },
+      "step2": {
+        "title": "Học từ vựng",
+        "desc": "Ghi nhớ từ mới qua flashcard, phát âm chuẩn IPA và ví dụ minh hoạ."
+      },
+      "step3": {
+        "title": "Luyện hội thoại",
+        "desc": "Đọc và nghe các đoạn hội thoại mẫu để hiểu cách dùng từ trong ngữ cảnh thực tế."
+      },
+      "step4": {
+        "title": "Luyện nói",
+        "desc": "Thực hành phát âm, ghi âm và so sánh với người bản xứ để tự tin giao tiếp."
+      }
     },
     "step": "Bước",
     "developedBy": "Được phát triển bởi",
-    "team": "LingoSpeak Team",
+    "team": "Đội ngũ LingoSpeak",
     "copyright": "© 2026 LingoSpeak. Tất cả quyền được bảo lưu."
   },
   "topicsPage": {
@@ -169,10 +249,47 @@
     "learned": "Đã học {{percent}}%",
     "notStarted": "Chưa học"
   },
+  "profile": {
+    "title": "Hồ sơ của bạn",
+    "description": "Quản lý thông tin cá nhân và bảo mật tài khoản",
+    "header": {
+      "back": "Trang chủ",
+      "title": "Hồ sơ của tôi",
+      "logout": "Đăng xuất"
+    },
+    "sidebar": {
+      "activeLearner": "Học viên tích cực",
+      "changeAvatar": "Đổi ảnh đại diện",
+      "avatarUpdated": "Cập nhật ảnh đại diện thành công",
+      "avatarUpdateFailed": "Không thể cập nhật ảnh đại diện"
+    },
+    "personalInfo": {
+      "title": "Thông tin cá nhân",
+      "fullName": "Họ và tên",
+      "email": "Email",
+      "save": "Lưu thay đổi",
+      "saving": "Đang lưu...",
+      "updated": "Cập nhật thành công",
+      "updateFailed": "Không cập nhật được"
+    },
+    "changePassword": {
+      "title": "Đổi mật khẩu",
+      "oldPassword": "Mật khẩu cũ",
+      "newPassword": "Mật khẩu mới",
+      "confirmPassword": "Xác nhận mật khẩu",
+      "update": "Cập nhật mật khẩu",
+      "updating": "Đang cập nhật...",
+      "currentPasswordRequired": "Vui lòng nhập mật khẩu hiện tại",
+      "confirmMismatch": "Mật khẩu xác nhận không khớp",
+      "newPasswordLength": "Mật khẩu mới phải có ít nhất 6 ký tự",
+      "changed": "Đổi mật khẩu thành công",
+      "backendUnavailable": "Không kết nối được backend"
+    }
+  },
   "admin": {
     "sidebar": {
       "title": "Quản trị",
-      "dashboard": "Dashboard",
+      "dashboard": "Bảng điều khiển",
       "users": "Tài khoản",
       "topics": "Chủ đề",
       "logout": "Đăng xuất"
@@ -221,25 +338,25 @@
       "nameVi": "Tên tiếng Việt",
       "topicImage": "Ảnh chủ đề",
       "conversationSection": "Hội thoại của chủ đề",
-      "speaker1": "Speaker 1",
-      "speaker2": "Speaker 2",
+      "speaker1": "Người nói 1",
+      "speaker2": "Người nói 2",
       "messagesLabel": "Tin nhắn",
       "addMessage": "+ Thêm tin",
       "selectSpeaker": "-- Chọn người nói --",
       "readingSection": "Bài đọc của chủ đề",
-      "titleEn": "Tiêu đề (Anh)",
-      "titleVi": "Tiêu đề (Việt)",
-      "contentEn": "Nội dung (Anh)",
-      "contentVi": "Nội dung (Việt)",
+      "titleEn": "Tiêu đề (Tiếng Anh)",
+      "titleVi": "Tiêu đề (Tiếng Việt)",
+      "contentEn": "Nội dung (Tiếng Anh)",
+      "contentVi": "Nội dung (Tiếng Việt)",
       "cancel": "Huỷ",
       "save": "Lưu",
       "saving": "Đang lưu...",
       "editItemTitle": "Chỉnh sửa từ vựng",
       "addItemTitle": "Thêm từ vựng mới",
-      "ipaOptional": "IPA (tuỳ chọn)",
-      "wordTypeOptional": "Loại từ (tuỳ chọn)",
-      "descriptionOptional": "Mô tả / Ví dụ (tuỳ chọn)",
-      "imageOptional": "Ảnh (tuỳ chọn)"
+      "ipaOptional": "IPA (tùy chọn)",
+      "wordTypeOptional": "Loại từ (tùy chọn)",
+      "descriptionOptional": "Mô tả / Ví dụ (tùy chọn)",
+      "imageOptional": "Ảnh (tùy chọn)"
     }
   }
 }

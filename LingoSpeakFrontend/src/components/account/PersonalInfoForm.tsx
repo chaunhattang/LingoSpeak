@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { getUser, setUser } from "../../utils/auth";
 import { updateProfile } from "../../api/auth";
 import { toast } from "sonner";
 
 const PersonalInfoForm = () => {
+  const { t } = useTranslation();
   const user = getUser();
   const [fullName, setFullName] = useState(user?.fullName ?? "");
   const [loading, setLoading] = useState(false);
@@ -14,10 +16,10 @@ const PersonalInfoForm = () => {
     try {
       const updatedUser = await updateProfile(user.id, { fullName });
       setUser(updatedUser);
-      toast.success("Cập nhật thành công");
+      toast.success(t("profile.personalInfo.updated"));
       setTimeout(() => window.location.reload(), 1500);
     } catch {
-      toast.error("Không cập nhật được");
+      toast.error(t("profile.personalInfo.updateFailed"));
     } finally {
       setLoading(false);
     }
@@ -26,13 +28,13 @@ const PersonalInfoForm = () => {
   return (
     <div className="bg-white dark:bg-[#1a2632] rounded-xl shadow-sm border p-8">
       <h2 className="text-xl font-bold mb-6 dark:text-white">
-        Thông tin cá nhân
+        {t("profile.personalInfo.title")}
       </h2>
 
       <div className="space-y-6">
         <div>
           <label className="block mb-2 font-medium dark:text-white">
-            Họ và tên
+            {t("profile.personalInfo.fullName")}
           </label>
           <input
             value={fullName}
@@ -43,7 +45,7 @@ const PersonalInfoForm = () => {
 
         <div>
           <label className="block mb-2 font-medium dark:text-white">
-            Email
+            {t("profile.personalInfo.email")}
           </label>
           <input
             value={user?.email ?? ""}
@@ -64,7 +66,7 @@ const PersonalInfoForm = () => {
               disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100
             "
           >
-            {loading ? "Đang lưu..." : "Lưu thay đổi"}
+            {loading ? t("profile.personalInfo.saving") : t("profile.personalInfo.save")}
           </button>
         </div>
       </div>

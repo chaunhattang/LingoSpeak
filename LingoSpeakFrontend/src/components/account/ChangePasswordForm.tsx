@@ -1,9 +1,11 @@
 import { useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { getUser, setUser } from "../../utils/auth";
 import { changePassword } from "../../api/auth";
 import { toast } from "sonner";
 
 const ChangePasswordForm = () => {
+  const { t } = useTranslation();
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -21,15 +23,15 @@ const ChangePasswordForm = () => {
     if (!user) return;
 
     if (!currentPassword) {
-      toast.error("Vui lòng nhập mật khẩu hiện tại");
+      toast.error(t("profile.changePassword.currentPasswordRequired"));
       return;
     }
     if (newPassword !== confirmPassword) {
-      toast.error("Mật khẩu xác nhận không khớp");
+      toast.error(t("profile.changePassword.confirmMismatch"));
       return;
     }
     if (newPassword.length < 6) {
-      toast.error("Mật khẩu mới phải có ít nhất 6 ký tự");
+      toast.error(t("profile.changePassword.newPasswordLength"));
       return;
     }
 
@@ -37,12 +39,12 @@ const ChangePasswordForm = () => {
     try {
       const updatedUser = await changePassword(user.id, newPassword);
       setUser(updatedUser);
-      toast.success("Đổi mật khẩu thành công");
+      toast.success(t("profile.changePassword.changed"));
       setCurrentPassword("");
       setNewPassword("");
       setConfirmPassword("");
     } catch (error: any) {
-      toast.error("Không kết nối được backend");
+      toast.error(t("profile.changePassword.backendUnavailable"));
     } finally {
       setLoading(false);
     }
@@ -50,13 +52,13 @@ const ChangePasswordForm = () => {
 
   return (
     <div className="bg-white dark:bg-[#1a2632] rounded-xl shadow-sm border p-8">
-      <h2 className="text-xl font-bold mb-6 dark:text-white">Đổi mật khẩu</h2>
+      <h2 className="text-xl font-bold mb-6 dark:text-white">{t("profile.changePassword.title")}</h2>
 
       <div className="space-y-6">
         <div className="relative">
           <input
             type={showCurrentPassword ? "text" : "password"}
-            placeholder="Mật khẩu cũ"
+            placeholder={t("profile.changePassword.oldPassword")}
             value={currentPassword}
             onChange={(e) => setCurrentPassword(e.target.value)}
             onKeyDown={(e) => {
@@ -83,7 +85,7 @@ const ChangePasswordForm = () => {
             <input
               ref={newPasswordRef}
               type={showNewPassword ? "text" : "password"}
-              placeholder="Mật khẩu mới"
+              placeholder={t("profile.changePassword.newPassword")}
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
               onKeyDown={(e) => {
@@ -109,7 +111,7 @@ const ChangePasswordForm = () => {
             <input
               ref={confirmPasswordRef}
               type={showConfirmPassword ? "text" : "password"}
-              placeholder="Xác nhận mật khẩu"
+              placeholder={t("profile.changePassword.confirmPassword")}
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               onKeyDown={(e) => {
@@ -144,7 +146,7 @@ const ChangePasswordForm = () => {
               disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100
             "
           >
-            {loading ? "Đang cập nhật..." : "Cập nhật mật khẩu"}
+            {loading ? t("profile.changePassword.updating") : t("profile.changePassword.update")}
           </button>
         </div>
       </div>

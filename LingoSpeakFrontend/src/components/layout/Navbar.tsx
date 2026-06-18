@@ -184,7 +184,7 @@ const Navbar: React.FC = () => {
                 }
                 className="flex items-center gap-2 border h-10 px-3 rounded-xl text-blue-600 bg-white border-cyan-300 hover:bg-blue-50"
               >
-                {i18n.language === "en" ? "EN" : "VN"}
+                {i18n.language.startsWith("vi") ? "VN" : "EN"}
               </button>
 
               {isLanguageDropdownOpen && (
@@ -192,6 +192,7 @@ const Navbar: React.FC = () => {
                   <button
                     onClick={() => {
                       i18n.changeLanguage("en");
+                      window.localStorage.setItem("lng", "en");
                       setIsLanguageDropdownOpen(false);
                     }}
                     className="w-full px-3 py-2 text-left hover:bg-gray-100"
@@ -201,7 +202,8 @@ const Navbar: React.FC = () => {
 
                   <button
                     onClick={() => {
-                      i18n.changeLanguage("vn");
+                      i18n.changeLanguage("vi");
+                      window.localStorage.setItem("lng", "vi");
                       setIsLanguageDropdownOpen(false);
                     }}
                     className="w-full px-3 py-2 text-left hover:bg-gray-100"

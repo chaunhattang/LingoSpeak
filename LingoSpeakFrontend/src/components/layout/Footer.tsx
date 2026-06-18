@@ -46,22 +46,22 @@ const HomeFooter = () => {
             <ul className="flex flex-col gap-2 text-sm text-slate-600 dark:text-slate-400">
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  Khóa học
+                  {t("footer.menu.courses")}
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  Từ vựng
+                  {t("footer.menu.vocabulary")}
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  Gói Vip
+                  {t("footer.menu.vipPlan")}
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  Press
+                  {t("footer.press")}
                 </a>
               </li>
             </ul>
@@ -75,22 +75,22 @@ const HomeFooter = () => {
             <ul className="flex flex-col gap-2 text-sm text-slate-600 dark:text-slate-400">
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  Chính sách bảo mật
+                  {t("footer.privacy")}
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  Điều khoản sử dụng
+                  {t("footer.termsOfUse")}
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  Câu hỏi thường gặp (FAQ)
+                  {t("footer.faq")}
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  Trung tâm hỗ trợ
+                  {t("footer.supportCenter")}
                 </a>
               </li>
             </ul>
@@ -143,10 +143,7 @@ const HomeFooter = () => {
         pt-6 flex flex-col items-center justify-center"
         >
           <p className="text-xs text-slate-500 text-center">
-            {t("footer.copyright").replace(
-              "2024",
-              new Date().getFullYear().toString(),
-            )}
+            {t("footer.copyright")}
           </p>
         </div>
       </div>

@@ -3,17 +3,24 @@ import { initReactI18next } from "react-i18next";
 import en from "./locales/en.json";
 import vi from "./locales/vi.json";
 
+const savedLanguage =
+  typeof window !== "undefined" ? window.localStorage.getItem("lng") : null;
+const supportedLngs = ["en", "vi"];
+const initialLanguage =
+  savedLanguage && supportedLngs.includes(savedLanguage) ? savedLanguage : "en";
+
 i18n.use(initReactI18next).init({
   resources: {
     en: {
       translation: en,
     },
-    vn: {
+    vi: {
       translation: vi,
     },
   },
-  lng: "en",
+  lng: initialLanguage,
   fallbackLng: "en",
+  supportedLngs,
   interpolation: {
     escapeValue: false,
   },

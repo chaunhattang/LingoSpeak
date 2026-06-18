@@ -4,8 +4,10 @@ import { getUser, setUser } from "../../utils/auth";
 import { updateProfile } from "../../api/auth";
 import { API_BASE_URL } from "../../api/client";
 import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
 
 const ProfileSidebar = () => {
+  const { t } = useTranslation();
   const user = getUser();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -22,10 +24,10 @@ const ProfileSidebar = () => {
     try {
       const updatedUser = await updateProfile(user.id, { image: file });
       setUser(updatedUser);
-      toast.success("Cập nhật ảnh đại diện thành công");
+      toast.success(t("profile.sidebar.avatarUpdated"));
       setTimeout(() => window.location.reload(), 1500);
     } catch {
-      toast.error("Không thể cập nhật ảnh đại diện");
+      toast.error(t("profile.sidebar.avatarUpdateFailed"));
     }
   };
 
@@ -48,7 +50,7 @@ const ProfileSidebar = () => {
             onClick={handleChooseImage}
             className="absolute bottom-0 right-0 bg-white rounded-full p-2 shadow"
           >
-            📷
+            <span className="material-symbols-outlined text-slate-700">photo_camera</span>
           </button>
         </div>
 
@@ -56,7 +58,7 @@ const ProfileSidebar = () => {
           {user?.fullName ?? user?.email}
         </h3>
 
-        <p className="text-sm text-gray-500 mb-6">Học viên tích cực</p>
+        <p className="text-sm text-gray-500 mb-6">{t("profile.sidebar.activeLearner")}</p>
 
         <button
           onClick={handleChooseImage}
@@ -67,7 +69,7 @@ const ProfileSidebar = () => {
             hover:scale-105 transition
           "
         >
-          Đổi ảnh đại diện
+          {t("profile.sidebar.changeAvatar")}
         </button>
       </div>
     </>

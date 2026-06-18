@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { logout } from "../../utils/auth";
 
 const AccountHeader = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleLogout = () => {
     logout();
@@ -19,16 +21,16 @@ const AccountHeader = () => {
           <span className="material-symbols-outlined text-lg group-hover:-translate-x-1 transition">
             arrow_back
           </span>
-          Home
+          {t("profile.header.back")}
         </button>
 
-        <h1 className="font-semibold text-slate-800 text-lg">My Profile</h1>
+        <h1 className="font-semibold text-slate-800 text-lg">        {t("profile.header.title")}</h1>
 
         <button
           onClick={handleLogout}
           className="px-4 h-10 rounded-xl bg-red-50 text-red-500 hover:bg-red-100 font-medium transition"
         >
-          Log out
+          {t("profile.header.logout")}
         </button>
       </div>
     </header>

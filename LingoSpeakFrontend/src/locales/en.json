@@ -110,13 +110,21 @@
     "careers": "Careers",
     "blog": "Blog",
     "press": "Press",
-    "support": "Product",
+    "menu": {
+      "courses": "Courses",
+      "vocabulary": "Vocabulary",
+      "vipPlan": "VIP Plan"
+    },
+    "support": "Support",
     "supportCenter": "Support Center",
     "contact": "Contact",
     "terms": "Terms of Service",
+    "termsOfUse": "Terms of Use",
     "privacy": "Privacy Policy",
+    "faq": "FAQ",
     "ContactUs": "Contact Us",
-    "copyright": "© 2024 Lingo Speak. All rights reserved."
+    "followUs": "Follow Us",
+    "copyright": "© 2026 LingoSpeak. All rights reserved."
   },
   "topics": {
     "environment": "Environment",
@@ -139,6 +147,54 @@
   "about": {
     "heroDescription": "A smart English learning platform — helping you practice speaking, build vocabulary, and communicate confidently every day.",
     "version": "Version 1.0.0",
+    "page": {
+      "hero": {
+        "title": "About Us",
+        "paragraph1": "We are a team of passionate language experts and technology engineers with one shared goal: removing language barriers for Vietnamese learners.",
+        "paragraph2": "We focus on researching and applying modern education methods to create real impact for the community.",
+        "imageAlt": "LingoSpeak students learning together"
+      },
+      "mission": {
+        "title": "Our Mission",
+        "text": "Help one million Vietnamese people communicate confidently in English through modern learning methods, practical practice, and supportive technology."
+      },
+      "story": {
+        "chapterOne": {
+          "title": "Our Story",
+          "paragraph1": "The LingoSpeak founders started as passionate English learners who often felt stuck. Even with high exam scores, we still struggled to communicate with native speakers.",
+          "paragraph2": "We realized the gap was the connection between “knowing” and “speaking”. That was when the idea of a platform focused on audio reflexes was formed."
+        },
+        "chapterTwo": {
+          "title": "Vision & Development",
+          "paragraph1": "After months of research with language experts, we developed the “Audio Reflex Triangle”: listen deeply, write accurately, and speak confidently.",
+          "paragraph2": "It is not just about learning vocabulary, but about learning how the brain processes sound directly and instantly."
+        },
+        "teamImageAlt": "Team collaborating on language learning",
+        "visionImageAlt": "LingoSpeak vision and development",
+        "learnersLabel": "Learners",
+        "topicsLabel": "Topics"
+      },
+      "values": {
+        "title": "Core Values",
+        "people": {
+          "title": "People First",
+          "description": "Always put the learner experience first."
+        },
+        "innovation": {
+          "title": "Continuous Innovation",
+          "description": "Research and apply new technologies in education."
+        },
+        "community": {
+          "title": "Community Impact",
+          "description": "Bring English learning opportunities to more Vietnamese people."
+        }
+      },
+      "cta": {
+        "title": "Ready to change?",
+        "description": "Do not let English be the barrier that keeps you from your biggest dreams. Start your confident English speaking journey today.",
+        "button": "Register Now"
+      }
+    },
     "missionTitle": "Our Mission",
     "missionText": "LingoSpeak is built to help English learners in Vietnam approach the language naturally and effectively — no pressure, no boredom, just 15-20 minutes a day.",
     "featuresTitle": "Outstanding Features",
@@ -168,6 +224,43 @@
     "conversationLines": "conversation lines",
     "learned": "Learned {{percent}}%",
     "notStarted": "Not started"
+  },
+  "profile": {
+    "title": "Your Profile",
+    "description": "Manage personal information and account security",
+    "header": {
+      "back": "Home",
+      "title": "My Profile",
+      "logout": "Log out"
+    },
+    "sidebar": {
+      "activeLearner": "Active learner",
+      "changeAvatar": "Change avatar",
+      "avatarUpdated": "Avatar updated successfully",
+      "avatarUpdateFailed": "Could not update avatar"
+    },
+    "personalInfo": {
+      "title": "Personal Information",
+      "fullName": "Full name",
+      "email": "Email",
+      "save": "Save changes",
+      "saving": "Saving...",
+      "updated": "Update successful",
+      "updateFailed": "Update failed"
+    },
+    "changePassword": {
+      "title": "Change Password",
+      "oldPassword": "Old password",
+      "newPassword": "New password",
+      "confirmPassword": "Confirm password",
+      "update": "Update password",
+      "updating": "Updating...",
+      "currentPasswordRequired": "Please enter your current password",
+      "confirmMismatch": "Confirm password does not match",
+      "newPasswordLength": "New password must be at least 6 characters",
+      "changed": "Password changed successfully",
+      "backendUnavailable": "Could not connect to backend"
+    }
   },
   "admin": {
     "sidebar": {
