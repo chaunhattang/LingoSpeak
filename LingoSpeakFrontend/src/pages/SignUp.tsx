@@ -17,16 +17,16 @@ const SignUp: React.FC = () => {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (password !== confirmPassword) {
-      toast.error("Passwords do not match");
+      toast.error(t("signup.passwordsDoNotMatch"));
       return;
     }
     setLoading(true);
     try {
       await register({ email, password, fullName });
-      toast.success("Đăng ký thành công!");
+      toast.success(t("signup.success"));
       navigate("/login");
     } catch (error: any) {
-      const msg = error.response?.data?.message ?? "Đăng ký thất bại";
+      const msg = error.response?.data?.message ?? t("signup.failed");
       toast.error(msg);
     } finally {
       setLoading(false);
@@ -160,14 +160,14 @@ const SignUp: React.FC = () => {
 
               <div>
                 <label className="text-sm font-semibold text-slate-700">
-                  Full Name
+                  {t("signup.fullName")}
                 </label>
                 <input
                   type="text"
                   required
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  placeholder="Enter your Full Name"
+                  placeholder={t("signup.fullNamePlaceholder")}
                   className="mt-2 w-full h-11 px-4 rounded-xl text-sm
                     bg-slate-50 border border-slate-200
                     focus:outline-none focus:ring-4 focus:ring-blue-300/40"
@@ -236,7 +236,7 @@ const SignUp: React.FC = () => {
                   disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100
                 "
               >
-                {loading ? "Đang đăng ký..." : t("signup.signUp")}
+                {loading ? t("signup.loading") : t("signup.signUp")}
               </button>
             </form>
 

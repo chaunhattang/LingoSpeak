@@ -72,7 +72,7 @@ const Home: React.FC = () => {
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
                 <button
-                  onClick={() => navigate("/lesson")}
+                  onClick={() => navigate("/topics")}
                   className="h-11 px-20 rounded-xl text-white font-semibold bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500 hover:scale-105 transition"
                 >
                   {t("home.hero.startLearning")}
@@ -115,7 +115,10 @@ const Home: React.FC = () => {
               {typeQuestion.map((item, i) => {
                 const color = colorMap[item.color];
                 return (
-                  <div key={i} className="p-6 rounded-xl border hover:shadow-lg">
+                  <div
+                    key={i}
+                    className="p-6 rounded-xl border hover:shadow-lg"
+                  >
                     <div
                       className={`w-12 h-12 flex items-center justify-center rounded-xl ${color.bg} ${color.text}`}
                     >

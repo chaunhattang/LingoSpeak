@@ -1,4 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import LessonHeader from "../components/Lesson/LessonHeader";
 
 interface ConversationLine {
@@ -30,7 +31,15 @@ const conversationData: ConversationLine[] = [
   },
 ];
 
+const getSpeakerLabel = (t: (key: string) => string, speaker: string) => {
+  if (speaker === "Barista") return t("common.barista");
+  if (speaker === "Customer") return t("common.customer");
+  return speaker;
+};
+
 export default function SpeakingConversation() {
+  const { t, i18n } = useTranslation();
+  const isVietnamese = i18n.language?.startsWith("vi") ?? false;
   const navigate = useNavigate();
   const { slug } = useParams();
 
@@ -47,9 +56,9 @@ export default function SpeakingConversation() {
       <main className="flex-grow max-w-3xl mx-auto w-full px-6 py-8 space-y-6">
         {/* TITLE */}
         <div className="text-center space-y-2">
-          <h1 className="text-2xl font-bold">Conversation Practice</h1>
+          <h1 className="text-2xl font-bold">{t("speakingConversation.title")}</h1>
 
-          <p className="text-slate-500">Topic: {slug}</p>
+          <p className="text-slate-500">{t("speakingConversation.topic", { slug })}</p>
         </div>
 
         {/* CONVERSATION */}
@@ -59,12 +68,12 @@ export default function SpeakingConversation() {
               key={index}
               className="bg-white dark:bg-slate-800 p-5 rounded-xl shadow border"
             >
-              <p className="font-semibold text-primary">{line.speaker}</p>
+              <p className="font-semibold text-primary">{getSpeakerLabel(t, line.speaker)}</p>
 
-              <p className="text-lg mt-1">{line.text}</p>
+              <p className="text-lg mt-1">{isVietnamese ? line.translation : line.text}</p>
 
               <p className="text-sm text-slate-500 italic mt-2">
-                {line.translation}
+                {isVietnamese ? line.text : line.translation}
               </p>
             </div>
           ))}
@@ -75,7 +84,7 @@ export default function SpeakingConversation() {
           onClick={handleStartPractice}
           className="w-full py-4 bg-gradient-to-r from-blue-500 to-emerald-500 text-white rounded-xl font-bold shadow hover:opacity-90 transition"
         >
-          🎤 Start Speaking Practice
+          {t("speakingConversation.startButton")}
         </button>
       </main>
 

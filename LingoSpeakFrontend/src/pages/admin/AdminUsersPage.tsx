@@ -115,7 +115,7 @@ export default function AdminUsersPage() {
                           : "bg-blue-100 text-blue-700"
                       }`}
                     >
-                      {user.role}
+                      {user.role === "ADMIN" ? t("admin.users.roleAdmin") : t("admin.users.roleUser")}
                     </span>
                   </td>
                   <td className="px-6 py-4 text-slate-400 text-xs">
@@ -169,8 +169,8 @@ export default function AdminUsersPage() {
                   onChange={(e) => setForm((f) => ({ ...f, role: e.target.value }))}
                   className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 >
-                  <option value="USER">USER</option>
-                  <option value="ADMIN">ADMIN</option>
+                    <option value="USER">{t("admin.users.roleUser")}</option>
+                    <option value="ADMIN">{t("admin.users.roleAdmin")}</option>
                 </select>
               </div>
             </div>

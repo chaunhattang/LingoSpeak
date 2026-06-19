@@ -62,7 +62,12 @@
     "forgotPassword": "Quên mật khẩu?",
     "signIn": "Đăng Nhập",
     "noAccount": "Chưa có tài khoản?",
-    "signUp": "Đăng ký"
+    "signUp": "Đăng ký",
+    "emailPlaceholder": "ban@example.com",
+    "passwordPlaceholder": "••••••••",
+    "loading": "Đang đăng nhập...",
+    "success": "Đăng nhập thành công",
+    "invalidCredentials": "Sai email hoặc mật khẩu"
   },
   "signup": {
     "title": "Cải thiện kỹ năng nói tiếng Anh của bạn",
@@ -92,7 +97,12 @@
     "confirmPasswordPlaceholder": "Nhập lại mật khẩu",
     "signUp": "Đăng ký",
     "haveAccount": "Đã có tài khoản?",
-    "signIn": "Đăng nhập"
+    "signIn": "Đăng nhập",
+    "fullName": "Họ và tên",
+    "loading": "Đang đăng ký...",
+    "passwordsDoNotMatch": "Mật khẩu xác nhận không khớp",
+    "success": "Đăng ký thành công!",
+    "failed": "Đăng ký thất bại"
   },
   "navbar": {
     "home": "Trang chủ",
@@ -101,7 +111,9 @@
     "about": "Giới thiệu",
     "vocabulary": "Sổ tay từ vựng",
     "signIn": "Đăng nhập",
-    "signUp": "Đăng ký"
+    "signUp": "Đăng ký",
+    "admin": "Quản trị",
+    "myProfile": "Hồ sơ của tôi"
   },
   "footer": {
     "description": "Luyện nói tiếng Anh giúp cải thiện phát âm, phản xạ giao tiếp, tăng tự tin và mở rộng cơ hội.",
@@ -142,7 +154,9 @@
     "words": "từ",
     "sentences": "câu",
     "learned": "Đã học {{percent}}%",
-    "notStarted": "Chưa bắt đầu"
+    "notStarted": "Chưa bắt đầu",
+    "lines": "dòng",
+    "completed": "Đã hoàn thành"
   },
   "about": {
     "heroDescription": "Nền tảng học tiếng Anh thông minh — giúp bạn luyện nói, tích lũy từ vựng và tự tin giao tiếp mỗi ngày.",
@@ -292,7 +306,8 @@
       "dashboard": "Bảng điều khiển",
       "users": "Tài khoản",
       "topics": "Chủ đề",
-      "logout": "Đăng xuất"
+      "logout": "Đăng xuất",
+      "conversations": "Hội thoại"
     },
     "dashboard": {
       "title": "Tổng quan",
@@ -315,7 +330,9 @@
       "fullName": "Họ tên",
       "cancel": "Huỷ",
       "save": "Lưu",
-      "saving": "Đang lưu..."
+      "saving": "Đang lưu...",
+      "roleUser": "Người dùng",
+      "roleAdmin": "Quản trị viên"
     },
     "topics": {
       "breadcrumb": "Chủ đề",
@@ -357,6 +374,218 @@
       "wordTypeOptional": "Loại từ (tùy chọn)",
       "descriptionOptional": "Mô tả / Ví dụ (tùy chọn)",
       "imageOptional": "Ảnh (tùy chọn)"
+    },
+    "conversations": {
+      "manageTitle": "Quản lý hội thoại",
+      "add": "Thêm hội thoại",
+      "editTitle": "Chỉnh sửa hội thoại",
+      "addTitle": "Thêm hội thoại mới",
+      "image": "Ảnh",
+      "topic": "Chủ đề",
+      "speaker1": "Người nói 1",
+      "speaker2": "Người nói 2",
+      "messages": "Tin nhắn",
+      "conversationImageOptional": "Ảnh hội thoại (tuỳ chọn)",
+      "addMessage": "+ Thêm tin",
+      "selectSpeaker": "-- Chọn người nói --",
+      "englishPlaceholder": "Tiếng Anh...",
+      "vietnamesePlaceholder": "Tiếng Việt...",
+      "cancel": "Huỷ",
+      "saving": "Đang lưu...",
+      "save": "Lưu",
+      "confirmDelete": "Xoá hội thoại này?"
     }
+  },
+  "common": {
+    "close": "Đóng",
+    "back": "Quay lại",
+    "backToTopic": "Quay lại chủ đề",
+    "backToTopics": "Quay lại danh sách chủ đề",
+    "finish": "Hoàn thành",
+    "loading": "Đang tải...",
+    "saving": "Đang lưu...",
+    "cancel": "Huỷ",
+    "save": "Lưu",
+    "image": "Ảnh",
+    "topic": "Chủ đề",
+    "speaker1": "Người nói 1",
+    "speaker2": "Người nói 2",
+    "messages": "Tin nhắn",
+    "addMessage": "+ Thêm tin",
+    "selectSpeaker": "-- Chọn người nói --",
+    "optional": "tùy chọn",
+    "englishPlaceholder": "Nội dung tiếng Anh...",
+    "vietnamesePlaceholder": "Nội dung tiếng Việt...",
+    "confirmDeleteConversation": "Xoá hội thoại này?",
+    "noTopics": "Chưa có chủ đề nào.",
+    "noVocabulary": "Chủ đề này chưa có từ vựng nào.",
+    "noConversations": "Chưa có hội thoại nào.",
+    "noReading": "Chủ đề này chưa có bài đọc.",
+    "reading": "Bài đọc",
+    "readingPractice": "Luyện đọc",
+    "readingContent": "Nội dung bài đọc",
+    "newWord": "Từ mới",
+    "nextWord": "Từ tiếp theo →",
+    "meaning": "Nghĩa",
+    "listen": "🔊 Nghe",
+    "checkAnswer": "Kiểm tra đáp án",
+    "previous": "← Trước",
+    "next": "Tiếp theo →",
+    "perfect": "🎉 Hoàn hảo!",
+    "tryAgain": "❌ Thử lại",
+    "listening": "Đang nghe...",
+    "tapToSpeak": "Chạm để nói",
+    "speechPlaceholder": "Câu nói của bạn sẽ hiện ở đây...",
+    "conversationPractice": "Luyện hội thoại",
+    "topicLabel": "Chủ đề",
+    "topicProgress": "0/{{count}} đã luyện",
+    "markComplete": "Đánh dấu hoàn thành",
+    "completed": "Hoàn thành",
+    "notStarted": "Chưa học",
+    "learnedCount": "{{count}}/{{total}} đã học",
+    "startLearning": "Bắt đầu học",
+    "flashcard": "Flashcard",
+    "wordPractice": "Luyện từ mới",
+    "conversation": "Hội thoại",
+    "vocabulary": "Từ vựng",
+    "wordsCount": "{{count}} từ",
+    "learnedProgress": "Đã học {{percent}}%",
+    "notLearned": "Chưa học",
+    "continue": "Tiếp tục",
+    "reviewConversation": "Xem lại hội thoại",
+    "congratulations": "Chúc mừng!",
+    "completedSession": "Bạn đã hoàn thành buổi luyện hội thoại!",
+    "time": "Thời gian",
+    "accuracy": "Độ chính xác",
+    "xpGained": "XP nhận được",
+    "coffeeShopConversation": "Luyện hội thoại: Tại quán cà phê",
+    "micHelper": "Nhấn vào micrô để bắt đầu nói",
+    "exit": "Thoát",
+    "speakingLesson": "Bài học nói",
+    "yourRecording": "Bản ghi của bạn",
+    "retake": "Ghi lại",
+    "submit": "Gửi",
+    "start": "Bắt đầu",
+    "vocabularyTopics": "Chủ đề từ vựng",
+    "conversationTopics": "Chủ đề hội thoại",
+    "loadDataError": "Không thể tải dữ liệu. Vui lòng thử lại.",
+    "conversationNotFound": "Không tìm thấy hội thoại.",
+    "topicNotFound": "Không tìm thấy chủ đề.",
+    "passwordsDoNotMatch": "Mật khẩu xác nhận không khớp",
+    "signInSuccess": "Đăng nhập thành công",
+    "invalidCredentials": "Sai email hoặc mật khẩu",
+    "signUpSuccess": "Đăng ký thành công!",
+    "signUpFailed": "Đăng ký thất bại",
+    "fullName": "Họ và tên",
+    "fullNamePlaceholder": "Nhập họ và tên của bạn",
+    "speechUnsupported": "Trình duyệt không hỗ trợ phát âm",
+    "recognitionUnsupported": "Trình duyệt không hỗ trợ nhận diện giọng nói",
+    "microphoneDenied": "Không có quyền sử dụng micrô",
+    "wordTypes": {
+      "noun": "Danh từ",
+      "verb": "Động từ",
+      "adjective": "Tính từ",
+      "adverb": "Trạng từ",
+      "phrase": "Cụm từ",
+      "other": "Khác"
+    },
+    "barista": "Nhân viên pha chế",
+    "customer": "Khách hàng"
+  },
+  "language": {
+    "en": "EN",
+    "vi": "VN"
+  },
+  "learning": {
+    "title": "Ô nhiễm",
+    "vietnameseTitle": "Pollution",
+    "description": "Ô nhiễm",
+    "ipa": "/pəˈluː.ʃən/"
+  },
+  "vocabularyLearning": {
+    "title": "Luyện từ vựng",
+    "description": "Học từ vựng và luyện đọc to."
+  },
+  "vocabularyFlashcard": {
+    "noItems": "Chủ đề này chưa có từ vựng nào.",
+    "back": "Quay lại",
+    "newWord": "Từ mới",
+    "next": "Từ tiếp theo →"
+  },
+  "wordLesson": {
+    "meaning": "Nghĩa",
+    "perfect": "🎉 Hoàn hảo!",
+    "tryAgain": "❌ Thử lại",
+    "previous": "← Trước",
+    "checkAnswer": "Kiểm tra đáp án",
+    "next": "Tiếp theo →",
+    "finish": "Hoàn thành"
+  },
+  "readingPractice": {
+    "noReading": "Chủ đề này chưa có bài đọc.",
+    "backToTopic": "Quay lại chủ đề",
+    "title": "Luyện đọc",
+    "content": "Nội dung bài đọc",
+    "finishing": "Đang lưu...",
+    "finish": "Hoàn thành"
+  },
+  "speakingConversation": {
+    "title": "Luyện hội thoại",
+    "topic": "Chủ đề: {{slug}}",
+    "startButton": "🎤 Bắt đầu luyện nói"
+  },
+  "lessonHeader": {
+    "exit": "Thoát",
+    "title": "Bài học nói"
+  },
+  "recordingToolbar": {
+    "time": "Thời gian",
+    "start": "Bắt đầu",
+    "yourRecording": "Bản ghi của bạn",
+    "retake": "Ghi lại",
+    "submit": "Gửi"
+  },
+  "conversation": {
+    "notFound": "Không tìm thấy hội thoại.",
+    "complete": "Hoàn thành",
+    "progress": "0/{{count}} đã luyện",
+    "marking": "Đang lưu...",
+    "markComplete": "Đánh dấu hoàn thành",
+    "startSpeakingPractice": "Bắt đầu luyện nói"
+  },
+  "topicDetail": {
+    "notFound": "Không tìm thấy chủ đề.",
+    "startLearning": "Bắt đầu học",
+    "vocabulary": "Từ vựng",
+    "learnedCount": "{{count}}/{{total}} đã học",
+    "noVocabulary": "Chủ đề này chưa có từ vựng nào.",
+    "flashcard": "Flashcard",
+    "wordPractice": "Luyện từ mới",
+    "conversation": "Hội thoại",
+    "complete": "Hoàn thành",
+    "progress": "0/{{count}} đã luyện",
+    "marking": "Đang lưu...",
+    "markComplete": "Đánh dấu hoàn thành",
+    "startSpeakingPractice": "Bắt đầu luyện nói",
+    "noConversation": "Chủ đề này chưa có hội thoại nào.",
+    "reading": "Bài đọc",
+    "noReading": "Chủ đề này chưa có bài đọc."
+  },
+  "speakingResult": {
+    "congratulations": "Chúc mừng!",
+    "completedSession": "Bạn đã hoàn thành buổi luyện hội thoại!",
+    "time": "Thời gian",
+    "accuracy": "Độ chính xác",
+    "xpGained": "XP nhận được",
+    "continue": "Tiếp tục",
+    "reviewConversation": "Xem lại hội thoại",
+    "backToTopics": "Quay lại danh sách chủ đề"
+  },
+  "vocabularyNotebook": {
+    "title": "Chủ đề từ vựng",
+    "noTopics": "Chưa có chủ đề nào.",
+    "wordsCount": "{{count}} từ",
+    "learnedProgress": "Đã học {{percent}}%",
+    "notLearned": "Chưa học"
   }
 }

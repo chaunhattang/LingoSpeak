@@ -1,6 +1,8 @@
 import { useNavigate, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const LessonHeader = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -24,13 +26,13 @@ const LessonHeader = () => {
           <span className="material-symbols-outlined text-lg group-hover:-translate-x-1 transition">
             arrow_back
           </span>
-          Exit
+          {t("lessonHeader.exit")}
         </button>
 
         {/* CENTER */}
         <div className="flex flex-col items-center">
           <h1 className="font-semibold text-slate-800 text-base">
-            Speaking Lesson
+            {t("lessonHeader.title")}
           </h1>
 
           {/* DOT STEP */}

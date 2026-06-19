@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Flashcard from "../components/practice/Flashcard";
 import { getVocabularyById } from "../api/vocabularies";
 import { markVocabularyStudied } from "../api/userProgress";
@@ -8,13 +9,14 @@ import { getNextStepPath } from "../utils/learningFlow";
 import type { Vocabulary, VocabularyItem } from "../types/api";
 
 export default function VocabularyFlashcard() {
+  const { t, i18n } = useTranslation();
+  const isVietnamese = i18n.language?.startsWith("vi") ?? false;
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const [vocab, setVocab] = useState<Vocabulary | null>(null);
   const [items, setItems] = useState<VocabularyItem[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [topicName, setTopicName] = useState("");
   const user = getUser();
 
   useEffect(() => {
@@ -23,12 +25,16 @@ export default function VocabularyFlashcard() {
       .then((vocab) => {
         setVocab(vocab);
         setItems(vocab.vocabularyItems);
-        setTopicName(vocab.topicName.english);
       })
       .finally(() => setLoading(false));
   }, [id]);
 
   const currentItem = items[currentIndex];
+  const topicName = vocab?.topicName
+    ? isVietnamese
+      ? vocab.topicName.vietnamese
+      : vocab.topicName.english
+    : "";
   const progress = items.length > 0 ? (currentIndex / items.length) * 100 : 0;
   const isStudied = (itemId: number) =>
     user?.studiedVocabularyIds.includes(itemId) ?? false;
@@ -73,12 +79,12 @@ export default function VocabularyFlashcard() {
   if (items.length === 0) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-4">
-        <p className="text-slate-400">Chủ đề này chưa có từ vựng nào.</p>
+        <p className="text-slate-400">{t("vocabularyFlashcard.noItems")}</p>
         <button
           onClick={() => navigate(`/topics/${id}`)}
           className="text-primary underline"
         >
-          Quay lại
+          {t("vocabularyFlashcard.back")}
         </button>
       </div>
     );
@@ -110,7 +116,7 @@ export default function VocabularyFlashcard() {
         </div>
       </div>
 
-      <h1 className="text-2xl font-bold mb-8">New Word</h1>
+      <h1 className="text-2xl font-bold mb-8">{t("vocabularyFlashcard.newWord")}</h1>
 
       {currentItem && <Flashcard key={currentItem.id} item={currentItem} />}
 
@@ -118,7 +124,9 @@ export default function VocabularyFlashcard() {
         onClick={handleNext}
         className="w-full bg-gradient-to-r from-blue-500 to-teal-400 text-white py-4 rounded-full shadow-md mt-8 font-semibold"
       >
-        {currentIndex < items.length - 1 ? "Từ tiếp theo →" : "Hoàn thành"}
+        {currentIndex < items.length - 1
+          ? t("vocabularyFlashcard.next")
+          : t("common.finish")}
       </button>
     </div>
   );

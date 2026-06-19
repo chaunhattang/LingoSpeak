@@ -1,4 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import applauseSound from "../assets/sounds/applause.mp3";
 import { useEffect, useState } from "react";
 import { getVocabularyById } from "../api/vocabularies";
@@ -8,6 +9,7 @@ import { getNextStepPath } from "../utils/learningFlow";
 import type { Vocabulary } from "../types/api";
 
 export default function SpeakingResult() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const [topic, setTopic] = useState<Vocabulary | null>(null);
@@ -80,10 +82,10 @@ export default function SpeakingResult() {
           </div>
 
           {/* Title */}
-          <h1 className="text-4xl font-bold mb-4">Congratulations!</h1>
+          <h1 className="text-4xl font-bold mb-4">{t("speakingResult.congratulations")}</h1>
 
           <p className="text-on-surface-variant mb-8 px-4">
-            You have successfully completed the conversation practice session!
+            {t("speakingResult.completedSession")}
           </p>
 
           {/* Stats */}
@@ -94,7 +96,7 @@ export default function SpeakingResult() {
                 timer
               </span>
 
-              <span className="text-sm text-on-surface-variant mb-1">Time</span>
+              <span className="text-sm text-on-surface-variant mb-1">{t("speakingResult.time")}</span>
 
               <span className="font-semibold text-primary">05:42</span>
             </div>
@@ -106,7 +108,7 @@ export default function SpeakingResult() {
               </span>
 
               <span className="text-sm text-on-surface-variant mb-1">
-                Accuracy
+                {t("speakingResult.accuracy")}
               </span>
 
               <span className="font-semibold text-primary">94%</span>
@@ -119,7 +121,7 @@ export default function SpeakingResult() {
               </span>
 
               <span className="text-sm text-on-surface-variant mb-1">
-                XP Gained
+                {t("speakingResult.xpGained")}
               </span>
 
               <span className="font-semibold text-tertiary">+150</span>
@@ -134,7 +136,7 @@ export default function SpeakingResult() {
               className="w-full py-4 px-6 bg-primary text-white rounded-lg font-semibold shadow-sm hover:bg-primary/90 transition flex items-center justify-center gap-2 disabled:opacity-60"
             >
               <span className="material-symbols-outlined">arrow_forward</span>
-              Tiếp tục
+              {t("speakingResult.continue")}
             </button>
 
             <button
@@ -142,14 +144,14 @@ export default function SpeakingResult() {
               className="w-full py-4 px-6 bg-transparent text-secondary rounded-lg border-2 border-outline-variant/50 hover:border-primary hover:text-primary transition flex items-center justify-center gap-2"
             >
               <span className="material-symbols-outlined">replay</span>
-              Review Conversation
+              {t("speakingResult.reviewConversation")}
             </button>
 
             <button
               onClick={() => navigate("/topics")}
               className="w-full py-2 text-sm text-slate-400 hover:text-primary transition"
             >
-              Quay lại danh sách chủ đề
+              {t("speakingResult.backToTopics")}
             </button>
           </div>
         </div>

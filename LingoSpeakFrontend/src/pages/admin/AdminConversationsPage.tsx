@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   getAllConversations,
   createConversation,
@@ -10,9 +11,16 @@ import {
 import type { Conversation } from "../../types/api";
 import { API_BASE_URL } from "../../api/client";
 
+const getSenderLabel = (t: (key: string) => string, senderName?: string) => {
+  if (senderName === "Barista") return t("common.barista");
+  if (senderName === "Customer") return t("common.customer");
+  return senderName || "?";
+};
+
 type View = "list" | "detail";
 
 export default function AdminConversationsPage() {
+  const { t } = useTranslation();
   const [conversations, setConversations] = useState<Conversation[]>([]);
   const [loading, setLoading] = useState(true);
   const [view, setView] = useState<View>("list");
@@ -76,7 +84,7 @@ export default function AdminConversationsPage() {
   };
 
   const handleDelete = async (id: number) => {
-    if (!confirm("Xoá hội thoại này?")) return;
+    if (!confirm(t("admin.conversations.confirmDelete"))) return;
     await deleteConversation(id);
     fetchConversations();
   };
@@ -154,7 +162,7 @@ export default function AdminConversationsPage() {
                       }`}
                     >
                       <p className="text-xs font-semibold mb-1 opacity-70">
-                        {msg.senderName}
+                        {getSenderLabel(t, msg.senderName)}
                       </p>
                       <p className="text-sm font-medium">
                         {msg.translation.english}
@@ -173,13 +181,13 @@ export default function AdminConversationsPage() {
       ) : (
         <>
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mb-6">
-            <h2 className="text-2xl font-black">Quản lý hội thoại</h2>
+            <h2 className="text-2xl font-black">{t("admin.conversations.manageTitle")}</h2>
             <button
               onClick={openNew}
               className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-xl text-sm font-semibold hover:opacity-90 self-start sm:self-auto"
             >
               <span className="material-symbols-outlined text-[18px]">add</span>
-              Thêm hội thoại
+              {t("admin.conversations.add")}
             </button>
           </div>
 
@@ -188,19 +196,19 @@ export default function AdminConversationsPage() {
               <thead className="bg-slate-50 border-b border-slate-100">
                 <tr>
                   <th className="text-left px-6 py-4 text-slate-500 font-semibold">
-                    Ảnh
+                    {t("admin.conversations.image")}
                   </th>
                   <th className="text-left px-6 py-4 text-slate-500 font-semibold">
-                    Chủ đề
+                    {t("admin.conversations.topic")}
                   </th>
                   <th className="text-left px-6 py-4 text-slate-500 font-semibold">
-                    Speaker 1
+                    {t("admin.conversations.speaker1")}
                   </th>
                   <th className="text-left px-6 py-4 text-slate-500 font-semibold">
-                    Speaker 2
+                    {t("admin.conversations.speaker2")}
                   </th>
                   <th className="text-left px-6 py-4 text-slate-500 font-semibold">
-                    Tin nhắn
+                    {t("admin.conversations.messages")}
                   </th>
                   <th className="px-6 py-4" />
                 </tr>
@@ -229,13 +237,13 @@ export default function AdminConversationsPage() {
                     </td>
                     <td className="px-6 py-4 font-medium">{conv.topic}</td>
                     <td className="px-6 py-4 text-slate-500">
-                      {conv.speaker1Name ?? "—"}
+                      {getSenderLabel(t, conv.speaker1Name)}
                     </td>
                     <td className="px-6 py-4 text-slate-500">
-                      {conv.speaker2Name ?? "—"}
+                      {getSenderLabel(t, conv.speaker2Name)}
                     </td>
                     <td className="px-6 py-4 text-slate-400">
-                      {conv.messages.length} tin
+                      {conv.messages.length} {t("admin.conversations.messages")}
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex gap-2 justify-end">
@@ -281,14 +289,16 @@ export default function AdminConversationsPage() {
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-2xl p-6 w-full max-w-2xl shadow-2xl max-h-[90vh] overflow-y-auto">
             <h3 className="text-lg font-bold mb-4">
-              {editing ? "Chỉnh sửa hội thoại" : "Thêm hội thoại mới"}
+              {editing
+                ? t("admin.conversations.editTitle")
+                : t("admin.conversations.addTitle")}
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
               {[
-                { key: "topic", label: "Chủ đề" },
-                { key: "speaker1Name", label: "Speaker 1" },
-                { key: "speaker2Name", label: "Speaker 2" },
+                { key: "topic", label: t("admin.conversations.topic") },
+                { key: "speaker1Name", label: t("admin.conversations.speaker1") },
+                { key: "speaker2Name", label: t("admin.conversations.speaker2") },
               ].map(({ key, label }) => (
                 <div key={key}>
                   <label className="text-sm font-medium text-slate-600 mb-1 block">
@@ -309,7 +319,7 @@ export default function AdminConversationsPage() {
             {/* Image upload */}
             <div className="mb-4">
               <label className="text-sm font-medium text-slate-600 mb-1 block">
-                Ảnh hội thoại (tuỳ chọn)
+                {t("admin.conversations.conversationImageOptional")}
               </label>
               {editing?.image && !imageFile && (
                 <img
@@ -338,12 +348,12 @@ export default function AdminConversationsPage() {
 
             <div className="mb-3">
               <div className="flex justify-between items-center mb-2">
-                <p className="text-sm font-semibold text-slate-600">Tin nhắn</p>
+                <p className="text-sm font-semibold text-slate-600">{t("admin.conversations.messages")}</p>
                 <button
                   onClick={addMessage}
                   className="text-xs px-3 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 font-medium"
                 >
-                  + Thêm tin
+                  {t("admin.conversations.addMessage")}
                 </button>
               </div>
 
@@ -361,12 +371,12 @@ export default function AdminConversationsPage() {
                         }
                         className="flex-1 border border-slate-200 rounded-lg px-2 py-1.5 text-xs focus:outline-none"
                       >
-                        <option value="">-- Chọn người nói --</option>
+                        <option value="">{t("admin.conversations.selectSpeaker")}</option>
                         <option value={form.speaker1Name}>
-                          {form.speaker1Name || "Speaker 1"}
+                          {form.speaker1Name || t("admin.conversations.speaker1")}
                         </option>
                         <option value={form.speaker2Name}>
-                          {form.speaker2Name || "Speaker 2"}
+                          {form.speaker2Name || t("admin.conversations.speaker2")}
                         </option>
                       </select>
                       <button
@@ -380,7 +390,7 @@ export default function AdminConversationsPage() {
                     </div>
                     <input
                       type="text"
-                      placeholder="English..."
+                      placeholder={t("admin.conversations.englishPlaceholder")}
                       value={msg.translation.english}
                       onChange={(e) =>
                         updateMessage(i, {
@@ -394,7 +404,7 @@ export default function AdminConversationsPage() {
                     />
                     <input
                       type="text"
-                      placeholder="Tiếng Việt..."
+                      placeholder={t("admin.conversations.vietnamesePlaceholder")}
                       value={msg.translation.vietnamese}
                       onChange={(e) =>
                         updateMessage(i, {
@@ -416,14 +426,14 @@ export default function AdminConversationsPage() {
                 onClick={() => setShowForm(false)}
                 className="flex-1 py-2.5 rounded-xl border border-slate-200 text-sm font-medium hover:bg-slate-50"
               >
-                Huỷ
+                {t("admin.conversations.cancel")}
               </button>
               <button
                 onClick={handleSave}
                 disabled={saving || !form.topic}
                 className="flex-1 py-2.5 rounded-xl bg-primary text-white text-sm font-medium hover:opacity-90 disabled:opacity-60"
               >
-                {saving ? "Đang lưu..." : "Lưu"}
+                {saving ? t("admin.conversations.saving") : t("admin.conversations.save")}
               </button>
             </div>
           </div>

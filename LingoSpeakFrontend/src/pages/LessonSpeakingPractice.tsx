@@ -1,7 +1,16 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
+const getSenderLabel = (t: (key: string) => string, senderName?: string) => {
+  if (senderName === "Barista") return t("common.barista");
+  if (senderName === "Customer") return t("common.customer");
+  return senderName || "";
+};
 
 const LessonSpeakingPractice = () => {
+  const { t, i18n } = useTranslation();
+  const isVietnamese = i18n.language?.startsWith("vi") ?? false;
   const navigate = useNavigate();
   const { id } = useParams();
   const location = useLocation();
@@ -33,7 +42,7 @@ const LessonSpeakingPractice = () => {
 
   const speakText = (text: string, speaker: string): void => {
     if (!window.speechSynthesis) {
-      alert("Browser does not support speech");
+      alert(t("common.speechUnsupported"));
       return;
     }
 
@@ -85,7 +94,7 @@ const LessonSpeakingPractice = () => {
       (window as any).webkitSpeechRecognition;
 
     if (!SpeechRecognition) {
-      alert("Speech recognition not supported");
+      alert(t("common.recognitionUnsupported"));
       return;
     }
 
@@ -124,7 +133,7 @@ const LessonSpeakingPractice = () => {
       recognition.start();
     } catch (error) {
       console.error(error);
-      alert("Microphone permission denied");
+      alert(t("common.microphoneDenied"));
     }
   };
 
@@ -142,7 +151,7 @@ const LessonSpeakingPractice = () => {
 
           <div className="flex flex-col">
             <h1 className="text-base font-semibold text-blue-600">
-              Luyện hội thoại: Tại quán cà phê
+              {t("common.coffeeShopConversation")}
             </h1>
 
             <div className="flex items-center gap-2 mt-1">
@@ -184,7 +193,7 @@ const LessonSpeakingPractice = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-4 left-6">
                 <span className="px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full uppercase">
-                  {currentSentence?.senderName}
+                  {getSenderLabel(t, currentSentence?.senderName)}
                 </span>
               </div>
             </div>
@@ -192,9 +201,13 @@ const LessonSpeakingPractice = () => {
             <div className="p-8 space-y-6 text-center">
               <div className="space-y-4">
                 <h2 className="text-lg font-semibold">
-                  {currentSentence?.translation?.english}
+                  {isVietnamese
+                    ? currentSentence?.translation?.vietnamese
+                    : currentSentence?.translation?.english}
                 </h2>
-                <p className="text-gray-500">{currentSentence?.translation?.vietnamese}</p>
+                <p className="text-gray-500">                  {isVietnamese
+                    ? currentSentence?.translation?.english
+                    : currentSentence?.translation?.vietnamese}</p>
               </div>
 
               <div className="flex items-end justify-center gap-1.5 h-12 py-2">
@@ -228,7 +241,7 @@ const LessonSpeakingPractice = () => {
                 "
               >
                 <span className="material-symbols-outlined">navigate_before</span>
-                <span className="hidden sm:inline">Previous</span>
+                <span className="hidden sm:inline">{t("common.previous")}</span>
               </button>
 
               {/* Center buttons */}
@@ -292,7 +305,9 @@ const LessonSpeakingPractice = () => {
                 "
               >
                 <span className="hidden sm:inline">
-                  {currentIndex === conversation.length - 1 ? "Finish" : "Next"}
+                    {currentIndex === conversation.length - 1
+                      ? t("common.finish")
+                      : t("common.next")}
                 </span>
                 <span className="material-symbols-outlined">
                   {currentIndex === conversation.length - 1
@@ -303,7 +318,7 @@ const LessonSpeakingPractice = () => {
             </div>
 
             <p className="text-xs sm:text-sm text-gray-400 text-center">
-              Nhấn vào micrô để bắt đầu nói
+              {t("common.micHelper")}
             </p>
           </div>
         </div>

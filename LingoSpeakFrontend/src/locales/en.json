@@ -62,7 +62,12 @@
     "forgotPassword": "Forgot password?",
     "signIn": "Sign In",
     "noAccount": "Don't have an account?",
-    "signUp": "Sign Up"
+    "signUp": "Sign Up",
+    "emailPlaceholder": "ban@example.com",
+    "passwordPlaceholder": "••••••••",
+    "loading": "Signing in...",
+    "success": "Sign in successful",
+    "invalidCredentials": "Invalid email or password"
   },
   "signup": {
     "title": "Improve your English speaking skills",
@@ -92,7 +97,12 @@
     "confirmPasswordPlaceholder": "Enter password again",
     "signUp": "Sign Up",
     "haveAccount": "Already have an account?",
-    "signIn": "Sign In"
+    "signIn": "Sign In",
+    "fullName": "Full Name",
+    "loading": "Signing up...",
+    "passwordsDoNotMatch": "Passwords do not match",
+    "success": "Sign up successful!",
+    "failed": "Sign up failed"
   },
   "navbar": {
     "home": "Home",
@@ -101,7 +111,9 @@
     "about": "About",
     "vocabulary": "Vocabulary Notebook",
     "signIn": "Sign In",
-    "signUp": "Sign Up"
+    "signUp": "Sign Up",
+    "admin": "Admin",
+    "myProfile": "My Profile"
   },
   "footer": {
     "description": "Practicing English speaking helps improve pronunciation, communication reflexes, increase confidence, and expand opportunities.",
@@ -142,7 +154,9 @@
     "words": "words",
     "sentences": "sentences",
     "learned": "Learned {{percent}}%",
-    "notStarted": "Not started"
+    "notStarted": "Not started",
+    "lines": "lines",
+    "completed": "Completed"
   },
   "about": {
     "heroDescription": "A smart English learning platform — helping you practice speaking, build vocabulary, and communicate confidently every day.",
@@ -199,18 +213,42 @@
     "missionText": "LingoSpeak is built to help English learners in Vietnam approach the language naturally and effectively — no pressure, no boredom, just 15-20 minutes a day.",
     "featuresTitle": "Outstanding Features",
     "features": {
-      "listeningSpeaking": { "title": "Listening & Speaking Practice", "desc": "Practice real conversations with natural communication reflexes." },
-      "smartFlashcard": { "title": "Smart Flashcards", "desc": "Memorize vocabulary faster with flashcards personalized to your progress." },
-      "recording": { "title": "Recording & Comparison", "desc": "Compare your voice with native speakers to improve pronunciation." },
-      "topicLearning": { "title": "Learn by Topic", "desc": "Choose topics that match your learning goals and daily communication." }
+      "listeningSpeaking": {
+        "title": "Listening & Speaking Practice",
+        "desc": "Practice real conversations with natural communication reflexes."
+      },
+      "smartFlashcard": {
+        "title": "Smart Flashcards",
+        "desc": "Memorize vocabulary faster with flashcards personalized to your progress."
+      },
+      "recording": {
+        "title": "Recording & Comparison",
+        "desc": "Compare your voice with native speakers to improve pronunciation."
+      },
+      "topicLearning": {
+        "title": "Learn by Topic",
+        "desc": "Choose topics that match your learning goals and daily communication."
+      }
     },
     "learningPathTitle": "Learning Path",
     "learningPathSubtitle": "Each topic on LingoSpeak follows a clear path, helping you learn vocabulary and practice speaking at the same time.",
     "learningPath": {
-      "step1": { "title": "Choose a Topic", "desc": "Start with familiar everyday topics like family, travel, work..." },
-      "step2": { "title": "Learn Vocabulary", "desc": "Memorize new words with flashcards, standard IPA pronunciation, and illustrative examples." },
-      "step3": { "title": "Practice Conversation", "desc": "Read and listen to sample conversations to understand how words are used in real context." },
-      "step4": { "title": "Practice Speaking", "desc": "Practice pronunciation, record and compare with native speakers to communicate confidently." }
+      "step1": {
+        "title": "Choose a Topic",
+        "desc": "Start with familiar everyday topics like family, travel, work..."
+      },
+      "step2": {
+        "title": "Learn Vocabulary",
+        "desc": "Memorize new words with flashcards, standard IPA pronunciation, and illustrative examples."
+      },
+      "step3": {
+        "title": "Practice Conversation",
+        "desc": "Read and listen to sample conversations to understand how words are used in real context."
+      },
+      "step4": {
+        "title": "Practice Speaking",
+        "desc": "Practice pronunciation, record and compare with native speakers to communicate confidently."
+      }
     },
     "step": "Step",
     "developedBy": "Developed by",
@@ -268,7 +306,8 @@
       "dashboard": "Dashboard",
       "users": "Accounts",
       "topics": "Topics",
-      "logout": "Log out"
+      "logout": "Log out",
+      "conversations": "Conversations"
     },
     "dashboard": {
       "title": "Overview",
@@ -291,7 +330,9 @@
       "fullName": "Full Name",
       "cancel": "Cancel",
       "save": "Save",
-      "saving": "Saving..."
+      "saving": "Saving...",
+      "roleUser": "User",
+      "roleAdmin": "Admin"
     },
     "topics": {
       "breadcrumb": "Topics",
@@ -333,6 +374,218 @@
       "wordTypeOptional": "Word type (optional)",
       "descriptionOptional": "Description / Example (optional)",
       "imageOptional": "Image (optional)"
+    },
+    "conversations": {
+      "manageTitle": "Manage Conversations",
+      "add": "Add Conversation",
+      "editTitle": "Edit Conversation",
+      "addTitle": "Add New Conversation",
+      "image": "Image",
+      "topic": "Topic",
+      "speaker1": "Speaker 1",
+      "speaker2": "Speaker 2",
+      "messages": "Messages",
+      "conversationImageOptional": "Conversation image (optional)",
+      "addMessage": "+ Add message",
+      "selectSpeaker": "-- Select speaker --",
+      "englishPlaceholder": "English text...",
+      "vietnamesePlaceholder": "Vietnamese text...",
+      "cancel": "Cancel",
+      "saving": "Saving...",
+      "save": "Save",
+      "confirmDelete": "Delete this conversation?"
     }
+  },
+  "common": {
+    "close": "Close",
+    "back": "Back",
+    "backToTopic": "Back to topic",
+    "backToTopics": "Back to topic list",
+    "finish": "Finish",
+    "loading": "Loading...",
+    "saving": "Saving...",
+    "cancel": "Cancel",
+    "save": "Save",
+    "image": "Image",
+    "topic": "Topic",
+    "speaker1": "Speaker 1",
+    "speaker2": "Speaker 2",
+    "messages": "Messages",
+    "addMessage": "+ Add message",
+    "selectSpeaker": "-- Select speaker --",
+    "optional": "optional",
+    "englishPlaceholder": "English text...",
+    "vietnamesePlaceholder": "Vietnamese text...",
+    "confirmDeleteConversation": "Delete this conversation?",
+    "noTopics": "No topics yet.",
+    "noVocabulary": "This topic has no vocabulary yet.",
+    "noConversations": "No conversations yet.",
+    "noReading": "This topic has no reading passage.",
+    "reading": "Reading",
+    "readingPractice": "Reading practice",
+    "readingContent": "Reading content",
+    "newWord": "New Word",
+    "nextWord": "Next word →",
+    "meaning": "Meaning",
+    "listen": "🔊 Listen",
+    "checkAnswer": "Check Answer",
+    "previous": "← Previous",
+    "next": "Next →",
+    "perfect": "🎉 Perfect!",
+    "tryAgain": "❌ Try again",
+    "listening": "Listening...",
+    "tapToSpeak": "Tap to speak",
+    "speechPlaceholder": "Your speech will appear here...",
+    "conversationPractice": "Conversation Practice",
+    "topicLabel": "Topic",
+    "topicProgress": "0/{{count}} practiced",
+    "markComplete": "Mark as complete",
+    "completed": "Completed",
+    "notStarted": "Not started",
+    "learnedCount": "{{count}}/{{total}} learned",
+    "startLearning": "Start learning",
+    "flashcard": "Flashcard",
+    "wordPractice": "Word practice",
+    "conversation": "Conversation",
+    "vocabulary": "Vocabulary",
+    "wordsCount": "{{count}} words",
+    "learnedProgress": "Learned {{percent}}%",
+    "notLearned": "Not learned",
+    "continue": "Continue",
+    "reviewConversation": "Review Conversation",
+    "congratulations": "Congratulations!",
+    "completedSession": "You have successfully completed the conversation practice session!",
+    "time": "Time",
+    "accuracy": "Accuracy",
+    "xpGained": "XP Gained",
+    "coffeeShopConversation": "Conversation practice: At the coffee shop",
+    "micHelper": "Tap the microphone to start speaking",
+    "exit": "Exit",
+    "speakingLesson": "Speaking Lesson",
+    "yourRecording": "Your recording",
+    "retake": "Retake",
+    "submit": "Submit",
+    "start": "Start",
+    "vocabularyTopics": "Vocabulary Topics",
+    "conversationTopics": "Conversation Topics",
+    "loadDataError": "Could not load data. Please try again.",
+    "conversationNotFound": "Conversation not found.",
+    "topicNotFound": "Topic not found.",
+    "passwordsDoNotMatch": "Passwords do not match",
+    "signInSuccess": "Sign in successful",
+    "invalidCredentials": "Invalid email or password",
+    "signUpSuccess": "Sign up successful!",
+    "signUpFailed": "Sign up failed",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Enter your full name",
+    "speechUnsupported": "Browser does not support speech",
+    "recognitionUnsupported": "Speech recognition not supported",
+    "microphoneDenied": "Microphone permission denied",
+    "wordTypes": {
+      "noun": "Noun",
+      "verb": "Verb",
+      "adjective": "Adjective",
+      "adverb": "Adverb",
+      "phrase": "Phrase",
+      "other": "Other"
+    },
+    "barista": "Barista",
+    "customer": "Customer"
+  },
+  "language": {
+    "en": "EN",
+    "vi": "VN"
+  },
+  "learning": {
+    "title": "Pollution",
+    "vietnameseTitle": "Ô nhiễm",
+    "description": "Pollution",
+    "ipa": "/pəˈluː.ʃən/"
+  },
+  "vocabularyLearning": {
+    "title": "Vocabulary Practice",
+    "description": "Learn vocabulary and practice reading aloud."
+  },
+  "vocabularyFlashcard": {
+    "noItems": "This topic has no vocabulary yet.",
+    "back": "Back",
+    "newWord": "New Word",
+    "next": "Next word →"
+  },
+  "wordLesson": {
+    "meaning": "Meaning",
+    "perfect": "🎉 Perfect!",
+    "tryAgain": "❌ Try again",
+    "previous": "← Previous",
+    "checkAnswer": "Check Answer",
+    "next": "Next →",
+    "finish": "Finish"
+  },
+  "readingPractice": {
+    "noReading": "This topic has no reading passage.",
+    "backToTopic": "Back to topic",
+    "title": "Reading practice",
+    "content": "Reading content",
+    "finishing": "Saving...",
+    "finish": "Finish"
+  },
+  "speakingConversation": {
+    "title": "Conversation Practice",
+    "topic": "Topic: {{slug}}",
+    "startButton": "🎤 Start Speaking Practice"
+  },
+  "lessonHeader": {
+    "exit": "Exit",
+    "title": "Speaking Lesson"
+  },
+  "recordingToolbar": {
+    "time": "Time",
+    "start": "Start",
+    "yourRecording": "Your recording",
+    "retake": "Retake",
+    "submit": "Submit"
+  },
+  "conversation": {
+    "notFound": "Conversation not found.",
+    "complete": "Completed",
+    "progress": "0/{{count}} practiced",
+    "marking": "Saving...",
+    "markComplete": "Mark as complete",
+    "startSpeakingPractice": "Start Speaking Practice"
+  },
+  "topicDetail": {
+    "notFound": "Topic not found.",
+    "startLearning": "Start learning",
+    "vocabulary": "Vocabulary",
+    "learnedCount": "{{count}}/{{total}} learned",
+    "noVocabulary": "This topic has no vocabulary yet.",
+    "flashcard": "Flashcard",
+    "wordPractice": "Word practice",
+    "conversation": "Conversation",
+    "complete": "Completed",
+    "progress": "0/{{count}} practiced",
+    "marking": "Saving...",
+    "markComplete": "Mark as complete",
+    "startSpeakingPractice": "Start Speaking Practice",
+    "noConversation": "This topic has no conversations yet.",
+    "reading": "Reading",
+    "noReading": "This topic has no reading passage."
+  },
+  "speakingResult": {
+    "congratulations": "Congratulations!",
+    "completedSession": "You have successfully completed the conversation practice session!",
+    "time": "Time",
+    "accuracy": "Accuracy",
+    "xpGained": "XP Gained",
+    "continue": "Continue",
+    "reviewConversation": "Review Conversation",
+    "backToTopics": "Back to topic list"
+  },
+  "vocabularyNotebook": {
+    "title": "Vocabulary Topics",
+    "noTopics": "No topics yet.",
+    "wordsCount": "{{count}} words",
+    "learnedProgress": "Learned {{percent}}%",
+    "notLearned": "Not learned"
   }
 }

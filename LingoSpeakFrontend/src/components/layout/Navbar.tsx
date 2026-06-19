@@ -9,33 +9,17 @@ import logo from "../../assets/images/logo.png";
 import home from "../../assets/images/home.png";
 import newWord from "../../assets/images/newWord.png";
 import about from "../../assets/images/review.png";
-import admin from "../../assets/images/admin.png"
+import admin from "../../assets/images/admin.png";
 
 const Navbar: React.FC = () => {
   const { t } = useTranslation();
-  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const user = getUser();
   const avatarSrc = user?.image
     ? `${API_BASE_URL}/uploads/images/${user.image}`
     : logo;
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setIsLanguageDropdownOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
 
   return (
     <header className="fixed top-0 w-full z-50 bg-white border-b border-slate-200 shadow-sm">
@@ -43,17 +27,24 @@ const Navbar: React.FC = () => {
       <div className="flex justify-center w-full">
         <div className="flex w-full max-w-[1280px] items-center justify-between px-6 py-3 lg:px-10">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
+          <div
+            onClick={() =>
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              })
+            }
+            className="flex items-center gap-2 cursor-pointer"
+          >
+            {" "}
             <span className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
               Ling
             </span>
-
             <img src={logo} alt="logo" className="h-10 w-10" />
-
             <span className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
               Speak
             </span>
-          </Link>
+          </div>
 
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center gap-8">
@@ -123,9 +114,7 @@ const Navbar: React.FC = () => {
               }
             >
               <img src={about} alt="about" className="h-10 w-10 mb-1" />
-              <span className="text-sm font-semibold">
-                {t("navbar.about")}
-              </span>
+              <span className="text-sm font-semibold">{t("navbar.about")}</span>
             </NavLink>
 
             {/* ADMIN */}
@@ -147,7 +136,9 @@ const Navbar: React.FC = () => {
                 }
               >
                 <img src={admin} alt="admin" className="h-10 w-10" />
-                <span className="text-sm font-semibold mt-1">Admin</span>
+                <span className="text-sm font-semibold mt-1">
+                  {t("navbar.admin")}
+                </span>
               </NavLink>
             )}
           </nav>
@@ -177,42 +168,18 @@ const Navbar: React.FC = () => {
             )}
 
             {/* Language switcher */}
-            <div className="relative" ref={dropdownRef}>
-              <button
-                onClick={() =>
-                  setIsLanguageDropdownOpen(!isLanguageDropdownOpen)
-                }
-                className="flex items-center gap-2 border h-10 px-3 rounded-xl text-blue-600 bg-white border-cyan-300 hover:bg-blue-50"
-              >
-                {i18n.language.startsWith("vi") ? "VN" : "EN"}
-              </button>
-
-              {isLanguageDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-20 bg-white rounded-lg shadow-lg border">
-                  <button
-                    onClick={() => {
-                      i18n.changeLanguage("en");
-                      window.localStorage.setItem("lng", "en");
-                      setIsLanguageDropdownOpen(false);
-                    }}
-                    className="w-full px-3 py-2 text-left hover:bg-gray-100"
-                  >
-                    EN
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      i18n.changeLanguage("vi");
-                      window.localStorage.setItem("lng", "vi");
-                      setIsLanguageDropdownOpen(false);
-                    }}
-                    className="w-full px-3 py-2 text-left hover:bg-gray-100"
-                  >
-                    VN
-                  </button>
-                </div>
-              )}
-            </div>
+            <button
+              onClick={() => {
+                const newLang = i18n.language.startsWith("vi") ? "en" : "vi";
+                i18n.changeLanguage(newLang);
+                window.localStorage.setItem("lng", newLang);
+              }}
+              className="flex items-center justify-center border h-10 px-3 rounded-xl text-blue-600 bg-white border-cyan-300 hover:bg-blue-50"
+            >
+              {i18n.language.startsWith("vi")
+                ? t("language.vi")
+                : t("language.en")}
+            </button>
 
             {/* Mobile menu button */}
             <button
@@ -261,7 +228,7 @@ const Navbar: React.FC = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="py-2 font-semibold text-slate-700 hover:text-blue-600"
               >
-                Admin
+                {t("navbar.admin")}
               </Link>
             )}
 
@@ -271,7 +238,7 @@ const Navbar: React.FC = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="py-2 font-semibold text-slate-700 hover:text-blue-600"
               >
-                My Profile
+                {t("profile.header.title")}
               </Link>
             ) : (
               <Link

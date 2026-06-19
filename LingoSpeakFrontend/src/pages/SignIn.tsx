@@ -18,10 +18,10 @@ const SignIn: React.FC = () => {
     setLoading(true);
     try {
       await login({ email, password });
-      toast.success("Đăng nhập thành công");
+      toast.success(t("signin.success"));
       navigate("/");
     } catch (error: any) {
-      const msg = error.response?.data?.message ?? "Sai email hoặc mật khẩu";
+      const msg = error.response?.data?.message ?? t("signin.invalidCredentials");
       toast.error(msg);
     } finally {
       setLoading(false);
@@ -99,7 +99,7 @@ const SignIn: React.FC = () => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="ban@example.com"
+                  placeholder={t("signin.emailPlaceholder")}
                   className="
                     mt-2 w-full h-11 px-4 rounded-xl text-sm
                     bg-slate-50 border border-slate-200
@@ -118,7 +118,7 @@ const SignIn: React.FC = () => {
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    placeholder="••••••••"
+                    placeholder={t("signin.passwordPlaceholder")}
                     className="
                       w-full h-11 px-4 rounded-xl text-sm
                       bg-slate-50 border border-slate-200
@@ -156,7 +156,7 @@ const SignIn: React.FC = () => {
                   disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100
                 "
               >
-                {loading ? "Đang đăng nhập..." : t("signin.signIn")}
+                {loading ? t("signin.loading") : t("signin.signIn")}
               </button>
             </form>
 

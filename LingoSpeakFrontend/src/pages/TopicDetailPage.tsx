@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { getVocabularyById } from "../api/vocabularies";
 import { markConversationStudied } from "../api/userProgress";
 import { getUser, setUser } from "../utils/auth";
@@ -7,10 +8,23 @@ import { getLearningSteps, getStepPath } from "../utils/learningFlow";
 import type { Vocabulary } from "../types/api";
 import { API_BASE_URL } from "../api/client";
 
+const getSenderLabel = (t: (key: string) => string, senderName?: string) => {
+  if (senderName === "Barista") return t("common.barista");
+  if (senderName === "Customer") return t("common.customer");
+  return senderName || "";
+};
+
 export default function TopicDetailPage() {
+  const { t, i18n } = useTranslation();
+  const isVietnamese = i18n.language?.startsWith("vi") ?? false;
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const [topic, setTopic] = useState<Vocabulary | null>(null);
+  const topicName = topic?.topicName
+    ? isVietnamese
+      ? topic.topicName.vietnamese
+      : topic.topicName.english
+    : "";
   const [loading, setLoading] = useState(true);
   const [marking, setMarking] = useState(false);
   const user = getUser();
@@ -78,7 +92,7 @@ export default function TopicDetailPage() {
   if (!topic) {
     return (
       <div className="min-h-screen flex items-center justify-center text-slate-400">
-        Không tìm thấy chủ đề.
+        {t("topicDetail.notFound")}
       </div>
     );
   }
@@ -112,9 +126,11 @@ export default function TopicDetailPage() {
 
           <div className="flex flex-col">
             <h1 className="text-base font-semibold text-blue-600">
-              {topic.topicName.english}
+              {topicName}
             </h1>
-            <span className="text-[11px] text-gray-400">{topic.topicName.vietnamese}</span>
+            <span className="text-[11px] text-gray-400">
+              {isVietnamese ? topic.topicName.english : topic.topicName.vietnamese}
+            </span>
           </div>
         </div>
       </header>
@@ -124,7 +140,7 @@ export default function TopicDetailPage() {
         <div className="relative h-44 w-full rounded-2xl overflow-hidden shadow">
           <img
             src={imageUrl}
-            alt={topic.topicName.english}
+            alt={topicName}
             className="w-full h-full object-cover"
             onError={(e) => {
               (e.target as HTMLImageElement).src =
@@ -134,7 +150,7 @@ export default function TopicDetailPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           <div className="absolute bottom-4 left-5">
             <span className="text-white font-bold text-xl drop-shadow-md">
-              {topic.topicName.english}
+              {topicName}
             </span>
           </div>
         </div>
@@ -146,21 +162,21 @@ export default function TopicDetailPage() {
             className="w-full h-12 rounded-xl text-white font-bold bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500 hover:scale-[1.02] transition flex items-center justify-center gap-2 shadow-lg"
           >
             <span className="material-symbols-outlined">play_circle</span>
-            Bắt đầu học
+            {t("topicDetail.startLearning")}
           </button>
         )}
 
         {/* Vocabulary section */}
         <section className="space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-lg font-bold text-slate-800">Từ vựng</h2>
+            <h2 className="text-lg font-bold text-slate-800">{t("topicDetail.vocabulary")}</h2>
             <span className="text-xs text-slate-400">
-              {studiedVocabCount}/{topic.vocabularyItems.length} đã học
+              {t("topicDetail.learnedCount", { count: studiedVocabCount, total: topic.vocabularyItems.length })}
             </span>
           </div>
 
           {topic.vocabularyItems.length === 0 ? (
-            <p className="text-sm text-slate-400">Chủ đề này chưa có từ vựng nào.</p>
+            <p className="text-sm text-slate-400">{t("topicDetail.noVocabulary")}</p>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <button
@@ -168,14 +184,14 @@ export default function TopicDetailPage() {
                 className="p-4 rounded-xl bg-white shadow-sm border border-slate-100 hover:shadow-md transition flex flex-col items-center gap-2"
               >
                 <span className="material-symbols-outlined text-primary text-2xl">style</span>
-                <span className="text-sm font-semibold">Flashcard</span>
+                <span className="text-sm font-semibold">{t("topicDetail.flashcard")}</span>
               </button>
               <button
                 onClick={() => navigate(`/topics/${id}/word`)}
                 className="p-4 rounded-xl bg-white shadow-sm border border-slate-100 hover:shadow-md transition flex flex-col items-center gap-2"
               >
                 <span className="material-symbols-outlined text-primary text-2xl">spellcheck</span>
-                <span className="text-sm font-semibold">Luyện từ mới</span>
+                <span className="text-sm font-semibold">{t("topicDetail.wordPractice")}</span>
               </button>
             </div>
           )}
@@ -184,7 +200,7 @@ export default function TopicDetailPage() {
         {/* Conversation section */}
         <section className="space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-lg font-bold text-slate-800">Hội thoại</h2>
+            <h2 className="text-lg font-bold text-slate-800">{t("topicDetail.conversation")}</h2>
             {conversation && (
               <div className="flex items-center gap-2">
                 <div className="w-24 h-2 bg-gray-100 rounded-full overflow-hidden">
@@ -194,14 +210,16 @@ export default function TopicDetailPage() {
                   />
                 </div>
                 <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">
-                  {isStudied ? "Hoàn thành" : `0/${sortedMessages.length} practiced`}
+                  {isStudied
+                    ? t("topicDetail.complete")
+                    : t("topicDetail.progress", { count: sortedMessages.length })}
                 </span>
               </div>
             )}
           </div>
 
           {!conversation || sortedMessages.length === 0 ? (
-            <p className="text-sm text-slate-400">Chủ đề này chưa có hội thoại nào.</p>
+            <p className="text-sm text-slate-400">{t("topicDetail.noConversation")}</p>
           ) : (
             <div className="space-y-6">
               {sortedMessages.map((msg, index) => {
@@ -232,7 +250,7 @@ export default function TopicDetailPage() {
                           isRight ? "text-primary" : "text-secondary"
                         }`}
                       >
-                        {msg.senderName}
+                        {getSenderLabel(t, msg.senderName)}
                       </span>
 
                       <div
@@ -243,18 +261,29 @@ export default function TopicDetailPage() {
                         }`}
                       >
                         <div className={`space-y-1 ${isRight ? "text-right" : ""}`}>
-                          <p className="font-body-lg">{msg.translation?.english}</p>
+                          <p className="font-body-lg">
+                            {isVietnamese
+                              ? msg.translation?.vietnamese
+                              : msg.translation?.english}
+                          </p>
                           <p
                             className={`text-sm italic ${
                               isRight ? "opacity-90 text-primary-fixed" : "text-on-surface-variant"
                             }`}
                           >
-                            {msg.translation?.vietnamese}
+                            {isVietnamese
+                              ? msg.translation?.english
+                              : msg.translation?.vietnamese}
                           </p>
                         </div>
 
                         <button
-                          onClick={() => speakText(msg.translation?.english ?? "", msg.senderName)}
+                          onClick={() =>
+                            speakText(
+                              msg.translation?.english ?? "",
+                              msg.senderName,
+                            )
+                          }
                           className={`p-2 rounded-full transition ${
                             isRight
                               ? "hover:bg-white/10 text-white"
@@ -277,7 +306,7 @@ export default function TopicDetailPage() {
                     className="h-10 px-6 rounded-xl text-white font-semibold bg-green-500 hover:bg-green-600 transition flex items-center gap-2 shadow-lg disabled:opacity-60"
                   >
                     <span className="material-symbols-outlined text-[20px]">check_circle</span>
-                    {marking ? "Đang lưu..." : "Đánh dấu hoàn thành"}
+                    {marking ? t("topicDetail.marking") : t("topicDetail.markComplete")}
                   </button>
                 )}
 
@@ -293,7 +322,7 @@ export default function TopicDetailPage() {
                   >
                     mic
                   </span>
-                  Start Speaking Practice
+                  {t("topicDetail.startSpeakingPractice")}
                 </button>
               </div>
             </div>
@@ -302,10 +331,10 @@ export default function TopicDetailPage() {
 
         {/* Reading section */}
         <section className="space-y-4">
-          <h2 className="text-lg font-bold text-slate-800">Bài đọc</h2>
+          <h2 className="text-lg font-bold text-slate-800">{t("topicDetail.reading")}</h2>
 
           {!topic.reading ? (
-            <p className="text-sm text-slate-400">Chủ đề này chưa có bài đọc.</p>
+            <p className="text-sm text-slate-400">{t("topicDetail.noReading")}</p>
           ) : (
             <button
               onClick={() => navigate(`/topics/${id}/reading`)}
@@ -313,8 +342,16 @@ export default function TopicDetailPage() {
             >
               <span className="material-symbols-outlined text-primary text-2xl">menu_book</span>
               <div className="text-left flex-1 min-w-0">
-                <p className="text-sm font-semibold truncate">{topic.reading.title.english}</p>
-                <p className="text-xs text-slate-400 truncate">{topic.reading.title.vietnamese}</p>
+                <p className="text-sm font-semibold truncate">
+                  {isVietnamese
+                    ? topic.reading.title.vietnamese
+                    : topic.reading.title.english}
+                </p>
+                <p className="text-xs text-slate-400 truncate">
+                  {isVietnamese
+                    ? topic.reading.title.english
+                    : topic.reading.title.vietnamese}
+                </p>
               </div>
               {user?.studiedReadingPassageIds.includes(topic.reading.id) && (
                 <span className="material-symbols-outlined text-green-500 flex-shrink-0">check_circle</span>

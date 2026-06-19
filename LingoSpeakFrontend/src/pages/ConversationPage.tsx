@@ -1,11 +1,20 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { getConversationById } from "../api/conversations";
 import { markConversationStudied } from "../api/userProgress";
 import { getUser, setUser } from "../utils/auth";
 import type { Conversation } from "../types/api";
 
+const getSenderLabel = (t: (key: string) => string, senderName?: string) => {
+  if (senderName === "Barista") return t("common.barista");
+  if (senderName === "Customer") return t("common.customer");
+  return senderName || "";
+};
+
 export default function ConversationPage() {
+  const { t, i18n } = useTranslation();
+  const isVietnamese = i18n.language?.startsWith("vi") ?? false;
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const [conversation, setConversation] = useState<Conversation | null>(null);
@@ -70,7 +79,7 @@ export default function ConversationPage() {
   if (!conversation) {
     return (
       <div className="min-h-screen flex items-center justify-center text-slate-400">
-        Không tìm thấy hội thoại.
+        {t("conversation.notFound")}
       </div>
     );
   }
@@ -100,7 +109,7 @@ export default function ConversationPage() {
                 />
               </div>
               <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">
-                {isStudied ? "Hoàn thành" : `0/${sortedMessages.length} practiced`}
+                {isStudied ? t("conversation.complete") : t("conversation.progress", { count: sortedMessages.length })}
               </span>
             </div>
           </div>
@@ -137,7 +146,7 @@ export default function ConversationPage() {
                       isRight ? "text-primary" : "text-secondary"
                     }`}
                   >
-                    {msg.senderName}
+                    {getSenderLabel(t, msg.senderName)}
                   </span>
 
                   <div
@@ -148,18 +157,29 @@ export default function ConversationPage() {
                     }`}
                   >
                     <div className={`space-y-1 ${isRight ? "text-right" : ""}`}>
-                      <p className="font-body-lg">{msg.translation?.english}</p>
+                      <p className="font-body-lg">
+                        {isVietnamese
+                          ? msg.translation?.vietnamese
+                          : msg.translation?.english}
+                      </p>
                       <p
                         className={`text-sm italic ${
                           isRight ? "opacity-90 text-primary-fixed" : "text-on-surface-variant"
                         }`}
                       >
-                        {msg.translation?.vietnamese}
+                        {isVietnamese
+                          ? msg.translation?.english
+                          : msg.translation?.vietnamese}
                       </p>
                     </div>
 
                     <button
-                      onClick={() => speakText(msg.translation?.english ?? "", msg.senderName)}
+                      onClick={() =>
+                        speakText(
+                          msg.translation?.english ?? "",
+                          msg.senderName,
+                        )
+                      }
                       className={`p-2 rounded-full transition ${
                         isRight
                           ? "hover:bg-white/10 text-white"
@@ -182,7 +202,7 @@ export default function ConversationPage() {
                 className="h-10 px-6 rounded-xl text-white font-semibold bg-green-500 hover:bg-green-600 transition flex items-center gap-2 shadow-lg disabled:opacity-60"
               >
                 <span className="material-symbols-outlined text-[20px]">check_circle</span>
-                {marking ? "Đang lưu..." : "Đánh dấu hoàn thành"}
+                {marking ? t("conversation.marking") : t("conversation.markComplete")}
               </button>
             )}
 
@@ -198,7 +218,7 @@ export default function ConversationPage() {
               >
                 mic
               </span>
-              Start Speaking Practice
+              {t("conversation.startSpeakingPractice")}
             </button>
           </div>
         </div>

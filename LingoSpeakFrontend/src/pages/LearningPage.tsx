@@ -1,7 +1,15 @@
 import { useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import LessonHeader from "../components/Lesson/LessonHeader";
 const LearningPage = () => {
-  const word = "Pollution";
+  const { t, i18n } = useTranslation();
+  const isVietnamese = i18n.language?.startsWith("vi") ?? false;
+  const wordData = {
+    en: { word: t("learning.title"), meaning: t("learning.vietnameseTitle") },
+    vi: { word: t("learning.vietnameseTitle"), meaning: t("learning.title") },
+  };
+  const word = isVietnamese ? wordData.vi.word : wordData.en.word;
+  const meaning = isVietnamese ? wordData.vi.meaning : wordData.en.meaning;
 
   const [isRecording, setIsRecording] = useState(false);
   const [transcript, setTranscript] = useState("");
@@ -79,7 +87,7 @@ const LearningPage = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
             <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col items-center text-center">
-              <p className="text-slate-300 text-lg font-medium mb-1">Ô nhiễm</p>
+                <p className="text-slate-300 text-lg font-medium mb-1">{meaning}</p>
 
               <div className="flex items-center gap-3">
                 <h1 className="text-5xl md:text-6xl font-bold text-white">
@@ -87,7 +95,7 @@ const LearningPage = () => {
                 </h1>
 
                 <button
-                  onClick={() => speak(word)}
+                  onClick={() => speak(wordData.en.word)}
                   className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center justify-center text-white transition"
                 >
                   <span className="material-symbols-outlined text-2xl">
@@ -97,7 +105,7 @@ const LearningPage = () => {
               </div>
 
               <p className="text-slate-400 text-sm mt-2 font-mono">
-                /pəˈluː.ʃən/
+                {t("learning.ipa")}
               </p>
             </div>
           </div>
@@ -132,12 +140,12 @@ const LearningPage = () => {
                 isRecording ? "text-red-500" : "text-blue-500"
               }`}
             >
-              {isRecording ? "Listening..." : "Tap to speak"}
+              {isRecording ? t("common.listening") : t("common.tapToSpeak")}
             </p>
 
             {/* TRANSCRIPT */}
             <div className="w-full p-4 bg-slate-50 rounded-xl border min-h-[60px] text-center text-slate-700">
-              {transcript || "Your speech will appear here..."}
+              {transcript || t("common.speechPlaceholder")}
             </div>
           </div>
         </div>

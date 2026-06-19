@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { getVocabularyById } from "../api/vocabularies";
 import { markVocabularyStudied } from "../api/userProgress";
 import { getUser, setUser } from "../utils/auth";
@@ -8,6 +9,7 @@ import type { Vocabulary, VocabularyItem } from "../types/api";
 import LessonHeader from "../components/Lesson/LessonHeader";
 
 const WordLesson = () => {
+  const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [vocab, setVocab] = useState<Vocabulary | null>(null);
@@ -47,6 +49,23 @@ const WordLesson = () => {
       if (!/[A-Z]/.test(ch) || i % 3 === 1) return ch;
       return "";
     });
+  };
+
+  const getWordTypeLabel = (wordType?: string) => {
+    switch (wordType?.toUpperCase()) {
+      case "NOUN":
+        return t("common.wordTypes.noun");
+      case "VERB":
+        return t("common.wordTypes.verb");
+      case "ADJECTIVE":
+        return t("common.wordTypes.adjective");
+      case "ADVERB":
+        return t("common.wordTypes.adverb");
+      case "PHRASE":
+        return t("common.wordTypes.phrase");
+      default:
+        return wordType || t("common.wordTypes.other");
+    }
   };
 
   const letters = currentItem
@@ -160,7 +179,7 @@ const WordLesson = () => {
             />
 
             <p className="text-xs uppercase tracking-wider text-slate-400 text-center">
-              Meaning
+              {t("wordLesson.meaning")}
             </p>
             <p className="text-3xl font-bold text-center text-slate-800">
               {currentItem.meaning.vietnamese}
@@ -185,7 +204,7 @@ const WordLesson = () => {
 
               {currentItem.wordType && (
                 <span className="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 uppercase">
-                  {currentItem.wordType}
+                  {getWordTypeLabel(currentItem.wordType)}
                 </span>
               )}
             </div>
@@ -241,7 +260,7 @@ const WordLesson = () => {
                     : "bg-red-50 text-red-500 border border-red-200"
                 }`}
               >
-                {result === "correct" ? "🎉 Perfect!" : "❌ Try again"}
+                {result === "correct" ? t("wordLesson.perfect") : t("wordLesson.tryAgain")}
               </div>
             )}
 
@@ -252,7 +271,7 @@ const WordLesson = () => {
                   onClick={handlePrevious}
                   className="flex-1 py-4 rounded-xl font-bold text-white bg-slate-500 hover:opacity-90 shadow-lg transition active:scale-95"
                 >
-                  ← Previous
+                  {t("common.previous")}
                 </button>
               )}
 
@@ -262,14 +281,14 @@ const WordLesson = () => {
                   onClick={handleCheck}
                   className="flex-1 py-4 rounded-xl font-bold text-white bg-primary hover:opacity-90 shadow-lg transition active:scale-95"
                 >
-                  Check Answer
+                  {t("wordLesson.checkAnswer")}
                 </button>
               ) : (
                 <button
                   onClick={handleNext}
                   className="flex-1 py-4 rounded-xl font-bold text-white bg-green-500 hover:opacity-90 shadow-lg transition active:scale-95"
                 >
-                  {currentIndex < items.length - 1 ? "Next →" : "Finish"}
+                  {currentIndex < items.length - 1 ? t("wordLesson.next") : t("wordLesson.finish")}
                 </button>
               )}
             </div>

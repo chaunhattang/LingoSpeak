@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Navbar from "../components/layout/Navbar";
 import { getAllConversations } from "../api/conversations";
 import type { Conversation } from "../types/api";
@@ -7,6 +8,7 @@ import { getUser } from "../utils/auth";
 import { API_BASE_URL } from "../api/client";
 
 export default function Lesson() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [conversations, setConversations] = useState<Conversation[]>([]);
   const [loading, setLoading] = useState(true);
@@ -20,7 +22,7 @@ export default function Lesson() {
     }
     getAllConversations()
       .then(setConversations)
-      .catch(() => setError("Không thể tải dữ liệu. Vui lòng thử lại."))
+      .catch(() => setError(t("common.loadDataError")))
       .finally(() => setLoading(false));
   }, []);
 
@@ -34,7 +36,7 @@ export default function Lesson() {
       <Navbar />
 
       <main className="max-w-[1200px] mx-auto px-4 md:px-10 py-10 mt-16 md:mt-24">
-        <h1 className="text-3xl md:text-4xl font-black mb-6">Conversation Topics</h1>
+        <h1 className="text-3xl md:text-4xl font-black mb-6">{t("common.conversationTopics")}</h1>
 
         {loading ? (
           <div className="flex justify-center py-20">
@@ -43,7 +45,7 @@ export default function Lesson() {
         ) : error ? (
           <p className="text-center text-red-400 py-20">{error}</p>
         ) : conversations.length === 0 ? (
-          <p className="text-center text-slate-400 py-20">Chưa có hội thoại nào.</p>
+          <p className="text-center text-slate-400 py-20">{t("common.noConversations")}</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {conversations.map((conv) => {
@@ -79,17 +81,17 @@ export default function Lesson() {
                   <div className="p-4 flex flex-col gap-3">
                     <div className="flex justify-between items-center text-sm">
                       <span className="text-xs text-slate-500">
-                        {conv.speaker1Name ?? "Speaker 1"} &amp; {conv.speaker2Name ?? "Speaker 2"}
+                        {conv.speaker1Name ?? t("common.speaker1")} &amp; {conv.speaker2Name ?? t("common.speaker2")}
                       </span>
                       <span className="text-[#4c739a] font-medium flex items-center gap-1">
                         <span className="material-symbols-outlined text-[16px]">chat</span>
-                        {conv.messages.length} lines
+                        {conv.messages.length} {t("lesson.lines")}
                       </span>
                     </div>
 
                     <div className="mt-auto pt-2">
                       <span className={`text-xs font-semibold ${progress > 0 ? "text-primary" : "text-slate-400"}`}>
-                        {progress > 0 ? "Đã hoàn thành" : "Chưa học"}
+                        {progress > 0 ? t("lesson.completed") : t("lesson.notStarted")}
                       </span>
                       <div className="w-full bg-[#e7edf3] dark:bg-[#2a3b4d] rounded-full h-2 mt-1">
                         <div

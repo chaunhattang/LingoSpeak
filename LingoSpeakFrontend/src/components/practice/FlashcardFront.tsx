@@ -1,11 +1,30 @@
 import { API_BASE_URL } from "../../api/client";
 import type { VocabularyItem } from "../../types/api";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   item: VocabularyItem;
 }
 
+const getWordTypeLabel = (t: (key: string) => string, wordType?: string) => {
+  switch (wordType?.toUpperCase()) {
+    case "NOUN":
+      return t("common.wordTypes.noun");
+    case "VERB":
+      return t("common.wordTypes.verb");
+    case "ADJECTIVE":
+      return t("common.wordTypes.adjective");
+    case "ADVERB":
+      return t("common.wordTypes.adverb");
+    case "PHRASE":
+      return t("common.wordTypes.phrase");
+    default:
+      return wordType || t("common.wordTypes.other");
+  }
+};
+
 export default function FlashcardFront({ item }: Props) {
+  const { t } = useTranslation();
   const speak = (text: string) => {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "en-US";
@@ -38,20 +57,20 @@ export default function FlashcardFront({ item }: Props) {
           }}
           className="absolute top-4 left-4 bg-white px-3 py-1 rounded-lg shadow-sm hover:bg-gray-50 transition"
         >
-          🔊 Listen
+          {t("common.listen")}
         </button>
       </div>
 
       <div className="h-1/2 p-6 flex flex-col justify-center items-center text-center">
         <p className="text-xs uppercase tracking-wider text-slate-400 mb-1">
-          Meaning
+          {t("common.meaning")}
         </p>
         <p className="text-3xl font-bold text-slate-800">
           {item.meaning.english}
         </p>
         {item.wordType && (
           <span className="mt-3 px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 uppercase">
-            {item.wordType}
+            {getWordTypeLabel(t, item.wordType)}
           </span>
         )}
         <div className="mt-4 opacity-60">

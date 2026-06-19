@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function RecordingToolbar() {
+  const { t } = useTranslation();
   const [recording, setRecording] = useState(false);
   const [audioURL, setAudioURL] = useState<string | null>(null);
   const [time, setTime] = useState(0);
@@ -60,7 +62,7 @@ export default function RecordingToolbar() {
     <div className="fixed bottom-8 left-1/2 -translate-x-1/2 w-[92%] max-w-[720px] z-50">
       <div className="bg-white/80 backdrop-blur-xl rounded-3xl px-6 py-4 shadow-2xl border border-white/40 flex items-center gap-6">
         <div className="hidden md:flex flex-col items-center border-r pr-6">
-          <span className="text-xs text-slate-400 uppercase">Time</span>
+          <span className="text-xs text-slate-400 uppercase">{t("recordingToolbar.time")}</span>
           <span className="font-mono text-lg font-bold text-primary">
             {formatTime(time)}
           </span>
@@ -92,7 +94,7 @@ export default function RecordingToolbar() {
               active:scale-95 transition-all"
             >
               <span className="material-symbols-outlined">mic</span>
-              Start
+              {t("recordingToolbar.start")}
             </button>
           ) : (
             <button
@@ -109,20 +111,20 @@ export default function RecordingToolbar() {
 
       {audioURL && (
         <div className="mt-4 bg-white/90 backdrop-blur rounded-2xl p-4 shadow border text-center flex flex-col gap-3">
-          <p className="text-sm text-slate-500">Your recording</p>
+          <p className="text-sm text-slate-500">{t("recordingToolbar.yourRecording")}</p>
           <audio controls src={audioURL} className="w-full" />
           <div className="flex justify-center gap-4 mt-2">
             <button
               onClick={() => setAudioURL(null)}
               className="px-4 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 font-semibold"
             >
-              Retake
+              {t("recordingToolbar.retake")}
             </button>
             <button
               className="px-5 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-blue-500 to-cyan-500
               hover:scale-105 active:scale-95 transition"
             >
-              Submit
+              {t("recordingToolbar.submit")}
             </button>
           </div>
         </div>

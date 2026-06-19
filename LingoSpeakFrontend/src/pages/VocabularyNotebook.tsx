@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Navbar from "../components/layout/Navbar";
 import { getAllVocabularies } from "../api/vocabularies";
 import type { Vocabulary } from "../types/api";
@@ -7,6 +8,8 @@ import { getUser } from "../utils/auth";
 import { API_BASE_URL } from "../api/client";
 
 export default function VocabularyNotebook() {
+  const { t, i18n } = useTranslation();
+  const isVietnamese = i18n.language?.startsWith("vi") ?? false;
   const navigate = useNavigate();
   const [topics, setTopics] = useState<Vocabulary[]>([]);
   const [loading, setLoading] = useState(true);
@@ -34,18 +37,21 @@ export default function VocabularyNotebook() {
         id="topics"
         className="max-w-[1200px] mx-auto px-4 md:px-10 py-10 mt-16 md:mt-24 scroll-mt-28"
       >
-        <h1 className="text-3xl md:text-4xl font-black mb-6">Vocabulary Topics</h1>
+        <h1 className="text-3xl md:text-4xl font-black mb-6">{t("vocabularyNotebook.title")}</h1>
 
         {loading ? (
           <div className="flex justify-center py-20">
             <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
           </div>
         ) : topics.length === 0 ? (
-          <p className="text-center text-slate-400 py-20">Chưa có chủ đề nào.</p>
+          <p className="text-center text-slate-400 py-20">{t("vocabularyNotebook.noTopics")}</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {topics.map((topic) => {
               const progress = getProgress(topic);
+              const topicName = isVietnamese
+                ? topic.topicName.vietnamese
+                : topic.topicName.english;
               const imageUrl = topic.image
                 ? `${API_BASE_URL}/uploads/images/${topic.image}`
                 : `https://source.unsplash.com/400x200/?${encodeURIComponent(topic.topicName.english)}`;
@@ -69,7 +75,7 @@ export default function VocabularyNotebook() {
                     />
                     <div className="absolute bottom-3 left-4 z-20">
                       <span className="text-white font-bold text-lg drop-shadow-md">
-                        {topic.topicName.english}
+                        {topicName}
                       </span>
                     </div>
                   </div>
@@ -77,11 +83,13 @@ export default function VocabularyNotebook() {
                   <div className="p-4 flex flex-col gap-3">
                     <div className="flex justify-between items-center text-sm">
                       <span className="bg-[#e7edf3] dark:bg-[#2a3b4d] text-[#4c739a] dark:text-slate-300 px-2 py-1 rounded-md font-medium text-xs">
-                        {topic.topicName.vietnamese}
+                        {isVietnamese
+                          ? topic.topicName.english
+                          : topic.topicName.vietnamese}
                       </span>
                       <span className="text-[#4c739a] font-medium flex items-center gap-1">
                         <span className="material-symbols-outlined text-[16px]">translate</span>
-                        {topic.vocabularyItems.length} từ
+                        {t("vocabularyNotebook.wordsCount", { count: topic.vocabularyItems.length })}
                       </span>
                     </div>
 
@@ -91,7 +99,9 @@ export default function VocabularyNotebook() {
                           progress > 0 ? "text-primary" : "text-slate-400"
                         }`}
                       >
-                        {progress > 0 ? `Đã học ${progress}%` : "Chưa học"}
+                        {progress > 0
+                          ? t("vocabularyNotebook.learnedProgress", { percent: progress })
+                          : t("vocabularyNotebook.notLearned")}
                       </span>
                       <div className="w-full bg-[#e7edf3] dark:bg-[#2a3b4d] rounded-full h-2 mt-1">
                         <div
